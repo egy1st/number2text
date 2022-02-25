@@ -1,0 +1,4 @@
+#blocker, #zone_a,  #right_col, .super_footer, .topnav_wrapper, #scripts, #recommendArticle  { display:none; }
+#admanager_leaderboard, #inline_ads, #adsense_placeholder_1, #adsense_placeholder_2, 
+#adsense_placeholder_3, #adsense_placeholder_4, #adsense_placeholder_5 { display:none;}
+#comments_form, #comments_list, #comments_counter, #images, #topic_list { display:none; }

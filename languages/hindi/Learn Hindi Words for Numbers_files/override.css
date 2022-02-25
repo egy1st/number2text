@@ -1,0 +1,10 @@
+.relatedLinks{display:block}
+.relatedLinks h3{text-transform:uppercase;font-family:Arial,Helvetica;font-size:medium;color:#688D4A;font-weight:bold}
+.relatedLinks li{list-style-image:url('http://s.brighthub.com/s/images/article_detail/dec10/raquogreen.png?sver=20224');margin-bottom:15px;font-family:Arial,Helvetica}
+.relatedLinks a{color:black;text-decoration:none;font-weight:bold;font-size:13px}
+.relatedLinks a:hover{color:#0153A5;text-decoration:underline}
+#bhArticleSeries h3{display:none}
+#bhArticleSeries h4{text-transform:uppercase;font-family:Arial,Helvetica;font-size:medium;color:#688D4A;font-weight:bold}
+#bhArticleSeries ul,#bhArticleSeries ol{margin:0;padding:0;margin-top:15px}
+#bhArticleSeries ul li,#bhArticleSeries ol li{margin:0;padding:0;margin-left:16px;margin-bottom:15px;list-style-image:url('http://s.brighthub.com/s/images/article_detail/dec10/raquogreen.png?sver=20224')}
+#bhArticleSeries a{color:black;font-weight:bold;font-size:13px}

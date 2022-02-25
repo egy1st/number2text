@@ -1,0 +1,28 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "image"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=B4PswpoZ0T55og_36BpjNxLELz_KUrALHuM-FTK_HsdJgoI0GEAEYASCYv48FOABQmMv9swdgs97QguAtoAGRo9PbA7IBD3d3dy53aWtpaG93LmNvbboBCjMwMHgyNTBfanPIAQLaATFodHRwOi8vd3d3Lndpa2lob3cuY29tL0NvdW50LXRvLVR3ZW50eS1pbi1CZW5nYWxp4AECgAIBwAIGyAKXvIEqqAMBiAYBoAYC&amp;num=1&amp;cid=5GjIZF_1SZEOlD4MR3Rcz_4g&amp;sig=AOD64_0RfFqyPk8gcLJw0Io029URg4AR5g&amp;client=ca-pub-9543332082073187&amp;adurl=http://www.Muslima.com/default-success.cfm%3Fovchn%3DGGL%26ovcpn%3DEnglish%2BEgypt%2BICM%2BFemale%2BInterests%26ovcrn%3Dimage%2Bad0%26ovtac%3DPPC%26V2"; 
+google_ad.visible_url = "Muslima.com"; 
+google_ad.image_url = "http://pagead2.googlesyndication.com/simgad/1811222577867446820"; 
+google_ad.image_width = "300"; 
+google_ad.image_height = "239"; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.wikihow.com/Count-to-Twenty-in-Bengali%26hl%3Den%26client%3Dca-pub-9543332082073187%26adU%3DMuslima.com%26adT%3DImageAd%26gl%3DEG\x26usg\x3dAFQjCNHGgKyZyCyFeoTXSkMY9JwIb2Hc9A";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

@@ -1,0 +1,173 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+p {
+	color: #111111;
+	font-size: .8em;
+	text-align: left;
+}
+
+h1 {
+color: #000066;
+font-size: 1.7em;
+font-weight: bold;
+margin-bottom: -15px;
+}
+
+h2 {
+color: #000066;
+font-size: 1.2em;
+font-weight: bold;
+margin-bottom: 0px;
+text-align: center;
+}
+
+h3 {
+color: #000066;
+font-size: 1em;
+font-weight: bold;
+margin-bottom: -12px;
+text-align: left;
+}
+
+h4 {
+color: #000066;
+font-size: .9em;
+}
+
+.pagetitle {
+	font-size: 1.7em;
+	font-weight: bold;
+	color: #000066;
+	text-align: left;
+}
+
+.title {
+	font-size: 1.7em;
+	font-weight: bold;
+	color: #000066;
+	text-align: left;
+}
+.pleft {
+	color: #111111;
+	font-size: .8em;
+	text-align: left;
+}
+
+.pcenter {
+	color: #111111;
+	font-size: .8em;
+	text-align: center;
+}
+.prightp {
+	color: #111111;
+	font-size: .8em;
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.subhead {
+	font-size: .9em;
+	font-style: italic;
+	text-align: left;
+	color: #666666;
+}
+
+.caption {
+	font-size: .7em;
+	color: #111111;
+	text-align: center;
+}
+
+.captionleft {
+	font-size: .7em;
+	text-align: left;
+}
+
+.footer {
+	color: #666666;	
+	font-size: .7em;
+	font-weight: normal;
+	text-align: center;
+}
+
+p.navbar a:link {
+	font-weight: normal;
+	background-color: #ffffff;
+	color: #0000ff; 
+	text-decoration: none;}
+
+p.navbar a:visited {
+	font-weight: normal;
+	background-color: #ffffff;
+	color: #009999; 
+	text-decoration: none;
+}
+p.navbar a:hover {
+	font-weight: normal;
+	background-color: #ccccff;
+	color: #000099;
+	text-decoration: underline;
+}
+p.navbar a:active {
+	font-weight: normal;
+	background-color: #000066;
+	color: #ccccff; 
+	text-decoration: underline;
+}
+
+a:link { 
+color: #0000ff; 
+text-decoration: none; 
+}
+
+a:visited { 
+color: #003366;
+text-decoration: none; 
+}
+
+a:hover {
+color: #000099;
+background-color: #ccccff;
+text-decoration: underline;
+} 
+
+a:active {
+color: #ccccff;
+background-color: #000088;
+font-weight: 600;
+text-decoration: underline;
+}
+.table {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	background-color: #CCC;
+}
+.tablecolumnleft {
+	text-align: left;
+	font-size: 0.8em;
+	line-height: 15px;
+	color: #333;
+}
+.tablecolumncenter {
+	text-align: center;
+	font-size: 0.8em;
+	color: #666;
+}
+.tableheader {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 0.8em;
+	font-style: italic;
+	line-height: 18px;
+	font-weight: bold;
+	color: #000;
+}

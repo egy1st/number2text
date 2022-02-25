@@ -1,0 +1,1 @@
+document.write('<script type="text/javascript" src="http://cdn.skimresources.com/js/4343X644758.skimlinks.js"></scr' + 'ipt><img src="http://ad.yieldmanager.com/pixel?id=199372&data=282001&id=20207&data=282001&id=717022&data=282001&t=2" width="1" height="1"></img>');

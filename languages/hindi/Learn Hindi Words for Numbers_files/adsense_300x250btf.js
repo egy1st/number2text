@@ -1,0 +1,1 @@
+google_ad_client="ca-pub-6409535612800042";google_ad_slot="3944333684";google_ad_width=300;google_ad_height=250;document.write('<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>');

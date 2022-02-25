@@ -1,0 +1,53 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=B5ZMfS8dzT9OhPIf7-galufCTC_CCuaUDoPHQ00zAjbcB0K63BhABGAEg6Y2pBigDOABQsdnJkPv_____AWCz3tCC4C2gAfiU59YDsgEad3d3LmJyaWdodGh1YmVkdWNhdGlvbi5jb23IAQHaAVZodHRwOi8vd3d3LmJyaWdodGh1YmVkdWNhdGlvbi5jb20vc3R1ZHlpbmctYS1sYW5ndWFnZS8zMDQ1My1sZWFybmluZy1udW1iZXJzLWluLWhpbmRpL4ACAakCUn2kiKUlVT7IAqivyjCoAwHoAwPoA7QD6ANs9QMACADE9QMAAEAQiAYB&amp;num=1&amp;cid=5GiGMfSUgh8E8C58oYGrQVbE&amp;sig=AOD64_1vXGfJGzV5nxf31vc-RmnL-9QQiA&amp;client=ca-pub-6409535612800042&amp;adurl=http://www.sobhadevelopers.com/mediacampaign/citybangalore/elite/index.php%3F%26source%3DNRI-Contextual."; 
+google_ad.visible_url = "SobhaDevelopers.com/Elite-Banglore"; 
+google_ad.line1 = "Luxury Apts in Bangalore"; 
+google_ad.line2 = "3BHK Apts Tumkur Road opp Metro Stn"; 
+google_ad.line3 = "w/ swimming pool/park. Book Now !"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=Ba6zeS8dzT9OhPIf7-galufCTC6a70qkChu-y5DDAjbcBoI0GEAIYAiDpjakGKAM4AFCxutSeBGCz3tCC4C2yARp3d3cuYnJpZ2h0aHViZWR1Y2F0aW9uLmNvbcgBAdoBVmh0dHA6Ly93d3cuYnJpZ2h0aHViZWR1Y2F0aW9uLmNvbS9zdHVkeWluZy1hLWxhbmd1YWdlLzMwNDUzLWxlYXJuaW5nLW51bWJlcnMtaW4taGluZGkvqAMB6AMD6AO0A-gDbPUDAAgAxPUDAABAEA&amp;num=2&amp;sig=AOD64_15UQOhhTu7UjChVzPdEVZChI2hNg&amp;client=ca-pub-6409535612800042&amp;adurl=http://udini.proquest.com/%3Fcid%3D20120306_mathscience_ps6"; 
+google_ad.visible_url = "udini.proquest.com"; 
+google_ad.line1 = "Mathematics"; 
+google_ad.line2 = "153+ premium articles on math and"; 
+google_ad.line3 = "physical science topics."; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 3; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=BwtssS8dzT9OhPIf7-galufCTC8bh2pACtozNuiTAjbcB8JMJEAMYAyDpjakGKAM4AFCN17DJBWCz3tCC4C2yARp3d3cuYnJpZ2h0aHViZWR1Y2F0aW9uLmNvbcgBAdoBVmh0dHA6Ly93d3cuYnJpZ2h0aHViZWR1Y2F0aW9uLmNvbS9zdHVkeWluZy1hLWxhbmd1YWdlLzMwNDUzLWxlYXJuaW5nLW51bWJlcnMtaW4taGluZGkvqAMB6AMD6AO0A-gDbPUDAAgAxPUDAABAEA&amp;num=3&amp;sig=AOD64_3U4-m8vCYF_NUuG-N4c3wrQTYPZQ&amp;client=ca-pub-6409535612800042&amp;adurl=http://learnspanisheasily.biz"; 
+google_ad.visible_url = "learnspanisheasily.biz"; 
+google_ad.line1 = "Learn Spanish Easily"; 
+google_ad.line2 = "Learn Spanish quickly and achieve"; 
+google_ad.line3 = "quick result. Try now!"; 
+google_ad.regionname = ""; 
+google_ads[2] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.brighthubeducation.com/studying-a-language/30453-learning-numbers-in-hindi/%26hl%3Den%26client%3Dca-pub-6409535612800042%26adU%3DSobhaDevelopers.com/Elite-Banglore%26adT%3DLuxury%2BApts%2Bin%2BBangalore%26adU%3Dudini.proquest.com%26adT%3DMathematics%26adU%3Dlearnspanisheasily.biz%26adT%3DLearn%2BSpanish%2BEasily%26gl%3DEG\x26usg\x3dAFQjCNGe48hTtts6oxoUwlMM64C04bAF_Q";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

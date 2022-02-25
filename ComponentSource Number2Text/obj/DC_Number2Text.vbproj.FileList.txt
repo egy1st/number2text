@@ -1,0 +1,8 @@
+bin\Debug\DC_Number2Text.exe
+bin\Debug\DC_Number2Text.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\DC_Number2Text.vbproj.GenerateResource.Cache
+obj\Debug\DC_Number2Text.exe
+obj\Debug\DC_Number2Text.pdb
+obj\Debug\Form1.resources
+obj\Debug\Resources.resources

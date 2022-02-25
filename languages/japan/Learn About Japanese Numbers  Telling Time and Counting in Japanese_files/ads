@@ -1,0 +1,53 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://googleads.g.doubleclick.net/aclk?sa=L&amp;ai=Bfg_2Q8lzT8TICcq9-Abv6b2UC-LuoqUC0vjn2CjAjbcBgLndLhABGAEg6Y2pBigDOABQzMudvQVgs97QguAtsgEad3d3LmJyaWdodGh1YmVkdWNhdGlvbi5jb23IAQHaAVdodHRwOi8vd3d3LmJyaWdodGh1YmVkdWNhdGlvbi5jb20vbGVhcm5pbmctamFwYW5lc2UvNTI0OTgtdGVsbGluZy10aGUtdGltZS1hbmQtbnVtYmVycy-pAhn18QXB5kk-qAMB9QMAAADE9QMAAEAQ&amp;num=1&amp;sig=AOD64_2C4LeLFwaEV9s7V6tFqf49e7S5lw&amp;client=ca-pub-6409535612800042&amp;adurl=http://www.collectivehouse.net"; 
+google_ad.visible_url = "www.collectivehouse.net"; 
+google_ad.line1 = "\x26#39640;\x26#23822;\x26#32076;\x26#28168;\x26#22823;\x26#23398;\x26#36817;\x26#37066;\x26#12450;\x26#12497;\x26#12540;\x26#12488;"; 
+google_ad.line2 = "\x26#39640;\x26#23822;\x26#32076;\x26#28168;\x26#22823;\x26#23398;\x26#36817;\x26#12367;\x26#12398;\x26#26032;\x26#31689;\x26#12450;\x26#12497;\x26#12540;\x26#12488;"; 
+google_ad.line3 = "\x26#23398;\x26#29983;\x26#29992;\x26#12471;\x26#12455;\x26#12450;\x26#12495;\x26#12454;\x26#12473;\x26#12290;\x26#23478;\x26#38651;\x26#20184;\x26#12365;\x26#12290;"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = ""; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=B8sYqQ8lzT8TICcq9-Abv6b2UC_aHrL4D1va9tEre6JvDd4CDgSkQAhgCIOmNqQYoAzgAUK6Wj97-_____wFgs97QguAtoAHqjsfUA7IBGnd3dy5icmlnaHRodWJlZHVjYXRpb24uY29tyAEB2gFXaHR0cDovL3d3dy5icmlnaHRodWJlZHVjYXRpb24uY29tL2xlYXJuaW5nLWphcGFuZXNlLzUyNDk4LXRlbGxpbmctdGhlLXRpbWUtYW5kLW51bWJlcnMvqQIZ9fEFweZJPsACBsgCvrimMqgDAfUDAAAAxPUDAABAEIgGAQ&amp;num=2&amp;cid=5GijHMLGMNofu9IqG7B7gIRt&amp;sig=AOD64_3MKvAR3cjQmJ86u8C9EFEV3T7IIA&amp;client=ca-pub-6409535612800042&amp;adurl=http://www.wwf.or.jp/join/index.html%3Futm_source%3Dgoogle201203%26utm_content%3Dtext001%26utm_campaign%3Dmarch"; 
+google_ad.visible_url = "WWF.or.jp"; 
+google_ad.line1 = "\x26#26410;\x26#26469;\x26#12398;\x26#28858;\x26#12395;\x26#12289;\x26#12354;\x26#12394;\x26#12383;\x26#12364;\x26#12391;\x26#12365;\x26#12427;\x26#12371;\x26#12392;"; 
+google_ad.line2 = "\x26#22833;\x26#12431;\x26#12428;\x26#12427;\x26#22320;\x26#29699;\x26#12398;\x26#33258;\x26#28982;\x26#12290;\x26#22320;\x26#29699;\x26#12398;\x26#20170;\x26#12434;\x26#30693;\x26#12429;\x26#12358;"; 
+google_ad.line3 = "\x26#26376;\x26#12293;500\x26#20870;\x26#12391;\x26#22320;\x26#29699;\x26#29872;\x26#22659;\x26#12434;\x26#23432;\x26#12428;\x26#12414;\x26#12377;\x26#65281;"; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 3; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=BzfeOQ8lzT8TICcq9-Abv6b2UC5KQm4cCuszc2T_AjbcBwK35HxADGAMg6Y2pBigDOABQ4L3wkPr_____AWCz3tCC4C2gAa79vNgDsgEad3d3LmJyaWdodGh1YmVkdWNhdGlvbi5jb23IAQHaAVdodHRwOi8vd3d3LmJyaWdodGh1YmVkdWNhdGlvbi5jb20vbGVhcm5pbmctamFwYW5lc2UvNTI0OTgtdGVsbGluZy10aGUtdGltZS1hbmQtbnVtYmVycy-AAgGpAhn18QXB5kk-qAMB9QMAAADE9QMAAEAQiAYB&amp;num=3&amp;cid=5GijHMLGMNofu9IqG7B7gIRt&amp;sig=AOD64_1z4Lw-KtI6JVaoYqVM1zplfeKyTg&amp;client=ca-pub-6409535612800042&amp;adurl=http://www.sanyu-k.jp/gallery/"; 
+google_ad.visible_url = "www.sanyu-k.jp/"; 
+google_ad.line1 = "\x26#29066;\x26#26412;\x26#12398;\x26#19968;\x26#25144;\x26#24314;\x26#12390;\x26#12394;\x26#12425;\x26#19977;\x26#21451;\x26#24037;\x26#21209;\x26#24215;"; 
+google_ad.line2 = "\x26#33258;\x26#28982;\x26#32032;\x26#26448;\x26#12434;\x26#20351;\x26#12387;\x26#12383;\x26#12371;\x26#12384;\x26#12431;\x26#12426;\x26#12398;\x26#27880;\x26#25991;\x26#20303;\x26#23429;\x26#12290;"; 
+google_ad.line3 = "\x26#26032;\x26#31689;\x26#12398;\x26#20303;\x26#23429;\x26#23455;\x26#32318;\x26#12434;\x26#22810;\x26#25968;\x26#25522;\x26#36617;\x26#12375;\x26#12390;\x26#12356;\x26#12414;\x26#12377;\x26#12290;"; 
+google_ad.regionname = ""; 
+google_ads[2] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.brighthubeducation.com/learning-japanese/52498-telling-the-time-and-numbers/%26hl%3Dja%26client%3Dca-pub-6409535612800042%26adU%3Dwww.collectivehouse.net%26adT%3D%25E9%25AB%2598%25E5%25B4%258E%25E7%25B5%258C%25E6%25B8%2588%25E5%25A4%25A7%25E5%25AD%25A6%25E8%25BF%2591%25E9%2583%258A%25E3%2582%25A2%25E3%2583%2591%25E3%2583%25BC%25E3%2583%2588%26adU%3DWWF.or.jp%26adT%3D%25E6%259C%25AA%25E6%259D%25A5%25E3%2581%25AE%25E7%2582%25BA%25E3%2581%25AB%25E3%2580%2581%25E3%2581%2582%25E3%2581%25AA%25E3%2581%259F%25E3%2581%258C%25E3%2581%25A7%25E3%2581%258D%25E3%2582%258B%25E3%2581%2593%25E3%2581%25A8%26adU%3Dwww.sanyu-k.jp/%26adT%3D%25E7%2586%258A%25E6%259C%25AC%25E3%2581%25AE%25E4%25B8%2580%25E6%2588%25B8%25E5%25BB%25BA%25E3%2581%25A6%25E3%2581%25AA%25E3%2582%2589%25E4%25B8%2589%25E5%258F%258B%25E5%25B7%25A5%25E5%258B%2599%25E5%25BA%2597%26gl%3DEG\x26usg\x3dAFQjCNELuRCR2SubM863V43ER7sq7dqJtA";
+var google_attribution_text = "Ads by Google";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

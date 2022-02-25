@@ -1,0 +1,478 @@
+/* ------ Section 1 - Global Body, Font and Link Settings ------ */
+
+body {
+background-color: #f0f5fb; /* aqua color for browser window background color and footer top border */
+margin: 0;
+padding: 0;
+font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, sans-serif;
+color: #000;
+font-size: 80%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+background-color: transparent;
+/* color: #1d487e; */
+color: blue;
+clear: both;
+}
+
+h2, h3, h4, h5, h6 {
+margin-top: 24px;
+}
+
+h1 {
+margin-top: 5px;
+/* font-family:  Verdana, Arial, san-serif; */
+font-family:  "Palatino Linotype", "Book Antiqua", Palatino, serif;
+border-bottom: 0 solid #8f8fb3;
+text-align: center;
+}
+
+h2 {
+font-family:  Arial, sans-serif;
+border-bottom: 1px solid #8f8fb3;
+}
+
+h3 {
+font-family:  Arial, sans-serif;
+border-bottom: 0 solid #8f8fb3;
+}
+
+blockquote {
+margin: 12px 56px;
+color: #006;
+font-size: 100%;
+line-height: 20px;
+font-family: 'Courier New', Courier, monospace;
+}
+
+code {
+color: navy;
+}
+
+img {
+border: 0 solid #ddd;
+}
+
+a:link img {
+border: 0;
+}
+
+
+/* -- General Link Styling -- */
+
+a:link {
+color: blue; 
+text-decoration: underline;
+}
+
+a:visited {
+color: purple;
+text-decoration: underline;
+}
+
+a:hover {
+color: red;
+text-decoration: underline;
+}
+
+
+
+/* ------ Section 2 - Global Page Structure ------- */
+
+#PageWrapper {
+width: 960px;
+border: 2px solid #8f8fb3; 
+}
+
+#Header {
+position: relative;
+height: 146px;
+}
+
+#ContentWrapper {
+float: left;
+/* width: 780px; */
+width: 100%;
+}
+
+#ContentColumn {
+margin: 0 180px 0 180px;    /* STEP 1: set to "0 ExtraColumnWidth 0 NavColumnWidth" */
+}
+
+#NavColumn {
+float: left;
+width: 179px;               /* STEP 2: to set left column at 180, set 1 less than 180 here */
+margin-left: -960px;        /* STEP 3: set to the same width specified in #PageWrapper above (but with minus sign)  */
+}
+
+#ExtraColumn {
+/* display: none; */
+float: left;
+width: 179px;               /* STEP 4: to set right columns at 180, set 1 less than 180 here */
+margin-left: -180px;        /* STEP 5: set to -(ExtraColumnWidth) */
+}
+
+#Footer {
+clear: both;
+width: 100%;
+padding: 8px 0;
+border-top: 1px solid #f0f5fb;
+}
+
+.Liner {
+padding: 10px;
+}
+
+#Header .Liner {
+padding: 0;
+}
+
+#Footer .Liner {
+margin: 0;
+padding: 0;
+}
+
+
+
+/* ------ Section 3 - Page Structure Details ------ */
+
+#PageWrapper {
+margin: 24px auto;
+background-image: url(../image-files/background.gif);
+background-repeat: repeat-y;
+}
+
+#Header {
+background-image: url(../image-files/learn-japanese-header-image.jpg);
+background-repeat: no-repeat;
+background-color: transparent;
+background-position: top left;
+}
+
+#ContentWrapper {
+background-image: url(../image-files/background.gif);
+background-repeat: repeat-y;
+background-color: transparent;
+}
+
+#NavColumn {
+background-image: url();
+background-repeat: repeat-y;
+background-color: transparent;
+}
+
+#ContentColumn {
+background-image: url();
+background-repeat: no-repeat;
+background-color: transparent;
+}
+
+#ExtraColumn {
+background-image: url();
+background-repeat: no-repeat;
+background-color: transparent;
+}
+
+#Footer {
+background-image: url();
+background-repeat: no-repeat;
+background-color: #889CCE;
+text-align: center;
+font-size: 85%;
+}
+
+#NavColumn {
+font-size: 90%;
+color: black;
+}
+
+#ExtraColumn {
+text-align: center;
+font-size: 90%;
+}
+
+#NavColumn h4 {
+font-size: 90%;
+color: black;
+margin-top: 0;
+}
+
+#ExtraColumn h4 {
+font-size: 90%;
+color: #000;
+margin-top: 0;
+}
+
+
+/* ------ Section 4 - Left Column Navigation ------ */
+
+.Navigation {
+width: 100%;
+font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, sans-serif;
+background-color: transparent;
+}
+
+/* -- Nav Headers -- */
+
+.Navigation h3 {
+padding: 0;
+font-size: 110%;
+color: #000;
+border-bottom: 1px solid #000;
+margin: 12px 0;
+}
+
+/* -- Nav List -- */
+
+.Navigation ul {
+list-style-type: none;
+padding: 0 0 8px 5px;
+margin: -6px 0 0 0;
+}
+
+.Navigation li {
+background-color: #ffc;        /* tan, for button and RSS box backgrounds -- */
+border: 1px solid #8f8fb3;
+margin-bottom: 3px;
+}
+
+/* -- Navigation Link styles -- */
+
+.Navigation a:link {
+color: blue;
+display: block;     /*  this makes the whole box highlight rather than just the text */
+padding: 3px 0 3px 4px;
+text-decoration: none;
+}
+
+.Navigation a:visited {
+color: purple;
+display: block;     /*  this makes the whole box highlight rather than just the text */
+padding: 3px 0 3px 4px;
+text-decoration: none;
+}
+
+.Navigation a:hover {
+color: red;
+display: block;     /*  this makes the whole box highlight rather than just the text */
+padding: 3px 0 3px 4px;
+background-color: #d3e4fb;  
+text-decoration: underline;
+}
+
+
+
+/* ------ Section 5 - Additional Navigation ------ */
+
+/* -- Thumbnail-with-Caption Navigation -- */
+
+.ThumbnailLink {
+text-align: center;
+}
+
+.ThumbnailLink a:link {
+text-decoration: none;
+}
+
+.ThumbnailLink a:hover .Caption {
+text-decoration: underline;
+color: red;
+}
+
+
+/* -- Horizontal Text NavBar -- */
+
+.ExtraNav {
+font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, sans-serif;
+}
+
+.ExtraNav ul {
+list-style-type: none;
+padding: 0;
+}
+
+.ExtraNav ul li {
+display: inline;
+/* background-color: #ffc; */
+background-color: #889CCE;
+text-align: center;
+}
+
+.ExtraNav a:link {
+color: blue;
+text-decoration: none;
+text-align: center;
+padding: 0 4px;
+}
+
+.ExtraNav a:visited {
+color: purple;
+text-decoration: none;
+}
+
+.ExtraNav a:hover {
+color: red;
+/* background-color: #d3e4fb; */
+background-color: #889CCE;
+text-decoration: underline;
+}
+
+#Header .ExtraNav {
+font-size: 85%;
+position: relative;
+top: 0;
+text-align: center;
+}
+
+#Header .ExtraNav ul { 
+margin: 0;
+}
+
+#Footer .ExtraNav {
+margin: 12px auto;
+background-color: transparent;
+}
+
+
+
+/* ------ Section 6 - Boxes ------ */
+
+.CalloutBox {
+background-color: #f0f5fb;
+width: 90%;
+border: 1px solid #8f8fb3;
+margin: 18px auto 24px auto;
+padding: 4px;
+color: black;
+}
+
+div.CalloutBox p {
+margin: 13px;
+}
+
+p.CalloutBox {
+padding: 13px;
+}
+
+div.CalloutBox h1,
+div.CalloutBox h2,
+div.CalloutBox h3,
+div.CalloutBox h4,
+div.CalloutBox h5,
+div.CalloutBox h6 {
+margin: 13px 0 0 13px;
+}
+
+.ReminderBox {          
+background-color: #ddd;
+width: 24%;
+border: 1px solid #8f8fb3;
+margin: 0 0 12px 18px;
+float: right;             /* adding float enables text to flow around it */
+color: #006;
+}
+
+.ReminderBox h4 {
+margin: 0;
+padding: 2px;
+text-align: center;
+background-color: #fff;
+}
+
+.ReminderBox p {
+font-size: 80%;
+padding: 0 4px;
+line-height: 120%;
+}
+
+.AdSenseBoxLeft, .AdSenseBoxRight, .AdSenseBoxCenter468, .AdSenseBoxExtraColumn {
+padding: 5px;
+background-color: #d3e4fb;
+border: 0px;
+}
+
+.AdSenseBoxLeft {
+margin: 0 0 0 0;
+float: left;
+}
+
+.AdSenseBoxRight {
+margin: 0 18px 12px 18px;
+float: right;
+}
+
+.AdSenseBoxCenter468 {
+width: 468px;
+margin: 0 auto 12px auto;
+clear: both;
+}
+
+.AdSenseBoxExtraColumn {
+padding: 0;
+margin: 0 auto 12px auto;
+clear: both;
+}
+
+.ReturnToNavBox {
+background-color: #fff;
+width: 90%;
+border-top: 1px solid #8f8fb3;
+border-bottom: 1px solid #8f8fb3;
+border-left: 1px solid #8f8fb3;
+border-right: 1px solid #8f8fb3;
+margin: 30px auto 30px auto;
+padding: 4px;
+}
+
+/* -- RSS Box -- */
+
+#RSSbox {
+width: 148px;
+background-color: #ffc;
+border: 1px solid #8f8fb3;
+margin: 8px auto 10px 3px;
+padding: 2px 2px 10px 2px;
+font-size: 100%;
+font-weight: bold;
+color: #1d487e;
+line-height: 120%;
+text-align: center;
+}
+
+
+
+/* ------ Section 7 - Frequently Used Styles ------ */
+
+.Clear {
+clear: both;
+}
+
+.Caption {
+font-size: 85%;
+font-weight: bold;
+color: #000;
+display: block;
+line-height: 150%;
+margin-bottom:10px;
+}
+
+/* -- floats -- */
+
+.ItemRight {
+float: right;
+margin: 2px 0 12px 18px;
+text-align: center;
+}
+
+.ItemCenter {
+margin: 2px auto 12px auto;
+text-align: center;
+clear: both;
+}
+
+.ItemLeft {
+float: left;
+margin: 2px 18px 12px 0;
+text-align: center;
+}

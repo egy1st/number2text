@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DC_Number2Text", "DC_Number2Text.vbproj", "{B8F04A09-9EB5-4FDE-9DC9-623906F01FAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8F04A09-9EB5-4FDE-9DC9-623906F01FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F04A09-9EB5-4FDE-9DC9-623906F01FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F04A09-9EB5-4FDE-9DC9-623906F01FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F04A09-9EB5-4FDE-9DC9-623906F01FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

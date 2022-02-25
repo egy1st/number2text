@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<META content="Microsoft FrontPage 5.0" name=GENERATOR>
+<TITLE>SetCurrency</TITLE>
+</HEAD>
+<BODY>
+<font SIZE="2" color="#000080">
+<h1>setCurrencyMode Function</h1>
+</font><FONT color=#000080>
+<HR>
+</FONT></H1>
+setCurrencyMode function enables you to customize your currency text among three types: Type, Sign and Abreviation.
+<p><b>Syntax:</b></p>
+<font COLOR="#000080">
+</font>
+<p> Public Sub setCurrencyMode(ByVal mode As Currency_Mode)</p>
+<p>Currency_Mode takes one the following values:<br>
+Text = 1&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; //&nbsp; i.e. dollar<br>
+Sign = 2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// i.e. $&nbsp;  <br>
+Abreviation = 3&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; // i.e. USD</p>
+<p><b><font color="#000080">Example:</font></b></p>
+<p>oTextNum.setCurrencyMode(DynamicComponents.Num2Text.Currency_Mode.Text)</p>
+<p>when you use <a href="TranslateNumber.htm">TtranslateNumber</a> function , 
+result may be something like that<br>
+four hundreds and twenty one <font color="#000080">dollars</font> and twenty 
+three <font color="#000080">cent</font></p>
+<p>Currency can be used in 3 modes by the use of setCurrencyMode</p>
+</BODY>
+</HTML>

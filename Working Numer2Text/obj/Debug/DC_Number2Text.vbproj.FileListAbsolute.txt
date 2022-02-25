@@ -1,0 +1,40 @@
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Debug\Form1.resources
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Debug\Resources.resources
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Debug\DC_Number2Text35.pdb
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\bin\Debug\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\bin\Debug\DC_Number2Text35.pdb
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Debug\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\s\Tutorials\Working\obj\Debug\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\s\Tutorials\Working\obj\Debug\DC_Number2Text35.pdb
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\obj\Debug\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\obj\Debug\DC_Number2Text35.pdb
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\bin\Debug\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\bin\Debug\DC_Number2Text35.pdb
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\obj\Debug\Form1.resources
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\obj\Debug\Resources.resources
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Users\Mohamed\Desktop\Number2Text\setup\Tutorials\Working\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text35.pdb
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\bin\Debug\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\bin\Debug\DC_Number2Text35.pdb
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\obj\Debug\Form1.resources
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\obj\Debug\Resources.resources
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Users\Mohamed\Desktop\Number2Text\Working Numer2Text\obj\Debug\GenerateResource-ResGen.write.1.tlog
+G:\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text35.exe
+G:\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text35.pdb
+H:\Number2Text\Working Numer2Text\obj\Debug\Form1.resources
+H:\Number2Text\Working Numer2Text\obj\Debug\Resources.resources
+H:\Number2Text\Working Numer2Text\bin\Debug\DC_Number2Text40.exe
+H:\Number2Text\Working Numer2Text\bin\Debug\DC_Number2Text40.pdb
+H:\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text40.exe
+H:\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text40.pdb
+H:\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text.vbproj.GenerateResource.Cache
+I:\EgyFirst\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text40.exe
+I:\EgyFirst\Number2Text\Working Numer2Text\obj\Debug\DC_Number2Text40.pdb

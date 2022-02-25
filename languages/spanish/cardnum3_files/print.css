@@ -1,0 +1,571 @@
+/* 
+------------------------------------------------
+------------------------------------------------
+Print Style Sheet for Spanish Language Resources
+------------------------------------------------
+------------------------------------------------
+*/
+
+/* Reset Styles for Cross Browser Consistency */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,p,blockquote { 
+	margin:0;
+	padding:0;
+	outline:none;
+}
+img { 
+	border:none;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+a {
+	outline:none;
+}
+.print {
+	display:block;
+}
+.screen {
+	display:none;
+}
+.readers {
+	display:none;
+}
+#flash {
+	display:none;
+}
+#alternatecontent {
+	display:none;	
+}
+
+/* ------------------------------------------------  
+Foundation Layout Blocks, 
+Backgrounds, and Default Type Style  
+------------------------------------------------ */
+
+body {
+	text-align:center;
+	font-family:ArialMT, Arial, sans-serif;
+	font-size:62.5%;
+	padding-bottom:100px;
+	color:#000;
+}
+a {
+	color:#000;
+}
+#outerwrapper {
+	width:600px;
+	margin:auto;
+	text-align:left;
+}
+#masthead {
+	height:98px;
+	padding:22px 0 0 0;	
+}
+#innerwrapper {
+	width:600px;
+}
+ul#primarynav {
+	display:none;
+}
+#homebanner {
+	width:600px;
+	margin-bottom:16px;
+}
+#leftcolumn {
+	display:none;
+}
+#contentwell {
+	padding:0 0 32px 0;
+	width:600px;
+}
+#maincontent {
+	line-height:1.4em;
+	width:600px;
+}
+#template_twocols #maincontent {
+	width:600px;
+}
+#rightcolumn {
+	display:none;
+}
+#template_threecols #contentwell {
+	background-image:none;
+}
+#template_twocols #contentwell {
+	background-image:none;
+}
+#template_onecol #contentwell {
+	background-image:none;
+}
+#footer {
+	width:570px;
+	background:#000;
+	border:1px solid #000;
+	padding:15px;
+	color:#fff;
+	font-size:1.1em;
+}
+#shortcuts {
+	display:none;
+}
+
+/* ------------------------------------------------  
+Masthead Elements  
+------------------------------------------------ */
+
+#masthead img {
+	float:left;	
+}
+
+/* ------------------------------------------------  
+Top, Bottom, and Shortcut Utility Nav Elements 
+------------------------------------------------ */
+
+.utilitynav {
+	display:none;
+}
+
+/* ------------------------------------------------  
+Home Page Elements  
+------------------------------------------------ */
+
+#homebanner #bannertext h1 {
+	font-size:36px;
+	color:#9f6519;
+	margin-bottom:.25em;
+}
+#homebanner #bannertext p {
+	font-size:1.6em;
+	color:#000;
+	margin-top:.5em;
+	line-height:1.2em;
+}
+#homebanner #gettingstarted h2 {
+	margin:1em 0 .25em;
+	line-height:1.4em;
+	font-size:1.6em;
+	color:#830909;
+	font-weight: bold;	
+}
+#homebanner #gettingstarted p {
+	font-size:1.2em;
+	color:#000;
+	line-height:1.4em;	
+}
+#homebanner #gettingstarted a {
+	color:#000;
+}
+#spanishlevels {
+	display:none;
+}
+
+/* ------------------------------------------------  
+Main Content Elements
+------------------------------------------------ */
+
+#maincontent h1 {
+	font-size:24px;
+	color:#830909;
+	font-weight: bold;
+	margin:0 0 .5em;
+	line-height:1em;
+}
+#maincontent h2 {
+	font-size:1.6em;
+	color:#d67b07;
+	font-weight: bold;
+	margin:1em 0 .25em;
+}
+#maincontent h3 {
+	font-weight:bold;
+}
+#home #maincontent h2 {
+	color:#830909;
+}
+#maincontent p {
+	margin:0 0 .5em 0;
+	font-size:1.2em;
+	line-height:1.4em;
+}
+#home #maincontent p {
+	margin:.5em 0;
+}
+#maincontent ul {
+	margin:.75em 0 .75em 2em;
+	line-height:1.1em;
+	list-style-type: disc;
+}
+#maincontent ol {
+	margin:.75em 0 .75em 2em;
+	line-height:1.1em;
+	list-style-type: decimal;
+}
+#maincontent li {
+	padding:0 0 .35em 0;
+	font-size:1.2em;
+	line-height:1.1em;
+}
+#maincontent ul li li {
+	font-size:1em;
+	list-style: circle;
+}
+#maincontent ul li li {
+	font-size:1em;
+	list-style: circle;
+}
+#maincontent ol li li {
+	font-size:1em;
+	list-style: lower-alpha;
+}
+#maincontent dl {
+	margin:.75em 0 .75em 0;
+}
+#maincontent dt {
+	padding:0 0 .35em 0;
+	font-weight:bold;
+	line-height:1.1em;
+	font-size:1.2em;
+}
+#maincontent dd {
+	padding:0 0 .75em 2em;
+	line-height:1.1em;
+	font-size:1.2em;
+}
+#maincontent a,
+#maincontent a:link,
+#maincontent a:visited,
+#maincontent a:hover,
+#maincontent a:active {
+	color:#000;
+}
+#maincontent blockquote {
+	background:#d8d5c3;
+	border:1px solid #000;
+	padding:15px 15px 10px 15px;
+	margin:1em 0;
+	font-style:italic;
+}
+#maincontent p.breadcrumbs {
+	display:none;
+}
+.column {
+	margin:2em 0;
+}
+#maincontent .columnwrapper h3 {
+	padding:.5em 10px;
+	color:#fff;
+	background:#830909;	
+	font-size:1.4em;
+	font-weight:bold;
+	margin:0 0 10px 0;
+}
+.columnwrapper object {
+	float:right;
+	margin: 0 10px 10px 10px;
+	border:#fff solid 5px;
+}
+h1 span {
+	display:block;
+	font-size:16px;
+}
+h1 span.separator {
+	display:none;
+}
+
+/* ------------------------------------------------  
+Footer Elements
+------------------------------------------------ */
+
+/* Shortcuts menu is part of the utility nav group, see above */
+
+#footer p.comments {
+	display:none;
+}
+#footer p.copyright {
+	color:#FFF;
+	font-size:1.0em;
+	margin-top:0;
+}
+
+/* ------------------------------------------------  
+AdSense Block
+------------------------------------------------ */
+
+#adsense {
+	display:none;
+}
+
+/* ------------------------------------------------  
+Form Styles
+------------------------------------------------ */
+
+form {
+	font-size:1.2em;
+	margin:1em 0;
+}
+form.compact {
+	margin:1em 0 0;
+	padding:0;
+}
+fieldset {
+	border:none;
+	background:#d8d5c3;
+	padding:16px 20px 16px 16px;
+	width:310px;
+	border:1px solid #000;
+}
+form .fullwidth {
+	width:100%;
+}
+form {
+	margin:2em 0 0 0;
+}
+
+/* ------------------------------------------------  
+Table Styles
+------------------------------------------------ */
+
+table {
+	border-collapse: collapse;	
+	border-bottom:1px solid #AAA;	
+	border-top:1px solid #AAA;
+	margin:1em 0;
+}
+table caption {
+	color:#fff;
+	background:#830909;	
+	font-size:1.6em;
+	font-weight:bold;
+	padding:.5em 10px;
+	text-align:left;
+	margin:0;
+}
+th {
+	padding:10px;
+	font-size:1.1em;
+}
+thead th {
+	color:#fff;
+	background:#4e4e4e;
+	text-align:left;	
+	font-size:1.2em;
+}
+tbody th {
+	border-bottom:1px solid #AAA;
+}
+td {
+	padding:10px;
+	white-space:nowrap;
+	line-height:1.2em;
+	font-size:1.1em;
+	border-bottom:1px solid #AAA;
+}
+table.wrap td {
+	white-space: normal;
+}
+tr.odd td,
+tbody tr.odd th {
+	background:#fff;
+}
+
+/* ------------------------------------------------  
+Generic Wrapper
+------------------------------------------------ */
+
+#generic #maincontent {
+	text-align:center;
+}
+#generic #maincontent table {
+	width:600px;
+}
+#generic #maincontent table td {
+	white-space: normal;
+	text-align:left;
+}
+#generic #footer {
+	width:auto;
+	clear:both;
+}
+#generic #maincontent .utilitynav {
+	float:none;
+	width:auto;
+	margin:auto;
+	text-align:center;
+	display:block;
+	font-size:1.1em;
+	line-height:1.1em;
+	padding:2em 0;
+}
+#generic #maincontent .utilitynav li {
+	border-color:#830909;
+	display:inline;
+	font-size:1em;
+	list-style-type:none;
+	padding:0pt 10px;
+	white-space:nowrap;
+}
+#generic #maincontent .utilitynav li.selected {
+	font-weight:bold;
+}
+#generic form {
+	font-size:1em;
+}
+#generic form .button {
+	font-size:1.1em;
+}
+#generic #maincontent form table tbody th {
+	text-align: left;
+}
+#generic #maincontent table th.total {
+	text-align: right;
+	white-space: nowrap;
+}
+#generic #maincontent table td.total {
+	text-align: right;
+	white-space: nowrap;
+}
+#generic #maincontent p.badges {
+	margin-top:4em;
+}
+#generic #maincontent p.badges img.guarantee {
+	padding:15px 15px;
+}
+
+/* ------------------------------------------------  
+Product Page - Hard Sell Styles Added 5/9/08
+------------------------------------------------ */
+
+#maincontent p.productintro {
+	font-size:1.6em;
+	color:#830909;
+}
+#maincontent #benefitbanner {
+	width:386px;
+	height:227px;
+	background:#fff url(/images/bg_benefit.jpg) no-repeat left top;
+	padding-top:37px;
+	padding-left:154px;
+	position:relative;
+}
+#maincontent #benefitbanner h2 {
+	width:194px;
+	font-size:1.3em;
+	color:#830909;
+	margin:0;
+	font-weight:normal;
+}
+#maincontent #benefitbanner form {
+	display:none;
+}
+#maincontent #pricebanner h2 {
+	line-height:1.4em;
+}
+#maincontent #pricebanner h2 strong {
+	display:none;
+}
+#maincontent .pullquote {
+	color:#fff;
+	float:right;
+	padding:12px;
+	width:172px;
+	background:#830909;
+	font-size:.95em;
+	margin-bottom:1.5em;
+	margin-left:1.5em;
+}
+#maincontent .pullquote ul {
+	margin:0.75em 0pt 0.75em 1.5em;
+}
+#maincontent .pullquote ul ul {
+	margin:0.75em 0pt 0.75em 0;
+}
+#maincontent .pullquote ul ul li {
+	list-style: none;
+	padding-left:1.5em;
+	background:url(/images/whitedash.gif) no-repeat .25em .5em;
+}
+.productbar {
+	display:none;
+}
+#maincontent .pricepromo {
+	float:right;
+	padding:270px 12px 12px 12px;
+	width:265px;
+	height:56px;
+	margin-bottom:1.5em;
+	margin-left:1.5em;
+	background:url(/images/bg_pricepromo.jpg) left top no-repeat;
+	text-align:center;
+}
+#maincontent .pricepromo form {
+	display:none;
+}
+
+/* ------------------------------------------------  
+Miscellaneous
+------------------------------------------------ */
+
+.fullwidth {
+	width:590px;
+}
+
+/* ------------------------------------------------
+Added 5/1/2008
+------------------------------------------------ */
+
+.boxed {	
+	font-size:1.2em;
+	border:none;
+	background:#d8d5c3;
+	padding: 2px 20px 16px 16px;
+}
+
+/* ------------------------------------------------
+Added 5/9/2008
+------------------------------------------------ */
+
+.textwrapleft {
+	float:right;
+	margin-left:1.5em;
+	margin-bottom:1.5em;
+}
+.textwrapright {
+	float:left;
+	margin-right:1.5em;
+	margin-bottom:1.5em;
+}
+#maincontent strong em {
+	font-style: normal;
+	color:#830909;
+}
+#Contact_Us {
+	display:none;
+}
+#Help {
+	display:none;
+}
+#Membership_Options {
+	display:none;
+}
+#My_Account {
+	display:none;
+}
+#Log_On_Log_Off {
+	display:none;
+}
+
+.popup_box {
+	display:none;
+}
+
+.navbutton {
+	display:none;
+}

@@ -1,0 +1,10 @@
+H:\Number2Text\Tutorial Numer2Text\bin\Release\DC_Number2Text.exe
+H:\Number2Text\Tutorial Numer2Text\bin\Release\DC_Number2Text.pdb
+H:\Number2Text\Tutorial Numer2Text\bin\Release\DC_Number2Text40.dll
+H:\Number2Text\Tutorial Numer2Text\obj\Release\ResolveAssemblyReference.cache
+H:\Number2Text\Tutorial Numer2Text\obj\Release\Form1.resources
+H:\Number2Text\Tutorial Numer2Text\obj\Release\Resources.resources
+H:\Number2Text\Tutorial Numer2Text\obj\Release\GenerateResource-ResGen.read.1.tlog
+H:\Number2Text\Tutorial Numer2Text\obj\Release\GenerateResource-ResGen.write.1.tlog
+H:\Number2Text\Tutorial Numer2Text\obj\Release\DC_Number2Text.exe
+H:\Number2Text\Tutorial Numer2Text\obj\Release\DC_Number2Text.pdb

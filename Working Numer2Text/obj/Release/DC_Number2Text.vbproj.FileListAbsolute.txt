@@ -1,0 +1,7 @@
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\bin\Release\DC_Number2Text35.exe
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Release\ResolveAssemblyReference.cache
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Release\Form1.resources
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Release\Resources.resources
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\Users\Mohamed\Desktop\Setup\Tutorials\Working\obj\Release\DC_Number2Text35.exe

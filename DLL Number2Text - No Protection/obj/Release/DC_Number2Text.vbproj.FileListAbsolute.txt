@@ -1,0 +1,15 @@
+H:\Number2Text\DLL Number2Text\bin\Release\DC_Number2Text40.dll
+H:\Number2Text\DLL Number2Text\obj\Release\ResolveAssemblyReference.cache
+H:\Number2Text\DLL Number2Text\obj\Release\Resources.resources
+H:\Number2Text\DLL Number2Text\obj\Release\GenerateResource-ResGen.read.1.tlog
+H:\Number2Text\DLL Number2Text\obj\Release\GenerateResource-ResGen.write.1.tlog
+H:\Number2Text\DLL Number2Text\obj\Release\DC_Number2Text40.dll
+H:\Number2Text\DLL Number2Text - No Protection\bin\Release\DC_Number2Text40.dll
+H:\Number2Text\DLL Number2Text - No Protection\obj\Release\Resources.resources
+H:\Number2Text\DLL Number2Text - No Protection\obj\Release\DC_Number2Text.vbproj.GenerateResource.Cache
+H:\Number2Text\DLL Number2Text - No Protection\obj\Release\DC_Number2Text40.dll
+I:\EgyFirst\Number2Text\DLL Number2Text - No Protection\bin\Release\DC_Number2Text40.dll
+I:\EgyFirst\Number2Text\DLL Number2Text - No Protection\bin\Release\System.dll
+I:\EgyFirst\Number2Text\DLL Number2Text - No Protection\obj\Release\Resources.resources
+I:\EgyFirst\Number2Text\DLL Number2Text - No Protection\obj\Release\DC_Number2Text.vbproj.GenerateResource.Cache
+I:\EgyFirst\Number2Text\DLL Number2Text - No Protection\obj\Release\DC_Number2Text40.dll
