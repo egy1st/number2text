@@ -1,0 +1,510 @@
+/* Split Related Feature with Outbrain Widget - nb 2/17/12 */
+.related-content-split{ 
+    width: 310px; 
+    float: left;
+    margin-right: 10px;
+    }	
+	
+.outbrain-widget-split{
+    width: 310px;
+    float: right;
+    }
+
+.outbrain-organic-widget-split{ 
+    width: 310px; 
+    float: left;
+    margin-right: 10px;
+    }	
+	
+.outbrain-paid-widget-split{
+    width: 310px;
+    float: right;
+    }
+
+/* Change to Bookstore link in header - nb 11/15/11 */
+#header #store-link {
+    display: block;
+    float: right;
+    color: #000000;
+    line-height: 43px;
+    padding: 15px 7px 12px;
+    margin-left: 40px; 
+    }
+
+/* Mobile App Styleguide Page */
+#app-styleguide {
+     margin-top: 20px;
+     }
+
+#app-styleguide .display{
+     float: left; 
+     margin-right: 30px; 
+     width: 250px;
+     }
+
+#app-styleguide .description{
+     float: left; 
+     margin: 0 20px 0 0; 
+     width: 600px;
+     }
+
+#app-styleguide h2{
+    padding: 30px  0 10px 0; 
+     }
+
+#app-styleguide .assets{
+    margin: 10px  0 10px 30px; 
+     }
+
+
+/* Change to Bookstore link in header - nb 11/15/11 */
+#header #store-link {
+    display: block;
+    float: right;
+    color: #000000;
+    line-height: 43px;
+    padding: 15px 7px 12px;
+    margin-left: 40px; 
+    }
+
+/* Homepage Slideshow typography adjustments, 8/1/11
+
+.multi-feature-carousel .feature .bottom-banner h4,
+#main-content .feature-container-header h2 { font-family:  Arial, sans-serif; }
+
+.multi-feature-carousel .feature .bottom-banner h4,
+.multi-feature-carousel .feature .bottom-banner p {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Dummies Editions - added style - nb 7/12/11 */
+.dummies-editions p{
+	float: left;
+	clear: both;
+	margin: 15px 0 0 0;
+	padding: 0;
+	width: 160px;
+	_width: 150px;
+	}
+
+/* Dummies 20th Anniversary - nb 2/22/11 */
+#homepage #header{ 	
+	height: 132px;
+	background: url(http://media.wiley.com/assets/3203/60/hp-header-bg-20th.gif) no-repeat bottom left !important;
+	position: relative;
+	}
+
+#homepage #header .logo{
+	position: absolute;
+	left: 0 !important;
+	top: 12px;
+	}
+
+#anniversary-logo{
+	float: left;
+	position: relative;
+	bottom: -20px; left: 0;
+	width: 98px;
+	height: 90px;
+	padding:  0;
+	}
+
+/* Dummies 20th Anniversary - nb 2/28/11 */
+#dummies_anniversary_feature h2{
+	margin: 0;
+	font-size: 1.33em;
+	color: #fbf900;
+	font-style: italic;
+	padding: 10px 15px 5px;
+	background: #1b1b1b url(http://media.wiley.com/spa_assets/site/dummies2/include/images/bg/leftnav-header-bg.gif) repeat-x bottom left;
+	}
+
+#dummies_anniversary_feature .topic-content .article-listing .article{ width: 590px; }
+
+#promo .anniversary-promo img{ float: left; }
+
+#promo .anniversary-promo .content{ margin-left: 95px; }
+
+
+
+/* Dummies Month - nb 2/15/11 */
+#dummies_month {
+	width: 630px; margin:0; padding: 0;
+	}
+
+#rebate_header_mobile{
+	display: none;
+	}
+	
+#dummies_month .rebate {
+	background: #fff url('http://media.wiley.com/spa_assets/site/dummies2/include/images/bg/generic-gradient-bg.gif') repeat-x top left; border: 1px solid #ccc; margin: 0; padding: 0;
+	}	
+
+#dummies_month .wrapper {
+	margin: 20px 20px 0 20px; padding: 0;
+	} 	
+	
+#dummies_month .rebate p {
+	font-size: 1.18em; font-weight: bold;
+	}	
+
+#dummies_month .download {
+	margin: 15px;
+	}	
+
+#dummies_month .details {
+	margin: 10px 0 10px 20px; padding: 0;
+	}		
+	
+#dummies_month .fineprint {
+	float: left; width: 300px; margin: 10px 20px 0 0;
+	}	
+	
+#dummies_month .fineprint p{
+	font-size: 0.86em; line-height: 100%; margin: 8px; 0 0 0; padding: 0;
+	}	
+	
+#dummies_month .retailers {
+	float: right; width: 253px; margin: 0; padding: 0; position: relative; bottom: 0; right: 0;
+	}
+
+#dummies_month .article-tools{
+	margin: 0;
+	text-align: right;
+	padding: 0;
+	_padding-bottom: 10px;
+	display: inline;
+	float: right;
+	font-family: verdana;
+	font-size: 0.83em;
+	}
+	
+#dummies_month .article-tools-clear{
+	clear: both;
+	margin: 0 0 10px 0;	
+	border-bottom: none;
+	}	
+
+#dummies_month .article-tools li{
+	margin: 0;
+	padding: 0 5px;
+	float: left;
+	list-style: none;
+	border-right: none;		
+	}
+
+#dummies_month #all-titles{
+	margin: 15px 20px;		
+	}
+
+#dummies_month #all-titles-mobile{
+	display:none;		
+	}
+
+/* NavBar Ad - nb 10/12/10 */
+.navbar{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #cccccc; 
+    border-bottom: none; 
+	}
+
+/* nb added 5/6 */
+.disclaimer{ font-size: 0.83em; }
+
+/* nb added leaderboard caption 6/4 */
+/* for ad alert txt */	
+.leaderboard .caption{
+	margin: -10px 0 0 0;
+	padding: 0;
+	color: #999;
+	text-align: center;
+	font-family: verdana;
+	font-size: 0.65em;
+	font-weight: normal;
+	}
+
+/* Fix for DF bestselling-products */
+.DF.bestselling-products h4 {
+    font-size: 18px;
+    line-height: 18px;
+    padding: 8px 0;
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 12px;
+    }
+
+/* Content links */
+
+.article-content a {
+     font-weight: bold;
+     text-decoration: underline;
+}
+
+.article-content a:hover { text-decoration: none; }
+
+.article-content a.tooltip-link { 
+     font-weight: normal;
+     text-decoration: none;
+}
+
+/* Mobile Landing Page */
+#apps-page .app-display{
+     float: left; 
+     margin-right: 25px; 
+     width: 106px;
+     }
+#apps-page .app-description{
+     float: left; 
+     margin: 0 20px 0 0; 
+     width: 475px;
+     }
+
+#android-apps-page .app-display{
+     float: left; 
+     margin-right: 25px; 
+     width: 126px;
+     }
+#android-apps-page .app-description{
+     float: left; 
+     margin: 0 20px 0 0; 
+     width: 455px;
+     }
+
+#main-content-left {
+	float:left;
+}
+
+#main-content-right {
+	float:right;
+}
+
+#FeaturedAppWrapper {
+	width:600px;
+	background: #fff; 
+	margin: 10px 0;
+	padding:15px;
+}
+
+#FeaturedAppWrapper h2 {
+	background-color:#000000;
+	Color:#FF0;
+	padding:10px;
+	font-style:italic;
+	font-weight:bold;
+}
+
+#FeaturedAppContent {
+	padding:10px;
+	border: 1px solid #999999;
+	font-size:14px;
+	font-weight:bold;
+}
+
+.FeaturedAppIcon {
+	padding-right:15px;
+}
+
+/* 7/29/2011 */
+.leaderboard {
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+    z-index: 100000000;
+}
+
+#title #header .logo, #store #header .logo {
+    left: 20px;
+    position: absolute;
+    top: 15px;
+}
+
+#title #header #query, 
+#store #header #query {
+    width: 185px;
+    height: 11px;
+    font-size: 12px;
+}
+
+#title #header label img, 
+#store #header label img {
+    margin-bottom: -1px;
+    margin-left: 0;
+    margin-right: 1px;
+    margin-top: 0;
+}
+
+#title #header .button, 
+#store #header .button {
+    margin-bottom: -9px;
+    margin-left: 1px;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.multi-feature-carousel .feature .bottom-banner h3 { font: 19px "Arial", sans-serif; }
+.multi-feature-carousel .feature .bottom-banner h4 { font: 17px "Arial", sans-serif; }
+.multi-feature-carousel .feature .bottom-banner h5 { font: 15px "Arial", sans-serif; }
+
+/*Aug 2011 Indigo promotion - ng 8/8/11 */
+.bookCopyIndigo {
+	font-size:12px;
+	font-style:italic;
+}
+
+.bookCoverIndigo {
+	padding-right:30px;
+}
+
+.bookTableRowIndigo {
+	vertical-align:bottom;
+}
+
+/*Dummies Mobile Apps - ng 8/12/11 */
+#MobilePage-product-listingsize80 {
+	width:300px;
+        padding-left:15px;
+	height:170px;
+}
+
+.mobileappimage {
+	padding-right:10px;
+	padding-bottom:40px;
+}
+
+/*Dummies eLearning Exit Page - nb 8/24/11 */
+#eLearning { margin-bottom: 40px; }
+
+#eLearning p {
+    font-size: 1.5em; 
+    color:#e3002d;
+    line-height: 1.4em;
+    }
+
+/*Dummies Rebate Center- nb 9/1/11 */
+#rebate_center h2 {
+    margin-bottom: 10px;
+    }
+
+#rebate_center h3 {
+    margin-top: 15px;
+    }
+
+.interstitial .productDetail-btb ul { width: 555px; list-style:none; overflow:auto; margin:0; padding:1em 0; display:inline-block;}
+
+/*Dummies Month Indigo - nb 2/10/12 */
+#Indigo-dummiesmonth #banner {
+	margin-bottom: 20px;
+}
+
+#Indigo-dummiesmonth tr.titlename {
+	margin-bottom: 20px;
+}
+
+#Indigo-dummiesmonth .bookCopyIndigo {
+	font-size:12px;
+	font-style:italic;	
+}
+
+#Indigo-dummiesmonth .bookCoverIndigo {
+	padding-right:30px;
+}
+
+#Indigo-dummiesmonth .bookTableRowIndigo {
+	vertical-align:bottom;
+}
+
+#Indigo-dummiesmonth .offer{
+	margin: 20px 20px 0 0;	
+}
+
+/*Dummies eLearning Kits - JS 2/28/12 */
+
+#elearning-container{
+	border-style:solid none none;
+	border-top-color:#333;
+	border-top-width:1px;
+	width:958px;}
+
+#elearning-head {
+	background-image: url(http://media.wiley.com/assets/7019/98/e-laerning-kit-header.jpg);
+   background-position: right top;
+    background-repeat: no-repeat;
+    height: 475px;
+    padding: 10px 0 0;;
+}
+
+#elearning-head .elearning-head-intro{
+	float:left;
+	margin:50px 0 0 30px;
+	width:480px;}
+
+#elearning-head .elearning-head-content{
+	float:left;
+	margin:300px 0 0 30px;
+	padding:0;
+	width:370px;}
+
+#elearning-head h1{
+	font-size:24px;
+	line-height:34px;}
+
+#elearning-head p{
+	font-size:14px;
+	margin:20px 0;}
+
+#elearning-title-container{
+	border-color:#000;
+	border-style:solid;
+	border-width:20px 1px;
+	margin:0 0 0 15px;
+	width:930px;}
+
+#elearning-title-container .elearning-title{
+	border-bottom-color:#666;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	float:left;
+	height:221px;
+	margin:0 15px 0 0;
+	width:450px;}
+
+#elearning-title-container .elearning-title-last{
+	float:left;
+	height:221px;
+	margin:0 15px 0 0;
+	padding:0 0 15px;
+	width:450px;}
+
+#elearning-title-container .elearning-title-cover{
+	float:left;
+	margin:15px 15px 0;
+	width:150px;}
+
+#elearning-title-container .elearning-title-content{
+	float:left;
+	height:150px;
+	margin:15px 15px 0 0;
+	width:255px;}
+
+#elearning-title-container .elearning-title-buy{
+	float:right;
+	font-weight:700;
+	margin:0 15px 0 0;
+	text-align:right;
+	width:112px;}
+
+#dummies_month .promo{
+	background: #fff; 
+	border: 1px solid #ccc; 
+	margin: 0; 
+	padding: 0;
+}	
+
+/* REMOVE After Build #42 */
+#gallery-TOP, #gallery-BOTTOM {
+    background: #000000;
+    border: 3px solid #cccccc;
+}

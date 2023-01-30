@@ -1,0 +1,29 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=BPoxE6MJzT4W2H8P8-gaTqK3_Cty4vXHg9oeiCcCNtwHAmgwQARgBIOmNqQY4AFDV6MKe_P____8BYLPe0ILgLaAB3Kew_wOyARF3d3cuYnJpZ2h0aHViLmNvbcgBAdoBQGh0dHA6Ly93d3cuYnJpZ2h0aHViLmNvbS9lZHVjYXRpb24vbGFuZ3VhZ2VzL2FydGljbGVzLzQ5NzAxLmFzcHiAAgHIApS5hBOoAwH1AwAIAET1AwAAABCIBgE&amp;num=1&amp;cid=5GjTr_7F5BSUOJe50iuCjBOP&amp;sig=AOD64_2hzSe6eJh3x1ceoaVjIuKj8yE-Aw&amp;client=ca-pub-6409535612800042&amp;adurl=http://www.technologyevaluation.com/ppc/request/LMS_eval.asp%3Fse%3Dgoogle"; 
+google_ad.visible_url = "LMS.TechnologyEvaluation.com"; 
+google_ad.line1 = "Learning Mgmt Systems"; 
+google_ad.line2 = "Get Free LMS Evaluation Reports for"; 
+google_ad.line3 = "Software Selections \x26amp; Comparisons."; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.brighthub.com/education/languages/articles/49701.aspx%26hl%3Den%26client%3Dca-pub-6409535612800042%26adU%3DLMS.TechnologyEvaluation.com%26adT%3DLearning%2BMgmt%2BSystems%26gl%3DEG\x26usg\x3dAFQjCNFWMvXIRF95ntAF_PaOHcPGwrhNOA";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

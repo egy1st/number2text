@@ -1,0 +1,5 @@
+var IVW="http://4trips.ivwbox.de/cgi-bin/ivw/CP/083def_lokl;comment";
+document.write("<img src=\""+IVW+"?r="+escape(document.referrer)+"&d="+(Math.random()*100000)+"\" width=\"1\" height=\"1\" alt=\"szmtag\" />");
+
+var szmvars="4trips//CP//083def_lokl";
+document.write('<script type="text/javascript" src="http://4trips.ivwbox.de/2004/01/survey.js"><\/script>');

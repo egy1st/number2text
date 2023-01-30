@@ -1,0 +1,33 @@
+KRUX.configOnload({
+ "publisher": {
+  "uuid": "e00b6271-a80d-4333-afa7-8ca69a4e29b8",
+  "name": "Improve Digital",
+  "id": 27
+ },
+ "blocklist": [],
+ "tags": [],
+ "segments": [],
+ "dnt": null,
+ "services": {
+  "userData": "//services.krxd.net/user_data/segments",
+  "stats": "//health-stats.krxd.net/stats",
+  "monitor": "//health-stats.krxd.net/jserror",
+  "event": "//services.krxd.net/event.gif",
+  "social": "//services.krxd.net/social.gif",
+  "data": "//services.krxd.net/data.gif",
+  "pixel": "//services.krxd.net/pixel.gif"
+ },
+ "msg": "WARNING - no matching config found. Using empty tags.",
+ "params": {
+  "revenue_optimization": false,
+  "capture_leakage": "true",
+  "control_tag_stats_prefix": null,
+  "site_level_supertag_config": "all",
+  "supertag_requires_approval": false,
+  "control_tag_version": "improve",
+  "datatag_version": 1,
+  "max_slot_time": 1000,
+  "capture_js_errors": true
+ },
+ "geo":{"COUNTRY":"EG", "REGION":"", "CITY":"CAIRO", "GEOREGION":"67", "DMA":"", "PMSA":"", "AREACODE":"", "COUNTY":"", "FIPS":"", "LATITUDE":"30.05", "LONGITUDE":"31.25", "TIMEZONE":"GMT 2", "ZIP":"", "CONTINENT":"AF"}
+});

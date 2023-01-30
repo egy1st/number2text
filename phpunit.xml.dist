@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="src/autoload.php">
+    <logging>
+       <log type="coverage-clover" target="clover.xml"/>
+   </logging>
+   <filter>
+   <whitelist processUncoveredFilesFromWhitelist="true">
+    <directory suffix=".php">/src/API</directory>
+      <file>./src/API/Number2Words.php</file> 
+	  <file>./src/API/NumberingSystem.php</file> 
+	  <file>./src/API/Arabic.php</file> 
+      <file>./src/API/English.php</file> 
+	  <file>./src/API/French.php</file> 
+	  <file>./src/API/German.php</file> 
+	  <file>./src/API/Italian.php</file> 
+	  <file>./src/API/Russian.php</file> 
+	  <file>./src/API/Portuguese.php</file> 
+	  <file>./src/API/Spanish.php</file> 
+	  <file>./src/API/Turkish.php</file> 
+	  <file>./src/API/Persian.php</file> 
+	  <file>./src/API/Korean.php</file> 
+	  <file>./src/API/Chinese_Simplified.php</file> 
+	  <file>./src/API/Chinese_Traditional.php</file> 
+  </whitelist>
+  
+  </filter>
+    <testsuites>
+        <testsuite name="API">
+          <file>./tests/test_Numbers.php</file>
+	      <file>./src/API/Number2Words.php</file> 
+		  <file>./src/API/NumberingSystem.php</file> 
+		  <file>./src/API/Arabic.php</file> 
+		  <file>./src/API/English.php</file> 
+		  <file>./src/API/French.php</file> 
+		  <file>./src/API/German.php</file> 
+		  <file>./src/API/Italian.php</file> 
+		  <file>./src/API/Russian.php</file> 
+		  <file>./src/API/Portuguese.php</file> 
+		  <file>./src/API/Spanish.php</file> 
+		  <file>./src/API/Turkish.php</file> 
+		  <file>./src/API/Persian.php</file> 
+		  <file>./src/API/Korean.php</file> 
+	      <file>./src/API/Chinese_Simplified.php</file> 
+	      <file>./src/API/Chinese_Traditional.php</file> 
+        </testsuite>
+    </testsuites>
+</phpunit>
+

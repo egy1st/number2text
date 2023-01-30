@@ -1,0 +1,7 @@
+For $149.00, one would expect a better translation than given in the blurb:
+"For example, the numerical value 7431285.46 would be translated into the text in English will be:
+Seven millions , four hundreds and thirty one thousands , two hundreds and eighty five dollars and forty six cents"
+
+Perhaps it does a better job in other languages(?). I wrote my own numeral-to-English translator and, though it took a little time to do it, it translates correctly. For example, on would translate their selling price as "one hundred forty-nine dollars", no "and" is used and there is no "S" on "hundred". If there were cents in the price, an "and" would be used in place of the decimal. No space should be used between syncopated numeric groupings and commas, if commas are to be used in the text.
+
+I wish them the best of luck, but suggest they review the verbal syntax that we use in English for number phrases.

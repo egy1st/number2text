@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- MM 2.1 -->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Chitika Ads v2 550x250</title>
+        <script type="text/javascript">
+            function append_func(o,f) {
+                return function(e) {
+                    if(typeof(o) == "function") { o(e); }
+                    return a(e);
+                }
+            }
+            function toggleSearch() {
+                var sBlock = document.getElementById('searchBlock');
+                if (sBlock.style.visibility == "hidden") {
+                    sBlock.style.visibility = "visible";
+                } else {
+                    sBlock.style.visibility = "hidden";
+                }
+            }
+
+        </script>
+        <style type="text/css">
+* {
+    padding: 0;
+    margin: 0px;
+}
+
+strong, b, span {
+    clear: left;
+    display: inline;
+    float: none;
+}
+
+body {
+    border: 1px solid #ccc;
+    height: 238px;
+    padding: 5px;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+#query {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    height: 16.8px;
+    font-weight: normal;
+    line-height: 16.8px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+#query strong, #query b, #query span {
+    color: inherit;
+    background-color: #FFFF33;
+    font-weight: bold;
+}
+
+ul li {
+    height: 58.8px;
+    list-style: none;
+    margin-bottom: 14.9333333333333px;
+    position: relative;
+    zoom: 1;
+}
+
+ul li:hover {
+    background-color: transparent;
+}
+
+img.trk {
+    display: none !important;
+}
+
+ul li .phone {
+    float: none !important;
+    position: absolute;
+    zoom: 1;
+}
+
+ul li .phone a,
+ul li .phone a img {
+    float: none !important;
+    border: none !important;
+    position: relative;
+    zoom: 1;
+}
+
+ul li .resThumb {
+    background-position: center center !important;
+    float: left;
+    margin-right: 7px;
+    height: 50px;
+    width: 50px;
+}
+
+ul li .resThumb * {
+    display: block;
+}
+
+ul li .resThumb img,
+ul li .resThumb a img {
+    border: none;
+    height: 50px;
+    width: 50px;
+}
+
+.resTitle, .resDesc, .resDomain {
+    overflow: hidden;
+    text-overflow: elipsis;
+    text-overflow-mode:ellipsis;
+}
+
+.resTitle b {
+    color: inherit;
+    background-color: inherit;
+    font-weight: bold;
+}
+
+.resTitle, .resTitle a {
+    color: #00c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    height: 16.8px;
+    line-height: 16.8px;
+    margin-bottom: 0px;
+    text-decoration: underline;
+}
+
+.resTitle a:hover {
+    background-color: transparent;
+    color: #00c;
+    text-decoration: underline;
+    font-style: normal;
+}
+
+.resDesc, .resDesc a {
+    color: #000;
+    height: 28.8px;
+    font-weight: normal;
+    line-height: 14.4px;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+
+.resDesc a:hover {
+    background-color: transparent;
+    color: #00c;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.highlight{
+    background-color: #FFFF33;
+}
+
+.resDomain, .resDomain a {
+    color: #00c;
+    font-size: 11px;
+    font-weight: normal;
+    height: 13.2px;
+    line-height: 13.2px;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+
+.resDomain a:hover {
+    background-color: transparent;
+    color: #00c;
+    text-decoration: none;
+    font-style: normal;
+}
+
+#more {
+    color: #000;
+    font-size: 10px;
+    line-height: 11px;
+    position: absolute;
+    text-decoration: none;
+    bottom: 2px;
+    right: 65px;
+}
+
+#more:hover {
+    color: #333;
+}
+
+#oop {
+    color: #000;
+    font-size: 10px;
+    line-height: 11px;
+    position: absolute;
+    text-decoration: none;
+    bottom: 2px;
+    right: 22px;
+    z-index: 99999 !important;
+}
+
+#oop:hover {
+    color: #333;
+}
+
+#oott{
+    width:100px;
+    background-color:#f5f9ff;
+    padding:3px;
+    border:2px solid #BBB;
+    box-shadow:3px 3px 2px #e4e4e4;
+    -moz-box-shadow:3px 3px 2px #e4e4e4;
+    -webkit-box-shadow:3px 3px 2px #e4e4e4;
+    -khtml-box-shadow:3px 3px 2px #e4e4e4;
+    font-size:11px;
+    color:#444;
+    position:absolute;
+    bottom:15px;
+    right:5px;
+    z-index:9999999;
+    display:none;
+    cursor:pointer;
+    text-align:center;
+}
+
+#adchoices {
+    border: none;
+    left: 1px;
+    position: absolute;
+    top: 234px;
+}
+
+#adchoices img{
+    border:none !important;
+}
+
+#searchLink {
+    cursor: pointer;
+    height: 16px;
+    position: absolute;
+    width: 16px;
+    bottom: 2px;
+    right: 2px;
+}
+
+#searchBlock {
+    background-color: #fff;
+    border: 3px solid #CCC;
+    clear: left;
+    display: hidden;
+    float: none;
+    height: 100px;
+    left: 172px;
+    position: absolute;
+    top: 72px;
+    width: 200px;
+    z-index: 9999;
+}
+
+#searchBlock div {
+    font-weight: bold;
+    font-size: small;
+    background: #CCC;
+    color: #fff;
+    width: 100%;
+}
+
+#searchBlock form {
+    padding: 5px;
+}
+
+#mquery {
+    clear: left;
+    display: block;
+    float: none;
+    margin: auto auto;
+    width: 170px;
+}
+
+#searchButton {
+    clear: left;
+    display: block;
+    float: none;
+    margin: auto auto;
+    text-align: center;
+    width: 90px;
+}
+
+        </style>
+<script type="text/javascript">
+var cck = '16b272c40c9fe34b02bf417b47a56b13';
+var titles = [];
+var idToNum = {};
+var num_displayed = {};
+
+function def(s,d) {
+    if (s) { return s; }
+    return d;
+}
+
+function getNumber(n,id,track) {
+    if(num_displayed[id] === undefined || !num_displayed[id]) {
+        if(titles[id]) {
+            setTitle(id,titles[id]);
+            delete titles[id];
+        }else{
+            n = (n).replace(/([0-9]{3})([0-9]{3})([0-9]{4})/, "($1) $2-$3");
+            populateNumber(n,id);
+        }
+        num_displayed[id] = true;
+        var s = new Image();
+        s.src = 'http://labs.chitika.com/tf/pixel.php?t='+escape(_track);
+    }
+}
+
+function getCCNumber(n,sig,nonce,id,track) {
+    if(num_displayed[id] === undefined || !num_displayed[id]) {
+        idToNum[id] = n; // Store the original number in case shit goes awry
+        if(titles[id] === undefined) {
+            var meta = getMetaInfo(id);
+        
+            // Construct our ChitChat request URL
+            var params = [
+                'key='          + cck,
+                'uniqueid='     + id,
+                'number='       + (""+n).replace(/[^0-9]/g, ''),
+                'sig='          + sig,
+                'nonce='        + nonce
+            ];
+            for (var k in meta) {
+                params.push('meta_' + k + '=' + meta[k]);
+            }
+            var qs = params.join('&');
+            var url = 'http://chitchat.chitika.net/v4/jsReqNum.php?' + qs + '&jsoncallback=populateNumber&ts=' + (new Date().getTime());
+
+            // Create a script tag to handle it
+            var s = document.createElement('script');
+            s.setAttribute('type', 'text/javascript');
+
+            // If we haven't received a response we want to populate the real number
+            s.timeout = setTimeout(function() { populateNumber(n,id); }, 5000);
+
+            // But we need to clear that timeout if we do
+            s.fired = false; // Because IE9 fires both onload and onreadystatechange, but all other IEs only fire onreadystatechange
+            s.onload = function() {
+                if(s.fired) { return; }
+                clearTimeout(s.timeout);
+                s.timeout = null;
+                s.fired = true;
+            };
+            s.onreadystatechange = function() {
+                if(s.fired) { return; }
+                if(s.readyState == 'complete' || s.readyState == 'loaded') {
+                    clearTimeout(s.timeout);
+                    s.timeout = null;
+                    s.fired = true;
+                }
+            };
+
+            // Now add the request to the header
+            s.setAttribute('src', url);
+            setTimeout(function() { document.getElementsByTagName('head')[0].appendChild(s); }, 100);
+        } else {
+            setTitle(id,titles[id]);
+            delete titles[id];
+        }
+        num_displayed[id] = true;
+        var i = new Image();
+        i.src = 'http://labs.chitika.com/tf/pixel.php?t='+escape(track);
+    }
+};
+
+function populateNumber(n,id) {
+    var d = getTitle(id);
+    if(n.match(/^Err/)) {
+        n = idToNum[id];
+    }
+    if(d) {
+        titles[id] = setTitle(id,n);
+    }
+}
+
+function getMetaInfo(id) {
+    var d = document.getElementById(id);
+    var r = [];
+    var meta = d.getElementsByTagName('input');
+    for(var i = 0; i < meta.length; i++) {
+        var k = meta[i].name,
+            v = meta[i].value;
+        r[k] = v;
+    }
+    return r;
+}
+
+function getTitle(_i) {
+    var d = document.getElementById(_i);
+    var a = d.getElementsByTagName('*');
+    var ret = false;
+    if(a.length > 0) {
+        var l = a.length;
+        for(var i = 0; i < l; i++) {
+            if(a[i].className && a[i].className.match(/phone/i)) {
+                var title = a[i].getElementsByTagName('a');
+                if(title.length > 0) ret = title[0];
+                break;
+            }
+        }
+    }
+    return ret;
+}
+
+// NOTE: returns previous title
+function setTitle(id,t) {
+    var d = getTitle(id);
+    var r = '';
+    if (d && d.innerText !== undefined) {
+        r = d.innerText;
+        d.innerText = t;
+    } else if (d) {
+        r = d.textContent;
+        d.textContent = t;
+    }
+    d.style.backgroundColor = '#FFFF33';
+    d.style.color = '#000';
+    setTimeout(function() { d.style.backgroundColor = 'transparent'; d.style.color = '#00c'; }, 2000);
+    return r;
+}
+</script>
+    </head>
+<!--
+<pre>
+$VAR1 = {
+          'ad_count' => 3,
+          'adchoices_left' => 1,
+          'adchoices_top' => 234,
+          'aspect' => '2.2',
+          'columns' => 1,
+          'h' => 250,
+          'height_desc' => '28.8',
+          'height_link' => '13.2',
+          'height_searching' => '16.8',
+          'height_title' => '16.8',
+          'height_total' => '58.8',
+          'height_ul' => '221.2',
+          'image_height' => 50,
+          'image_position' => 'left',
+          'image_width' => 50,
+          'lh_desc' => '14.4',
+          'lh_searching' => '16.8',
+          'lh_tagline' => '13.2',
+          'lh_title' => '16.8',
+          'map_h' => 248,
+          'map_w' => 210,
+          'margin_li_bottom' => '14.9333333333333',
+          'w' => 550,
+          'width_li' => '538',
+          'width_ul' => 538
+        };
+
+</pre>
+-->
+    <body>
+            <div id="query">
+                Searching for <strong>counting numbers in english</strong>?
+            </div>
+        <ul id="ads">
+            <li id="uniqueLi0">
+                <div class="resThumb">
+                        <img src="a_data/thumbnail_002.jpeg" height="50" width="50">
+                </div>
+                <div class="details">
+                    <p class="resTitle"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F0.r.msn.com%2F%3Fld%3D4v3B7x5IiZYHdiXoCWyCtLVvGNDALZzS9MHkAkURX3MJ5RZXIeilTvsMjY7pY6-rhIhPVpOQySrJZ4XmWfzAH1nenn7Sb6kH0lrZaNmazLV6a6bUdMItvNfQziURLUOZo8cj179MQqzWr7eFB8gssSVsplRECv1iDHTAWiDJqFnOpdzFYQMmksZquulc2fBdc3GCgmQpi4UdGnnoBJEpD121-aJSFHLuL0DqDIgr6j0WIXww5n4wxctkntzGzPkLEBznrIV-nLk1iU_Qu3bjG3fO6ydr8Q2kvK4DoE5sQ0EoW-0oKAj07ivNcr_UOVtzFYzn8jMAREG5fwUt1T-Kb3hqNNt4rfJTn56qfI2waaUKODxEJOBdn0Bfo-8-PZR-oeE3C7UhAmY3M9qpfad05-moGxByLlnC1jMD76LQhjazcn_XGOFHe2Iao&amp;xargs=Mfj3HdH%2FsbbrW7SqIMj9tQ%2Beg6vWoA4185gdLzztGOCimsy1Z0lauNEzC5V6xVqCwi7K8yQLQyNqTsDgFIkMkk1J6hVF%2BRrLfxy3L6ylih9s9NeLuePf3E3vkm1OCIFwkz%2Fo7PbQ3nyGyvXHxdtvvUDadLfxa2jjOuiDKwjau%2BqZwcjwDu2rxn2SXvFw0ASA2FHKUh4cgUmOFRN8DOEQ3BPAVnBswjDYflbat%2BTZC3TXLanj3QC0kFmStRTVWUBr8DXm6h%2F4xENArqQbss6Mz8qnPG6ka739U2uTRk19blY7yjURH522pLg2kn43knQoDNP8slTByTe9DZdPKsfO7rGDd7y7cRtKObkp0M0TjE7KDXXOdqedCZ5HgYW0Xd57yDAn3nzejnzcupVV%2F5bqneQHifUnit4LAlOcvfNTznKqyiOFYUc4PvuPjCnMifob1vixwkWFz%2BM6Z%2BuKMg2pm34lcFt%2BE5ftR19%2BqHor2Lo7n3mrW17V2Mh6F2BRLqr4%2BNwtZZoDs428qiC4smG0Ty4PmmkTUnc%2BPPoExqztSpoXI67CPXQ%2BmIdTaNDbLTloehqUe8b8fEGbHUKvRpY3jEIiwFkf7z%2BTWycSe6ZEKr8TsqH6ISX6T0C%2F%2BlXJI1c3YhR3d3AUwsLxtYbKdUcWa%2BaC%2F0T9SEf8y5Xwy52SDclzWM7JpwRYbWrjxk74ipMh4lrZ92kRQB9CBxl1yLrrEYUH9m9ZErlb7BTqlmJtauiLFO2lUlRK48FY0c819Aljwup0bNjx23M%3D&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default"><b><b>Numbers</b></b> <b><b>English</b></b></a></p>
+                    <p class="resDesc"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F0.r.msn.com%2F%3Fld%3D4v3B7x5IiZYHdiXoCWyCtLVvGNDALZzS9MHkAkURX3MJ5RZXIeilTvsMjY7pY6-rhIhPVpOQySrJZ4XmWfzAH1nenn7Sb6kH0lrZaNmazLV6a6bUdMItvNfQziURLUOZo8cj179MQqzWr7eFB8gssSVsplRECv1iDHTAWiDJqFnOpdzFYQMmksZquulc2fBdc3GCgmQpi4UdGnnoBJEpD121-aJSFHLuL0DqDIgr6j0WIXww5n4wxctkntzGzPkLEBznrIV-nLk1iU_Qu3bjG3fO6ydr8Q2kvK4DoE5sQ0EoW-0oKAj07ivNcr_UOVtzFYzn8jMAREG5fwUt1T-Kb3hqNNt4rfJTn56qfI2waaUKODxEJOBdn0Bfo-8-PZR-oeE3C7UhAmY3M9qpfad05-moGxByLlnC1jMD76LQhjazcn_XGOFHe2Iao&amp;xargs=Mfj3HdH%2FsbbrW7SqIMj9tQ%2Beg6vWoA4185gdLzztGOCimsy1Z0lauNEzC5V6xVqCwi7K8yQLQyNqTsDgFIkMkk1J6hVF%2BRrLfxy3L6ylih9s9NeLuePf3E3vkm1OCIFwkz%2Fo7PbQ3nyGyvXHxdtvvUDadLfxa2jjOuiDKwjau%2BqZwcjwDu2rxn2SXvFw0ASA2FHKUh4cgUmOFRN8DOEQ3BPAVnBswjDYflbat%2BTZC3TXLanj3QC0kFmStRTVWUBr8DXm6h%2F4xENArqQbss6Mz8qnPG6ka739U2uTRk19blY7yjURH522pLg2kn43knQoDNP8slTByTe9DZdPKsfO7rGDd7y7cRtKObkp0M0TjE7KDXXOdqedCZ5HgYW0Xd57yDAn3nzejnzcupVV%2F5bqneQHifUnit4LAlOcvfNTznKqyiOFYUc4PvuPjCnMifob1vixwkWFz%2BM6Z%2BuKMg2pm34lcFt%2BE5ftR19%2BqHor2Lo7n3mrW17V2Mh6F2BRLqr4%2BNwtZZoDs428qiC4smG0Ty4PmmkTUnc%2BPPoExqztSpoXI67CPXQ%2BmIdTaNDbLTloehqUe8b8fEGbHUKvRpY3jEIiwFkf7z%2BTWycSe6ZEKr8TsqH6ISX6T0C%2F%2BlXJI1c3YhR3d3AUwsLxtYbKdUcWa%2BaC%2F0T9SEf8y5Xwy52SDclzWM7JpwRYbWrjxk74ipMh4lrZ92kRQB9CBxl1yLrrEYUH9m9ZErlb7BTqlmJtauiLFO2lUlRK48FY0c819Aljwup0bNjx23M%3D&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default">Find <b><b>Numbers</b></b> Englishes at Great Prices.</a></p>
+                        <p class="resDomain"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F0.r.msn.com%2F%3Fld%3D4v3B7x5IiZYHdiXoCWyCtLVvGNDALZzS9MHkAkURX3MJ5RZXIeilTvsMjY7pY6-rhIhPVpOQySrJZ4XmWfzAH1nenn7Sb6kH0lrZaNmazLV6a6bUdMItvNfQziURLUOZo8cj179MQqzWr7eFB8gssSVsplRECv1iDHTAWiDJqFnOpdzFYQMmksZquulc2fBdc3GCgmQpi4UdGnnoBJEpD121-aJSFHLuL0DqDIgr6j0WIXww5n4wxctkntzGzPkLEBznrIV-nLk1iU_Qu3bjG3fO6ydr8Q2kvK4DoE5sQ0EoW-0oKAj07ivNcr_UOVtzFYzn8jMAREG5fwUt1T-Kb3hqNNt4rfJTn56qfI2waaUKODxEJOBdn0Bfo-8-PZR-oeE3C7UhAmY3M9qpfad05-moGxByLlnC1jMD76LQhjazcn_XGOFHe2Iao&amp;xargs=Mfj3HdH%2FsbbrW7SqIMj9tQ%2Beg6vWoA4185gdLzztGOCimsy1Z0lauNEzC5V6xVqCwi7K8yQLQyNqTsDgFIkMkk1J6hVF%2BRrLfxy3L6ylih9s9NeLuePf3E3vkm1OCIFwkz%2Fo7PbQ3nyGyvXHxdtvvUDadLfxa2jjOuiDKwjau%2BqZwcjwDu2rxn2SXvFw0ASA2FHKUh4cgUmOFRN8DOEQ3BPAVnBswjDYflbat%2BTZC3TXLanj3QC0kFmStRTVWUBr8DXm6h%2F4xENArqQbss6Mz8qnPG6ka739U2uTRk19blY7yjURH522pLg2kn43knQoDNP8slTByTe9DZdPKsfO7rGDd7y7cRtKObkp0M0TjE7KDXXOdqedCZ5HgYW0Xd57yDAn3nzejnzcupVV%2F5bqneQHifUnit4LAlOcvfNTznKqyiOFYUc4PvuPjCnMifob1vixwkWFz%2BM6Z%2BuKMg2pm34lcFt%2BE5ftR19%2BqHor2Lo7n3mrW17V2Mh6F2BRLqr4%2BNwtZZoDs428qiC4smG0Ty4PmmkTUnc%2BPPoExqztSpoXI67CPXQ%2BmIdTaNDbLTloehqUe8b8fEGbHUKvRpY3jEIiwFkf7z%2BTWycSe6ZEKr8TsqH6ISX6T0C%2F%2BlXJI1c3YhR3d3AUwsLxtYbKdUcWa%2BaC%2F0T9SEf8y5Xwy52SDclzWM7JpwRYbWrjxk74ipMh4lrZ92kRQB9CBxl1yLrrEYUH9m9ZErlb7BTqlmJtauiLFO2lUlRK48FY0c819Aljwup0bNjx23M%3D&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default">www.Pronto.com</a></p>
+                    <input name="impid" value="52f9b4781c0a0f7fc3352b76654059b2" type="hidden">
+                    <input name="provider" value="yahoosearch" type="hidden">
+                    <input name="client" value="jemisond" type="hidden">
+                </div>
+            </li>
+            <li id="uniqueLi1">
+                <div class="resThumb">
+                        <img src="a_data/thumbnail_003.jpeg" height="50" width="50">
+                </div>
+                <div class="details">
+                    <p class="resTitle"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F89458.r.msn.com%2F%3Fld%3D4vwWsM2o1Pjicch-tHotKQ6jRmOKcTH9mwh9Lu06vTJ7zP8HW_QAtLlciWJGJYlADBea9dsGynvWplQ8albEG2nxyiSOImpgSDRAzj0T5PMRptBdvRo2erlFkJ65xbnuNK2q2UB1gCz-PXj2Ht7vMAasK11J92LR4-B4fWCz2ZxEusPIioYRdUyjbIf8VFUberLwP9GIYPO06GcfeReOz0nmEzbGWt6DvtWEue7Opl1v3NsoetiMwJm6n0gNwFiw6Lme7LG797gLQWVywGHxKP6axA-2sXyKBb1VWuPnBfd1t0wR-_PO050AnGQnc3Xjr_g8RCTm0pHvE0EJK41mxnA8hRH60QJmNzPd-FNsnIZSTTSVTBjOpc0HzIZAL5BZlLvS-JVN_I5fmR&amp;xargs=M58%2Fna74wIAjYquvQqjErQHTRdjnqc2tpCHJABOMBaY%2F0Zj%2Fe%2BF5vfn%2B0OdjC%2BDmx5jk35P%2FLnih16AhDTAIaql0scnWhoXkie3uTfuHFQP1S%2F3vttufiwBB0fiLq5n9sUinDDFCI8M6RAz6PqxriMJ1DQg7eCxXI9DKBU6RZFYL21UXKhlRFQpFu%2By82XsaPd0QO8U5DQpTPDG2FwVuEvi4NQz6UMhPxDsqw2wyqeJWWICC9crvJEoxAi6NHRmxdlBz4%2BnQk8aZNgqfjLNfKJXQB04bavYTsOLY8vjWvBpsnRs5jdVHermvJH3o8kxM840zwlbVU2FEgANl9AbyCLQnbzm6kc%2Bx1uMb3q6mJLAyy4tsLv9cUQasH%2BEG86dX5001wJTjLG%2B8klJCYnCDrob5vI%2FmxIgyFUtDnF8glr5G8gsuR%2FcWc16QVfKAQCf6r8LDoUSJxxVHE%2FD0Gs1yD%2BKCM94%2FJ5x1hysyrrS%2BUr8iURFK5sqlVxgSU9e%2BVuUerOKDLr%2FK7JelGmZX1tYBoR4b1KKFgDLgfT8w8YBRPd1kLc6bVMMBxQOa9bIgb94Q8cNg3c4RPAzrMZ6ufM%2BcgXcsVngVpHmeGvw6jCootUeZzXhGg85xXR41KEEq9f4UtagH4aTfAcYudzrHKTWi373uAEzoqaMKDJUKrS9gcAqIvsxJR0IJAGSHDkVsglFVt2OV5XVxdKdP%2F3gibynUDz%2B2VUJvx4iq5eCPsyl3%2BNMauCMUL92hh79u38vjTxbrfc6uQdNzQvg%3D&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default"><b><b>numbers</b></b> <b><b>in</b></b> <b><b>english</b></b></a></p>
+                    <p class="resDesc"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F89458.r.msn.com%2F%3Fld%3D4vwWsM2o1Pjicch-tHotKQ6jRmOKcTH9mwh9Lu06vTJ7zP8HW_QAtLlciWJGJYlADBea9dsGynvWplQ8albEG2nxyiSOImpgSDRAzj0T5PMRptBdvRo2erlFkJ65xbnuNK2q2UB1gCz-PXj2Ht7vMAasK11J92LR4-B4fWCz2ZxEusPIioYRdUyjbIf8VFUberLwP9GIYPO06GcfeReOz0nmEzbGWt6DvtWEue7Opl1v3NsoetiMwJm6n0gNwFiw6Lme7LG797gLQWVywGHxKP6axA-2sXyKBb1VWuPnBfd1t0wR-_PO050AnGQnc3Xjr_g8RCTm0pHvE0EJK41mxnA8hRH60QJmNzPd-FNsnIZSTTSVTBjOpc0HzIZAL5BZlLvS-JVN_I5fmR&amp;xargs=M58%2Fna74wIAjYquvQqjErQHTRdjnqc2tpCHJABOMBaY%2F0Zj%2Fe%2BF5vfn%2B0OdjC%2BDmx5jk35P%2FLnih16AhDTAIaql0scnWhoXkie3uTfuHFQP1S%2F3vttufiwBB0fiLq5n9sUinDDFCI8M6RAz6PqxriMJ1DQg7eCxXI9DKBU6RZFYL21UXKhlRFQpFu%2By82XsaPd0QO8U5DQpTPDG2FwVuEvi4NQz6UMhPxDsqw2wyqeJWWICC9crvJEoxAi6NHRmxdlBz4%2BnQk8aZNgqfjLNfKJXQB04bavYTsOLY8vjWvBpsnRs5jdVHermvJH3o8kxM840zwlbVU2FEgANl9AbyCLQnbzm6kc%2Bx1uMb3q6mJLAyy4tsLv9cUQasH%2BEG86dX5001wJTjLG%2B8klJCYnCDrob5vI%2FmxIgyFUtDnF8glr5G8gsuR%2FcWc16QVfKAQCf6r8LDoUSJxxVHE%2FD0Gs1yD%2BKCM94%2FJ5x1hysyrrS%2BUr8iURFK5sqlVxgSU9e%2BVuUerOKDLr%2FK7JelGmZX1tYBoR4b1KKFgDLgfT8w8YBRPd1kLc6bVMMBxQOa9bIgb94Q8cNg3c4RPAzrMZ6ufM%2BcgXcsVngVpHmeGvw6jCootUeZzXhGg85xXR41KEEq9f4UtagH4aTfAcYudzrHKTWi373uAEzoqaMKDJUKrS9gcAqIvsxJR0IJAGSHDkVsglFVt2OV5XVxdKdP%2F3gibynUDz%2B2VUJvx4iq5eCPsyl3%2BNMauCMUL92hh79u38vjTxbrfc6uQdNzQvg%3D&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default">Shop The Land Of Nod Unique Eric Carle Illustrated <b>Number</b> Flashcards</a></p>
+                        <p class="resDomain"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F89458.r.msn.com%2F%3Fld%3D4vwWsM2o1Pjicch-tHotKQ6jRmOKcTH9mwh9Lu06vTJ7zP8HW_QAtLlciWJGJYlADBea9dsGynvWplQ8albEG2nxyiSOImpgSDRAzj0T5PMRptBdvRo2erlFkJ65xbnuNK2q2UB1gCz-PXj2Ht7vMAasK11J92LR4-B4fWCz2ZxEusPIioYRdUyjbIf8VFUberLwP9GIYPO06GcfeReOz0nmEzbGWt6DvtWEue7Opl1v3NsoetiMwJm6n0gNwFiw6Lme7LG797gLQWVywGHxKP6axA-2sXyKBb1VWuPnBfd1t0wR-_PO050AnGQnc3Xjr_g8RCTm0pHvE0EJK41mxnA8hRH60QJmNzPd-FNsnIZSTTSVTBjOpc0HzIZAL5BZlLvS-JVN_I5fmR&amp;xargs=M58%2Fna74wIAjYquvQqjErQHTRdjnqc2tpCHJABOMBaY%2F0Zj%2Fe%2BF5vfn%2B0OdjC%2BDmx5jk35P%2FLnih16AhDTAIaql0scnWhoXkie3uTfuHFQP1S%2F3vttufiwBB0fiLq5n9sUinDDFCI8M6RAz6PqxriMJ1DQg7eCxXI9DKBU6RZFYL21UXKhlRFQpFu%2By82XsaPd0QO8U5DQpTPDG2FwVuEvi4NQz6UMhPxDsqw2wyqeJWWICC9crvJEoxAi6NHRmxdlBz4%2BnQk8aZNgqfjLNfKJXQB04bavYTsOLY8vjWvBpsnRs5jdVHermvJH3o8kxM840zwlbVU2FEgANl9AbyCLQnbzm6kc%2Bx1uMb3q6mJLAyy4tsLv9cUQasH%2BEG86dX5001wJTjLG%2B8klJCYnCDrob5vI%2FmxIgyFUtDnF8glr5G8gsuR%2FcWc16QVfKAQCf6r8LDoUSJxxVHE%2FD0Gs1yD%2BKCM94%2FJ5x1hysyrrS%2BUr8iURFK5sqlVxgSU9e%2BVuUerOKDLr%2FK7JelGmZX1tYBoR4b1KKFgDLgfT8w8YBRPd1kLc6bVMMBxQOa9bIgb94Q8cNg3c4RPAzrMZ6ufM%2BcgXcsVngVpHmeGvw6jCootUeZzXhGg85xXR41KEEq9f4UtagH4aTfAcYudzrHKTWi373uAEzoqaMKDJUKrS9gcAqIvsxJR0IJAGSHDkVsglFVt2OV5XVxdKdP%2F3gibynUDz%2B2VUJvx4iq5eCPsyl3%2BNMauCMUL92hh79u38vjTxbrfc6uQdNzQvg%3D&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default">www.LandofNod.com</a></p>
+                    <input name="impid" value="52f9b4781c0a0f7fc3352b76654059b2" type="hidden">
+                    <input name="provider" value="yahoosearch" type="hidden">
+                    <input name="client" value="jemisond" type="hidden">
+                </div>
+            </li>
+            <li id="uniqueLi2">
+                <div class="resThumb">
+                        <img src="a_data/thumbnail.jpeg" height="50" width="50">
+                </div>
+                <div class="details">
+                    <p class="resTitle"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F476505.r.msn.com%2F%3Fld%3D4vEvoN__kGXSZmje396tfE1wcA3oIrySSeUbS0g5fETDz2mWBioTNFiZ_Tl3zuX32nGrbYwa99YcmbGwOesyi4RUibi7SbBSIS4rl3J0CwDwUKjvqW8b0CFa3GUdh2-AXhmbtXdNFNeCZ4wqcD8bvyTXr7cMYGY1uTcAL-1snldEOJXR3PPbjwjd_DucPFqOL_DPPMEbYZ2Rb1CYCT-HTn06ooNmhppEJt2l-9j7E5wSWqIE8H1T693oP_TQj96XiB0fUihNSE1BGCyPXftbKXLGy1gFSh10vUiq-Dsxdc2Yr5mcu9B8Qqf7zaFn6BgkLoY9hp0Oqr8DUPVTbc_trGvD3a3JQA5OaAV2vJsXmhGcHn525Z6C6IcV7iWjiK7du3LvDnqF8ae1QU4HToW14jsTVUCUwFmMeHLpoJ_IVnezycDqwUECZjcz3d0CLQMLX5V7RJs7RUuZm8_7dtR9wBFmDVnkQyU1uLvA&amp;xargs=eTBGCnop4cWf2TSRRcniH0HbpqpW8EwEro45j3wb7dZuludPombGmk2iLOEXR3md%2FW7N5MO6K2qKJq%2BpsCJGQijz9wKF5EZC61oO6VO22a0s3e3NGw6IkEmZaPRNeYVnlvyFo%2FDqb6lkT%2B0NVyFEkUlQODmcamCW6wsNQ69ebiSzvx8ARpwOHzOwH52%2Bt0fYhifH3pV2KZ4%2FRWCa3UJLGpesOkjuvC7G9jEMHd1a3L6TgSrno2XIG6Wk79cGiRwAfBBDT%2FpfTvJ8UISdthGnCjmmAdD8AdASWcVMBEYJNJyU%2BJ%2BqmqnqkzKx6J%2F6Qc3J9NfIxgbZ9fFpmE6nvRdFZyhzjvvJnxOKy3xkI0ypB2BMqyCAcxpqan8jPazarqe2ntwolz6rjDhuE2sQ6g8qI0OlMTJSRS9KyIGUhA2LwV68gdA1UHKvYM0gEXEf4hWP3CewxexraUOikDpsP6A5Y1TALwicX4PwHqB7cUCbmqBFAwM2U8RcyOtCCrXZMl61sg4rXRicR%2B1Refx1omWIurT95Gy8Dr7zLYS0Fypjzj1TX1MvprJd7hUXHyV0oVrJw9pFcr6kSTq7JVm6mHnAJ9S0JxIyt%2Fvj8vHJUIKhuf3Py4hx%2BwHfdsx9JE%2BJjMDhIARRUjAl8U%2FibNUu%2BGDFVV1ajLJsHxxVQQoqA5SzP%2B03diws1NC2WcEpmWyGqYqEE54FQ8Nb3ekhbTUvvEcrccJvqMsKA85kj9lwfRNQNWAVL8lcMcE1AXcPox31XWBYglk3mlDLnaEzVYzEN1Ku8piDuq9AAbkp&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default">MEd for <b>English</b> Teachers</a></p>
+                    <p class="resDesc"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F476505.r.msn.com%2F%3Fld%3D4vEvoN__kGXSZmje396tfE1wcA3oIrySSeUbS0g5fETDz2mWBioTNFiZ_Tl3zuX32nGrbYwa99YcmbGwOesyi4RUibi7SbBSIS4rl3J0CwDwUKjvqW8b0CFa3GUdh2-AXhmbtXdNFNeCZ4wqcD8bvyTXr7cMYGY1uTcAL-1snldEOJXR3PPbjwjd_DucPFqOL_DPPMEbYZ2Rb1CYCT-HTn06ooNmhppEJt2l-9j7E5wSWqIE8H1T693oP_TQj96XiB0fUihNSE1BGCyPXftbKXLGy1gFSh10vUiq-Dsxdc2Yr5mcu9B8Qqf7zaFn6BgkLoY9hp0Oqr8DUPVTbc_trGvD3a3JQA5OaAV2vJsXmhGcHn525Z6C6IcV7iWjiK7du3LvDnqF8ae1QU4HToW14jsTVUCUwFmMeHLpoJ_IVnezycDqwUECZjcz3d0CLQMLX5V7RJs7RUuZm8_7dtR9wBFmDVnkQyU1uLvA&amp;xargs=eTBGCnop4cWf2TSRRcniH0HbpqpW8EwEro45j3wb7dZuludPombGmk2iLOEXR3md%2FW7N5MO6K2qKJq%2BpsCJGQijz9wKF5EZC61oO6VO22a0s3e3NGw6IkEmZaPRNeYVnlvyFo%2FDqb6lkT%2B0NVyFEkUlQODmcamCW6wsNQ69ebiSzvx8ARpwOHzOwH52%2Bt0fYhifH3pV2KZ4%2FRWCa3UJLGpesOkjuvC7G9jEMHd1a3L6TgSrno2XIG6Wk79cGiRwAfBBDT%2FpfTvJ8UISdthGnCjmmAdD8AdASWcVMBEYJNJyU%2BJ%2BqmqnqkzKx6J%2F6Qc3J9NfIxgbZ9fFpmE6nvRdFZyhzjvvJnxOKy3xkI0ypB2BMqyCAcxpqan8jPazarqe2ntwolz6rjDhuE2sQ6g8qI0OlMTJSRS9KyIGUhA2LwV68gdA1UHKvYM0gEXEf4hWP3CewxexraUOikDpsP6A5Y1TALwicX4PwHqB7cUCbmqBFAwM2U8RcyOtCCrXZMl61sg4rXRicR%2B1Refx1omWIurT95Gy8Dr7zLYS0Fypjzj1TX1MvprJd7hUXHyV0oVrJw9pFcr6kSTq7JVm6mHnAJ9S0JxIyt%2Fvj8vHJUIKhuf3Py4hx%2BwHfdsx9JE%2BJjMDhIARRUjAl8U%2FibNUu%2BGDFVV1ajLJsHxxVQQoqA5SzP%2B03diws1NC2WcEpmWyGqYqEE54FQ8Nb3ekhbTUvvEcrccJvqMsKA85kj9lwfRNQNWAVL8lcMcE1AXcPox31XWBYglk3mlDLnaEzVYzEN1Ku8piDuq9AAbkp&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default">Improve <b>English</b> Teaching Skills w/a Masters - <b>English</b> Language Teaching</a></p>
+                        <p class="resDomain"><a target="_blank" href="http://mm.chitika.net/track?target=http%3A%2F%2F476505.r.msn.com%2F%3Fld%3D4vEvoN__kGXSZmje396tfE1wcA3oIrySSeUbS0g5fETDz2mWBioTNFiZ_Tl3zuX32nGrbYwa99YcmbGwOesyi4RUibi7SbBSIS4rl3J0CwDwUKjvqW8b0CFa3GUdh2-AXhmbtXdNFNeCZ4wqcD8bvyTXr7cMYGY1uTcAL-1snldEOJXR3PPbjwjd_DucPFqOL_DPPMEbYZ2Rb1CYCT-HTn06ooNmhppEJt2l-9j7E5wSWqIE8H1T693oP_TQj96XiB0fUihNSE1BGCyPXftbKXLGy1gFSh10vUiq-Dsxdc2Yr5mcu9B8Qqf7zaFn6BgkLoY9hp0Oqr8DUPVTbc_trGvD3a3JQA5OaAV2vJsXmhGcHn525Z6C6IcV7iWjiK7du3LvDnqF8ae1QU4HToW14jsTVUCUwFmMeHLpoJ_IVnezycDqwUECZjcz3d0CLQMLX5V7RJs7RUuZm8_7dtR9wBFmDVnkQyU1uLvA&amp;xargs=eTBGCnop4cWf2TSRRcniH0HbpqpW8EwEro45j3wb7dZuludPombGmk2iLOEXR3md%2FW7N5MO6K2qKJq%2BpsCJGQijz9wKF5EZC61oO6VO22a0s3e3NGw6IkEmZaPRNeYVnlvyFo%2FDqb6lkT%2B0NVyFEkUlQODmcamCW6wsNQ69ebiSzvx8ARpwOHzOwH52%2Bt0fYhifH3pV2KZ4%2FRWCa3UJLGpesOkjuvC7G9jEMHd1a3L6TgSrno2XIG6Wk79cGiRwAfBBDT%2FpfTvJ8UISdthGnCjmmAdD8AdASWcVMBEYJNJyU%2BJ%2BqmqnqkzKx6J%2F6Qc3J9NfIxgbZ9fFpmE6nvRdFZyhzjvvJnxOKy3xkI0ypB2BMqyCAcxpqan8jPazarqe2ntwolz6rjDhuE2sQ6g8qI0OlMTJSRS9KyIGUhA2LwV68gdA1UHKvYM0gEXEf4hWP3CewxexraUOikDpsP6A5Y1TALwicX4PwHqB7cUCbmqBFAwM2U8RcyOtCCrXZMl61sg4rXRicR%2B1Refx1omWIurT95Gy8Dr7zLYS0Fypjzj1TX1MvprJd7hUXHyV0oVrJw9pFcr6kSTq7JVm6mHnAJ9S0JxIyt%2Fvj8vHJUIKhuf3Py4hx%2BwHfdsx9JE%2BJjMDhIARRUjAl8U%2FibNUu%2BGDFVV1ajLJsHxxVQQoqA5SzP%2B03diws1NC2WcEpmWyGqYqEE54FQ8Nb3ekhbTUvvEcrccJvqMsKA85kj9lwfRNQNWAVL8lcMcE1AXcPox31XWBYglk3mlDLnaEzVYzEN1Ku8piDuq9AAbkp&amp;winsize=1032x746&amp;loc=8%2C2574&amp;screenres=1024x768&amp;impsrc=amm-1.10.3&amp;canvas=1007x580&amp;template=v2-default">EducationDegreeSource.com/OnlineMEd</a></p>
+                    <input name="impid" value="52f9b4781c0a0f7fc3352b76654059b2" type="hidden">
+                    <input name="provider" value="yahoo" type="hidden">
+                    <input name="client" value="jemisond" type="hidden">
+                </div>
+            </li>
+        </ul>
+            <a id="more" href="http://chitika.com/publishers.php?refid=jemisond" target="_blank">Chitika |</a>
+        <a id="oop" href="http://chitika.com/privacy" target="_blank" title="Opt out of Chitika's targeted ads.">Opt out?</a>
+        <div id="searchBlock" style="visibility: hidden;">
+            <div>Chitika Premium Search</div>
+            <form action="http://mm.chitika.net/minimall" method="get" id="searchBox" name="searchBox">
+                    <input name="w" value="550" type="hidden">
+                    <input name="sid" value="LIK-Language 550x250" type="hidden">
+                    <input name="ref" value="http://www.google.com.eg/url?sa=t&amp;rct=j&amp;q=counting+numbers++in+english&amp;source=web&amp;cd=7&amp;ved=0CGAQFjAG&amp;url=http%3A%2F%2Fwww.lifeinkorea.com%2Flanguage%2Fkorean.cfm%3Fsubject%3Dnumbers&amp;ei=rspzT8CZFYbIsga8-5XaDQ&amp;usg=AFQjCNHieJ1nrfnKuK-ysa15SRETDJnqCg" type="hidden">
+                    <input name="client" value="jemisond" type="hidden">
+                    <input name="udq" value="1" type="hidden">
+                    <input name="h" value="250" type="hidden">
+                    <input name="url" value="http://www.lifeinkorea.com/language/korean.cfm?subject=numbers" type="hidden">
+                    <input name="cid" value="LIK-Language 550x250" type="hidden">
+                <p>What would you like to search for?</p>
+                <input id="mquery" name="mquery" type="text">
+                <input id="searchButton" name="searchButton" value="Search" type="submit">
+            </form>
+        </div>
+        <img id="searchLink" src="a_data/yahoosearch.gif" alt="Search" onclick="toggleSearch(); return false;" height="16" width="16">
+        <a id="adchoices" href="http://chitika.com/privacy" target="_blank"><img src="a_data/adchoices.png"></a>
+    
+
+
+</body></html>
+<!--overture-->

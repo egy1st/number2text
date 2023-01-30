@@ -1,0 +1,1300 @@
+/* 
+------------------------------
+------------------------------
+Screen Style Sheet for Spanish Language Resources
+------------------------------
+------------------------------
+*/
+
+/* 
+Some colors used in this style sheet:
+
+	#9F6519	Terra Cotta		Body background color
+							Header <h1> color (homepage)
+							text promo <strong> color (for headlines in text promos)
+	#d2e67e Citron			Selected top utility nav color
+							Getting started (homepage) background color	
+	#cc0000 Red				Hover color for primary nav	
+	#440505 Deepest Red		Secondary nav background color
+	#cfb28c Tan				Divider color for top utility nav
+	#2f2f2f Charcoal		Paragraph color in main banner text area  (homepage)
+	#e4e2d5 Off-White		Background color for main content areas
+	#830909 Dark Red		Header color - all pages but home page
+	#d67b07 Orange			Subhead color - all pages but home page		
+*/
+
+/* Reset Styles for Cross Browser Consistency */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,p,blockquote { 
+	margin:0;
+	padding:0;
+	outline:none;
+}
+img { 
+	border:none;
+}
+ol,ul {
+	list-style:none;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight:normal;
+}
+a {
+	outline:none;
+}
+.print {
+	display:none; /* This is a class for print only items */
+}
+.screen {
+	display:block; /* This is a class for screen only items */
+}
+.readers {
+	visibility: hidden;
+	height:0;
+	overflow:hidden;
+}
+#flash {
+	margin:1em 0;
+}
+
+/* ------------------------------------------------  
+Foundation Layout Blocks, 
+Backgrounds, and Default Type Style  
+------------------------------------------------ */
+
+body {
+	text-align:center;
+	background:#9f6519 url(/images/bg_body.jpg) center top repeat-x;
+	font-family:ArialMT, Arial, sans-serif;
+	font-size:62.5%;
+	padding-bottom:100px;
+	color:#2f2f2f;
+}
+a {
+	color:#2f2f2f;
+}
+a:hover {
+	color:#830909;
+}
+#outerwrapper {
+	width:760px;
+	overflow:hidden;
+	margin:auto;
+	text-align:left;
+}
+#masthead {
+	width:722px;
+	/*position:relative;*/
+	min-height:98px;
+	padding:22px 16px 0 22px;
+	background:url(/images/bg_masthead.gif) center top no-repeat;	
+}
+#innerwrapper {
+	width:760px;
+	overflow:hidden;
+	background:#E4E2D5 url(/images/bg_innerwrapper.gif) center top no-repeat;
+}
+ul#primarynav {
+	width:728px;
+	padding:0 16px 16px 16px;
+	overflow:hidden;
+}
+#homebanner {
+	width:728px;
+	height:16em;
+	padding:0 16px 0 16px;
+	background:url(/images/bg_homebanner.jpg) 16px top no-repeat;
+	margin-bottom:16px;
+}
+#leftcolumn {
+	width:168px;
+	float:left;
+	color:#fff;
+	padding:16px 0 0 0;
+	background:#440505;
+}
+#contentwell {
+	background:#e4e2d5;
+	border-top:16px solid #e4e2d5;
+	padding:0 16px 0 16px;
+	width:728px;
+	overflow:hidden;
+	clear:both;
+}
+#rightcolumn {
+	width:168px;
+	float:right;
+	overflow:hidden;
+}
+#template_threecols #contentwell {
+	background:#e4e2d5 url(/images/bg_threecols.gif) 16px 16px repeat-y;
+}
+#template_twocols #contentwell {
+	background:#e4e2d5 url(/images/bg_twocols.gif) 16px 16px repeat-y;
+}
+#footer {
+	width:728px;
+	background:#2f2f2f;
+	padding:16px;
+	overflow:hidden;
+	color:#fff;
+}
+#shortcuts {
+	float:left;
+	width:535px;
+	height:auto;
+}
+#comments_n_copyright {
+	float:right;
+	width:152px;
+	padding:0 0 0 16px;
+	border-left:solid 1px #b7b7b7;
+}
+
+/* ------------------------------------------------  
+Masthead Elements  
+------------------------------------------------ */
+
+#masthead img {
+	float:left;
+	visibility: hidden;	
+}
+#masthead a.logo {
+	float:left;	
+	background:url(/images/logo.gif);
+}
+
+/* ------------------------------------------------  
+Top, Bottom, and Shortcut Utility Nav Elements 
+------------------------------------------------ */
+
+ul.utilitynav {
+	line-height:1.1em;
+	font-size:1.1em;
+}
+ul.utilitynav.btm {
+	padding-top:12px;
+}
+ul.utilitynav.left {
+	float:left;
+	clear:left;
+}
+ul.utilitynav.right {
+	float:right;
+	clear:right;
+}
+ul.utilitynav.top.right {
+	text-align:right;
+	padding:36px 0 0 0;
+	clear:none;
+	width:470px;
+}
+ul.utilitynav.shortcuts {
+	padding-bottom:.3em;
+	width:535px;
+}
+div.utilitynav {
+	clear:both;
+	min-height:2em;
+	background:#e4e2d5;
+	padding-bottom:16px;
+	overflow:hidden;
+}
+div.utilitynav ul.utilitynav.left {
+	width:40%;
+}
+div.utilitynav ul.utilitynav.right {
+	padding-top:12px;
+	width:55%;
+	text-align:right;
+}
+ul.utilitynav li {
+	display:inline;
+	padding:0 10px;
+}
+ul.utilitynav.top li {
+	border-right:#cfb28c solid 1px;
+}
+ul.utilitynav.btm li {
+	border-right:#b7b7b7 solid 1px;
+}
+ul.utilitynav.shortcuts li {
+	border-right:#b7b7b7 solid 1px;
+	padding:0 4px;
+}
+ul.utilitynav li.last_child {
+	padding-right:0;
+	border-right:none;
+}
+ul.utilitynav li.first_child {
+	padding-left:0;
+}
+ul.utilitynav.top li a,
+ul.utilitynav.top li a:link,
+ul.utilitynav.top li a:visited,
+ul.utilitynav.top li a:active {
+	color:#fff;
+}
+ul.utilitynav.top li a:hover {
+	color:#d2e67e;
+}
+ul.utilitynav.top li.selected {
+	color:#d2e67e;
+}
+ul.utilitynav.btm li a,
+ul.utilitynav.btm li a:link,
+ul.utilitynav.btm li a:visited,
+ul.utilitynav.btm li a:active {
+	color:#666;
+}
+ul.utilitynav.btm li a:hover {
+	color:#2f2f2f;
+}
+ul.utilitynav.btm li.selected {
+	color:#2f2f2f;
+}
+ul.utilitynav.shortcuts li a,
+ul.utilitynav.shortcuts li a:link,
+ul.utilitynav.shortcuts li a:visited,
+ul.utilitynav.shortcuts li a:active {
+	color:#FFF;
+}
+ul.utilitynav.shortcuts li a:hover {
+	color:#d2e67e;
+}
+ul.utilitynav.shortcuts li.selected {
+	color:#d2e67e;
+}
+/* The link list that includes Back to Top, 
+Print Page and Email Page appears inside 
+#maincontent and needs some css rules that 
+override the #maincontent list styles */
+#maincontent ul.utilitynav { 
+	list-style-type: none;
+	text-align:right;
+	float:right;
+	clear:none;
+	width:330px;
+	margin:0;
+	padding:2em 0;
+}
+#maincontent ul.utilitynav li {
+	list-style-type: none;
+	display:inline;
+	white-space: nowrap;
+	padding:0 10px;
+	border-color:#830909;
+	font-size:1em;
+}
+#maincontent ul.utilitynav li.last_child {
+	padding-right:0;
+}
+#maincontent ul.utilitynav li a,
+#maincontent ul.utilitynav li a:link,
+#maincontent ul.utilitynav li a:visited,
+#maincontent ul.utilitynav li a:active {
+	color:#830909;
+}
+#maincontent ul.utilitynav.btm li a:hover {
+	color:#2f2f2f;
+}
+
+/* ------------------------------------------------  
+Primary Nav Elements
+------------------------------------------------ */
+
+ul#primarynav li {
+	float:left;
+	margin-right:1px;
+	height:2em;
+	white-space: nowrap;
+	font-size:1.3em;
+	line-height:1.1em;
+}
+ul#primarynav li.teachers {
+	float:right;
+	margin-left:1px;
+	margin-right:0;
+}
+ul#primarynav li a,
+ul#primarynav li a:link,
+ul#primarynav li a:visited,
+ul#primarynav li a:active {
+	float:left;
+	display:block;
+	text-decoration:none;
+	color:#fff;
+	background:#252324 url(/images/bg_prinav_off.jpg) left top repeat-x;
+	padding:6px 15px;
+}
+ul#primarynav li.teachers a,
+ul#primarynav li.teachers a:link,
+ul#primarynav li.teachers a:visited,
+ul#primarynav li.teachers a:active {
+	color:#fff;
+	background:#4e4e4e url(/images/bg_prinav_teachers.jpg) left top repeat-x;
+}
+ul#primarynav li a:hover {
+	display:block;
+	text-decoration:none;
+	color:#cc0000;
+	background:#4e4e4e url(/images/bg_prinav_over.jpg) left top repeat-x;
+}
+ul#primarynav li.teachers a:hover {
+	display:block;
+	text-decoration:none;
+	color:#cc0000;
+	background:#4e4e4e url(/images/bg_prinav_over.jpg) left top repeat-x;
+}
+ul#primarynav li a.selected,
+ul#primarynav li a.selected:link,
+ul#primarynav li a.selected:visited,
+ul#primarynav li a.selected:hover,
+ul#primarynav li a.selected:active {
+	color:#fff;
+	background:#830909 url(/images/bg_prinav_selected.jpg) left top repeat-x;
+}
+
+/* ------------------------------------------------  
+Home Page - Home Banner Elements  
+------------------------------------------------ */
+
+#homebanner #bannertext {
+	float:left;
+	width:290px;
+	min-height:118px;
+	padding:18px 18px 24px 248px;
+}
+#homebanner #bannertext h1 {
+	font-size:3.6em;
+	color:#9f6519;
+	margin-bottom:.25em;
+}
+#homebanner #bannertext p {
+	font-size:1.6em;
+	color:#2f2f2f;
+	margin-top:.5em;
+	line-height:1.2em;
+}
+#homebanner #gettingstarted {
+	width:136px;
+	min-height:128px;
+	background:#d2e67e;
+	float:right;
+	padding:16px;
+}
+#homebanner #gettingstarted h2 {
+	font-weight: bold;
+	font-size:1.4em;
+	color:#9f6519;
+	line-height:1.4em;	
+}
+#homebanner #gettingstarted p {
+	font-size:1.2em;
+	color:#000;
+	line-height:1.4em;	
+}
+#homebanner #gettingstarted a {
+	color:#000;
+}
+#homebanner #gettingstarted a:hover {
+	color:#830909;
+}
+
+/* ------------------------------------------------  
+Home Page - Spanish Levels
+------------------------------------------------ */
+
+#spanishlevels {
+	width:168px;
+	float:left;
+}
+#spanishlevels div.level {
+	width:136px;
+	color:#fff;
+	padding:14px 16px 16px 16px;
+	margin-bottom:4px;
+	overflow:hidden;
+}
+#spanishlevels div.level.last_child {
+	margin-bottom:0;
+}
+#spanishlevels div.level a {
+	color:#fff;
+}
+#spanishlevels div.level a:hover {
+	color:#d2e67e;
+}
+#spanishlevels div.level h2 {
+	font-size:1.6em;
+	font-weight:bold;
+	line-height:1.1em;
+	margin-bottom:.1em;
+}
+#spanishlevels div.level p {
+	font-size:1.1em;
+	line-height:1.35em;
+}
+#spanishlevels div#beginner {
+	background:#d67b07 url(/images/bg_level_begin.gif) no-repeat;
+}
+#spanishlevels div#intermediate {
+	background:#bc480a url(/images/bg_level_inter.gif) no-repeat;
+}
+#spanishlevels div#advanced {
+	background:#830909 url(/images/bg_level_adv.gif) no-repeat;
+}
+
+/* ------------------------------------------------  
+All pages except home - Left Column Elements
+------------------------------------------------ */
+
+#leftcolumn h2 {
+	color:#fff;
+	padding:0 16px;
+	font-size:1.6em;
+	margin-bottom:1em;
+}
+#leftcolumn #secondarynav {
+	padding:0 16px 16px 0;
+}
+#leftcolumn #secondarynav a {
+	color:#fff;
+}
+#leftcolumn #secondarynav a:hover {
+	color:#d2e67e;
+}
+#leftcolumn #secondarynav li {
+	padding-top:2px;
+	padding-left:16px;
+	padding-bottom:.5em;
+	font-size:1.2em;
+}
+#leftcolumn #secondarynav li.selected {
+	background:url(/images/bg_secondary_here.gif) left top no-repeat;
+	font-weight:bold;
+}
+#leftcolumn #secondarynav li.selected li {
+	font-weight:normal;
+}
+#leftcolumn #secondarynav li li.selected {
+	font-weight:bold;
+	background-image:none;
+}
+#leftcolumn #secondarynav ol {
+	margin:.5em 0 1em 28px;
+	display:none;
+	list-style-type: decimal;
+}
+#leftcolumn #secondarynav ol li {
+	font-size:.9em;
+	padding-left:0;
+	padding-bottom:.25em;
+	background-image:none;
+	list-style-type: decimal;
+}
+#leftcolumn #secondarynav ol ol {
+	list-style-type: lower-alpha;
+	margin:.5em 0 1em 18px;
+}
+#leftcolumn #secondarynav ol ol li {
+	list-style-type: lower-alpha;
+	font-size:1em;
+	padding-left:0;
+	padding-bottom:.25em;
+	background-image:none;
+}
+#leftcolumn #secondarynav ul {
+	list-style-type: disc;
+	margin:.5em 0 1em 24px;
+}
+#leftcolumn #secondarynav ul li {
+	list-style-type: disc;
+	font-size:.9em;
+	padding-left:0;
+	padding-bottom:.25em;
+	background-image:none;
+}
+#leftcolumn #secondarynav ul ul {
+	list-style-type: circle;
+	margin:.5em 0 1em 18px;
+	display:none;
+}
+#leftcolumn #secondarynav ul ul li {
+	list-style-type: circle;
+	font-size:1em;
+	padding-left:0;
+	padding-bottom:.25em;
+	background-image:none;
+}
+#leftcolumn #secondarynav li.hideshow {
+	font-size:.9em;
+	padding-bottom:1em;
+}
+
+/* ------------------------------------------------  
+Main Content Elements
+------------------------------------------------ */
+
+#maincontent {
+	width:350px;
+	float:left;
+	margin-left:20px;
+}
+#template_twocols #maincontent {
+	width:540px;
+}
+#template_onecol #maincontent {
+	float:none;
+	margin-left:0;
+	width:728px;
+	overflow:hidden;
+}
+#maincontent h1 {
+	font-size:24px;
+	color:#830909;
+	font-weight: bold;
+	margin:0 0 .5em;
+	line-height:1em;
+}
+#maincontent h2 {
+	font-size:1.6em;
+	color:#d67b07;
+	font-weight: bold;
+	margin:1em 0 .25em;
+}
+#maincontent h3 {
+	font-weight:bold;
+	font-size:1.2em;
+	line-height:1.4em;
+}
+#home #maincontent h2 {
+	color:#830909;
+}
+#maincontent p {
+	margin:0 0 .5em 0;
+	font-size:1.2em;
+	line-height:1.4em;
+}
+#home #maincontent p {
+	margin:.5em 0;
+}
+#maincontent ul {
+	margin:.75em 0 .75em 3em;
+	list-style-type: disc;
+}
+#maincontent ol {
+	margin:.75em 0 .75em 3em;
+	list-style-type: decimal;
+}
+#maincontent li {
+	padding:0 0 .35em 0;
+	font-size:1.2em;
+	line-height:1.1em;
+}
+#maincontent ul li li {
+	font-size:1em;
+	list-style: circle;
+}
+#maincontent ol li li {
+	font-size:1em;
+	list-style: lower-alpha;
+}
+#maincontent dl {
+	margin:.75em 0 .75em 0;
+}
+#maincontent dt {
+	padding:0 0 .35em 0;
+	font-weight:bold;
+	line-height:1.1em;
+	font-size:1.2em;
+}
+#maincontent dd {
+	padding:0 0 .75em 2em;
+	line-height:1.1em;
+	font-size:1.2em;
+}
+#maincontent a,
+#maincontent a:link,
+#maincontent a:visited,
+#maincontent a:active {
+	color:#2f2f2f;
+}
+#maincontent a:hover {
+	color:#830909;
+}
+#maincontent blockquote {
+	background:#d8d5c3;
+	padding:15px 15px 10px 15px;
+	margin:1em 0;
+	font-style:italic;
+}
+#maincontent p.breadcrumbs {
+	color:#666;
+	font-size:1.1em;
+	font-weight:bold;
+	margin-bottom:2em;
+}
+#maincontent p.breadcrumbs a,
+#maincontent p.breadcrumbs a:link,
+#maincontent p.breadcrumbs a:visited,
+#maincontent p.breadcrumbs a:active {
+	color:#666;
+	font-weight:normal;
+}
+#maincontent p.breadcrumbs a:hover {
+	color:#2f2f2f;
+	font-weight:normal;
+}
+.columnwrapper {
+	overflow:hidden;
+	background:#d8d5c3;
+	width:100%;
+	margin-top:1em;
+}
+.columnwrapper .column {
+	width:50%;
+	float:left;
+}
+#maincontent .columnwrapper h3 {
+	padding:.5em 10px;
+	color:#fff;
+	background:#830909;	
+	font-size:1.4em;
+	font-weight:bold;
+	margin:0 0 10px 0;
+}
+.columnwrapper p,
+.columnwrapper ol,
+.columnwrapper ul,
+.columnwrapper dl {
+	padding:0 10px;
+}
+.columnwrapper object {
+	float:right;
+	margin: 0 10px 10px 10px;
+	border:#fff solid 5px;
+}
+h1 span {
+	display:block;
+	font-size:16px;
+}
+h1 span.separator {
+	display:none;
+}
+
+/* ------------------------------------------------  
+Promo Box Elements
+------------------------------------------------ */
+
+#leftcolumn ul#promoboxes {
+/* Exceptions for left column promos */
+	border-top:4px #E4E2D5 solid;
+}
+ul#promoboxes li {
+	display:block;
+	background-color:#2f2f2f;
+	border-bottom:4px #E4E2D5 solid;
+	color:#fff;
+	font-size:1.2em;
+}
+ul#promoboxes li a,
+ul#promoboxes li a:link,
+ul#promoboxes li a:visited,
+ul#promoboxes li a:active {
+	color:#fff;
+}
+ul#promoboxes li a:hover {
+	color:#d2e67e;
+}
+
+/* Note: When updating the min-height of these boxes, be certain to update the height in the IE6 stylesheet, too. */
+
+ul#promoboxes li#membership {
+	min-height:26px;
+	background:#2f2f2f url(/images/bg_promo_member.jpg) left bottom no-repeat;
+	padding:16px 16px 16px 68px;
+	width:84px;
+}
+ul#promoboxes li#podcast {
+	min-height:18px;
+	background:#2f2f2f url(/images/bg_promo_podcast.jpg) left bottom no-repeat;
+	padding:16px 77px 16px 16px;
+	width:75px;
+}
+ul#promoboxes li#dailyword {
+	min-height:38px;
+	background:#2f2f2f url(/images/bg_promo_word.jpg) left bottom no-repeat;
+	padding:16px 16px 16px 68px;
+	width:84px;
+}
+ul#promoboxes li.textpromo {
+	padding:16px;
+}
+ul#promoboxes li.textpromo strong {
+	font-weight:bold;
+	font-size:1.17em;
+	color:#9F6519;
+	display:block;
+}
+
+/* ------------------------------------------------  
+Special Offer Elements
+------------------------------------------------ */
+
+#specialoffer {
+	padding:16px;
+	background:#fff;
+	border-bottom:4px #E4E2D5 solid;
+}
+#specialoffer p {
+	font-size:1.1em;
+}
+#specialoffer h3 span.special {
+	text-transform:uppercase;
+	font-size:.85em;
+	display:block;
+	padding-bottom:104px;
+	background:url(/images/caminodelexito.gif) left bottom no-repeat;
+}
+#specialoffer h3 {
+	color:#830909;
+	font-weight:bold;
+	font-size:1.2em;
+}
+
+/* ------------------------------------------------  
+Footer Elements
+------------------------------------------------ */
+
+/* Shortcuts menu is part of the utility nav group, see above */
+
+#footer h3 {
+	font-size:1.0em;
+	font-weight:bold;
+	text-transform:uppercase;
+	color:#b7b7b7;
+	margin-bottom:.4em;
+}
+#footer a {
+	color:#fff;
+}
+#footer a:hover {
+	color:#d2e67e;
+}
+#footer p.copyright {
+	color:#b7b7b7;
+	font-size:1.0em;
+	margin-top:.5em;
+}
+
+/* ------------------------------------------------  
+AdSense Block
+------------------------------------------------ */
+
+#template_twocols #adsense,
+#template_onecol #adsense {
+	clear:both;
+	width:100%;
+	background:#d8d5c3;
+	height:90px;
+	border-top:4px solid #e4e2d5;
+	padding:4px;
+}
+
+/* ------------------------------------------------  
+Form Styles
+------------------------------------------------ */
+
+form {
+	font-size:1.2em;
+	margin:1em 0;
+}
+form.compact {
+	margin:1em 0 0;
+	padding:0;
+}
+fieldset {
+	border:none;
+	background:#d8d5c3;
+	padding:16px 20px 16px 16px;
+	position:relative;
+}
+#maincontent fieldset h2 {
+	margin-top:0;
+	line-height:1.1em;
+}
+#template_threecols fieldset {
+	width:310px;
+}
+input.button {
+	font-size:.95em;
+	font-family:ArialMT, Arial, sans-serif;
+	background:#e4e2d5;
+	font-weight:bold;
+	padding:.25em .75em;
+}
+input.button.submit {
+	background:#830909 url(/images/bg_prinav_selected.jpg) left top repeat-x;
+	color:#fff;
+}
+legend {
+	font-size:1.2em;
+	font-weight: bold;
+	position:relative;
+	margin:0;
+	padding:0;
+}
+
+/* ------------------------------------------------  
+Table Styles
+------------------------------------------------ */
+
+table {
+	border-collapse: collapse;	
+	border-bottom:1px solid #AAA;
+	border-top:1px solid #AAA;
+	margin:0 0 1em 0;
+}
+table caption {
+	color:#fff;
+	background:#830909;	
+	font-size:1.6em;
+	font-weight:bold;
+	padding:.5em 10px;
+	text-align:left;
+	margin:0;
+}
+#maincontent table caption a,
+#maincontent table caption a:link,
+#maincontent table caption a:visited,
+#maincontent table caption a:active {
+	color:#fff;
+	text-decoration:none;
+}
+#maincontent table caption a:hover {
+	text-decoration:underline;
+	color:#fff;
+}
+th {
+	padding:10px;
+	font-size:1.1em;
+}
+thead th {
+	color:#fff;
+	background:#4e4e4e;
+	text-align:left;	
+	font-size:1.2em;
+}
+tbody th {
+	border-bottom:1px solid #AAA;
+}
+td {
+	padding:10px;
+	white-space:nowrap;
+	line-height:1.2em;
+	font-size:1.1em;
+	border-bottom:1px solid #AAA;
+}
+table.wrap td {
+	white-space: normal;
+}
+tr.odd td,
+tbody tr.odd th {
+	background:#d8d5c3;
+}
+
+/* ------------------------------------------------  
+Generic Wrapper
+------------------------------------------------ */
+
+body#generic {
+	background:#9f6519 url(/images/bg_body.jpg) left top repeat-x;
+	padding:0 12px 48px 12px;
+}
+#generic #outerwrapper {
+	width:100%;
+	min-width: 760px;
+	max-width: 1250px;
+}
+#generic #innerwrapper {
+	width:100%;
+	background:none;
+}
+#generic #masthead {
+	width:auto;
+	background:url(/images/bg_masthead_generic.gif) left top no-repeat;
+}
+#generic #contentwell {
+	margin:auto;
+	width:auto;
+	padding:24px;
+}
+#generic #maincontent {
+	margin:auto;
+	width:auto;
+	float:none;
+	text-align:center;
+}
+#generic #maincontent table {
+	margin-left:auto;
+	margin-right:auto;
+	width:700px;
+}
+#generic #maincontent table caption {
+	margin-left:auto;
+	margin-right:auto;
+}
+#generic #maincontent table td {
+	white-space: normal;
+	text-align:left;
+}
+#generic #footer {
+	width:auto;
+	overflow:hidden;
+	clear:both;
+}
+#generic #maincontent .utilitynav {
+	float:none;
+	width:auto;
+	margin:auto;
+	text-align:center;
+}
+#generic #maincontent .utilitynav li.selected {
+	font-weight:bold;
+}
+#generic form {
+	font-size:1em;
+}
+#generic form .button {
+	font-size:1.1em;
+}
+#generic #maincontent form table tbody th {
+	text-align: left;
+}
+#generic #maincontent table th.total {
+	text-align: right;
+	white-space: nowrap;
+}
+#generic #maincontent table td.total {
+	text-align: right;
+	white-space: nowrap;
+}
+#generic #maincontent p.badges {
+	margin-top:4em;
+	text-align:center;
+}
+#generic #maincontent p.badges img.guarantee {
+	padding:15px 45px;
+}
+
+/* ------------------------------------------------  
+Product Page - Hard Sell Styles Added 5/9/08
+------------------------------------------------ */
+
+#maincontent p.productintro {
+	font-size:1.6em;
+	color:#830909;
+}
+#maincontent #benefitbanner {
+	width:386px;
+	min-height:227px;
+	background:#e4e2D5 url(/images/bg_benefit.jpg) no-repeat left top;
+	padding-top:37px;
+	padding-left:154px;
+	position:relative;
+}
+#maincontent #benefitbanner h2 {
+	width:194px;
+	font-size:1.3em;
+	color:#830909;
+	margin:0;
+	font-weight:normal;
+}
+#maincontent #benefitbanner form {
+	position:absolute;
+	bottom:32px;
+	right:0;
+	width:192px;
+	padding:0 12px 15px 12px;
+	margin:0;
+	overflow:hidden;
+}
+#maincontent #benefitbanner form p {
+	position:absolute;
+	bottom:13px;
+	left:0;
+	text-align:right;
+	width:120px;
+	color:#fff;
+	font-size:1em;
+	padding-right:15px;
+	line-height:1.1em;
+	margin:0;
+}
+#maincontent #benefitbanner form input {
+	float:right;
+	cursor: pointer;
+}
+#maincontent #pricebanner {
+	width:242px;
+	background:#e4e2D5 url(/images/bg_price.jpg) no-repeat left top;
+	padding-top:37px;
+	padding-left:298px;
+	min-height:152px;
+}
+#maincontent #pricebanner h2 {
+	width:205px;
+	font-size:1.3em;
+	color:#830909;
+	margin:0;
+}
+#maincontent #pricebanner h2 strong {
+	font-size:1.3em;
+	display:block;
+	margin:0;
+}
+#maincontent .pullquote {
+	color:#fff;
+	float:right;
+	padding:12px;
+	width:172px;
+	background:#830909;
+	font-size:.95em;
+	margin-bottom:1.5em;
+	margin-left:1.5em;
+}
+#maincontent .pullquote ul {
+	margin:0.75em 0pt 0.75em 1.5em;
+}
+#maincontent .pullquote ul ul {
+	margin:0.75em 0pt 0.75em 0;
+}
+#maincontent .pullquote ul ul li {
+	list-style: none;
+	padding-left:1.5em;
+	background:url(/images/whitedash.gif) no-repeat .25em .5em;
+}
+.productbar {
+	background:url(/images/bg_productbar.gif) repeat-x left top;
+	min-height:65px;
+	clear:both;
+	overflow:hidden;
+}
+.productbar.light {
+	background-image:url(/images/bg_productbar_lt.gif);
+	min-height:45px;
+}
+#maincontent .productbar form {
+	float:right;
+	bottom:0;
+	right:0;
+	width:205px;
+	padding:30px 12px 0 12px;
+	margin:0;
+}
+#maincontent .productbar.light form {
+	padding:10px 12px 0 12px;
+}
+#maincontent .productbar form p {
+	float:left;
+	text-align:right;
+	width:120px;
+	color:#fff;
+	font-size:1em;
+	padding-right:.5em;
+	line-height:1.1em;
+	margin:0;
+}
+#maincontent .productbar.light form p {
+	color:#830909;
+	font-weight:bold;
+}
+#maincontent .productbar form input {
+	float:right;
+	cursor: pointer;
+}
+#maincontent .pricepromo {
+	float:right;
+	padding:270px 12px 12px 12px;
+	width:265px;
+	height:56px;
+	margin-bottom:1.5em;
+	margin-left:1.5em;
+	background:url(/images/bg_pricepromo.jpg) left top no-repeat;
+	text-align:center;
+}
+#maincontent .pricepromo form {
+	width:210px;
+	margin:0 auto;
+	overflow:hidden;
+	min-height:56px;
+}
+#maincontent .pricepromo form p {
+	text-align:right;
+	width:118px;
+	font-size:1em;
+	padding-right:10px;
+	padding-top:10px;
+	line-height:1.1em;
+	margin:0;
+	float:left;
+	color:#830909;
+	font-weight:bold;
+	margin-top:-0.2em;
+}
+#maincontent .pricepromo form input {
+	float:left;
+	cursor: pointer;
+	margin-top:1em;
+}
+
+/* ------------------------------------------------  
+Miscellaneous
+------------------------------------------------ */
+
+p.error {
+	color:#830909;
+	display:block;
+	margin-bottom:1em;
+}
+.error {
+	color:#830909;
+}
+p.noscript {
+	background:#d2e67e;
+	font-size:1.4em;
+	padding:.5em;
+}
+.clicker {
+	cursor:pointer;
+}
+.clear {
+	clear:both;
+}
+.fullwidth {
+	width:100%;
+}
+
+/* ------------------------------------------------
+Added 5/1/2008
+------------------------------------------------ */
+
+.boxed {	
+	font-size:1.2em;
+	border:none;
+	background:#d8d5c3;
+	padding: 2px 20px 16px 16px;
+}
+
+/* ------------------------------------------------
+Added 5/9/2008
+------------------------------------------------ */
+
+.textwrapleft {
+	float:right;
+	margin-left:1.5em;
+	margin-bottom:1.5em;
+}
+.textwrapright {
+	float:left;
+	margin-right:1.5em;
+	margin-bottom:1.5em;
+}
+#maincontent strong em {
+	font-style: normal;
+	color:#830909;
+}
+
+/* ------------------------------------------------
+For our popup menu created by STW
+------------------------------------------------ */
+.popup {
+	position: absolute;
+	visibility: hidden;
+	background:#830909 url(/images/bg_prinav_selected.jpg) left top repeat-x;
+	width: 130px;
+	z-index: 10;
+	color:#fff;
+	line-height:1.4em;
+	border-top:1px solid #4e4e4e;
+	border-right:1px solid #4e4e4e;
+	padding:4px 0;
+	clear:both;
+}
+.popup strong {
+	font-size:1.1em;
+	display:block;
+	padding: 3px 4px;
+}
+.popup a {
+	color:#fff;
+	display:block;
+	padding: 3px 4px;
+}
+.popup a:hover {
+	background:#ab1b1a;
+	color:#fff;
+}
+
+/* ------------------------------------------------
+end of popup
+------------------------------------------------ */
+
+#Contact_Us {
+	right: 535px;
+}
+#Help {
+	right: 405px;
+}
+#Membership_Options {
+	right: 275px;
+}
+#My_Account {
+	right: 145px;
+}
+#Log_On_Log_Off {
+	right: 15px;
+}
+
+/* ------------------------------------------------
+For our popup information box created by STW
+------------------------------------------------ */
+.popup_box {
+	position: absolute;
+	visibility: hidden;
+	background-color:#2f2f2f;
+	width: 200px;
+	z-index: 10;
+	color:#fff;
+	font-size:1.2em;
+	line-height:1.4em;
+	border-top:1px solid #e4e2d5;
+	border-right:1px solid #e4e2d5;
+	padding:10px;
+	clear:both;
+
+}
+.popup_box a,
+.popup_box a:link,
+.popup_box a:visited,
+.popup_box li a:active {
+	color:#fff;
+}
+.popup_box a:hover {
+	color:#d2e67e;
+}
+
+/* ------------------------------------------------
+end of information box
+------------------------------------------------ */
+
+.navbutton {
+	color:#fff;
+	background:#830909 url(/images/bg_prinav_selected.jpg) left top repeat-x;
+	font-family:ArialMT, Arial, sans-serif;
+	font-weight:bold;
+        font-size:1.15em  !important;
+	padding:.25em .75em;
+}
+

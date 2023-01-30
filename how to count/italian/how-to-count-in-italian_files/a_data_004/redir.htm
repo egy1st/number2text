@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body>
+<script type="text/javascript">
+(function() {
+
+var f=this,g=function(b,d){var a=b.split("."),c=f;!(a[0]in c)&&c.execScript&&c.execScript("var "+a[0]);for(var e;a.length&&(e=a.shift());)!a.length&&void 0!==d?c[e]=d:c=c[e]?c[e]:c[e]={}};var i=function(b,d){function a(b){null!=e&&(c=Math.abs(new Date-e),b&&(c*=-1))}var c=-1,e=null;this.j=function(){var c=new Image(0,0);c.onload=function(){a()};c.onerror=c.onabort=function(){a(!0)};e=new Date;c.src=b};this.e=function(){return[d,c].join("=")}},j=function(b,d,a){this.a=""+b;"p"!=this.a.charAt(0)&&(this.a="p"+this.a);this.i=d;this.h=a;this.c=Math.floor(9E5*Math.random());this.c+=1E5;this.d=function(){return[this.a,this.i,this.h,this.c].join(".")}},k=function(b){for(var d=["i1","i2"],
+a={g:"v4_img_dt",f:"v4.ipv6-exp.l.google.com"},c={g:"ds_img_dt",f:"ds.ipv6-exp.l.google.com"},e=[],e=0.5<=Math.random()?[c,a]:[a,c],h=[],a=0;a<d.length;a++)c=new i(["//",[b.d(),d[a],e[a].f].join("."),"/intl/en_ALL/ipv6/images/6.gif"].join(""),e[a].g),c.j(),h.push(c);setTimeout(function(){for(var a=["/gen_204?ipv6exp=3","sentinel=1"],c=0;c<h.length;c++)a.push(h[c].e());a=["//",[b.d(),"s1.v4.ipv6-exp.l.google.com"].join("."),a.join("&")].join("");(new Image(0,0)).src=a},3E4)},l=function(b,d,a){var c=
+new j(b,d,a);setTimeout(function(){k(c)},1E4)};var m=["v4","ds","w","l","q"],n=function(){this.b={};for(var b=0;b<m.length;b++)this.b[m[b]]=0;for(var d=[],a=(document.cookie||"").split(";"),b=0;b<a.length;b++)if(a[b]=a[b].replace(" ",""),"W6D="==a[b].substr(0,4)){d=a[b].substring(4).split(":");break}for(b=0;b<d.length;b++)if(a=d[b].split("="),2==a.length){var c=parseInt(a[1],10);if(!(isNaN(c)||"+"==a[1].charAt(0)))switch(a[0]){case "v4":case "ds":case "w":this.b[a[0]]=0<c?c:0;break;case "l":case "q":this.b[a[0]]=c}}};
+n.prototype.e=function(){for(var b=[],d=0;d<m.length;d++)b.push([m[d],this.b[m[d]]].join("="));return b.join(":")};g("w6dCookie",n);g("ipv6iframe.runExperiment",function(){var b=window.location.hostname.split(".");b&&3<=b.length&&l(b[0],b[1],b[2])});g("ipv6iframe.preSentinelCallback",void 0);g("ipv6iframe.extraSentinelQueryString",void 0);
+
+ipv6iframe.runExperiment();
+})();
+</script>
+
+
+</body></html>

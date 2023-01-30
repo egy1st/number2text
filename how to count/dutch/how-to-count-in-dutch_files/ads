@@ -1,0 +1,53 @@
+{
+
+var google_ads = new Array();
+var google_ad;
+var google_radlinks = new Array();
+var google_radlink;
+var google_info = new Object();
+google_ad = new Object(); 
+google_ad.n = 1; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=BxO5dSIV0T8mjFMzV-gax0qGUC86vtc8Crp-BjRbAjbcB0OgMEAEYASC2n_4CKAM4AFC5xOqbAWCz3tCC4C2gAeyc3_ADsgEPd3d3LmR1bW1pZXMuY29tyAEB2gFAaHR0cDovL3d3dy5kdW1taWVzLmNvbS9ob3ctdG8vY29udGVudC9ob3ctdG8tY291bnQtaW4tZHV0Y2guaHRtbIACAakCpwSGnB6juj7IAr7DpRmoAwH1AwAMAET1AwAAABCIBgE&amp;num=1&amp;cid=5GjsvnG8GQAvQfwsClbWTLA-&amp;sig=AOD64_3zV31WQqP8eITu2yhOgt1ssuRRQw&amp;client=ca-dummies_js&amp;adurl=http://www.be-published.co.uk/%3Fsrc%3Dguk%26gkw%3DHow%2BTo%2BPublish%2BContent%26kw%3Dget%2Bpublished%2Bnovel%26mt%3D1"; 
+google_ad.visible_url = "www.Be-Published.co.uk"; 
+google_ad.line1 = "How To Publish A Book"; 
+google_ad.line2 = "Choose A Book Publisher And"; 
+google_ad.line3 = "Get a Free Book Publishing Guide!"; 
+google_ad.regionname = ""; 
+google_ads[0] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 2; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=B5nE-SIV0T8mjFMzV-gax0qGUC_auutYBlqGqhBjAjbcBgNMOEAIYAiC2n_4CKAM4AFCd1-7c-_____8BYLPe0ILgLaAB_oyz_QOyAQ93d3cuZHVtbWllcy5jb23IAQHaAUBodHRwOi8vd3d3LmR1bW1pZXMuY29tL2hvdy10by9jb250ZW50L2hvdy10by1jb3VudC1pbi1kdXRjaC5odG1sgAIBqQKnBIacHqO6PqgDAfUDAAwARPUDAAAAEIgGAQ&amp;num=2&amp;cid=5GjsvnG8GQAvQfwsClbWTLA-&amp;sig=AOD64_0fV7gEqyBy2xU0tijdN2YspCVPZQ&amp;client=ca-dummies_js&amp;adurl=http://www.aviation-english-division.com"; 
+google_ad.visible_url = "www.anglo-continental.com"; 
+google_ad.line1 = "English for Aviation ICAO"; 
+google_ad.line2 = "English for Pilots and Air Traffic"; 
+google_ad.line3 = "Controllers, Teachers and Raters"; 
+google_ad.regionname = ""; 
+google_ads[1] = google_ad; 
+google_ad = new Object(); 
+google_ad.n = 3; 
+google_ad.type = "text"; 
+google_ad.bidtype = "CPC"; 
+google_ad.targeting_type = "contextual"; 
+google_ad.url = "http://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=Bs3k_SIV0T8mjFMzV-gax0qGUC6O3kfABlaO47AzAjbcBkKEPEAMYAyC2n_4CKAM4AFDy-o2_AmCz3tCC4C2gAYfJ5v0DsgEPd3d3LmR1bW1pZXMuY29tyAEB2gFAaHR0cDovL3d3dy5kdW1taWVzLmNvbS9ob3ctdG8vY29udGVudC9ob3ctdG8tY291bnQtaW4tZHV0Y2guaHRtbKkCpwSGnB6juj6oAwH1AwAMAET1AwAAABCIBgE&amp;num=3&amp;cid=5GjsvnG8GQAvQfwsClbWTLA-&amp;sig=AOD64_2jVHtZmhZFHl6Pj5xf3wQmIhDe_g&amp;client=ca-dummies_js&amp;adurl=http://www.oxford-optronix.com/gelcount.htm"; 
+google_ad.visible_url = "www.oxford-optronix.com/GelCount"; 
+google_ad.line1 = "Colony Counter GelCount"; 
+google_ad.line2 = "GelCount Counts Mammalian Colonies"; 
+google_ad.line3 = "In Soft Agar or Semi-Solid Media"; 
+google_ad.regionname = ""; 
+google_ads[2] = google_ad; 
+google_info.feedback_url = "http://www.google.com/url?ct\x3dabg\x26q\x3dhttps://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://www.dummies.com/how-to/content/how-to-count-in-dutch.html%26hl%3Den%26client%3Dca-dummies_js%26adU%3Dwww.Be-Published.co.uk%26adT%3DHow%2BTo%2BPublish%2BA%2BBook%26adU%3Dwww.anglo-continental.com%26adT%3DEnglish%2Bfor%2BAviation%2BICAO%26adU%3Dwww.oxford-optronix.com/GelCount%26adT%3DColony%2BCounter%2BGelCount%26gl%3DEG%26hideleadgen%3D1\x26usg\x3dAFQjCNEjnMGloIfe-c57rp4nsfaDeCCffQ";
+var google_attribution_text = "AdChoices";
+var google_is_rtl = false;
+if (window.google_ad_request_done) {
+google_ad_request_done(google_ads);
+}
+if (window.google_radlink_request_done) {
+google_radlink_request_done(google_radlinks);
+}
+}

@@ -1,0 +1,137 @@
+body {margin:0;padding:0;font-family:"Segoe UI",Candara,Corbel,Calibri,Arial,Verdana sans-serif; font-size:medium;-webkit-font-smoothing: antialiased;}
+
+b {color:#009;}
+i {color:#900;font-weight:bold;font-style:normal;}
+em {color:#060;font-weight:bold;}
+code {font-size:large;font-weight:bold;}
+cite {font-size:small;color:#666;display:block;margin-bottom:10px}
+address {margin-bottom:10px;font-size:small;color:#666;}
+
+header,footer{display:block; width:100%; height:110px;border-bottom:double #0c0 6px;border-top:double #0c0 6px;background: #cff;
+background: -webkit-gradient(linear, left top, left bottom, from(#66cccc), to(#f999ff)); 
+background: -moz-linear-gradient(bottom,  #66cccc,  #f999ff);
+background: -o-linear-gradient(bottom,  #66cccc,  #f999ff);
+filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff66ff', endColorstr='#ffdddd'); /* IE6 & IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff66ff', endColorstr='#ffdddd')"; /* IE8 */
+}
+header {margin-bottom:12px;}
+footer {font-family:arial,sans-serif;width:auto;margin:30px auto;font-size:x-small;padding:0 0 0 50px;clear:both;line-height:120%;}
+
+h1 {font-size:large;color:#c00;text-shadow:#99f -2px 2px 1px;padding-top:10px;}
+header h1 {margin:0;padding:0;position:absolute;top:40px;left:105px;text-shadow: 2px 2px 2px #66f;color:darkgreen;font-size:large;} 
+h2, h3 {font-size:large;margin:16px 0 8px 0;border-top:double 4px #9c9;padding-top:20px;overflow:hidden;}
+h2#start, h2#notocstart {clear:both;color:#060;border:none;margin:0;padding:16px 0 8px 0;}
+h4,h5 {font-size:large;margin:8px 0 8px 0;clear:both;}
+h3,h2,h4{clear:none;color:#606;text-shadow: 2px 2px 2px #666;}
+h3 {clear:both;}
+
+header h1,h1,h2,h3,h4,#start {font-family:"Century Gothic",futura,"URW Gothic L"; letter-spacing:2px; font-size:large;}
+
+blockquote {margin:20px 0;background-color:pink; padding:12px 20px 8px 20px;overflow:hidden;border:solid #3c3 2px;background: -moz-linear-gradient(left,  #66cccc,  #f999ff); background: -webkit-gradient(linear, left center, right center, from(#66cccc), to(#f999ff)); background: -o-linear-gradient(left,  #66cccc,  #f999ff);-moz-border-radius: 15px;
+border-radius: 15px;text-align:left;}
+blockquote p {margin:0 0 4px 0;padding:0;}
+blockquote h5 {color:#060;margin:0;padding:0;font-size:medium;}
+
+.al {text-align:left;}
+.fl {float:left;}
+.mr {margin-right:30px;}
+.mt {margin-top:30px;}
+
+dl {font-size:medium;}
+dt {margin:0;font-weight:bold;color:#060;padding:0;}
+dd i {font-style:normal;color:#900;margin:0}
+
+a.mt {margin:0 6px;display:inline-block;}
+a.mt:hover {background-color:#fcf;width:auto;}
+
+img {border:none;}
+img.ifl {float:left;padding:0 30px 0 40px;}
+img.az {margin:12px;;}
+img.imy {float:left;padding:12px;}
+img.ima, div.ima {float:left;padding:0 20px 10px 0;}
+.imr {float:right;padding:0 0 12px 20px;}
+#manlev {float:right;margin:12px 0 12px 12px;}
+img.extlink {margin-left:6px;border:none;padding-bottom:3px;}
+img.spk {vertical-align:middle;}
+.clear {clear:both;}
+.noclear {clear:none;}
+.hide {display:none;}
+figure {float:left;}
+figcaption {width:300px;text-align:center;padding:10px 0;}
+header img {position:absolute;top:24px;left:30px;}
+header img#html5 {position:absolute;top:24px;left:90%;}
+
+#tt, #tt2,.tt {background-color:#f9f;cursor:default; width:auto;}
+#tip, #tip2,.tip {display:none;position:absolute;background-color:#6fffff;width:70%;border:double #c999cc 5px;padding:20px;margin:0 50px;-moz-border-radius: 15px;
+border-radius: 15px;}
+p.tt3 {background-color:#f9f;cursor:default; width:auto;overflow:hidden;}
+ div.tip3 {display:none;position:absolute;background-color:#ff9;width:auto;margin:0 20px;border:double #c999cc 5px;padding:10px;left:0;}
+
+
+/*#nextbut,#prevbut {position:absolute;top:90px;right:19%;font-size:x-small;width:90px;z-index:100;height:22px;}
+#prevbut {right:28%;}*/
+header nav {position:absolute; top:72px; left:0;}
+header #searchy {font-size:xx-small; text-align:right;padding:0;width:auto;z-index:10;position:absolute; top:30px;right:150px;}
+input.but {font-size:small;width:2em;padding:0}
+input.doit {font-size:small;width:auto;}
+#myfield {margin:4px 0;background-color:#efe;border:solid 1px #966;font-size:small;width:180px;}
+
+/*section {display:block;margin:0  0;width:78%;float:left;border:none;}
+section ul {list-style:none;margin:0 20px 0 0;padding:0;}
+section ul li {margin:0;padding:0;}
+aside {width:20%;float:right;border:solid;}
+aside article, aside #gazete {font-size:small;margin:0 0 0 0;padding:0 0 0 0;text-align:right;}
+aside article h5, aside #gazete h5 {color:crimson;font-size:small;text-align:center;}
+aside article, aside #gazete i {color:#666;}*/
+
+#gazete {float:right;font-size:small;}
+section {width:auto;float:left;margin:0 3%;}
+#gazete {float:right;font-size:small;width:17%;margin:0 3% 0 0}
+#gazete h5 {color:crimson;font-size:small;text-align:center;}
+#gazete i {color:#666;}
+section ul {list-style:none;margin:0 20px 0 0;padding:0;}
+section ul li {margin:0;padding:0;}
+
+/*Begin TOP Menu*/
+#jsddm {background:transparent;width:100%;cursor:default;}
+#jsddm ul {margin:0px;padding:0px;}
+#jsddm li {display:block;float:left;height:20px;list-style:none;line-height:20px;margin-left:12px;position:relative;}
+
+#jsddm a {color:#00c;text-decoration:none;font-size:11px;}
+#jsddm a:hover { color:#c00;}
+#jsddm li ul { display:none;}
+#jsddm li ul li {display:block;clear:both;border-bottom:solid 1px #999;width:196px;}
+#jsddm li:hover ul {background-color:#fcf;border:1px #990;display:block;left:0px;position:absolute;top:19px;width:220px;}
+/*END TOP Menu*/
+
+
+table{border-collapse:collapse;margin-bottom:10px;width:70%;}
+caption {font-size:large;background-color:#ccc;border:solid 1px #666;border-bottom:none;}
+th {border:solid 1px #333;background-color:#bbb;padding:2px 6px;}
+td {border:solid 1px #999;padding:2px 6px;}
+tr:nth-child(odd) {background-color:pink;}
+tr:nth-child(even) {background-color:lightblue;}
+/*START alphabet.htm*/
+span.ident {padding-left:30px;}
+div.let{overflow:hidden;text-align:center;font-weight:bold;color:#fff;height:auto;padding:6px;border:3px outset #99f;background:#33c;width:auto;letter-spacing:3px;font-size:large;}
+/*END alphabet.htm*/
+
+#accolades  {list-style-position:inside;padding:0;}
+#accolades li {border-bottom:solid 2px #99ee99;margin-bottom:6px;padding:0 0 6px 0;}
+#accolades li#last {border:none;padding:0;margin:0;}
+#accolades strong {color:#609;font-weight:normal;}
+
+
+#css li {display:inline-block;margin-right:30px;font-size:medium;}
+
+
+#toc {position:absolute;z-index:10;background:#66cccc;opacity:0.9;display:none;left:500px;border:solid 2px darkgreen;border-radius:15px;padding-bottom:15px;min-width:250px;}
+
+#toc p {margin: 0;padding:4px 0;cursor:default;color:blue;font-size:small;text-align:center;background-color:#999;border-top-right-radius:15px;border-top-left-radius:15px;border-bottom:solid 2px darkgreen;}
+#toc a {font-size:small;padding:1px 10px; text-decoration:none;display:block;}
+#toc a:hover {color:red;}
+
+#tog {margin-left:30px;width:140px;height:30px;border-radius:10px;background:transparent;outline:none;border:none;}
+
+
+

@@ -1,0 +1,126 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script src="Counting-Numbers-From-1-to-100-in-Hindi_files/beacon.js" async=""></script><script type="text/javascript">
+      var params = {}; //hash for url fragments
+      var adName; //name of the ad unit
+      var parts = window.location.href.match(/[#&]([^&#=]+)=([^&#=]+)/g);
+      var useGpt = top.Scribd.Ads.use_gpt;
+      for (var i = 0; i < parts.length; i++) {
+        var keyVal = parts[i].substr(1).split('=');
+        params[keyVal[0]] = unescape(keyVal[1]);
+      }
+
+
+      adName = params['ad_unit'];
+      if(adName) {
+        var writeScript = function(src) {
+          document.write('\x3Cscript type="text/javascript" src="'+src+'">\x3C/script>')
+        };
+
+        if(useGpt) {
+          var adDivId = 'refresh-ad'; //id of the div we're going to stuff the ad into.
+
+          writeScript('http://www.googletagservices.com/tag/js/gpt.js');
+        } else {
+          writeScript('http://partner.googleadservices.com/gampad/google_service.js');
+        }
+      }
+    </script><script type="text/javascript" src="Counting-Numbers-From-1-to-100-in-Hindi_files/google_service.js"></script>
+
+    <script type="text/javascript">
+      if(adName){
+        if(!useGpt) {
+          GS_googleAddAdSenseService("ca-pub-7291399211842501");
+          GS_googleEnableAllServices();
+        }
+      }
+    </script><script src="Counting-Numbers-From-1-to-100-in-Hindi_files/google_ads.js"></script>
+
+    <script type="text/javascript">
+      if(adName) {
+        for (var key in top.Scribd.Ads.attributes) {
+          var value = top.Scribd.Ads.attributes[key];
+          if( value instanceof Array) {
+            value = value.map(function(f){return f + '';});
+          }
+          else {
+            value = value + '';
+          }
+          if(useGpt) {
+            googletag.pubads().setTargeting(key, value);
+
+          } else {
+            GA_googleAddAttr(key, value);
+            GA_googleAddAdSenseSlotAttr(adName, "google_page_url", top.location.href);
+          }
+        } 
+      }
+    </script>
+
+    <script type="text/javascript">
+      if(adName) {
+        if(useGpt) {
+          googletag.pubads().set("adsense_page_url", top.location.href);
+          var size = adName.match(/.*_(\d+)x(\d+)$/)
+            .slice(1)
+            .map(function(f){return parseInt(f);});
+          googletag.defineSlot('/1024966/' + adName, size, adDivId).addService(googletag.pubads());
+        } else {
+          GA_googleAddAdSenseSlotAttr(adName, "google_page_url", top.location.href);         
+          GA_googleAddSlot("ca-pub-7291399211842501", adName);
+        }
+      }
+    </script>
+
+    <script type="text/javascript">
+      if(adName) {
+        if(useGpt) {
+          googletag.pubads().enableSyncRendering();
+          googletag.enableServices();
+        }
+        else {
+          GA_googleFetchAds();
+        }
+      }
+    </script>
+  <script src="Counting-Numbers-From-1-to-100-in-Hindi_files/osd.js" type="text/javascript"></script></head>
+  <body style="background-color: transparent;">
+    <div id="refresh-ad">
+      <script type="text/javascript">
+        if (adName) {
+          top.Scribd.Ads.RefreshUnit.get[adName].iframeLoaded(); 
+          
+          if(useGpt)
+            googletag.display(adDivId);
+          else
+            GA_googleFillSlot(adName);
+        }
+      </script><script src="ad_refresher_data/ads"></script><div id="google_ads_div_Doc_Sideboard_HalfPage_Pinned_300x600_ad_wrapper">
+<div id="google_ads_div_Doc_Sideboard_HalfPage_Pinned_300x600_ad_container" style="display:inline-block;"><!--  Rubicon Project Tag -->
+<!--  Site: Scribd - EMEA   Zone: Document_BTF   Size: Medium Rectangle  -->
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '8989';
+var rp_site      = '15087';
+var rp_zonesize  = '36338-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="Counting-Numbers-From-1-to-100-in-Hindi_files/8989.js"></script><script type="text/javascript" src="ad_refresher_data/36338-15.js"></script><iframe marginwidth="0" marginheight="0" src="ad_refresher_data/st.htm" frameborder="0" height="250" scrolling="NO" width="300"></iframe><script defer="defer" type="text/javascript">
+{
+	if (Math.floor(Math.random()*100) < 1)
+	{
+		var url;
+		var iframe = (window != top);
+		url = "http://tap.rubiconproject.com/stats/iframes?pc=8989/15087&ptc=36338&upn="+iframe;
+		setTimeout(function(){ new Image().src = url }, 1000);
+	}
+}
+</script>
+<script>var _comscore = _comscore || []; _comscore.push({ c1: "8", c2: "6135404", c3: "15", c4: "15087", c10: "3317329" }); (function() { var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();</script><div style="height:0px; width:0px; overflow:hidden"><iframe src="Counting-Numbers-From-1-to-100-in-Hindi_files/emily.htm" marginwidth="0" marginheight="0" style="height: 0px; width: 0px;" frameborder="0" height="0" scrolling="NO" width="0"></iframe></div>
+</div>
+</div>
+
+    </div>
+  
+
+</body></html>
