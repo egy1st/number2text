@@ -19,9 +19,9 @@ jobs:
     steps:
       - checkout
       - run: php --version
-      - run: upload
+      - run: sudo upload
       
-      
+
       # Download and cache dependencies
       - restore_cache:
           keys:
