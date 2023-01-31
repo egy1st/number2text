@@ -196,7 +196,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                 $byte = substr($expected, $pos, 1);
                //if ( preg_match('/ [^\P{latin}\s\p{Punctuation}]/u', $byte) == 0)
                 {
-                    $clean_text .= $byte;
+                    //$clean_text .= $byte;
                     var_dump($byte);
                     var_dump(strhex($byte));
 
