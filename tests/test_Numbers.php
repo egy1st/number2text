@@ -270,11 +270,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
     }
 
 
-    //for ( $pos=0; $pos < strlen($expected); $pos ++ ) {
-    // $byte = substr($expected, $pos);
-    // echo 'Byte ' . $pos . ' of $str has value ' . ord($byte) . PHP_EOL;
-    //}
-
+  
 
     /**
      * @dataProvider addDataImage
@@ -348,7 +344,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         $curl = curl_init();
        
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://Number2Text4.p.rapidapi.com/v1/?number=$num&language=$lang&locale=$locale&currency=$currency&units=$units&output=$output",
+            CURLOPT_URL => "https://Number2Words4.p.rapidapi.com/v1/?number=$num&language=$lang&locale=$locale&currency=$currency&units=$units&output=$output",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_ENCODING => "",
@@ -358,7 +354,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => [
                 "Accept-Charset: UTF-8",
-                "x-rapidapi-host: Number2Text4.p.rapidapi.com",
+                "x-rapidapi-host: Number2Words4.p.rapidapi.com",
                 "x-rapidapi-key: 6a61bed77cmsh79504697a5aba5cp1b83d2jsn7c6815838923"
             ],
         ]);
