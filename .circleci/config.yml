@@ -52,7 +52,7 @@ jobs:
       - run:
          name: prep upload cov 
          command: |
-            mkdir upload
+            mkdir codecov/upload
             curl -Os https://uploader.codecov.io/latest/linux/codecov
             chmod +x codecov
             ./codecov
