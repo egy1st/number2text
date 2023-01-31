@@ -10,7 +10,7 @@ require_once "Number2Text.php";
 if (isset($_GET['number']) && !empty($_GET['number'])) {
     $number = $_GET ['number'];
 } else {
-    $number = 0;
+    $number = 'Invalid number';
 }
 
 
