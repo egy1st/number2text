@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - run: php --version
-      - run: git clone git://github.com/xdebug/xdebug.git
+      - run: git clone git@github.com:xdebug/xdebug.git
       - run: apt-get install php-dev
       # Download and cache dependencies
       - restore_cache:
