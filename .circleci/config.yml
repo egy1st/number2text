@@ -20,8 +20,8 @@ workflows:
     jobs:
       - example-job
 
+run: checkout
 steps:
-
   # run tests with phpunit or codecept
   - run:
       name: install phpunit
