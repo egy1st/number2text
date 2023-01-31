@@ -21,19 +21,7 @@ workflows:
       - example-job
 
 steps:
-  
-   # Download and cache dependencies
-  - restore_cache:
-      keys:
-        # "composer.lock" can be used if it is committed to the repo
-        - v1-dependencies-{{ checksum "composer.json" }}
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
-
-  - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor      
+  - run checkout
   # run tests with phpunit or codecept
   - run:
       name: install phpunit
