@@ -183,7 +183,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                 $byte = substr($expected, $pos, 1);
                 //if (mb_ord($byte, "UTF-8") >= 32 & ord($byte) <= 12800) {
                     $clean_text .= $byte;
-                    echo mb_ord($byte, "UTF-8") ;
+                    echo (mb_ord($byte, "UTF-8") );
                 }
             }
         }
@@ -194,7 +194,6 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $chars_to_remove = 47;
             $expected = trim(substr($clean_text, $chars_to_remove));
         } else {
-            $chars_to_remove = 47;
             $expected = trim($clean_text);
         }
 
