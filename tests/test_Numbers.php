@@ -182,7 +182,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $clean_text = '';
             for ($pos = 0; $pos < strlen($expected); $pos++) {
                 $byte = substr($expected, $pos, 1);
-                if (preg_match("/^\p{Latin}+$/", $byte)) {
+                if (preg_match("/^\p{Latin}+$", $byte)) {
                     $clean_text .= $byte;
                     //echo $byte . "_" . mb_ord("$byte", "UTF-8") ."\n\r"; 
                 }
