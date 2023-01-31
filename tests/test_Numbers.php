@@ -182,10 +182,10 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $clean_text = '';
             for ($pos = 0; $pos < strlen($expected); $pos++) {
                 $byte = substr($expected, $pos, 1);
-               if ( preg_match('/ [^\P{latin}\s\p{Punctuation}]/u', $byte) == 0)
+               //if ( preg_match('/ [^\P{latin}\s\p{Punctuation}]/u', $byte) == 0)
                 {
                     $clean_text .= $byte;
-                    //echo $byte . "_" . mb_ord("$byte", "UTF-8") ."\n\r"; 
+                    //echo $byte . "_" var_dump( $byte) ."\n\r"; 
                 }
             }
         }
