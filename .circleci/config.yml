@@ -23,8 +23,6 @@ workflows:
 steps:
   - run checkout
 
-
-
   # run tests with phpunit or codecept
   - run:
       name: install phpunit
