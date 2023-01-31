@@ -21,6 +21,8 @@ jobs:
       - checkout
       - run: php --version
       - run: sudo pecl install pcov
+      - run:  php/install-packages
+      - run: codecov/upload
         
       # Download and cache dependencies
       - restore_cache:
