@@ -315,7 +315,8 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $clean_text = '';
 
             foreach(new MbStrIterator($expected) as $i => $byte) {
-                echo "{$i}: {$byte}\n";
+                //echo "{$i}: {$byte}\n";
+                $clean_text .= $byte;
 
                 //var_dump($byte);
                 //var_dump(strhex($byte));
@@ -338,7 +339,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             //}
         }
         
-        $clean_text .= $byte;
+       
         $chars_to_remove = 0;
 
         if ($latin == false) {
