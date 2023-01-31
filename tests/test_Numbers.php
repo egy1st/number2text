@@ -182,10 +182,10 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $clean_text = '';
             for ($pos = 0; $pos < strlen($expected); $pos++) {
                 $byte = substr($expected, $pos, 1);
-                //if (mb_ord($byte, "UTF-8") >= 32 & ord($byte) <= 12800)
+                if (ctype_alpha($byte))
                  {
                     $clean_text .= $byte;
-                    echo $byte . "_" . mb_ord("$byte", "UTF-8") ."\n\r"; 
+                    //echo $byte . "_" . mb_ord("$byte", "UTF-8") ."\n\r"; 
                 }
             }
         }
