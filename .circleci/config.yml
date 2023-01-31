@@ -19,7 +19,8 @@ jobs:
     steps:
       - checkout
       - run: php --version
-      - run: sudo upload
+      - run: sudo pecl install pcov
+      - run:  sudo docker-php-ext-enable pcov
       
 
       # Download and cache dependencies
