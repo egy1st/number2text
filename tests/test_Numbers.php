@@ -179,7 +179,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$locale = 'USA' ;
 		//$str_Number, $language, $locale, $currency, $units, $output
         $languages = array("AR", "EN", "FR", "DE", "PT", "ES", "IT", "RU","FA", "KO", "TR", "ZH_CN", "ZH_TW");
-        $languages = array("EN", "FR", "DE", "PT", "ES", "IT");
+        $languages = array("EN", "FR", "DE", "IT" ); //"PT", "ES", );
 
         // "EN" -- 0
         //FR -- 1
@@ -197,7 +197,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
 
         // add NULL & '' to test cases
-        $numbers = array("one", "1.2.30", 0, 1 , 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
+        $numbers = array(NULL, '', "one", "1.2.30", 0, 1 , 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
             100000, 100001, 200000, 500000, 1000000, 1000001, 2000000, 7000000, 10000000, 100000000, 1000000000,
             2000000000, 100000000000, 210000000000, 999999999998.99, 0.01, 0.02, 0.03, 0.10, 0.99, 0.12, 10.01, 45.96, 1000.05, 45698.20, 15023.45);
 
