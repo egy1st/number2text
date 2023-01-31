@@ -165,6 +165,20 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         $this->assertEquals(0, 0);
     }
 
+   function strhex($string) {
+      $hexstr = unpack('H*', $string);
+      return array_shift($hexstr);
+   }
+
+
+var_dump($character);
+var_dump(strhex($character));
+
+$character = Normalizer::normalize($character);
+
+var_dump($character);
+var_dump(strhex($character));
+
     /**
      * @dataProvider addDataProvider
      */
@@ -185,7 +199,13 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                //if ( preg_match('/ [^\P{latin}\s\p{Punctuation}]/u', $byte) == 0)
                 {
                     $clean_text .= $byte;
-                    echo $byte . "_" . var_dump( $byte) ."\n\r"; 
+                    var_dump($character);
+                    var_dump(strhex($byte));
+
+                    $byte = Normalizer::normalize($byte);
+
+                    var_dump($byte);
+                    var_dump(strhex($byte));
                 }
             }
         }
