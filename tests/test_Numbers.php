@@ -171,13 +171,6 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
    }
 
 
-var_dump($character);
-var_dump(strhex($character));
-
-$character = Normalizer::normalize($character);
-
-var_dump($character);
-var_dump(strhex($character));
 
     /**
      * @dataProvider addDataProvider
