@@ -27,6 +27,127 @@ require_once __DIR__ . '/../src/API/NumberingSystem.php';
       return array_shift($hexstr);
    }
 
+   function nextchar($string, &$pointer){
+    if(!isset($string[$pointer])) return false;
+    $char = ord($string[$pointer]);
+    if($char < 128){
+        return $string[$pointer++];
+    }else{
+        if($char < 224){
+            $bytes = 2;
+        }elseif($char < 240){
+            $bytes = 3;
+        }else{
+            $bytes = 4;
+        }
+        $str =  substr($string, $pointer, $bytes);
+        $pointer += $bytes;
+        return $str;
+    }
+}
+
+
+// Multi-Byte String iterator class
+class MbStrIterator implements Iterator
+{
+    private $iPos   = 0;
+    private $iSize  = 0;
+    private $sStr   = null;
+
+    // Constructor
+    public function __construct(/*string*/ $str)
+    {
+        // Save the string
+        $this->sStr     = $str;
+
+        // Calculate the size of the current character
+        $this->calculateSize();
+    }
+
+    // Calculate size
+    private function calculateSize() {
+
+        // If we're done already
+        if(!isset($this->sStr[$this->iPos])) {
+            return;
+        }
+
+        // Get the character at the current position
+        $iChar  = ord($this->sStr[$this->iPos]);
+
+        // If it's a single byte, set it to one
+        if($iChar < 128) {
+            $this->iSize    = 1;
+        }
+
+        // Else, it's multi-byte
+        else {
+
+            // Figure out how long it is
+            if($iChar < 224) {
+                $this->iSize = 2;
+            } else if($iChar < 240){
+                $this->iSize = 3;
+            } else if($iChar < 248){
+                $this->iSize = 4;
+            } else if($iChar == 252){
+                $this->iSize = 5;
+            } else {
+                $this->iSize = 6;
+            }
+        }
+    }
+
+    // Current
+    public function current() {
+
+        // If we're done
+        if(!isset($this->sStr[$this->iPos])) {
+            return false;
+        }
+
+        // Else if we have one byte
+        else if($this->iSize == 1) {
+            return $this->sStr[$this->iPos];
+        }
+
+        // Else, it's multi-byte
+        else {
+            return substr($this->sStr, $this->iPos, $this->iSize);
+        }
+    }
+
+    // Key
+    public function key()
+    {
+        // Return the current position
+        return $this->iPos;
+    }
+
+    // Next
+    public function next()
+    {
+        // Increment the position by the current size and then recalculate
+        $this->iPos += $this->iSize;
+        $this->calculateSize();
+    }
+
+    // Rewind
+    public function rewind()
+    {
+        // Reset the position and size
+        $this->iPos     = 0;
+        $this->calculateSize();
+    }
+
+    // Valid
+    public function valid()
+    {
+        // Return if the current position is valid
+        return isset($this->sStr[$this->iPos]);
+    }
+}
+
 
 class Test_Numbers extends PHPUnit\Framework\TestCase
 {
@@ -193,18 +314,17 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             //echo 'we are here';
             $clean_text = '';
 
-            $arr =preg_split('//u', $expected, -1, PREG_SPLIT_NO_EMPTY);
-            var_dump ($arr);
- 
-            foreach ($arr as $byte) {
-              echo ($byte);
-              var_dump($byte);
-              var_dump(strhex($byte));
+            foreach(new MbStrIterator("Kąt") as $i => $byte) {
+                echo "{$i}: {$byte}\n";
+                var_dump($byte);
+                var_dump(strhex($byte));
 
-              $byte = Normalizer::normalize($byte);
+                $byte = Normalizer::normalize($byte);
 
-              var_dump($byte);
-              var_dump(strhex($byte));
+                var_dump($byte);
+                var_dump(strhex($byte));
+            }
+              
             }
 
             //for ($pos = 0; $pos < strlen($expected); $pos++) {
@@ -216,6 +336,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                // }
             //}
         }
+        
 
         $chars_to_remove = 0;
 
