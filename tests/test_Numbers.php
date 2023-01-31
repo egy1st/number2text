@@ -50,7 +50,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$locale = 'USA' ;
 		//$str_Number, $language, $locale, $currency, $units, $output
         //$languages = array("AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW");
-        
+
         // "EN" -- 0
         //FR -- 1
         // ES -- 2
@@ -170,7 +170,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         
         $latin = ($lang != 'AR' & $lang != 'RU' & $lang != 'PT' & $lang != 'ES' & $lang != 'TR' & $lang != 'FA' & $lang != 'ES'
             & $lang != 'KO' & $lang != 'ZH_CN' & $lang != 'ZH_TW');
-        $expected = $this::curl_Result($num, $lang, $locale, $currency, $units, $output);
+        $expected = utf8_encode($this::curl_Result($num, $lang, $locale, $currency, $units, $output));
         $expected = substr($expected, 38);
 
         $clean_text = trim($expected);
