@@ -176,9 +176,9 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
         if ($latin == false) {
             $chars_to_remove = 47;
-            $expected = trim(substr($clean_text, $chars_to_remove));
+            $expected = utf8_encode(trim(substr($clean_text, $chars_to_remove)));
         } else {
-            $expected = trim($clean_text);
+            $expected = utf8_encode(trim($clean_text));
         }
 
         //$str_Number, $language, $locale, $currency, $units, $output
