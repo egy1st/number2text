@@ -316,13 +316,14 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
             foreach(new MbStrIterator($expected) as $i => $byte) {
                 echo "{$i}: {$byte}\n";
-                var_dump($byte);
-                var_dump(strhex($byte));
 
-                $byte = Normalizer::normalize($byte);
+                //var_dump($byte);
+                //var_dump(strhex($byte));
 
-                var_dump($byte);
-                var_dump(strhex($byte));
+                //$byte = Normalizer::normalize($byte);
+
+                //var_dump($byte);
+               // var_dump(strhex($byte));
             }
               
            // }
@@ -337,7 +338,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             //}
         }
         
-
+        $clean_text .= $byte;
         $chars_to_remove = 0;
 
         if ($latin == false) {
