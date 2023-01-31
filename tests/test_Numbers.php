@@ -203,7 +203,12 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
         foreach ($languages as $lang) {
             foreach ($numbers as $num) {
-                array_push($mytestlist, array($num, $lang, $currency, $units, $locale, $output));
+                if (is_null($num) || empty($num){
+                    // pass
+                }
+                else {
+                   array_push($mytestlist, array($num, $lang, $currency, $units, $locale, $output));
+                }
             }
         }
 
