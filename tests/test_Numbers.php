@@ -141,7 +141,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
     public function Image($num, $lang, $currency, $units, $locale, $output)
     {
         $output = 'image' ;
-        $expected = $this::curl_Result($num, $lang, $output);
+        $expected = utf8_encode($this::curl_Result($num, $lang, $output));
         //$actual = $this->translator::translateNumber($num,  $lang, $output) ;
         echo $output . ' ' . $expected;
 
