@@ -5,7 +5,7 @@
 
 
 require_once "NumberingSystem.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 /**
  * @covers Arabic
@@ -87,7 +87,7 @@ class Arabic
             // ==============================================================================
             // prepare numbers from 100 to 999
 
-            $Forma = Number2Words::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
                 $G = 1;

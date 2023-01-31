@@ -4,7 +4,7 @@
 //ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 /**
  * @covers French
@@ -49,7 +49,7 @@ class French
 
             // ==============================================================================
 
-            $Forma = Number2Words::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = $N [$x + 2] + ($N [$x + 1] * 10);
             // keywords

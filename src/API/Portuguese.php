@@ -4,7 +4,7 @@
 //ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 /**
  * @covers Portuguese
@@ -51,7 +51,7 @@ class Portuguese
             // prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
 
-            $Forma = Number2Words::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;

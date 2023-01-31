@@ -40,7 +40,7 @@ $str_Number = "" ;
  * @covers Chinese_Traditional
  */
  
- class Number2Words
+ class Number2Text
 {
 
     // This function left pad zeros, for example 123 will be 000000000123

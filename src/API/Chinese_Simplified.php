@@ -4,7 +4,7 @@
 //ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 /**
  * @covers Chinese_Simplified
@@ -65,7 +65,7 @@ class Chinese_Simplified
             // This happens every four decimal places, unlike American English where it happens every three decimal places
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
 
-            $Forma = Number2Words::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $y = 0;
             $ptrn = $N[$x] . $N[$x + 1] . $N[$x + 2] . $N[$x + 3];

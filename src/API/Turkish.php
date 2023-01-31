@@ -4,7 +4,7 @@
 //ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 /**
  * @covers Turkish
@@ -48,7 +48,7 @@ class Turkish
             // prepre numbers from 0 to 99
             // Numbers up to ninety-nine are built by spelling out the ten, then the digit (e.g.: otuz iki [32],
 
-            $Forma = Number2Words::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;

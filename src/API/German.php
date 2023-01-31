@@ -4,7 +4,7 @@
 //ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 /**
  * @covers German
@@ -49,7 +49,7 @@ class German
 
             // ==============================================================================
 
-            $Forma = Number2Words::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             // Special condition for germany language
             if ($N [$x + 1] == 0 & $N [$x + 2] == 1 & $L <= 2) {

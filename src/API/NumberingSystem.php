@@ -17,7 +17,7 @@ require_once "Persian.php";
 require_once "Korean.php";
 require_once "Chinese_Simplified.php";
 require_once "Chinese_Traditional.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 
 /**
@@ -57,7 +57,7 @@ class NumberingSystem
     public static function getSum($N, $_step)
     {
         $sum = 0;
-        if ($N != NULL && $N != "") {
+        if ($N != NULL) {
             if ($_step == 1) {
                 $sum = ($N [12]) + (($N [11]) * 10) + (($N [10]) * 100) + (($N [9]) * 1000) + (($N [8]) * 10000) + (($N [7]) * 100000) + (($N [6]) * 1000000) + (($N [5]) * 10000000) + (($N [4]) * 100000000);
             } else if ($_step == 2) {
@@ -65,11 +65,6 @@ class NumberingSystem
             } else if ($_step == 3) {
                 $sum = ($N [12]) + (($N [11]) * 10) + (($N [10]) * 100);
             }
-        }
-
-        else
-        {
-            return "invakid number";
         }
 
         return $sum;

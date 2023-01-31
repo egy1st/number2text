@@ -5,7 +5,7 @@
 
 //header('Content-Type: text/html; charset=UTF-8');
 require_once "Locality.php";
-require_once "Number2Words.php";
+require_once "Number2Text.php";
 
 if (isset($_GET['number']) && !empty($_GET['number'])) {
     $number = $_GET ['number'];
@@ -53,8 +53,8 @@ $units = "¢";
 }
 
 
-$oTextNum = new Number2Words();
-$Number2Words = $oTextNum->translateNumber($number, $language, $currency, $units, $locale, $output);
-echo trim($Number2Words);
+$oTextNum = new Number2Text();
+$Number2Text = $oTextNum->translateNumber($number, $language, $currency, $units, $locale, $output);
+echo trim($Number2Text);
 
 ?>
