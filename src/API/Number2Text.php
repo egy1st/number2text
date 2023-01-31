@@ -159,7 +159,7 @@ $str_Number = "" ;
     public static function translateNumber($str_Number, $_language, $_currency, $_units,  $_locale, $_output)
     {
 
-        global $aCurrencies, $language, $currency, $units, $output, $locale;
+        global $aCurrencies, $number, $language, $currency, $units, $output, $locale;
 		
 		if (!isset ($str_Number )) {
 			$str_Number = $number ;
