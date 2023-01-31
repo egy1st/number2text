@@ -325,7 +325,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                 var_dump(strhex($byte));
             }
               
-            }
+           // }
 
             //for ($pos = 0; $pos < strlen($expected); $pos++) {
             //    $byte = substr($expected, $pos, 1);
