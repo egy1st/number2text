@@ -30,12 +30,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-     
-      - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor
-     
+          
       - run: yarn install
       - save_cache:
           key: node-v1-{{ checksum "package.json" }}
