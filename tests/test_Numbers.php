@@ -185,7 +185,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                //if ( preg_match('/ [^\P{latin}\s\p{Punctuation}]/u', $byte) == 0)
                 {
                     $clean_text .= $byte;
-                    echo $byte . "_" var_dump( $byte) ."\n\r"; 
+                    echo $byte . "_" . var_dump( $byte) ."\n\r"; 
                 }
             }
         }
