@@ -20,7 +20,7 @@ jobs:
     steps:
       - checkout
       - run: php --version
-      - run: sudo pecl install pcov
+      - run: pecl install xdebug
         
       # Download and cache dependencies
       - restore_cache:
