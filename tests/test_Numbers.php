@@ -54,12 +54,13 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         //FR -- 1
         // ES -- 2
         // "DE" -- 8
+        // KO -- 53
         // Ru -- 54
         // Pt -- 54
         // Fa -- 54
 
 
-        $languages = array("KO");
+        $languages = array("IT");
 
         // add NULL & '' to test cases
         $numbers = array("one", "1.2.30", 0, 1, 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
