@@ -314,7 +314,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             //echo 'we are here';
             $clean_text = '';
 
-            foreach(new MbStrIterator("Kąt") as $i => $byte) {
+            foreach(new MbStrIterator($expected) as $i => $byte) {
                 echo "{$i}: {$byte}\n";
                 var_dump($byte);
                 var_dump(strhex($byte));
