@@ -22,12 +22,12 @@ require_once __DIR__ . '/../src/API/NumberingSystem.php';
  */
 
 
- public function strhex($string) {
+  function strhex($string) {
       $hexstr = unpack('H*', $string);
       return array_shift($hexstr);
    }
 
-   
+
 class Test_Numbers extends PHPUnit\Framework\TestCase
 {
     private $translator;
