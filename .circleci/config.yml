@@ -1,3 +1,11 @@
+# PHP CircleCI 2.0 configuration file
+# See: https://circleci.com/docs/2.0/language-php/
+version: 2.1
+
+orbs:
+  php: circleci/php@1.1.0
+  codecov: codecov/codecov@3.2.4
+
 jobs:
   example-job:
     docker:
@@ -5,7 +13,38 @@ jobs:
       - image: cimg/base:stable
     steps:
       - php/install-packages
+      - codecov/upload
+
 workflows:
   example-workflow:
     jobs:
       - example-job
+
+steps:
+
+  # run tests with phpunit or codecept
+  - run:
+      name: install phpunit
+      command: |
+        wget https://phar.phpunit.de/phpunit-6.5.phar
+        chmod +x phpunit-6.5.phar
+        sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
+      
+
+  - run:
+     name: code coverage
+     command: |
+       mkdir htmlcov
+       export XDEBUG_MODE=coverage 
+       phpunit --coverage-clover clover.xml
+     # phpunit --coverage-html htmlcov/coverage.html
+
+  - run:
+      name: prep upload cov 
+      command: |
+        curl -Os https://uploader.codecov.io/latest/linux/codecov
+        chmod +x codecov
+        ./codecov
+          
+  - store_artifacts:
+     path: htmlcov
