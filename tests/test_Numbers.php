@@ -165,7 +165,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         $this->assertEquals(0, 0);
     }
 
-   function strhex($string) {
+   public function strhex($string) {
       $hexstr = unpack('H*', $string);
       return array_shift($hexstr);
    }
@@ -192,7 +192,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                //if ( preg_match('/ [^\P{latin}\s\p{Punctuation}]/u', $byte) == 0)
                 {
                     $clean_text .= $byte;
-                    var_dump($character);
+                    var_dump($byte);
                     var_dump(strhex($byte));
 
                     $byte = Normalizer::normalize($byte);
