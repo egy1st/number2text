@@ -92,7 +92,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$units = "cent" ;
 		$locale = 'USA' ;
         $languages = array("AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW");
-        $languages = array("EN");
+        $languages = array("FR");
 
         // add NULL & '' to test cases
         $numbers = array("", NULL);
@@ -116,7 +116,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$units = "cent" ;
 		$locale = 'USA' ;
         //$languages = array("AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW");
-        $languages = array("EN");
+        $languages = array("FR");
         $numbers = array(12);
 
         foreach ($languages as $lang) {
@@ -170,7 +170,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         
         $latin = ($lang != 'AR' & $lang != 'RU' & $lang != 'PT' & $lang != 'ES' & $lang != 'TR' & $lang != 'FA' & $lang != 'ES'
             & $lang != 'KO' & $lang != 'ZH_CN' & $lang != 'ZH_TW');
-        $expected = utf8_encode($this::curl_Result($num, $lang, $locale, $currency, $units, $output));
+        $expected = $this::curl_Result($num, $lang, $locale, $currency, $units, $output);
         $expected = substr($expected, 38);
 
         $clean_text = trim($expected);
