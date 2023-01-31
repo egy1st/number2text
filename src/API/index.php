@@ -16,7 +16,7 @@ if (isset($_GET['number'])
     $number = 'invalid number';
 } elseif (is_null($_GET['number'])) {
      echo "case 2" ;
-    $number = 'invalid number';
+    $number = 'invalid number'; 
 }
 
 
