@@ -20,6 +20,14 @@ require_once __DIR__ . '/../src/API/NumberingSystem.php';
  * @covers Chinese_Simplified
  * @covers Chinese_Traditional
  */
+
+
+ public function strhex($string) {
+      $hexstr = unpack('H*', $string);
+      return array_shift($hexstr);
+   }
+
+   
 class Test_Numbers extends PHPUnit\Framework\TestCase
 {
     private $translator;
@@ -165,10 +173,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         $this->assertEquals(0, 0);
     }
 
-   public function strhex($string) {
-      $hexstr = unpack('H*', $string);
-      return array_shift($hexstr);
-   }
+  
 
 
 
