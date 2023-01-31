@@ -3,7 +3,7 @@
 Number2Words is an API that alloes you to Convert any digits number to the equivalent words, fo example
 > (8543.21 in digits) will be (eight thousand, five hundred and forty-three $ and twenty-one ¢ in words).
 
-[![CircleCI](https://circleci.com/gh/egy1st/Number2Words/tree/master.svg?style=shield)](https://circleci.com/gh/egy1st/number2text/tree/main) [![codecov](https://codecov.io/gh/egy1st/Number2Words/branch/master/graph/badge.svg?token=26Z0MRJI07)](https://codecov.io/gh/egy1st/Number2Words)
+[![CircleCI](https://circleci.com/gh/egy1st/number2text/tree/main.svg?style=shield)](https://circleci.com/gh/egy1st/number2text/tree/main) [![codecov](https://codecov.io/gh/egy1st/Number2Words/branch/master/graph/badge.svg?token=26Z0MRJI07)](https://codecov.io/gh/egy1st/Number2Words)
 [![Swagger Validator](https://img.shields.io/swagger/valid/3.0?specUrl=https%3A%2F%2Fnumber2words.readme.io%2Fopenapi%2F6206ef8046f62d0080f16b8f)](https://number2words.readme.io/openapi/6206ef8046f62d0080f16b8f)
 [![Documentation Status](https://readthedocs.org/projects/number2words-docs/badge/?version=latest)](https://number2words-docs.readthedocs.io/en/latest/?badge=latest)
 
