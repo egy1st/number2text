@@ -29,19 +29,19 @@ Digits number up to 999,999,999.998.99 can be converted to words in 13 languages
 
 # Shall We Start
 Just click me and see how am I working
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=en&locale=usa
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=ar&locale=egy
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=fr&locale=eur
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=de&locale=eur
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=es&locale=usa
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=pt&locale=usa
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=it&locale=eur
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=ru&locale=usa
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=fa&locale=egy
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=tr&locale=usa
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=ko&locale=usa
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=zh_cn&locale=usa
-- https://api.zerobytes.one/number2words/v1/?number=123456.78&language=zh_tw&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=en&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=ar&locale=egy
+- https://number2text.com/api/v1/?number=123456.78&language=fr&locale=eur
+- https://number2text.com/api/v1/?number=123456.78&language=de&locale=eur
+- https://number2text.com/api/v1/?number=123456.78&language=es&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=pt&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=it&locale=eur
+- https://number2text.com/api/v1/?number=123456.78&language=ru&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=fa&locale=egy
+- https://number2text.com/api/v1/?number=123456.78&language=tr&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=ko&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=zh_cn&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=zh_tw&locale=usa
 
 # Great For Banks Billing
 
