@@ -19,6 +19,7 @@ jobs:
     steps:
       - checkout
       - run: php --version
+      - run: sudo apt-get install php7.4-xdebug
         
       # Download and cache dependencies
       - restore_cache:
@@ -57,4 +58,4 @@ jobs:
             chmod +x codecov
             ./codecov
             
-      - run: codecov/upload
+     
