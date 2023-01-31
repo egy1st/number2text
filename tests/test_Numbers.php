@@ -192,18 +192,26 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         if ($latin == true) {
             //echo 'we are here';
             $clean_text = '';
-            for ($pos = 0; $pos < strlen($expected); $pos++) {
-                $byte = substr($expected, $pos, 1);
+
+            $arr = preg_split('//u', $expected, -1, PREG_SPLIT_NO_EMPTY);
+ 
+            foreach ($arr as $byte) {
+              echo $byte;
+              var_dump($byte);
+              var_dump(strhex($byte));
+
+              $byte = Normalizer::normalize($byte);
+
+              var_dump($byte);
+              var_dump(strhex($byte));
+            }
+
+            //for ($pos = 0; $pos < strlen($expected); $pos++) {
+            //    $byte = substr($expected, $pos, 1);
                //if ( preg_match('/ [^\P{latin}\s\p{Punctuation}]/u', $byte) == 0)
                 {
                     //$clean_text .= $byte;
-                    var_dump($byte);
-                    var_dump(strhex($byte));
-
-                    $byte = Normalizer::normalize($byte);
-
-                    var_dump($byte);
-                    var_dump(strhex($byte));
+                   
                 }
             }
         }
