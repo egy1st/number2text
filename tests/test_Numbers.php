@@ -191,6 +191,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $chars_to_remove = 47;
             $expected = trim(substr($clean_text, $chars_to_remove));
         } else {
+            $chars_to_remove = 47;
             $expected = trim($clean_text);
         }
 
