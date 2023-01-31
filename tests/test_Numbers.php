@@ -52,8 +52,9 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         //$languages = array("AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW");
         // "EN" -- 0
         //FR -- 1
+        // "DE" -- 8
 
-        $languages = array("DE");
+        $languages = array("RU");
 
         // add NULL & '' to test cases
         $numbers = array("one", "1.2.30", 0, 1, 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
@@ -141,7 +142,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
     public function Image($num, $lang, $currency, $units, $locale, $output)
     {
         $output = 'image' ;
-        $expected = utf8_encode($this::curl_Result($num, $lang, $output));
+        $expected = $this::curl_Result($num, $lang, $output);
         //$actual = $this->translator::translateNumber($num,  $lang, $output) ;
         echo $output . ' ' . $expected;
 
@@ -176,13 +177,13 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
         if ($latin == false) {
             $chars_to_remove = 47;
-            $expected = utf8_encode(trim(substr($clean_text, $chars_to_remove)));
+            $expected = trim(substr($clean_text, $chars_to_remove));
         } else {
-            $expected = utf8_encode(trim($clean_text));
+            $expected = trim($clean_text);
         }
 
         //$str_Number, $language, $locale, $currency, $units, $output
-        $actual = utf8_encode($this->translator::translateNumber($num, $lang, $currency, $units, $locale, $output));
+        $actual = $this->translator::translateNumber($num, $lang, $currency, $units, $locale, $output);
         //echo 'The actual is: ' . $actual . '**' . PHP_EOL;
         $this->assertEquals($expected, $actual);
     }
