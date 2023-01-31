@@ -182,7 +182,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         }
 
         //$str_Number, $language, $locale, $currency, $units, $output
-        $actual = $this->translator::translateNumber($num, $lang, $currency, $units, $locale, $output);
+        $actual = utf8_encode($this->translator::translateNumber($num, $lang, $currency, $units, $locale, $output));
         //echo 'The actual is: ' . $actual . '**' . PHP_EOL;
         $this->assertEquals($expected, $actual);
     }
