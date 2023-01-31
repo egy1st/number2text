@@ -3,49 +3,61 @@
 version: 2.1
 
 orbs:
-  php: circleci/php@1.1.0
-  codecov: codecov/codecov@3.2.4
+  # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
+  # Orb commands and jobs help you with common scripting around a language/tool
+  # so you dont have to copy and paste it everywhere.
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
+  codecov: codecov/codecov@3.0.0
 
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  example-job:
+  build:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      # replace with your preferred image
-      - image: cimg/base:stable
+      - image: cimg/php:7.4
     steps:
-      - php/install-packages
-      - codecov/upload
+      - checkout
+      - run: php --version
+      - run: sudo pecl install pcov
+        
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            # "composer.lock" can be used if it is committed to the repo
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
-workflows:
-  example-workflow:
-    jobs:
-      - example-job
+     # prepare the database
+      # - run: touch storage/testing.sqlite
+      # - run: php artisan migrate --env=testing --database=sqlite_testing --force
+    
+    
+      # run tests with phpunit or codecept
+      - run:
+         name: install phpunit
+         command: |
+            wget https://phar.phpunit.de/phpunit-6.5.phar
+            chmod +x phpunit-6.5.phar
+            sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
+                      
+      - run:
+         name: code coverage
+         command: |
+           mkdir htmlcov
+           export XDEBUG_MODE=coverage 
+           phpunit --coverage-clover clover.xml
+          # phpunit --coverage-html htmlcov/coverage.html
 
-steps:
-  - run checkout
-
-  # run tests with phpunit or codecept
-  - run:
-      name: install phpunit
-      command: |
-        wget https://phar.phpunit.de/phpunit-6.5.phar
-        chmod +x phpunit-6.5.phar
-        sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
-      
-
-  - run:
-     name: code coverage
-     command: |
-       mkdir htmlcov
-       export XDEBUG_MODE=coverage 
-       phpunit --coverage-clover clover.xml
-     # phpunit --coverage-html htmlcov/coverage.html
-
-  - run:
-      name: prep upload cov 
-      command: |
-        curl -Os https://uploader.codecov.io/latest/linux/codecov
-        chmod +x codecov
-        ./codecov
-          
-  - store_artifacts:
-     path: htmlcov
+      - run:
+         name: prep upload cov 
+         command: |
+            curl -Os https://uploader.codecov.io/latest/linux/codecov
+            chmod +x codecov
+            ./codecov
+            
+        
+      - store_artifacts:
+          path: htmlcov
