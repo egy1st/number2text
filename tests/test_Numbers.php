@@ -69,11 +69,11 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         $languages = array("FR");
 
         // add NULL & '' to test cases
-        $numbers = array("one", "1.2.30", 0, 1);
+        $numbers = array("one", "1.2.30", 0, 1)
 
          //   , 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
         //    100000, 100001, 200000, 500000, 1000000, 1000001, 2000000, 7000000, 10000000, 100000000, 1000000000,
-        //    2000000000, 100000000000, 210000000000, 999999999998.99, 0.01, 0.02, 0.03, 0.10, 0.99, 0.12, 10.01, 45.96, 1000.05, 45698.20, 15023.45);
+            2000000000, 100000000000, 210000000000, 999999999998.99, 0.01, 0.02, 0.03, 0.10, 0.99, 0.12, 10.01, 45.96, 1000.05, 45698.20, 15023.45);
 
         foreach ($languages as $lang) {
             foreach ($numbers as $num) {
@@ -181,10 +181,10 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $clean_text = '';
             for ($pos = 0; $pos < strlen($expected); $pos++) {
                 $byte = substr($expected, $pos, 1);
-                $byte  = mb_ord($byte, "UTF-8");
-                //if (mb_ord($byte, "UTF-8") >= 32 & ord($byte) <= 12800) {
-                    $clean_text .= ($byte . "_");
-                    //echo (mb_ord($byte, "UTF-8") );
+                //if (mb_ord($byte, "UTF-8") >= 32 & ord($byte) <= 12800)
+                 {
+                    $clean_text .= $byte;
+                    echo mb_ord($byte, "UTF-8") ;
                 }
             }
         }
@@ -195,6 +195,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $chars_to_remove = 47;
             $expected = trim(substr($clean_text, $chars_to_remove));
         } else {
+            $chars_to_remove = 47;
             $expected = trim($clean_text);
         }
 
