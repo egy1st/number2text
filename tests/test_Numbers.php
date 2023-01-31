@@ -203,7 +203,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
         foreach ($languages as $lang) {
             foreach ($numbers as $num) {
-                if (is_null($num) || empty($num){
+                if (is_null($num) || empty($num)){
                     // pass
                 }
                 else {
@@ -211,7 +211,6 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                 }
             }
         }
-
         return $mytestlist;
     }
 
