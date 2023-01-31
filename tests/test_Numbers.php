@@ -184,7 +184,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
                 //if (mb_ord($byte, "UTF-8") >= 32 & ord($byte) <= 12800)
                  {
                     $clean_text .= $byte;
-                    echo $byte . "_" . mb_ord($byte, "UTF-8") ;
+                    echo $byte . "_" . mb_ord($byte, "UTF-8") ."\n\r";
                 }
             }
         }
