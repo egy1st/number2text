@@ -21,7 +21,7 @@ jobs:
       - run: php --version
       - run: sudo pecl install pcov
       - run:  sudo docker-php-ext-enable pcov
-      - run:  sudo phpdismod xdebug
+      - run:  sudo phpenmod xdebug
       
       
 
