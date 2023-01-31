@@ -50,6 +50,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$locale = 'USA' ;
 		//$str_Number, $language, $locale, $currency, $units, $output
         //$languages = array("AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW");
+        
         // "EN" -- 0
         //FR -- 1
         // ES -- 2
@@ -60,10 +61,12 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         // Pt -- 54
         // Fa -- 54
         // TR -- 54
-        
+        // ZH_CN -- 54
+        // ZH_TW -- 54
 
 
-        $languages = array("ZH_CN");
+
+        $languages = array("ZH_TW");
 
         // add NULL & '' to test cases
         $numbers = array("one", "1.2.30", 0, 1, 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
