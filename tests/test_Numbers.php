@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../src/API/Number2Words.php';
+require_once __DIR__ . '/../src/API/Number2Text.php';
 require_once __DIR__ . '/../src/API/NumberingSystem.php';
 
 /**
