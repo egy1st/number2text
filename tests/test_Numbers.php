@@ -193,7 +193,8 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             //echo 'we are here';
             $clean_text = '';
 
-            $arr = preg_split('//u', $expected, -1, PREG_SPLIT_NO_EMPTY);
+            $arr =preg_split('//u', $expected, -1, PREG_SPLIT_NO_EMPTY);
+            var_dump ($arr);
  
             foreach ($arr as $byte) {
               echo ($byte);
