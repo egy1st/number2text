@@ -38,8 +38,8 @@ jobs:
          command: |
             curl -LO https://phar.phpunit.de/phpunit-9.5.phar
             chmod +x phpunit-9.5.phar
-            ./phpunit-9.5.phar --migrate-configuration
-            ./phpunit-9.5.phar --version
+            ./phpunit-9.2.phar --migrate-configuration
+            ./phpunit-9.2.phar --version
       
       # save any changes to the cache
       - save_cache:
@@ -51,7 +51,7 @@ jobs:
          name: code coverage
          command: |
            export XDEBUG_MODE=coverage 
-           ./phpunit-9.5.phar --coverage-clover clover.xml tests/test_Numbers.php
+           ./phpunit-9.2.phar --coverage-clover clover.xml tests/test_Numbers.php
 
 
       - run:
