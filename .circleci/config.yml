@@ -44,8 +44,8 @@ jobs:
          name: install phpunit
          command: |
             curl -LO https://phar.phpunit.de/phpunit-9.5.phar
-             chmod +x phpunit-9.5.phar
-             ./phpunit-9.5.phar --version
+            chmod +x phpunit-9.5.phar
+            ./phpunit-9.5.phar --version
       
    
       - run:
@@ -53,7 +53,7 @@ jobs:
          command: |
            mkdir htmlcov
            export XDEBUG_MODE=coverage 
-           phpunit --coverage-clover clover.xml tests/
+           phpunit --coverage-clover --migrate-configuration clover.xml tests/
 
            # phpunit --coverage-html htmlcov/coverage.html
            # phpunit --coverage-html coverage.xml
