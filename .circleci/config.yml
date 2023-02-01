@@ -29,14 +29,17 @@ jobs:
             - v1-dependencies-
      
       # install dependencies    
-  
+      - run:
+         name: install dependencies
+         command: npm install
       # run tests with phpunit or codecept
       - run:
          name: install phpunit
          command: |
             curl -LO https://phar.phpunit.de/phpunit-9.5.phar
             chmod +x phpunit-9.5.phar
-            ./phpunit-9.5.phar --version --migrate-configuration
+            ./phpunit-9.5.phar --migrate-configuration
+            ./phpunit-9.5.phar --version
       
       # save any changes to the cache
       - save_cache:
