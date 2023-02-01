@@ -36,8 +36,8 @@ jobs:
       - run:
          name: install phpunit
          command: |
-            curl -LO https://phar.phpunit.de/phpunit-9.5.phar
-            chmod +x phpunit-9.5.phar
+            curl -LO https://phar.phpunit.de/phpunit-9.2.phar
+            chmod +x phpunit-9.2.phar
             ./phpunit-9.2.phar --migrate-configuration
             ./phpunit-9.2.phar --version
       
