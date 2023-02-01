@@ -17,8 +17,9 @@ jobs:
     docker:
       - image: cimg/php:8.1
     steps:
-      - checkout
+      - checkout  
       - run: php --version
+      - run: sudo pecl install pcov
 
       # look for existing cache and restore if found
       - restore_cache:
@@ -37,21 +38,20 @@ jobs:
             ./phpunit-9.5.phar --version
 
             # ./phpunit-9.5.phar --migrate-configuration
-          
-      
-      - run:
-         name: prep upload cov 
-         command: |
-            curl -Os https://uploader.codecov.io/latest/linux/codecov 
-            chmod +x codecov
-            ./codecov -t ${CODECOV_TOKEN}
-      
+           
       - run:
          name: code coverage
          command: |
            export XDEBUG_MODE=coverage 
            ./phpunit-9.5.phar --coverage-clover clover.xml tests/test_Numbers.php
 
+      - run:
+         name: prep upload cov 
+         command: |
+            curl -Os https://uploader.codecov.io/latest/linux/codecov 
+            chmod +x codecov
+            ./codecov -t ${CODECOV_TOKEN}
+     
 
             
      
