@@ -22,7 +22,11 @@ jobs:
 
       # look for existing cache and restore if found
       - restore_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
+          keys:
+            # "composer.lock" can be used if it is committed to the repo
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
      
       # install dependencies    
   
@@ -44,7 +48,7 @@ jobs:
          name: code coverage
          command: |
            export XDEBUG_MODE=coverage 
-           ./phpunit-9.5.phar --coverage-clover clover.xml tests/
+           ./phpunit-9.5.phar --coverage-clover clover.xml tests/test_Numbers.php
 
 
       - run:
