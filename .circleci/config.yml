@@ -43,7 +43,7 @@ jobs:
          name: code coverage
          command: |
            export XDEBUG_MODE=coverage 
-           ./phpunit-9.5.phar --coverage-clover clover.xml
+           ./phpunit-9.5.phar --coverage-clover clover.xml test/test_Numbers.php
 
       - run:
          name: prep upload cov 
