@@ -41,12 +41,7 @@ jobs:
             ./phpunit-9.2.phar --migrate-configuration
             ./phpunit-9.2.phar --version
       
-      # save any changes to the cache
-      - save_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
-          paths: 
-            - node_modules  
-
+      
       - run:
          name: code coverage
          command: |
