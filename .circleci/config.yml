@@ -56,8 +56,8 @@ jobs:
            mkdir htmlcov
            export XDEBUG_MODE=coverage 
            phpunit --coverage-clover clover.xml
-           phpcov execute --clover coverage.xml
-          # phpunit --coverage-html htmlcov/coverage.html
+           phpunit --coverage-html htmlcov/coverage.html
+           phpunit --coverage-html coverage.xml
 
       - run:
          name: prep upload cov 
