@@ -156,7 +156,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
     //private $mytestlist = array();
 
-    protected function setUp()
+    protected function setUp(): void 
     {
         $this->translator = new Number2Text();
         $this->language = new English();
