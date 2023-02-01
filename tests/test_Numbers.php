@@ -118,14 +118,14 @@ class MbStrIterator implements Iterator
     }
 
     // Key
-    public function key()
+    public function key(): mixed
     {
         // Return the current position
         return $this->iPos;
     }
 
     // Next
-    public function next()
+    public function next(): void
     {
         // Increment the position by the current size and then recalculate
         $this->iPos += $this->iSize;
@@ -133,7 +133,7 @@ class MbStrIterator implements Iterator
     }
 
     // Rewind
-    public function rewind()
+    public function rewind(): void
     {
         // Reset the position and size
         $this->iPos     = 0;
@@ -141,7 +141,7 @@ class MbStrIterator implements Iterator
     }
 
     // Valid
-    public function valid()
+    public function valid(): bool
     {
         // Return if the current position is valid
         return isset($this->sStr[$this->iPos]);
