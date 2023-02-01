@@ -17,8 +17,9 @@ jobs:
     docker:
       - image: cimg/php:8.1
     steps:
-      - checkout
+      - checkout  
       - run: php --version
+      - run: sudo pecl install pcov
 
       # look for existing cache and restore if found
       - restore_cache:
@@ -27,29 +28,22 @@ jobs:
             - v1-dependencies-{{ checksum "composer.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-     
-      # install dependencies    
-  
+            
       # run tests with phpunit or codecept
       - run:
          name: install phpunit
          command: |
             curl -LO https://phar.phpunit.de/phpunit-9.5.phar
             chmod +x phpunit-9.5.phar
-            ./phpunit-9.5.phar --version --migrate-configuration
-      
-      # save any changes to the cache
-      - save_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
-          paths: 
-            - node_modules  
+            ./phpunit-9.5.phar --version
 
+            # ./phpunit-9.5.phar --migrate-configuration
+           
       - run:
          name: code coverage
          command: |
            export XDEBUG_MODE=coverage 
-           ./phpunit-9.5.phar --coverage-clover clover.xml tests/test_Numbers.php
-
+           ./phpunit-9.5.phar --coverage-clover clover.xml
 
       - run:
          name: prep upload cov 
@@ -57,5 +51,5 @@ jobs:
             curl -Os https://uploader.codecov.io/latest/linux/codecov 
             chmod +x codecov
             ./codecov -t ${CODECOV_TOKEN}
-            
+     
      
