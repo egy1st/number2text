@@ -43,15 +43,11 @@ jobs:
       - run:
          name: install phpunit
          command: |
-            wget https://phar.phpunit.de/phpunit-9.5.phar
-            chmod +x phpunit-9.5.phar
-            sudo mv phpunit-9.5.phar /usr/local/bin/phpunit
-            mkdir maa
-            
-            # install php coverage  
-            wget https://phar.phpunit.de/phpcov.phar
-            php phpcov.phar --version
-                      
+            curl -LO https://phar.phpunit.de/phpunit-9.5.phar
+             chmod +x phpunit-9.5.phar
+             ./phpunit-9.5.phar --version
+      
+   
       - run:
          name: code coverage
          command: |
