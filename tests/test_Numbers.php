@@ -176,10 +176,10 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         $output = 'text';
 		$currency = "dollar" ;
 		$units = "cent" ;
-		$locale = 'EGY' ;
+		$locale = 'USA' ;
 		//$str_Number, $language, $locale, $currency, $units, $output
         $languages = array("AR", "EN", "FR", "DE", "PT", "ES", "IT", "RU","FA", "KO", "TR", "ZH_CN", "ZH_TW");
-        $languages = array("AR") ; //"EN", "FR", "DE", "IT"); 
+        $languages = array("AR", "EN", "FR", "DE", "IT", "ES", "IT"); 
 
         // "EN" -- 0
         //FR -- 1
@@ -297,14 +297,16 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
     /**
      * @dataProvider addDataProvider
      */
+
     public function test_Number($num, $lang, $currency, $units, $locale, $output)
     {
         
-        $latin = ($lang != '2AR' & $lang != 'RU' & $lang != 'PT' & $lang != 'ES' & $lang != 'TR' & $lang != 'FA' & $lang != 'ES'
-            & $lang != 'KO' & $lang != 'ZH_CN' & $lang != 'ZH_TW');
+        //$latin = ($lang != 'AR' & $lang != 'RU' & $lang != 'PT' & $lang != 'ES' & $lang != 'TR' & $lang != 'FA' & $lang != 'ES'
+        //    & $lang != 'KO' & $lang != 'ZH_CN' & $lang != 'ZH_TW');
         $expected = $this::curl_Result($num, $lang, $locale, $currency, $units, $output);
         $expected = substr($expected, 45);
-
+        
+        $latin = true;
         $clean_text = trim($expected);
         if ($latin == true) {
             //echo 'we are here';
