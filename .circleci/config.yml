@@ -45,7 +45,7 @@ jobs:
          command: |
             curl -LO https://phar.phpunit.de/phpunit-9.5.phar
             chmod +x phpunit-9.5.phar
-            ./phpunit-9.5.phar --version --migrate-configuration
+            ./phpunit-9.5.phar --version
       
    
       - run:
