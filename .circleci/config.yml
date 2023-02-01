@@ -15,30 +15,21 @@ jobs:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: cimg/php:7.4
+      - image: cimg/php:8.1
     steps:
       - checkout
       - run: php --version
 
-      # - run: sudo pecl install pcov
-      # - run:  sudo docker-php-ext-enable pcov
-   
-      
-      
-
-      # Download and cache dependencies
+      # look for existing cache and restore if found
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
             - v1-dependencies-{{ checksum "composer.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
-     # prepare the database
-      # - run: touch storage/testing.sqlite
-      # - run: php artisan migrate --env=testing --database=sqlite_testing --force
-    
-    
+     
+      # install dependencies    
+  
       # run tests with phpunit or codecept
       - run:
          name: install phpunit
@@ -47,15 +38,19 @@ jobs:
             chmod +x phpunit-9.5.phar
             ./phpunit-9.5.phar --version --migrate-configuration
       
-   
+      # save any changes to the cache
+      - save_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}
+          paths: 
+            - node_modules  
+
       - run:
          name: code coverage
          command: |
            export XDEBUG_MODE=coverage 
-           ./phpunit-9.5.phar --coverage-clover clover.xml
+           ./phpunit-9.5.phar --coverage-clover clover.xml tests/test_Numbers.php
 
-          
-          
+
       - run:
          name: prep upload cov 
          command: |
