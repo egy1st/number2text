@@ -56,7 +56,7 @@ jobs:
          command: |
            mkdir htmlcov
            export XDEBUG_MODE=coverage 
-           phpunit --coverage-clover clover.xml
+           phpunit --coverage-clover clover.xml tests/
 
            # phpunit --coverage-html htmlcov/coverage.html
            # phpunit --coverage-html coverage.xml
