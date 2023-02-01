@@ -99,7 +99,7 @@ class MbStrIterator implements Iterator
     }
 
     // Current
-    public function current() {
+    public function current():  mixed {
 
         // If we're done
         if(!isset($this->sStr[$this->iPos])) {
