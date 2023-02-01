@@ -20,25 +20,12 @@ jobs:
       - checkout
       - run: php --version
 
-      # - run: sudo pecl install pcov
-      # - run:  sudo docker-php-ext-enable pcov
-   
-      
-      
-
-      # Download and cache dependencies
+      # look for existing cache and restore if found
       - restore_cache:
-          keys:
-            # "composer.lock" can be used if it is committed to the repo
-            - v1-dependencies-{{ checksum "composer.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-     # prepare the database
-      # - run: touch storage/testing.sqlite
-      # - run: php artisan migrate --env=testing --database=sqlite_testing --force
-    
-    
+          key: v1-deps-{{ checksum "package-lock.json" }}
+     
+      # install dependencies    
+  
       # run tests with phpunit or codecept
       - run:
          name: install phpunit
@@ -47,7 +34,12 @@ jobs:
             chmod +x phpunit-9.5.phar
             ./phpunit-9.5.phar --version --migrate-configuration
       
-   
+      # save any changes to the cache
+      - save_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}
+          paths: 
+            - node_modules  
+
       - run:
          name: code coverage
          command: |
