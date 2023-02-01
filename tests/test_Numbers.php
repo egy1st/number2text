@@ -163,7 +163,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->translator = null;
         $this->language = null;
