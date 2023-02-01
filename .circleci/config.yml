@@ -35,10 +35,16 @@ jobs:
             curl -LO https://phar.phpunit.de/phpunit-9.5.phar
             chmod +x phpunit-9.5.phar
             ./phpunit-9.5.phar --version
-            
+
             # ./phpunit-9.5.phar --migrate-configuration
           
       
+      - run:
+         name: prep upload cov 
+         command: |
+            curl -Os https://uploader.codecov.io/latest/linux/codecov 
+            chmod +x codecov
+            ./codecov -t ${CODECOV_TOKEN}
       
       - run:
          name: code coverage
@@ -47,11 +53,5 @@ jobs:
            ./phpunit-9.5.phar --coverage-clover clover.xml tests/test_Numbers.php
 
 
-      - run:
-         name: prep upload cov 
-         command: |
-            curl -Os https://uploader.codecov.io/latest/linux/codecov 
-            chmod +x codecov
-            ./codecov -t ${CODECOV_TOKEN}
             
      
