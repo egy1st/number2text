@@ -2,13 +2,11 @@
 # See: https://circleci.com/docs/2.0/language-php/
 version: 2.1
 
+ 
 orbs:
-  # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
-  # Orb commands and jobs help you with common scripting around a language/tool
-  # so you dont have to copy and paste it everywhere.
-  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  orbs:
   codecov: codecov/codecov@3.2.4
+
+  
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -22,7 +20,12 @@ jobs:
       - checkout
       - run: php --version
 
-        
+      # - run: sudo pecl install pcov
+      # - run:  sudo docker-php-ext-enable pcov
+   
+      
+      
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -40,25 +43,24 @@ jobs:
       - run:
          name: install phpunit
          command: |
-            wget https://phar.phpunit.de/phpunit-6.5.phar
-            chmod +x phpunit-6.5.phar
-            sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
-                      
+            curl -LO https://phar.phpunit.de/phpunit-9.5.phar
+            chmod +x phpunit-9.5.phar
+            ./phpunit-9.5.phar --version --migrate-configuration
+      
+   
       - run:
          name: code coverage
          command: |
-           mkdir htmlcov
            export XDEBUG_MODE=coverage 
-           phpunit --coverage-clover clover.xml
-          # phpunit --coverage-html htmlcov/coverage.html
+           ./phpunit-9.5.phar --coverage-clover clover.xml
 
+          
+          
       - run:
          name: prep upload cov 
          command: |
-            curl -Os https://uploader.codecov.io/latest/linux/codecov
+            curl -Os https://uploader.codecov.io/latest/linux/codecov 
             chmod +x codecov
-            ./codecov
+            ./codecov -t ${CODECOV_TOKEN}
             
-        
-      - store_artifacts:
-          path: htmlcov
+     
