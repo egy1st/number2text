@@ -21,7 +21,7 @@ jobs:
       - run: php --version
       - run: sudo pecl install pcov
       - run:  sudo docker-php-ext-enable pcov
-      - run: composer require phpunit/php-code-coverage
+      - run: composer require --dev phpunit/php-code-coverage
       
       
 
