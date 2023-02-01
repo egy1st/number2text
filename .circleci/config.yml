@@ -21,7 +21,7 @@ jobs:
       - run: php --version
       - run: sudo pecl install pcov
       - run:  sudo docker-php-ext-enable pcov
-      - run: composer require --dev phpunit/php-code-coverage
+   
       
       
 
@@ -42,9 +42,13 @@ jobs:
       - run:
          name: install phpunit
          command: |
-            wget https://phar.phpunit.de/phpunit-6.5.phar
-            chmod +x phpunit-6.5.phar
-            sudo mv phpunit-6.5.phar /usr/local/bin/phpunit
+            wget https://phar.phpunit.de/phpunit-7.4.phar
+            chmod +x phpunit-7.4.phar
+            sudo mv phpunit-7.4.phar /usr/local/bin/phpunit
+            
+            # install php coverage  
+            wget https://phar.phpunit.de/phpcov.phar
+            php phpcov.phar --version
                       
       - run:
          name: code coverage
