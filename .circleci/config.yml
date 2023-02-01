@@ -46,10 +46,6 @@ jobs:
             chmod +x phpunit-7.4.phar
             sudo mv phpunit-7.4.phar /usr/local/bin/phpunit
             
-            # install php coverage  
-            wget https://phar.phpunit.de/phpcov.phar
-            php phpcov.phar --version
-                      
       - run:
          name: code coverage
          command: |
