@@ -32,17 +32,17 @@ jobs:
       - run:
          name: install phpunit
          command: |
-            curl -LO https://phar.phpunit.de/phpunit-9.6.phar
-            chmod +x phpunit-9.6.phar
-            ./phpunit-9.6.phar --migrate-configuration
-            ./phpunit-9.6.phar --version
+            curl -LO https://phar.phpunit.de/phpunit-9.5.phar
+            chmod +x phpunit-9.5.phar
+            ./phpunit-9.5.phar --migrate-configuration
+            ./phpunit-9.5.phar --version
       
       
       - run:
          name: code coverage
          command: |
            export XDEBUG_MODE=coverage 
-           ./phpunit-9.6.phar --coverage-clover clover.xml tests/test_Numbers.php
+           ./phpunit-9.5.phar --coverage-clover clover.xml tests/test_Numbers.php
 
 
       - run:
