@@ -83,7 +83,7 @@ $strNumber = "" ;
 
     // This function populates digits in an array to master it one by one
     // Then, it format it to the proper format
-    public static function prepareNumber($strNumber, &$N)
+    public static function prepareNumber($strNumber, &$aNum)
     {
 
         if (is_numeric($strNumber)) {
