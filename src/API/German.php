@@ -20,7 +20,7 @@ class German
     * @param string $aCur     currency-array parameter
      @return string
     */
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -55,7 +55,7 @@ class German
             }
       
             // ================================================================
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             // Special condition for germany language
             if ( $N[$x + 1] == 0 &  $N[$x + 2] == 1 & $L <= 2) {

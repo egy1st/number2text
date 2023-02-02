@@ -177,7 +177,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$currency = "dollar" ;
 		$units = "cent" ;
 		$locale = 'USA' ;
-		//$str_Number, $language, $locale, $currency, $units, $output
+		//$strNumber, $language, $locale, $currency, $units, $output
         $languages = array("AR", "EN", "FR", "DE", "IT", "PT","ES", "RU","FA", "KO", "TR", "ZH_CN", "ZH_TW");
         $languages = array("AR", "EN", "FR", "DE", "IT", "PT", "TR", "FA", "RU", "KO", "ZH_TW"); 
         //$languages = array("AR", "EN"); 
@@ -325,7 +325,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             $expected = trim($clean_text);
         }
 
-        //$str_Number, $language, $locale, $currency, $units, $output
+        //$strNumber, $language, $locale, $currency, $units, $output
         $actual = $this->translator::translateNumber($num, $lang, $currency, $units, $locale, $output);
         //echo 'The actual is: ' . $actual . '**' . PHP_EOL;
         $this->assertEquals($expected, $actual);
