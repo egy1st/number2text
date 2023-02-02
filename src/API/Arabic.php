@@ -13,7 +13,15 @@ require_once "Number2Text.php";
  */
 class Arabic
 {
-    public function TranslateNumber($str_Number, $aCur)
+
+     /**
+     * This is main function required to convert a number into words.
+     * 
+     * Long description here.
+     * 
+     * @return string
+     */
+    public function TranslateNumber($str_Number, $aCur): string
     {
         $Num = "";
 
