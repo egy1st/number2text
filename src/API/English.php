@@ -62,7 +62,7 @@ class English
             // prepre numbers from 0 to 99
             $Forma = Number2Text::prepareNumber($strNumber, $N);
 
-            $n_unit = $N[$x + 2] + ($N[$x + 1] * 10);
+            $n_unit = ($N[$x + 2] + ($N[$x + 1] * 10));
             // keywords
             if ($n_unit < 21) {
                 $str_unit = $R [$n_unit];
