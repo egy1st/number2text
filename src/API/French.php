@@ -26,15 +26,15 @@ class French
 
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "French");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
+            $id1 = $aId[($cycle * 2) - 1];
+            $id2 = $aId[$cycle * 2];
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
