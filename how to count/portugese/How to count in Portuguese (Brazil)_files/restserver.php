@@ -1,1 +1,0 @@
-fb_sharepro_render([{"url":"http:\/\/www.languagesandnumbers.com\/how-to-count-in-portuguese-brazil\/en\/por-bra\/","normalized_url":"http:\/\/www.languagesandnumbers.com\/how-to-count-in-portuguese-brazil\/en\/por-bra\/","share_count":2,"like_count":0,"comment_count":0,"total_count":2,"click_count":0,"comments_fbid":10150210802293832,"commentsbox_count":0}]);

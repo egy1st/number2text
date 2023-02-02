@@ -1,1 +1,0 @@
-fb_sharepro_render([{"url":"http:\/\/www.turkishclass.com\/turkish_lesson_28","normalized_url":"http:\/\/www.turkishclass.com\/turkish_lesson_28","share_count":29,"like_count":14,"comment_count":5,"total_count":48,"click_count":0,"comments_fbid":383391559959,"commentsbox_count":0}]);

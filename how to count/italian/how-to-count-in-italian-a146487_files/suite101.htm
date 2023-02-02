@@ -1,9 +1,0 @@
-function ch_hq_execute() {
-	try {
-		var ch_category = document.getElementsByName('keywords')[0].content.replace(/^,/, '');
-		ch_real_ad_url = ch_real_ad_url.replace(/&query=[^&]+/, '');
-		ch_real_ad_url = ch_real_ad_url + '&query='+encodeURIComponent(ch_category);
-	} catch(e) {
-	}
-	ex_normal_op();
-}

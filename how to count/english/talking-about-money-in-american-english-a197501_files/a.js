@@ -1,1 +1,0 @@
-document.write('<script type="text/javascript" src="http://cdn.skimresources.com/js/4343X644758.skimlinks.js"></scr' + 'ipt>');

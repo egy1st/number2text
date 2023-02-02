@@ -1,1 +1,0 @@
-fb_sharepro_render([{"url":"http:\/\/www.languagesandnumbers.com\/how-to-count-in-german\/en\/deu\/","normalized_url":"http:\/\/www.languagesandnumbers.com\/how-to-count-in-german\/en\/deu\/","share_count":1,"like_count":0,"comment_count":0,"total_count":1,"click_count":0,"comments_fbid":10150491055172353,"commentsbox_count":0}]);
