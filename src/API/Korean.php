@@ -26,10 +26,10 @@ class Korean
 
         $KOR = new Korean();
         $strNum = "";
-        $N[17] = 0;
+        $aNum[17] = 0;
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Korean");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         //=====================================================================
