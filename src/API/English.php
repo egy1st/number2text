@@ -35,7 +35,7 @@ class English
         // =================================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
 
             $id2 = $aId[$cycle * 2];
