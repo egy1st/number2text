@@ -49,17 +49,17 @@ class Russian
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
-            $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
-            $n_all = $N [$x] + $n_unit;
+            $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
+            $n_all =  $N[$x] + $n_unit;
             // keywords
             if ($n_unit > 0 & $n_unit < 21) {
-                $str_unit = $R [$n_unit];
+                $str_unit = $R[$n_unit];
                 // tens
-            } else if ($N [$x + 2] == 0) {
-                $str_unit = $Z [$N [$x + 1]];
+            } else if ( $N[$x + 2] == 0) {
+                $str_unit = $Z[$N[$x + 1]];
                 // others
             } else {
-                $str_unit = $Z [$N [$x + 1]] . " " . $R [$N [$x + 2]];
+                $str_unit = $Z[$N[$x + 1]] . " " . $R[$N[$x + 2]];
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -71,14 +71,14 @@ class Russian
                 // тысяча not один тысяча.
                 if (NumberingSystem::checkOneThousnad($L, $Forma)) {
                     $Num .= " " . $id1 . " ";
-                } else if ($N [$x] == 0) {
+                } else if ( $N[$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " ";
                     // only units and tens
                 } else if ($n_unit == 0) {
-                    $Num .= $H [$N [$x]] . " " . $id2 . " ";
+                    $Num .= $H [ $N[$x]] . " " . $id2 . " ";
                     // only hundreds
                 } else {
-                    $Num .= $H [$N [$x]] . " " . $str_unit . " " . $id2 . " ";
+                    $Num .= $H [ $N[$x]] . " " . $str_unit . " " . $id2 . " ";
                     // complete compund number
                 }
             }
@@ -96,7 +96,7 @@ class Russian
 
         /*
         if ($Forma == "000000000000.000") {
-            $Num = $R [0];
+            $Num = $R[0];
         }
         */
 

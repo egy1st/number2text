@@ -49,17 +49,17 @@ class Persian
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
-            $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
-            $n_all = $N [$x] + $n_unit;
+            $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
+            $n_all =  $N[$x] + $n_unit;
             // keywords
             if ($n_unit > 0 & $n_unit < 21) {
-                $str_unit = $R [$n_unit] . " ";
+                $str_unit = $R[$n_unit] . " ";
                 // tens
-            } else if ($N [$x + 2] == 0) {
-                $str_unit = $Z [$N [$x + 1]] . " ";
+            } else if ( $N[$x + 2] == 0) {
+                $str_unit = $Z[$N[$x + 1]] . " ";
                 // others
             } else {
-                $str_unit = $Z [$N [$x + 1]] . " " . $M [0] . " " . $R [$N [$x + 2]] . " ";
+                $str_unit = $Z[$N[$x + 1]] . " " . $M [0] . " " . $R[$N[$x + 2]] . " ";
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -71,14 +71,14 @@ class Persian
                 // هزار not یک هزار
                 if (NumberingSystem::checkOneThousnad($L, $Forma)) {
                     $Num .= " " . $id1 . " ";
-                } else if ($N [$x] == 0) {
+                } else if ( $N[$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " " . $M [0] . " ";
                     // only units and tens
                 } else if ($n_unit == 0) {
-                    $Num .= $H [$N [$x]] . " " . $id2 . " " . $M [0] . " ";
+                    $Num .= $H [ $N[$x]] . " " . $id2 . " " . $M [0] . " ";
                     // only hundreds
                 } else {
-                    $Num .= $H [$N [$x]] . " " . $M [0] . " " . $str_unit . " " . $id2 . " " . $M [0] . " ";
+                    $Num .= $H [ $N[$x]] . " " . $M [0] . " " . $str_unit . " " . $id2 . " " . $M [0] . " ";
                     // complete compund number
                 }
             }
@@ -96,7 +96,7 @@ class Persian
 
         /*
         if ($Forma == "000000000000.000") {
-            $Num = $R [0];
+            $Num = $R[0];
         }
         */
 

@@ -50,29 +50,29 @@ class Turkish
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
-            $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
-            $n_all = $N [$x] + $n_unit;
+            $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
+            $n_all =  $N[$x] + $n_unit;
 
             // keywords are only 10 not 20
             if ($n_unit > 0 & $n_unit < 11) {
-                $str_unit = $R [$n_unit];
+                $str_unit = $R[$n_unit];
                 // tens
-            } else if ($N [$x + 2] == 0) {
-                $str_unit = $Z [$N [$x + 1]];
+            } else if ( $N[$x + 2] == 0) {
+                $str_unit = $Z[ $N[$x + 1]];
                 // Please note that üç [3] loses its umlaut when composed within a number (e.g.: on uç [13]).
                 // thousnads multipier from 11 to 19 ara contcatentaed without space
                 // we test it is less than 20 as we are sure it is above 10
-            } else if ($N [$x + 2] == 3 & $N [$x + 1] > 0 & ($L == 3 & $n_unit < 20)) {
-                $str_unit = $Z [$N [$x + 1]] . "uç";
-            } else if ($N [$x + 2] == 3 & $N [$x + 1] > 0 & !($L == 3 & $n_unit < 20)) {
-                $str_unit = $Z [$N [$x + 1]] . " " . "uç";
+            } else if ( $N[$x + 2] == 3 &  $N[$x + 1] > 0 & ($L == 3 & $n_unit < 20)) {
+                $str_unit = $Z[ $N[$x + 1]] . "uç";
+            } else if ( $N[$x + 2] == 3 &  $N[$x + 1] > 0 & !($L == 3 & $n_unit < 20)) {
+                $str_unit = $Z[ $N[$x + 1]] . " " . "uç";
                 // thousnads multipier from 11 to 19 ara contcatentaed without space
                 // we test it is less than 20 as we are sure it is above 10
                 // others
             } else if (($L == 3 & $n_unit < 20)) {
-                $str_unit = $Z [$N [$x + 1]] . $R [$N [$x + 2]];
+                $str_unit = $Z[ $N[$x + 1]] . $R[ $N[$x + 2]];
             } else {
-                $str_unit = $Z [$N [$x + 1]] . " " . $R [$N [$x + 2]];
+                $str_unit = $Z[ $N[$x + 1]] . " " . $R[ $N[$x + 2]];
             }
 
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -86,14 +86,14 @@ class Turkish
                 // yüz not bir yüz
                 if (NumberingSystem::checkOneHundred($L, $Forma)) {
                     $Num .= " " . $H [1] . " " . $id1 . " ";
-                } else if ($N [$x] == 0) {
+                } else if ( $N[$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " ";
                     // only units and tens
                 } else if ($n_unit == 0) {
-                    $Num .= $H [$N [$x]] . " " . $id2 . " ";
+                    $Num .= $H [ $N[$x]] . " " . $id2 . " ";
                     // only hundreds
                 } else {
-                    $Num .= $H [$N [$x]] . " " . $str_unit . " " . $id2 . " ";
+                    $Num .= $H [ $N[$x]] . " " . $str_unit . " " . $id2 . " ";
                     // complete compund number
                 }
             }
@@ -112,7 +112,7 @@ class Turkish
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
         if ($Forma == "000000000000.000") {
-            $Num = $R [0];
+            $Num = $R[0];
         }
 
         return $Num;

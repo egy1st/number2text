@@ -38,7 +38,7 @@ class Portuguese
                 $n_sum = NumberingSystem::getSum($N, 3);
             } else if ($L == 4) {
                 $x = 10;
-				if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0 & substr($Forma, 0, 12 )!= "000000000000"){
+				if ( $N[$x] == 0 &  $N[$x + 1] == 0 &  $N[$x + 2] == 0 & substr($Forma, 0, 12 )!= "000000000000"){
 					$Num = NumberingSystem::removeComma($Num) ;
 					$Num .=  ' ' . $id2 ;
 				 }
@@ -53,17 +53,17 @@ class Portuguese
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
-            $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
-            $n_all = $N [$x] + $n_unit;
+            $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
+            $n_all =  $N[$x] + $n_unit;
             // keywords
             if ($n_unit > 0 & $n_unit < 21) {
-                $str_unit = $R [$n_unit];
+                $str_unit = $R[$n_unit];
                 // tens
-            } else if ($N [$x + 2] == 0) {
-                $str_unit = $Z [$N [$x + 1]];
+            } else if ( $N[$x + 2] == 0) {
+                $str_unit = $Z[$N[$x + 1]];
                 // others
             } else {
-                $str_unit = $Z [$N [$x + 1]] . " " . $M [0] . " " . $R [$N [$x + 2]];
+                $str_unit = $Z[$N[$x + 1]] . " " . $M [0] . " " . $R[$N[$x + 2]];
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -79,14 +79,14 @@ class Portuguese
                     $Num .= " " . $id1 . " ";
                 } else if (NumberingSystem::checkOneHundred($L, $Forma)) {
                     $Num .= " " . $H [10] . " " . $id1 . " ";
-                } else if ($N [$x] == 0) {
+                } else if ( $N[$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " ";
                     // only units and tens
                 } else if ($n_unit == 0) {
-                    $Num .= $H [$N [$x]] . " " . $id2 . " ";
+                    $Num .= $H [ $N[$x]] . " " . $id2 . " ";
                     // only hundreds
                 } else {
-                    $Num .= $H [$N [$x]] . " " . $M [0] . " " . $str_unit . " " . $id2 . " ";
+                    $Num .= $H [ $N[$x]] . " " . $M [0] . " " . $str_unit . " " . $id2 . " ";
                     // complete compund number
                 }
             }
@@ -99,7 +99,7 @@ class Portuguese
             // http://www.languagesandnumbers.com/how-to-count-in-portuguese-portugal/en/por-prt/
             // experimental use added case and hundreds not 100
             if ($L == 3) {
-                if (NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx") & $N [$x + 3] != 1) {
+                if (NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx") &  $N[$x + 3] != 1) {
                     $Num = NumberingSystem::removeComma($Num);
                     $Num .= " " . $M [0] . " ";
                 }
@@ -115,7 +115,7 @@ class Portuguese
 			if ($L == 4) {
 
                 if (substr($Forma, 0, 12) == "000000000001") {
-                    $Num = $R [1] . " " . $id1;
+                    $Num = $R[1] . " " . $id1;
                 } else if (substr($Forma, 0, 12) == "000000000000") {
                     $Num = "";
                 } else {
@@ -153,7 +153,7 @@ class Portuguese
   
         /*
         if ($Forma == "000000000000.000") {
-            $Num = $R [0];
+            $Num = $R[0];
         }
         */
 

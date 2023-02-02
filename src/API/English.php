@@ -66,13 +66,13 @@ class English
 
             // Keywords
             if ($n_unit < 21) {
-                $str_unit = $R [$n_unit];
+                $str_unit = $R[$n_unit];
                 // tens
             } else if ($N[$x + 2] == 0) {
                 $str_unit = $Z[$N[$x + 1]];
                 // others
             } else {
-                $str_unit = $Z[$N[$x + 1]] . "-" . $R [$N[$x + 2]];
+                $str_unit = $Z[$N[$x + 1]] . "-" . $R[$N[$x + 2]];
             }
 
             // ================================================================
@@ -110,7 +110,7 @@ class English
             if ($L == 4) {
 
                 if (substr($Forma, 0, 12) === "000000000001") {
-                    $Num = $R [1] . " " . $id1;
+                    $Num = $R[1] . " " . $id1;
                 } else if (substr($Forma, 0, 12) === "000000000000") {
                     $Num = "";
                 } else {
@@ -145,7 +145,7 @@ class English
 
         /*
         if ($Forma == "000000000000.000") {
-            $Num = $R [0];
+            $Num = $R[0];
         }
         */
 

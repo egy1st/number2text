@@ -230,23 +230,23 @@ class Korean
         $E = 0;
         for($E = 1; $E <= 12; $E ++) {
             $S = substr ( $Forma, $E, 1 );
-            $N [$E] = $S;
+             $N[$E] = $S;
         }
 
         for($E = 14; $E <= 17; $E ++) {
             $S = substr ( $Forma, $E, 1 );
-            $N [$E] = $S;
+             $N[$E] = $S;
         }
 
         // make(0.23 as 0.0023)
-        $N [17] = $N [15];
-        $N [16] = $N [14];
-        $N [14] = 0;
-        $N [15] = 0;
+         $N[17] =  $N[15];
+         $N[16] =  $N[14];
+         $N[14] = 0;
+         $N[15] = 0;
 
         $Forma = substr ( $Forma, 0, 13 );
         for($E = 14; $E <= 17; $E ++) {
-            $Forma += $N [$E];
+            $Forma +=  $N[$E];
         }
 
         return true;

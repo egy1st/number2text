@@ -38,7 +38,7 @@ class German
                 $n_sum = NumberingSystem::getSum($N, 3);
             } else if ($L == 4) {
                 $x = 10;
-				if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
+				if ( $N[$x] == 0 &  $N[$x + 1] == 0 &  $N[$x + 2] == 0) {
 					$Num = NumberingSystem::removeComma($Num) ;
                 	$Num .=  ' ' . $id2 ;
 			      }
@@ -52,22 +52,22 @@ class German
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             // Special condition for germany language
-            if ($N [$x + 1] == 0 & $N [$x + 2] == 1 & $L <= 2) {
-                $R [1] .= "e";
-            } else if ($N [$x + 1] == 0 & $N [$x + 2] == 1 & $L == 4) {
-                $R [1] .= "s";
+            if ( $N[$x + 1] == 0 &  $N[$x + 2] == 1 & $L <= 2) {
+                $R[1] .= "e";
+            } else if ( $N[$x + 1] == 0 &  $N[$x + 2] == 1 & $L == 4) {
+                $R[1] .= "s";
             }
             // End of special condition
 
-            $n_unit = $N [$x + 2] + ($N [$x + 1] * 10);
+            $n_unit =  $N[$x + 2] + ( $N[$x + 1] * 10);
             // keywords
             if ($n_unit < 21) {
-                $str_unit = $R [$n_unit];
+                $str_unit = $R[$n_unit];
                 // tens
-            } else if ($N [$x + 2] == 0) {
-                $str_unit = $Z [$N [$x + 1]];
+            } else if ( $N[$x + 2] == 0) {
+                $str_unit = $Z[$N[$x + 1]];
             } else {
-                $str_unit = $R [$N [$x + 2]] . $M [0] . $Z [$N [$x + 1]];
+                $str_unit = $R[$N[$x + 2]] . $M [0] . $Z[$N[$x + 1]];
             }
 
             if ($L == 1 & substr($Forma, 1, 3) == "001") {
@@ -81,13 +81,13 @@ class German
                 $id1 = " " . $id1 . " ";
             }
 
-            if ($N [$x] != 0) {
-                if ($N [$x + 1] + $N [$x + 2] != 0) {
-                    $Num .= $H [$N [$x]] . $str_unit . $id2;
+            if ( $N[$x] != 0) {
+                if ( $N[$x + 1] +  $N[$x + 2] != 0) {
+                    $Num .= $H [ $N[$x]] . $str_unit . $id2;
                 } else {
-                    $Num .= $H [$N [$x]] . $id2;
+                    $Num .= $H [ $N[$x]] . $id2;
                 }
-            } else if ($N [$x + 1] + $N [$x + 2] != 0) {
+            } else if ( $N[$x + 1] +  $N[$x + 2] != 0) {
                 $Num .= $str_unit . " " . $id2;
             } else {
                 // nothing to do
@@ -102,7 +102,7 @@ class German
              if ($L == 4) {
 				
                  if (substr($Forma, 0, 12) == "000000000001") {
-                    $Num = $R [1] . " " . $id1;
+                    $Num = $R[1] . " " . $id1;
                 } else if (substr($Forma, 0, 12) == "000000000000") {
                     $Num = "";
                 } else {
@@ -135,7 +135,7 @@ class German
 
         /*
         if ($Forma == "000000000000.000") {
-            $Num = $R [0];
+            $Num = $R[0];
         }
         */
 

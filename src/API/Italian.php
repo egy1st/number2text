@@ -39,7 +39,7 @@ class Italian
                 $n_sum = NumberingSystem::getSum($N, 3);
             } else if ($L == 4) {
                 $x = 10;
-				if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
+				if ( $N[$x] == 0 &  $N[$x + 1] == 0 &  $N[$x + 2] == 0) {
 					//$Num = NumberingSystem::removeComma($Num) ; // do not allow this for italian
                 	//$Num .=  ' ' . $id2 ;
 			      }
@@ -53,31 +53,31 @@ class Italian
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
-            $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
-            $n_all = $N [$x] + $n_unit;
+            $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
+            $n_all =  $N[$x] + $n_unit;
             // keywords
             if ($n_unit > 0 & $n_unit < 21) {
-                $str_unit = $R [$n_unit];
+                $str_unit = $R[$n_unit];
                 // tens
-            } else if ($N [$x + 2] == 0) {
-                $str_unit = $Z [$N [$x + 1]];
+            } else if ( $N[$x + 2] == 0) {
+                $str_unit = $Z[$N[$x + 1]];
 
                 // case compound number whers tens ends with vowels(all tens are do) and units strat with vowels too
                 // as in (1,8)
                 // thus The numbers venti, trenta, and so on drop the final vowel before adding -uno or otto:
                 // Asc Integer ventuno, ventotto.
-            } else if ($N [$x + 2] == 1 | $N [$x + 2] == 8) {
-                $str_unit = $ITA->removeVowels($Z [$N [$x + 1]]) . $R [$N [$x + 2]];
+            } else if ( $N[$x + 2] == 1 |  $N[$x + 2] == 8) {
+                $str_unit = $ITA->removeVowels($Z[$N[$x + 1]]) . $R[$N[$x + 2]];
                 // others
             } else {
-                $str_unit = $Z [$N [$x + 1]] . $R [$N [$x + 2]];
+                $str_unit = $Z[$N[$x + 1]] . $R[$N[$x + 2]];
             }
 
             // When -tre is the last digit of a larger number, it takes an accent: eg. ventitré
             // note 253623 is duecentocinquantatremila seicentoventitré
             // only last tre has accent
             // independent case
-            if ($N [$x + 2] == 3 & $L == 4) {
+            if ( $N[$x + 2] == 3 & $L == 4) {
                 $str_unit = $ITA->modifyAccent($str_unit);
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -93,15 +93,15 @@ class Italian
                     // is greater than one hundred and does not end with a double zero
                     // (e.g.: duemilatrecentoquarantacinque [2,345], tecentosessantacinquemila duecento [765,200]).
                 } else if ($ITA->checkHundredThousnad($L, $Forma)) {
-                    $Num .= $H [$N [$x]] . $str_unit . $id2 . " ";
+                    $Num .= $H [ $N[$x]] . $str_unit . $id2 . " ";
 
                     // experimantal at http://www.languagesandnumbers.com/how-to-count-in-italian/en/ita/
                     // add space when thausand multipliers greater than 100, for 100 exatly no space , so we use trim function
                 } else if ($ITA->checkSuperOneHundred($L, $Forma)) {
-                    $Num .= $H [$N [$x]] . $str_unit . trim($id2) . " ";
+                    $Num .= $H [ $N[$x]] . $str_unit . trim($id2) . " ";
                     //
                 } else {
-                    $Num .= $H [$N [$x]] . $str_unit . $id2;
+                    $Num .= $H [ $N[$x]] . $str_unit . $id2;
                     // others
                 }
             }
@@ -119,7 +119,7 @@ class Italian
 
         /*
         if ($Forma == "000000000000.000") {
-            $Num = $R [0];
+            $Num = $R[0];
         }
         */
 

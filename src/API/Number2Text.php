@@ -101,22 +101,22 @@ $str_Number = "" ;
             $E = 0;
             for ($E = 0; $E < 12; $E++) {
                 $S = substr($Forma, $E, 1);
-                $N [$E + 1] = $S;
+                 $N[$E + 1] = $S;
             }
 
             for ($E = 13; $E < 16; $E++) {
                 $S = substr($Forma, $E, 1);
-                $N [$E + 1] = $S;
+                 $N[$E + 1] = $S;
             }
 
             // make(0.23 as 0.023)
-            $N [16] = $N [15];
-            $N [15] = $N [14];
-            $N [14] = 0;
+             $N[16] =  $N[15];
+             $N[15] =  $N[14];
+             $N[14] = 0;
 
             $Forma = substr($Forma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
-                $Forma .= $N [$E];
+                $Forma .=  $N[$E];
             }
 
             return $Forma;
