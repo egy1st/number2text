@@ -5,42 +5,43 @@ Number2Text is an API that alloes you to Convert any digits number to the equiva
 
 [![CircleCI](https://circleci.com/gh/egy1st/number2text/tree/main.svg?style=shield)](https://circleci.com/gh/egy1st/number2text/tree/main) [![codecov](https://codecov.io/gh/egy1st/number2text/branch/main/graph/badge.svg?token=26Z0MRJI07)](https://codecov.io/gh/egy1st/number2text)
 [![Swagger Validator](https://img.shields.io/swagger/valid/3.0?specUrl=https%3A%2F%2Fnumber2words.readme.io%2Fopenapi%2F6206ef8046f62d0080f16b8f)](https://number2words.readme.io/openapi/6206ef8046f62d0080f16b8f)
+[![Codacy Security Scan](https://github.com/egy1st/number2text/actions/workflows/codacy.yml/badge.svg)](https://github.com/egy1st/number2text/actions/workflows/codacy.yml)
 
 ![Number2Words 13 languages](https://raw.githubusercontent.com/egy1st/images/main/number2words/13_languages.png)
 
 Digits number up to 999,999,999.998.99 can be converted to words in 13 languages so far:
 
-- Arabic
-- English
-- French
-- German
-- Spanish
-- Italian
-- Portuguese
-- Russian
-- Persian
-- Turkish
-- Korean
-- Chinese Simplified
-- Chinese Traditional
+-  Arabic
+-  English
+-  French
+-  German
+-  Spanish
+-  Italian
+-  Portuguese
+-  Russian
+-  Persian
+-  Turkish
+-  Korean
+-  Chinese Simplified
+-  Chinese Traditional
 
 ![Number2text Demo](https://raw.githubusercontent.com/egy1st/images/main/number2words/demo.webp)
 
 # Shall We Start
 Just click me and see how am I working
-- https://number2text.com/api/v1/?number=123456.78&language=en&locale=usa
-- https://number2text.com/api/v1/?number=123456.78&language=ar&locale=egy
-- https://number2text.com/api/v1/?number=123456.78&language=fr&locale=eur
-- https://number2text.com/api/v1/?number=123456.78&language=de&locale=eur
-- https://number2text.com/api/v1/?number=123456.78&language=es&locale=usa
-- https://number2text.com/api/v1/?number=123456.78&language=pt&locale=usa
-- https://number2text.com/api/v1/?number=123456.78&language=it&locale=eur
-- https://number2text.com/api/v1/?number=123456.78&language=ru&locale=usa
-- https://number2text.com/api/v1/?number=123456.78&language=fa&locale=egy
-- https://number2text.com/api/v1/?number=123456.78&language=tr&locale=usa
-- https://number2text.com/api/v1/?number=123456.78&language=ko&locale=usa
-- https://number2text.com/api/v1/?number=123456.78&language=zh_cn&locale=usa
-- https://number2text.com/api/v1/?number=123456.78&language=zh_tw&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=en&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=ar&locale=egy
+-  https://number2text.com/api/v1/?number=123456.78&language=fr&locale=eur
+-  https://number2text.com/api/v1/?number=123456.78&language=de&locale=eur
+-  https://number2text.com/api/v1/?number=123456.78&language=es&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=pt&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=it&locale=eur
+-  https://number2text.com/api/v1/?number=123456.78&language=ru&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=fa&locale=egy
+-  https://number2text.com/api/v1/?number=123456.78&language=tr&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=ko&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=zh_cn&locale=usa
+-  https://number2text.com/api/v1/?number=123456.78&language=zh_tw&locale=usa
 
 # Great For Banks Billing
 
