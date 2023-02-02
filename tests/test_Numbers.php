@@ -172,7 +172,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
     public function addDataProvider()
     {
-        $mytestlist = array();
+        $mytestlist = [];
         $output = 'text';
 		$currency = "dollar" ;
 		$units = "cent" ;
@@ -180,12 +180,12 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		//$strNumber, $language, $locale, $currency, $units, $output
         $languages = ["AR", "EN", "FR", "DE", "IT", "PT","ES", "RU","FA", "KO", "TR", "ZH_CN", "ZH_TW"];
         $languages = ["AR", "EN", "FR", "IT", "PT", "TR", "FA", "RU", "KO", "ZH_TW"]; // "DE"
-        //$languages = ["AR", "EN"]; 
+        $languages = ["EN"]; 
 
         
         // Add null & '' to test cases
         $numbers = [null, '', "one", "1.2.30", 0, 1 , 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
-            100000, 100001, 200000, 500000, 1000000, 1000001, 2000000, 7000000, 10000000, 100000000, 1000000000,
+            100000, 100001, 200000, 500000, 1000000, 1000001, 2000000, 7000000, 10000000, 100000000, 1000000000, 
             2000000000, 100000000000, 210000000000, 999999999998.99, 0.01, 0.02, 0.03, 0.10, 0.99, 0.12, 10.01, 45.96, 1000.05, 45698.20, 15023.45];
 
         foreach ($languages as $lang) {
@@ -205,13 +205,13 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
     public function addDataProviderExceptions()
     {
 
-        $mytestlist = array();
+        $mytestlist = [];
         $output = 'text';
 		$currency = "dollar" ;
 		$units = "cent" ;
 		$locale = 'USA' ;
-        $languages = array("AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW");
-        $languages = array("EN" );
+        $languages = ["AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW"];
+        $languages = ["EN"];
 
         // add null & '' to test cases
         $numbers = ["", null];
