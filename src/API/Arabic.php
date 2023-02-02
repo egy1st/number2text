@@ -155,9 +155,11 @@ class Arabic
             $NewNum = substr($NewNum, -($Ln - strlen(" و ")));
         }
 
+        /*
         if ($Forma == "000000000000.000") {
             $NewNum = "";
         }
+        */
 
         $NewNum = str_replace("جنيه", $M [7], $NewNum);
         $NewNum = str_replace("جنيهات", $M [8], $NewNum);

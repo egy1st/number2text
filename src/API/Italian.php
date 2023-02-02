@@ -117,9 +117,11 @@ class Italian
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
+        /*
         if ($Forma == "000000000000.000") {
             $Num = $R [0];
         }
+        */
 
         return $Num;
     }
