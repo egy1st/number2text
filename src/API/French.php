@@ -118,7 +118,7 @@ class French
 				  
                 // cond.4
                 if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
-                    $strNum .= " " . $M [0] . " ";
+                    $strNum .= " " . $aId[0] . " ";
                 }
             }
 
@@ -130,7 +130,7 @@ class French
 
         $strNum = NumberingSystem::removeComma($strNum);
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
         /*
         if ($strForma == "000000000000.000") {
