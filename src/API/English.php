@@ -51,7 +51,7 @@ class English
             } else if ($L === 4) {
                 $x = 10;
 				if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 0) {
-					$Num = NumberingSystem::removeComma($Num) ;
+					$Num = NumberingSystem::removeComma($Num);
                 	$Num .=  ' ' . $id2 ;
 			      }
             } else if ($L === 5) {
