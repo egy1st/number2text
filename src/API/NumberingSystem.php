@@ -52,7 +52,7 @@ class NumberingSystem
     public static $nUnit;
     public static $n_all;
     public static $strUnit = "";
-    public static $n_sum;
+    public static $nSum;
 
     
     /**
