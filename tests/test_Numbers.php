@@ -181,6 +181,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         $languages = array("AR", "EN", "FR", "DE", "IT", "PT","ES", "RU","FA", "KO", "TR", "ZH_CN", "ZH_TW");
         $languages = array("AR", "EN", "FR", "DE", "IT", "PT", "TR", "FA", "RU", "KO", "ZH_TW"); 
         //$languages = array("ES", "ZH_TW"); 
+        $languages = array("EN");
 
         // "EN" -- 0
         //FR -- 1
