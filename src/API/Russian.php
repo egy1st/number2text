@@ -14,7 +14,7 @@ class Russian
 {
  
 
-    **
+    /**
     * This is the main function required to convert a number into words.
     * 
     * @param string $strNumber    number parameter

@@ -13,7 +13,7 @@ require_once "Number2Text.php";
 class Portuguese
 {
 
-    **
+    /**
     * This is the main function required to convert a number into words.
     * 
     * @param string $strNumber    number parameter
