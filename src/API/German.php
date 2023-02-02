@@ -24,7 +24,7 @@ class German
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "German");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "German");
         for ($x = 7; $x <= 12; $x++) {
             $M [$x] = $aCur [$x - 7];
         }
@@ -32,7 +32,7 @@ class German
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $M [($cycle * 2) - 1];
             $id2 = $M [$cycle * 2];
             if ($cycle === 1) {
@@ -46,7 +46,7 @@ class German
                 $nSum = NumberingSystem::getSum($aNum, 3);
             } else if ($cycle === 4) {
                 $x = 10;
-				if ( $aNum[$x] === 0 &  $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 0) {
+				if ( $aNum[$x] == 0 &  $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 0) {
 					$strNum = NumberingSystem::removeComma($strNum) ;
                 	$strNum .=  ' ' . $id2 ;
 			      }
@@ -55,7 +55,7 @@ class German
             }
       
             // ================================================================
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             // Special condition for germany language
             if ( $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 1 & $cycle <= 2) {
@@ -145,7 +145,7 @@ class German
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 }
 
