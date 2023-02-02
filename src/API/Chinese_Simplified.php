@@ -121,11 +121,11 @@ class Chinese_Simplified
         $strNum = NumberingSystem::removeSpaces($strNum);
         $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
-        if ($Forma === "000000000000.0000") {
+        if ($strForma === "000000000000.0000") {
             $strNum = $aUnit[0];
         }
 
-        return $Num;
+        return $strNum;
 
 
     }
