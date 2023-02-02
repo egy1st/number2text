@@ -25,33 +25,33 @@ class Italian
         $ITA = new Italian ();
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Italian");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Italian");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
-            if ($cycle == 1) {
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
+            $id1 = $aId[($cycle * 2) - 1];
+            $id2 = $aId[$cycle * 2];
+            if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
-            } else if ($cycle == 2) {
+            } else if ($cycle === 2) {
                 $x = 4;
                 $nSum = NumberingSystem::getSum($aNum, 2);
-            } else if ($cycle == 3) {
+            } else if ($cycle === 3) {
                 $x = 7;
                 $nSum = NumberingSystem::getSum($aNum, 3);
-            } else if ($cycle == 4) {
+            } else if ($cycle === 4) {
                 $x = 10;
-				if ( $aNum[$x] == 0 &  $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 0) {
+				if ( $aNum[$x] === 0 &  $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 0) {
 					//$strNum = NumberingSystem::removeComma($strNum) ; // do not allow this for italian
                 	//$strNum .=  ' ' . $id2 ;
 			      }
-            } else if ($cycle == 5) {
+            } else if ($cycle === 5) {
                 $x = 14;
             }
             
@@ -59,10 +59,10 @@ class Italian
             // ================================================================
             // prepre numbers from 0 to 99
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $n_all =  $aNum[$x] + $nUnit;
+            $nAll =  $aNum[$x] + $nUnit;
             // keywords
             if ($nUnit > 0 & $nUnit < 21) {
                 $strUnit = $aUnit[$nUnit];
@@ -93,7 +93,7 @@ class Italian
             // ================================================================
             // Prepare numbers from 100 to 999
             // Hundreds, tens and units are linked together with no space (e.g.: centonove [109]
-            if ($n_all != 0) {
+            if ($nAll != 0) {
                 if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
                     $strNum .= $id1;
                     // Numbers are grouped in words of three digits, with the specific rule that
@@ -116,14 +116,14 @@ class Italian
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
             if (NumberingSystem::NoCurrency($cycle, $strForma)) {
-                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+                $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }
         }
 
         // Num = removeComma(Num) ' no comma is used in Italin
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
         /*
         if ($strForma == "000000000000.000") {
@@ -131,7 +131,7 @@ class Italian
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 
     function modifyAccent($str)

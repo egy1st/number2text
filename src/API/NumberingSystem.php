@@ -50,7 +50,7 @@ class NumberingSystem
     public static $id2;
     public static $id3;
     public static $nUnit;
-    public static $n_all;
+    public static $nAll;
     public static $strUnit = "";
     public static $nSum;
 
