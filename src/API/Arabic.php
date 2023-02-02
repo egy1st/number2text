@@ -107,7 +107,7 @@ class Arabic
 
             // Print_r($N) ;
             if ($aNum[$x] > 0) {
-                $strNum = $strNum . " و " . $H[$aNum[$x]];
+                $strNum = $strNum . " و " . $aHundred[$aNum[$x]];
             }
 
             if ($aNum[$x + 1] == 1 & $aNum[$x + 2] == 0) {
@@ -154,7 +154,7 @@ class Arabic
             }
         }
 
-        $newNum = $Num;
+        $newNum = $strNum;
         $Ln = strlen($newNum);
 
         if (substr($newNum, 0, strlen(" و ")) == " و ") {
