@@ -174,7 +174,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
     {
         $mytestlist = array();
         $output = 'text';
-		$currency = "dollar" ;
+		$currency = "dollar" ; 
 		$units = "cent" ;
 		$locale = 'USA' ;
 		//$str_Number, $language, $locale, $currency, $units, $output
