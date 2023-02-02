@@ -70,7 +70,7 @@ class Chinese_Simplified
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
             */
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $y = 0;
             $ptrn = $N[$x] . $N[$x + 1] . $N[$x + 2] . $N[$x + 3];

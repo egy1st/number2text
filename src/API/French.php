@@ -56,7 +56,7 @@ class French
             
 
             // ================================================================
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = $N[$x + 2] + ($N[$x + 1] * 10);
             // keywords

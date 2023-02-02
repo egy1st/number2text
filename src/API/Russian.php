@@ -21,7 +21,7 @@ class Russian
     * @param string $aCur     currency-array parameter
      @return string
     */
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -56,7 +56,7 @@ class Russian
             // Prepre numbers from 0 to 99
             // Tens space units ==> There is no need to use the word "and" in Russian
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
             $n_all =  $N[$x] + $n_unit;

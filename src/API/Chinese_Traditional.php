@@ -20,7 +20,7 @@ class Chinese_Traditional
     * @param string $aCur     currency-array parameter
      @return string
     */
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
 
         $Num = "";
@@ -68,7 +68,7 @@ class Chinese_Traditional
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
            */
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $y = 0;
 			

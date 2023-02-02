@@ -50,7 +50,7 @@ class Korean
             // Prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $y = 0;
             $ptrn = $N[$x] . $N[$x + 1] . $N[$x + 2] . $N[$x + 3];
@@ -224,14 +224,14 @@ class Korean
     // This function is a specific function for Korean language.
     // It format number in special mode depends on 4-places mode rather than 3-places mode used in latin languages
     // Thus, the multiplier is 10,000 rather than 1,000
-    public static function prepareNumber4Korean($str_Number, $N) {
-        $str_Number = str_replace ( ",", ".", $str_Number );
-        if ($str_Number > "999999999999.0099") {
+    public static function prepareNumber4Korean($strNumber, $N) {
+        $strNumber = str_replace ( ",", ".", $strNumber );
+        if ($strNumber > "999999999999.0099") {
             echo ("Cannot translate numbers exceed 999,999,999,999.99");
             return false;
         }
 
-        $Forma = formatNumber ( $str_Number );
+        $Forma = formatNumber ( $strNumber );
         $Num = "";
 
         $E = 0;

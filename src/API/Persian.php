@@ -20,7 +20,7 @@ class Persian
     * @param string $aCur     currency-array parameter
      @return string
     */
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -55,7 +55,7 @@ class Persian
             // Prepre numbers from 0 to 99
             // Tens and units are linked with "و"
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
             $n_all =  $N[$x] + $n_unit;

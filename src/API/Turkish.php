@@ -21,7 +21,7 @@ class Turkish
     * @param string $aCur     currency-array parameter
      @return string
     */
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -56,7 +56,7 @@ class Turkish
             // Prepre numbers from 0 to 99
             // Numbers up to ninety-nine are built by spelling out the ten, then the digit (e.g.: otuz iki [32],
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
             $n_all =  $N[$x] + $n_unit;
