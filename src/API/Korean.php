@@ -104,7 +104,7 @@ class Korean
 
     }
 
-    public static function getGrand($L)
+    public static function getGrand($cycle)
     {
 
         if ($cycle === 1) {
