@@ -24,27 +24,27 @@ class Portuguese
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Portuguese");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Portuguese");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+           $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
-            if ($cycle == 1) {
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
+            $id1 =$aId[($cycle * 2) - 1];
+            $id2 =$aId[$cycle * 2];
+            if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
-            } else if ($cycle == 2) {
+            } else if ($cycle === 2) {
                 $x = 4;
                 $nSum = NumberingSystem::getSum($aNum, 2);
-            } else if ($cycle == 3) {
+            } else if ($cycle === 3) {
                 $x = 7;
                 $nSum = NumberingSystem::getSum($aNum, 3);
-            } else if ($cycle == 4) {
+            } else if ($cycle === 4) {
                 $x = 10;
 				if ( $aNum[$x] == 0 &  $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 0 & substr($strForma, 0, 12 )!= "000000000000"){
 					$strNum = NumberingSystem::removeComma($strNum) ;
@@ -58,7 +58,7 @@ class Portuguese
             // Prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
             $n_all =  $aNum[$x] + $nUnit;
@@ -70,7 +70,7 @@ class Portuguese
                 $strUnit = $aTen[$aNum[$x + 1]];
                 // others
             } else {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $M [0] . " " . $aUnit[$aNum[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " " .$aId[0] . " " . $aUnit[$aNum[$x + 2]];
             }
             
 
@@ -78,7 +78,7 @@ class Portuguese
             // Prepare numbers from 100 to 999
             // Hundreds and tens are linked with e (and), as in cento e quarenta e seis [146])
 
-            if ($n_all != 0) {
+            if ($nAll != 0) {
                 // Mil not um mil eg. 1210 is mil cento e vinte
                 if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
                     // http://www.languagesandnumbers.com/how-to-count-in-portuguese-portugal/en/por-prt/
@@ -93,7 +93,7 @@ class Portuguese
                     $strNum .= $aHundred[ $aNum[$x]] . " " . $id2 . " ";
                     // only hundreds
                 } else {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $M [0] . " " . $strUnit . " " . $id2 . " ";
+                    $strNum .= $aHundred[ $aNum[$x]] . " " .$aId[0] . " " . $strUnit . " " . $id2 . " ";
                     // complete compund number
                 }
             }
@@ -108,27 +108,27 @@ class Portuguese
             if ($cycle == 3) {
                 if (NumberingSystem::isPattern($strForma, "xxxxxxxxxx00.xxx") &  $aNum[$x + 3] != 1) {
                     $strNum = NumberingSystem::removeComma($strNum);
-                    $strNum .= " " . $M [0] . " ";
+                    $strNum .= " " .$aId[0] . " ";
                 }
             }
 			
             /*
             if (NumberingSystem::NoCurrency($cycle, $strForma)) {
-                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+                $strNum = NumberingSystem::removeAnd($strNum,$aId[0]);
                 $strNum .= " " . $id2;
             }
 			*/
 			
-			if ($cycle == 4) {
+			if ($cycle === 4) {
 
-                if (substr($strForma, 0, 12) == "000000000001") {
+                if (substr($strForma, 0, 12) === "000000000001") {
                     $strNum = $aUnit[1] . " " . $id1;
-                } else if (substr($strForma, 0, 12) == "000000000000") {
+                } else if (substr($strForma, 0, 12) === "000000000000") {
                     $strNum = "";
                 } else {
                     $strNum = trim($strNum);
                     $Ln = strlen($strNum);
-                    if (substr($strNum, -1) == ",") {
+                    if (substr($strNum, -1) === ",") {
                         $strNum = substr($strNum, 0, $Ln - 1);
                     }
                 }
@@ -139,7 +139,7 @@ class Portuguese
 				  
                 // cond.4
                 if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
-                    $strNum .= " " . $M [0] . " ";
+                    $strNum .= " " .$aId[0] . " ";
                 }
             }
 
@@ -154,9 +154,9 @@ class Portuguese
 
         // Num = removeComma(Num) ' no comma is used in Portuguese
         $strNum = NumberingSystem::removeSpaces($strNum);
-        //$strNum = NumberingSystem::removeAnd ( $Num, $M [0] );
+        //$strNum = NumberingSystem::removeAnd ( $Num,$aId[0] );
 		//echo $strNum ;
-		$strNum = NumberingSystem::remove1stAnd ($strNum, $M [0]);
+		$strNum = NumberingSystem::remove1stAnd ($strNum,$aId[0]);
   
         /*
         if ($strForma == "000000000000.000") {
@@ -164,7 +164,7 @@ class Portuguese
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 }
 
