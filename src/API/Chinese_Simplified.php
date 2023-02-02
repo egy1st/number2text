@@ -130,7 +130,7 @@ class Chinese_Simplified
 
     }
 
-    public static function getGrand($L)
+    public static function getGrand($cycle)
     {
 
         if ($cycle === 1) {
@@ -189,7 +189,7 @@ class Chinese_Simplified
     }
     */
 
-    public static function checkChineseTen($cycle, $Forma)
+    public static function checkChineseTen($cycle, $strForma)
     {
 
         if ($cycle === 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
