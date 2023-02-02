@@ -25,17 +25,17 @@ class Turkish
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Turkish");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Turkish");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
+            $id1 = $aId[($cycle * 2) - 1];
+            $id2 = $aId[$cycle * 2];
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
@@ -56,10 +56,10 @@ class Turkish
             // Prepre numbers from 0 to 99
             // Numbers up to ninety-nine are built by spelling out the ten, then the digit (e.g.: otuz iki [32],
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $n_all =  $aNum[$x] + $nUnit;
+            $nAll =  $aNum[$x] + $nUnit;
 
             // keywords are only 10 not 20
             if ($nUnit > 0 & $nUnit < 11) {
@@ -89,7 +89,7 @@ class Turkish
             // Hundreds and thousands are built by telling the multiplier digit, then the hundred or thousand word
             // (e.g.: beş yüz [500], beş bin [5,000]).
 
-            if ($n_all != 0) {
+            if ($nAll != 0) {
                 // yüz not bir yüz
                 if (NumberingSystem::checkOneHundred($cycle, $strForma)) {
                     $strNum .= " " . $aHundred[1] . " " . $id1 . " ";
@@ -107,20 +107,20 @@ class Turkish
 
             // Echo "L" . $cycle . $Num;
            if (NumberingSystem::NoCurrency($cycle, $strForma)) {
-                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+                $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }
         }
 
         // Num = removeComma(Num) ' no comma is used in turkish
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
-        if ($strForma == "000000000000.000") {
+        if ($strForma === "000000000000.000") {
             $strNum = $aUnit[0];
         }
 
-        return $Num;
+        return $strNum;
     }
 }
 
