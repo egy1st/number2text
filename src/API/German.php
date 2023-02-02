@@ -26,15 +26,15 @@ class German
 
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "German");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
+            $id1 = $aId[($cycle * 2) - 1];
+            $id2 = $aId[$cycle * 2];
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
@@ -73,7 +73,7 @@ class German
             } else if ( $aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
             } else {
-                $strUnit = $aUnit[$aNum[$x + 2]] . $M [0] . $aTen[$aNum[$x + 1]];
+                $strUnit = $aUnit[$aNum[$x + 2]] . $aId[0] . $aTen[$aNum[$x + 1]];
             }
 
             if ($cycle == 1 & substr($strForma, 1, 3) == "001") {
@@ -124,7 +124,7 @@ class German
 				  
                 // cond.4
                 if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
-                    $strNum .= " " . $M [0] . " ";
+                    $strNum .= " " . $aId[0] . " ";
                 }
             }
 
@@ -137,7 +137,7 @@ class German
 
         // $strNum = removeComma(Num) ; // no comma used in Germany
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
         /*
         if ($strForma == "000000000000.000") {
