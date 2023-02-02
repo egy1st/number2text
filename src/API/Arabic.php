@@ -13,7 +13,7 @@ require_once "Number2Text.php";
  */
 class Arabic
 {
-    
+
 
    /**
    * This is the main function required to convert a number into words.
@@ -30,7 +30,7 @@ class Arabic
 
         NumberingSystem::getLanguage($R, $Z, $H, $M, $N, "Arabic");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $M[$x] = $aCur[$x - 7];
         }
 
         // ===================================================================================
@@ -74,7 +74,7 @@ class Arabic
                     $Num = " ألفى ";
                 }
 				
-				 if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
+				 if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 0) {
                 	$Num .=  $id1 ;
 			      }
             } else if ($L == 5) {
@@ -86,10 +86,10 @@ class Arabic
 
 
             if (isset($N [$x + 1])) {
-                if ($N [$x + 1] == 0 & $N [$x + 2] == 0) {
-                    $H [2] = "مائتى ";
+                if ($N[$x + 1] == 0 & $N[$x + 2] == 0) {
+                    $H[2] = "مائتى ";
                 } else {
-                    $H [2] = "مائتين ";
+                    $H[2] = "مائتين ";
                 }
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -99,55 +99,55 @@ class Arabic
 
             $Forma = Number2Text::prepareNumber($strNumber, $N);
 
-            if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
+            if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 0) {
                 $G = 1;
-            } else if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 1) {
+            } else if ($N [$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 1) {
                 $Num = $Num . " و " . $id1;
                 $G = 1;
-            } else if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 2) {
+            } else if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 2) {
                 $Num = $Num . " و " . $id2;
                 $G = 1;
             }
 
             //print_r($N) ;
-            if ($N [$x] > 0) {
-                $Num = $Num . " و " . $H [$N [$x]];
+            if ($N[$x] > 0) {
+                $Num = $Num . " و " . $H[$N[$x]];
             }
 
-            if ($N [$x + 1] == 1 & $N [$x + 2] == 0) {
-                $Num = $Num . " و " . $Z [1] . $id3;
+            if ($N[$x + 1] == 1 & $N[$x + 2] == 0) {
+                $Num = $Num . " و " . $Z[1] . $id3;
                 $G = 4;
 				//echo "we are here 1" ;
-            } else if ($N [$x + 2] == 1 & $N [$x + 1] == 1) {
-                $Num = $Num . " و " . $R [11] . $Z [1] . $id1;
+            } else if ($N[$x + 2] == 1 & $N[$x + 1] == 1) {
+                $Num = $Num . " و " . $R[11] . $Z[1] . $id1;
                 $G = 4;
 				//echo "we are here 2" ;
-            } else if ($N [$x + 2] == 2 & $N [$x + 1] == 1) {
-                $Num = $Num . " و " . $R [12] . $Z [1] . $id1;
+            } else if ($N[$x + 2] == 2 & $N[$x + 1] == 1) {
+                $Num = $Num . " و " . $R[12] . $Z [1] . $id1;
                 $G = 4;
 				//echo "we are here 3" ;
             }
 
-            if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] > 2) {
-                $Num = $Num . " و " . $R [$N [$x + 2]] . $id3;
+            if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] > 2) {
+                $Num = $Num . " و " . $R [$N[$x + 2]] . $id3;
                 $G = 1;
 				//echo "we are here 4" ;
             }
 
-            if ($N [$x + 2] > 0 & $G != 4 & $G != 1) {
-                $Num = $Num . " و " . $R [$N [$x + 2]];
+            if ($N[$x + 2] > 0 & $G != 4 & $G != 1) {
+                $Num = $Num . " و " . $R[$N[$x + 2]];
                 $G = 2;
 				//echo "we are here 5" ;
             }
 
-            if ($N [$x + 1] > 1) {
-                $Num = $Num . " و " . $Z [$N [$x + 1]];
+            if ($N[$x + 1] > 1) {
+                $Num = $Num . " و " . $Z[$N[$x + 1]];
                 $G = 2;
 				//echo "we are here 6" ;
             }
 
-            if ($N [$x + 1] == 1 & $G != 4) {
-                $Num = $Num . $Z [$N [$x + 1]];
+            if ($N[$x + 1] == 1 & $G != 4) {
+                $Num = $Num . $Z[$N[$x + 1]];
                 $G = 2;
 				//echo "we are here 7" ;
             }
@@ -171,12 +171,12 @@ class Arabic
         }
         */
 
-        $NewNum = str_replace("جنيه", $M [7], $NewNum);
-        $NewNum = str_replace("جنيهات", $M [8], $NewNum);
-        $NewNum = str_replace("قرش", $M [9], $NewNum);
-        $NewNum = str_replace("قروش", $M [10], $NewNum);
-        $NewNum = str_replace("جنيهان", $M [11], $NewNum);
-        $NewNum = str_replace("قرشان", $M [12], $NewNum);
+        $NewNum = str_replace("جنيه", $M[7], $NewNum);
+        $NewNum = str_replace("جنيهات", $M[8], $NewNum);
+        $NewNum = str_replace("قرش", $M[9], $NewNum);
+        $NewNum = str_replace("قروش", $M[10], $NewNum);
+        $NewNum = str_replace("جنيهان", $M[11], $NewNum);
+        $NewNum = str_replace("قرشان", $M[12], $NewNum);
 
         return $NewNum;
     }
