@@ -151,12 +151,12 @@ class Korean
 
         if ($cycle === 1 & NumberingSystem::isPattern($strForma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($cycle ===== 2 & NumberingSystem::isPattern($strForma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($cycle === 2 & NumberingSystem::isPattern($strForma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($cycle === 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxx1xx.xxxx")) {
             return true;
             // no place in pences places
-        } else if ($cycle == 4) {
+        } else if ($cycle === 4) {
             return false;
         }
 
