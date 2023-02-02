@@ -78,11 +78,11 @@ class German
 
             if ($L == 1 & substr($Forma, 1, 3) == "001") {
                 $id2 = $id1;
-            } else if ($L == 1 & substr($Forma, 4, 3) == "001") {
+            } else if ($L === 1 & substr($Forma, 4, 3) === "001") {
                 $id2 = $id1;
             }
 
-            if ($L <= 2 | $L == 4) {
+            if ($L <= 2 | $L === 4) {
                 $id2 = " " . $id2 . " ";
                 $id1 = " " . $id1 . " ";
             }
@@ -99,13 +99,13 @@ class German
                 // nothing to do
             }
 
-            if ($L == 3) {
-                if (substr($Forma, 7, 3) == "001") {
+            if ($L === 3) {
+                if (substr($Forma, 7, 3) === "001") {
                     $Num = $id1;
                 }
             }
 
-             if ($L == 4) {
+             if ($L === 4) {
 				
                  if (substr($Forma, 0, 12) === "000000000001") {
                     $Num = $R[1] . " " . $id1;
@@ -114,7 +114,7 @@ class German
                 } else {
                     $Num = trim($Num);
                     $Ln = strlen($Num);
-                    if (substr($Num, -1) == ",") {
+                    if (substr($Num, -1) === ",") {
                         $Num = substr($Num, 0, $Ln - 1);
                     }
                 }
