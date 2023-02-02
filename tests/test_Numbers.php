@@ -179,8 +179,8 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$locale = 'USA' ;
 		//$strNumber, $language, $locale, $currency, $units, $output
         $languages = ["AR", "EN", "FR", "DE", "IT", "PT","ES", "RU","FA", "KO", "TR", "ZH_CN", "ZH_TW"];
-        $languages = ["AR", "EN", "FR", "IT", "PT", "TR", "FA", "RU", "KO", "ZH_TW"]; // "DE"
-        $languages = ["PT"]; 
+        $languages = ["AR", "EN", "FR", "IT", "PT", "TR", "FA", "RU", "KO", "ZH_TW"]; 
+        $languages = ["ES"]; 
 
         
         // Add null & '' to test cases

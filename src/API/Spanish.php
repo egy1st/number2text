@@ -25,29 +25,29 @@ class Spanish
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Spanish");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Spanish");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
-            if ($cycle == 1) {
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
+            $id1 = $aId[($cycle * 2) - 1];
+            $id2 = $aId[$cycle * 2];
+            if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
-            } else if ($cycle == 2) {
+            } else if ($cycle === 2) {
                 $x = 4;
                 $nSum = NumberingSystem::getSum($aNum, 2);
-            } else if ($cycle == 3) {
+            } else if ($cycle === 3) {
                 $x = 7;
                 $nSum = NumberingSystem::getSum($aNum, 3);
-            } else if ($cycle == 4) {
+            } else if ($cycle === 4) {
                 $x = 10;
-            } else if ($cycle == 5) {
+            } else if ($cycle === 5) {
                 $x = 14;
             }
           
@@ -55,10 +55,10 @@ class Spanish
             // ==============================================================================
             // Prepre numbers from 0 to 99
 
-            $Forma = Number2Text::prepareNumber($strNumber, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $n_all =  $aNum[$x] + $nUnit;
+            $nAll =  $aNum[$x] + $nUnit;
             // Keywords are 30 not 20 as usual
             if ($nUnit > 0 & $nUnit < 31) {
                 $strUnit = $aUnit[$nUnit];
@@ -68,14 +68,14 @@ class Spanish
                 // Notice that "y" is used only in numbers 31-99 (and 131-199, 231-299, 331-399, etc.)
                 // others
             } else {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $M [0] . " " . $aUnit[$aNum[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]];
             }
             
 
             // ================================================================
             // Prepare numbers from 100 to 999
             // y "and" is not used to separate hundreds from tens.
-            if ($n_all != 0) {
+            if ($nAll != 0) {
                 // When there is exactly 100 of something use the shortened form "cien" rather than ciento
                 // for exactly 100
                 if ( $aNum[$x] == 1 &  $aNum[$x + 1] +  $aNum[$x + 2] == 0) {
@@ -88,8 +88,8 @@ class Spanish
 
             // ================================================================
 
-            if (NumberingSystem::NoCurrency($cycle, $Forma)) {
-                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+            if (NumberingSystem::NoCurrency($cycle, $strForma)) {
+                $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }
         }
@@ -104,7 +104,7 @@ class Spanish
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 }
 
