@@ -68,7 +68,7 @@ class English
             if ($n_unit < 21) {
                 $str_unit = $R [$n_unit];
                 // tens
-            } else if ($N[$x + 2] === 0) {
+            } else if ($N[$x + 2] == 0) {
                 $str_unit = $Z [$N[$x + 1]];
                 // others
             } else {
