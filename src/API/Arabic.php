@@ -58,17 +58,17 @@ class Arabic
                 $id2 = " جنيهان ";
                 $id3 = " جنيهات ";
 
-                if (substr($Forma, 0, 12) === "001000000000") {
+                if (substr($strForma, 0, 12) === "001000000000") {
                     $strNum = " مليار ";
-                } else if (substr($Forma, 0, 12) === "002000000000") {
+                } else if (substr($strForma, 0, 12) === "002000000000") {
                     $strNum = " مليارى ";
-                } else if (substr($Forma, 0, 12) === "000001000000") {
+                } else if (substr($strForma, 0, 12) === "000001000000") {
                     $strNum = " مليون ";
-                } else if (substr($Forma, 0, 12) === "000002000000") {
+                } else if (substr($strForma, 0, 12) === "000002000000") {
                     $strNum = " مليونى ";
-                } else if (substr($Forma, 0, 12) === "000000001000") {
+                } else if (substr($strForma, 0, 12) === "000000001000") {
                     $strNum = " ألف ";
-                } else if (substr($Forma, 0, 12) === "000000002000") {
+                } else if (substr($strForma, 0, 12) === "000000002000") {
                     $strNum = " ألفى ";
                 }
 				
@@ -93,7 +93,7 @@ class Arabic
            
             // ================================================================
             // Prepare numbers from 100 to 999
-            $Forma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $N);
 
             if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
                 $G = 1;
@@ -162,7 +162,7 @@ class Arabic
         }
 
         /*
-        if ($Forma == "000000000000.000") {
+        if ($strForma == "000000000000.000") {
             $newNum = "";
         }
         */
