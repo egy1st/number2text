@@ -24,7 +24,7 @@ class French
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "French");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "French");
         for ($x = 7; $x <= 12; $x++) {
             $M [$x] = $aCur [$x - 7];
         }
@@ -32,7 +32,7 @@ class French
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $M [($cycle * 2) - 1];
             $id2 = $M [$cycle * 2];
             if ($cycle === 1) {
@@ -56,7 +56,7 @@ class French
             
 
             // ================================================================
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = $aNum[$x + 2] + ($aNum[$x + 1] * 10);
             // keywords
@@ -68,13 +68,13 @@ class French
 
                 // 21 - 69
             } else if ($nUnit < 70 & $aNum[$x + 2] == 1) {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $M [0] . " " . $aUnit[$aNum[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]];
             } else if ($nUnit < 70 & $aNum[$x + 2] != 1) {
                 $strUnit = $aTen[$aNum[$x + 1]] . "-" . $aUnit[$aNum[$x + 2]];
 
                 // 71-79
             } else if ($nUnit < 80 & $aNum[$x + 2] == 1) {
-                $strUnit = $aTen[$aNum[$x + 1] - 1] . " " . $M [0] . " " . $aUnit[$aNum[$x + 2] + 10];
+                $strUnit = $aTen[$aNum[$x + 1] - 1] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2] + 10];
             } else if ($nUnit < 80 & $aNum[$x + 2] != 1) {
                 $strUnit = $aTen[$aNum[$x + 1] - 1] . "-" . $aUnit[$aNum[$x + 2] + 10];
 
@@ -138,7 +138,7 @@ class French
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 }
 
