@@ -24,17 +24,17 @@ class Persian
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Persian");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Persian");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
+            $id1 = $aId[($cycle * 2) - 1];
+            $id2 = $aId[$cycle * 2];
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
@@ -55,7 +55,7 @@ class Persian
             // Prepre numbers from 0 to 99
             // Tens and units are linked with "و"
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
             $n_all =  $aNum[$x] + $nUnit;
@@ -67,7 +67,7 @@ class Persian
                 $strUnit = $aTen[$aNum[$x + 1]] . " ";
                 // others
             } else {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $M [0] . " " . $aUnit[$aNum[$x + 2]] . " ";
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]] . " ";
             }
           
             // ==============================================================================
@@ -79,13 +79,13 @@ class Persian
                 if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
                     $strNum .= " " . $id1 . " ";
                 } else if ( $aNum[$x] == 0) {
-                    $strNum .= $strUnit . " " . $id2 . " " . $M [0] . " ";
+                    $strNum .= $strUnit . " " . $id2 . " " . $aId[0] . " ";
                     // only units and tens
                 } else if ($nUnit == 0) {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $id2 . " " . $M [0] . " ";
+                    $strNum .= $aHundred[ $aNum[$x]] . " " . $id2 . " " . $aId[0] . " ";
                     // only hundreds
                 } else {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $M [0] . " " . $strUnit . " " . $id2 . " " . $M [0] . " ";
+                    $strNum .= $aHundred[ $aNum[$x]] . " " . $aId[0] . " " . $strUnit . " " . $id2 . " " . $aId[0] . " ";
                     // complete compund number
                 }
             }
@@ -93,14 +93,14 @@ class Persian
             // ================================================================
 
             if (NumberingSystem::NoCurrency($cycle, $strForma)) {
-                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+                $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }
         }
 
         // Num = removeComma(Num) ' no comma is used in Persian
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
         /*
         if ($strForma == "000000000000.000") {
@@ -108,7 +108,7 @@ class Persian
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 }
 
