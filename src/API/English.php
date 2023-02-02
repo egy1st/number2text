@@ -69,10 +69,10 @@ class English
                 $str_unit = $R [$n_unit];
                 // tens
             } else if ($N[$x + 2] == 0) {
-                $str_unit = $Z [$N[$x + 1]];
+                $str_unit = $Z[$N[$x + 1]];
                 // others
             } else {
-                $str_unit = $Z [$N[$x + 1]] . "-" . $R [$N[$x + 2]];
+                $str_unit = $Z[$N[$x + 1]] . "-" . $R [$N[$x + 2]];
             }
 
             // ================================================================
