@@ -26,7 +26,7 @@ class Arabic
         $strNum = "";
 
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Arabic");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Arabic");
         for ($x = 7; $x <= 12; $x++) {
             $M [$x] = $aCur [$x - 7];
         }
@@ -34,7 +34,7 @@ class Arabic
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
 
-        for ($cycle = 1; $cycle <= 5; $L++) {
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
             $G = 0;
 
             if ($cycle === 1) {
@@ -85,9 +85,9 @@ class Arabic
 
             if (isset($aNum[$x + 1])) {
                 if ($aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
-                    $H[2] = "مائتى ";
+                    $aHundred[2] = "مائتى ";
                 } else {
-                    $H[2] = "مائتين ";
+                    $aHundred[2] = "مائتين ";
                 }
             }
            
