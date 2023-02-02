@@ -25,24 +25,24 @@ class Korean
     {
 
         $KOR = new Korean();
-        $Num = "";
+        $strNum = "";
         $N[17] = 0;
-        NumberingSystem::getLanguage($R, $Z, $H, $M, $N, "Korean");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Korean");
         for ($x = 7; $x <= 12; $x++) {
             $M [$x] = $aCur [$x - 7];
         }
 
         //=====================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
-        $L = 0;
-        for ($L = 1; $L <= 4; $L++) {
-            if ($L === 1) {
+        $cycle = 0;
+        for ($cycle = 1; $cycle <= 4; $L++) {
+            if ($cycle === 1) {
                 $x = 1;
-            } else if ($L === 2) {
+            } else if ($cycle === 2) {
                 $x = 5;
-            } else if ($L === 3) {
+            } else if ($cycle === 3) {
                 $x = 9;
-            } else if ($L === 4) {
+            } else if ($cycle === 4) {
                 $x = 14;
             }
          
@@ -50,56 +50,56 @@ class Korean
             // Prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
 
-            $Forma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $N);
 
             $y = 0;
-            $ptrn = $N[$x] . $N[$x + 1] . $N[$x + 2] . $N[$x + 3];
+            $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
 
             $i = 0;
             for ($y = $x; $y <= $x + 3; $y++) {
                 $i += 1;
 
-                if ($N[$y] != 0) {
-                    if ($i == 1 & $KOR->checkKoreanThousand($L, $Forma)) {
-                        $Num .= $KOR->getID($y);
-                    } else if ($i == 2 & $KOR->checkKoreanHundred($L, $Forma)) {
-                        $Num .= $KOR->getID($y);
-                    } else if ($i == 3 & $KOR->checkKoreanTen($L, $Forma)) {
-                        $Num .= $KOR->getID($y);
-                    } else if ($i == 4 & $KOR->checkKoreanOne($L, $Forma)) {
-                        $Num .= $KOR->getID($y);
+                if ($aNum[$y] != 0) {
+                    if ($i == 1 & $KOR->checkKoreanThousand($cycle, $strForma)) {
+                        $strNum .= $KOR->getID($y);
+                    } else if ($i == 2 & $KOR->checkKoreanHundred($cycle, $strForma)) {
+                        $strNum .= $KOR->getID($y);
+                    } else if ($i == 3 & $KOR->checkKoreanTen($cycle, $strForma)) {
+                        $strNum .= $KOR->getID($y);
+                    } else if ($i == 4 & $KOR->checkKoreanOne($cycle, $strForma)) {
+                        $strNum .= $KOR->getID($y);
                         // nothing of special cases above
                     } else {
-                        $Num .= $R[$N[$y]] . $KOR->getID($y);
+                        $strNum .= $aUnit[$aNum[$y]] . $KOR->getID($y);
                     }
 
                 }
             }
 
             if ($ptrn != "0000") {
-                $Num .= $KOR->getGrand($L);
+                $strNum .= $KOR->getGrand($L);
             }
             
             //=================================================================
-            if ($L == 3) {
-                $Num = NumberingSystem::removeAnd($Num, $M[0]);
-                $Num .= " " . $M[7];
-            } else if ($L == 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
-                $Num .= " " . $M[9];
+            if ($cycle == 3) {
+                $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
+                $strNum .= " " . $aId[7];
+            } else if ($cycle == 4 & !NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0000")) {
+                $strNum .= " " . $aId[9];
             }
         }
 
 
         // Num = removeComma(Num) ' no comma is used in Finnish
-        $Num = NumberingSystem::removeSpaces($Num);
-        $Num = NumberingSystem::removeAnd($Num, $M[0]);
+        $strNum = NumberingSystem::removeSpaces($strNum);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
-        if ($Forma == "000000000000.0000") {
-            $Num = $R[0];
+        if ($strForma == "000000000000.0000") {
+            $strNum = $aUnit[0];
         }
 
-        //echo "<br>" .$Num ;
+        //echo "<br>" .$strNum ;
         return $Num;
 
     }
@@ -107,18 +107,18 @@ class Korean
     public static function getGrand($L)
     {
 
-        if ($L == 1) {
+        if ($cycle == 1) {
             return "억 ";
             // 100 Million
-        } else if ($L == 2) {
+        } else if ($cycle == 2) {
             return "만 ";
             // Ten Thousands
-        } else if ($L == 3) {
+        } else if ($cycle == 3) {
             return "";
             // units
         }
 
-        //else if ($L == 4) {
+        //else if ($cycle == 4) {
         // decimals
         return "";
 
@@ -145,74 +145,74 @@ class Korean
 
     }
 
-    public static function checkKoreanHundred($L, $Forma)
+    public static function checkKoreanHundred($cycle, $strForma)
     {
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxx1xx.xxxx")) {
             return true;
             // no place in pences places
-        } else if ($L == 4) {
+        } else if ($cycle == 4) {
             return false;
         }
 
         return false;
     }
 
-    public static function checkKoreanTen($L, $Forma)
+    public static function checkKoreanTen($cycle, $strForma)
     {
 
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "xx1xxxxxxxxx.xxxx")) {
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "xx1xxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxxx1xxxxx.xxxx")) {
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxxxx1xxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxxx1x.xxxx")) {
+        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxxx1x.xxxx")) {
             return true;
-        } else if ($L == 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.xx1x")) {
+        } else if ($cycle == 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.xx1x")) {
             return true;
         }
 
         return false;
     }
 
-    public static function checkKoreanOne($L, $Forma)
+    public static function checkKoreanOne($cycle, $strForma)
     {
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "xxx1xxxxxxxx.xxxx")) {
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "xxx1xxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxxxx1xxxx.xxxx")) {
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxxxxx1xxxx.xxxx")) {
             return true;
             // not applied here
-        } else if ($L == 3) {
+        } else if ($cycle == 3) {
             return false;
             // not applied here
-        } else if ($L == 4) {
+        } else if ($cycle == 4) {
             return false;
         }
 
         return false;
     }
 
-    public static function checkKoreanThousand($L, $Forma)
+    public static function checkKoreanThousand($cycle, $strForma)
     {
 
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "1xxxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxx1xxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
+        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx1xxx.xxxx")) {
             return true;
             // no place in pences places
-        } else if ($L == 4) {
+        } else if ($cycle == 4) {
             return false;
         }
 
@@ -231,18 +231,18 @@ class Korean
             return false;
         }
 
-        $Forma = formatNumber ( $strNumber );
-        $Num = "";
+        $strForma = formatNumber ( $strNumber );
+        $strNum = "";
 
         $E = 0;
         for($E = 1; $E <= 12; $E ++) {
-            $S = substr ( $Forma, $E, 1 );
-             $N[$E] = $S;
+            $S = substr ( $strForma, $E, 1 );
+             $aNum[$E] = $S;
         }
 
         for($E = 14; $E <= 17; $E ++) {
-            $S = substr ( $Forma, $E, 1 );
-             $N[$E] = $S;
+            $S = substr ( $strForma, $E, 1 );
+             $aNum[$E] = $S;
         }
 
         // make(0.23 as 0.0023)
@@ -251,9 +251,9 @@ class Korean
          $N[14] = 0;
          $N[15] = 0;
 
-        $Forma = substr ( $Forma, 0, 13 );
+        $strForma = substr ( $strForma, 0, 13 );
         for($E = 14; $E <= 17; $E ++) {
-            $Forma +=  $N[$E];
+            $strForma +=  $aNum[$E];
         }
 
         return true;

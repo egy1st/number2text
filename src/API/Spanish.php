@@ -23,31 +23,31 @@ class Spanish
     */
     public function TranslateNumber($strNumber, $aCur)
     {
-        $Num = "";
+        $strNum = "";
 
-        NumberingSystem::getLanguage($R, $Z, $H, $M, $N, "Spanish");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Spanish");
         for ($x = 7; $x <= 12; $x++) {
             $M [$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
-        $L = 0;
-        for ($L = 1; $L <= 5; $L++) {
-            $id1 = $M [($L * 2) - 1];
-            $id2 = $M [$L * 2];
-            if ($L == 1) {
+        $cycle = 0;
+        for ($cycle = 1; $cycle <= 5; $L++) {
+            $id1 = $M [($cycle * 2) - 1];
+            $id2 = $M [$cycle * 2];
+            if ($cycle == 1) {
                 $x = 1;
-                $n_sum = NumberingSystem::getSum($N, 1);
-            } else if ($L == 2) {
+                $nSum = NumberingSystem::getSum($aNum, 1);
+            } else if ($cycle == 2) {
                 $x = 4;
-                $n_sum = NumberingSystem::getSum($N, 2);
-            } else if ($L == 3) {
+                $nSum = NumberingSystem::getSum($aNum, 2);
+            } else if ($cycle == 3) {
                 $x = 7;
-                $n_sum = NumberingSystem::getSum($N, 3);
-            } else if ($L == 4) {
+                $nSum = NumberingSystem::getSum($aNum, 3);
+            } else if ($cycle == 4) {
                 $x = 10;
-            } else if ($L == 5) {
+            } else if ($cycle == 5) {
                 $x = 14;
             }
           
@@ -57,18 +57,18 @@ class Spanish
 
             $Forma = Number2Text::prepareNumber($strNumber, $N);
 
-            $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
-            $n_all =  $N[$x] + $n_unit;
+            $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
+            $n_all =  $aNum[$x] + $nUnit;
             // Keywords are 30 not 20 as usual
-            if ($n_unit > 0 & $n_unit < 31) {
-                $str_unit = $R[$n_unit];
+            if ($nUnit > 0 & $nUnit < 31) {
+                $strUnit = $aUnit[$nUnit];
                 // Tens
-            } else if ( $N[$x + 2] == 0) {
-                $str_unit = $Z[$N[$x + 1]];
+            } else if ( $aNum[$x + 2] == 0) {
+                $strUnit = $aTen[$aNum[$x + 1]];
                 // Notice that "y" is used only in numbers 31-99 (and 131-199, 231-299, 331-399, etc.)
                 // others
             } else {
-                $str_unit = $Z[$N[$x + 1]] . " " . $M [0] . " " . $R[$N[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $M [0] . " " . $aUnit[$aNum[$x + 2]];
             }
             
 
@@ -78,29 +78,29 @@ class Spanish
             if ($n_all != 0) {
                 // When there is exactly 100 of something use the shortened form "cien" rather than ciento
                 // for exactly 100
-                if ( $N[$x] == 1 &  $N[$x + 1] +  $N[$x + 2] == 0) {
-                    $Num .= "cien" . " " . $str_unit . " " . $id2 . " ";
+                if ( $aNum[$x] == 1 &  $aNum[$x + 1] +  $aNum[$x + 2] == 0) {
+                    $strNum .= "cien" . " " . $strUnit . " " . $id2 . " ";
                 } else {
-                    $Num .= $H [ $N[$x]] . " " . $str_unit . " " . $id2 . " ";
+                    $strNum .= $aHundred[ $aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
                     // others
                 }
             }
 
             // ================================================================
 
-            if (NumberingSystem::NoCurrency($L, $Forma)) {
-                $Num = NumberingSystem::removeAnd($Num, $M [0]);
-                $Num .= " " . $id2;
+            if (NumberingSystem::NoCurrency($cycle, $Forma)) {
+                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+                $strNum .= " " . $id2;
             }
         }
 
         // Num = removeComma(Num) ' no comma is used in Spanish
-        $Num = NumberingSystem::removeSpaces($Num);
-        // $Num = NumberingSystem::removeAnd($Num);
+        $strNum = NumberingSystem::removeSpaces($strNum);
+        // $strNum = NumberingSystem::removeAnd($strNum);
 
         /*
         if ($Forma == "000000000000.000") {
-            $Num = $R[0];
+            $strNum = $aUnit[0];
         }
         */
 

@@ -24,53 +24,69 @@ require_once "Number2Text.php";
  * @covers NumberingSystem
  *
  */
-class NumberingSystem
+class NumberingSystem 
 {
     public static $CurrncyDefined = false;
     public static $SignDefined = false;
     public static $AbvDefined = false;
-    public static $H = array();
-    public static $N = array();
-    public static $Z = array();
-    public static $R = array();
-    public static $M = array();
-    public static $Forma = "";
+    public static $aHundred = [];
+    public static $aNum = [];
+    public static $aTen = [];
+    public static $aUnit = [];
+    public static $aId = [];
+    public static $strForma = "";
     public $G;
     public $E;
     public $K;
     public $x;
-    public $L;
+    public $cycle;
     public $Ln;
     public $Ln2;
     public $ln3;
     public $S;
     public static $Num;
-    public $NewNum;
+    public $newNum;
     public static $id1;
     public static $id2;
     public static $id3;
-    public static $n_unit;
+    public static $nUnit;
     public static $n_all;
-    public static $str_unit = "";
+    public static $strUnit = "";
     public static $n_sum;
 
-    public static function getSum($N, $_step)
+    
+    /**
+    * This function sum up each group of 3 digits.
+    * 
+    * @param string $aNum    number array parameter
+    * @param string $_step    which cycle parameter
+     @return int
+    */
+    public static function getSum($aNum, $_step): int
     {
         $sum = 0;
-        if ($N != NULL) {
+        if (!is_null($aNum)) {
             if ($_step == 1) {
-                $sum = ( $N[12]) + (( $N[11]) * 10) + (( $N[10]) * 100) + (( $N[9]) * 1000) + (( $N[8]) * 10000) + (( $N[7]) * 100000) + (( $N[6]) * 1000000) + (( $N[5]) * 10000000) + (( $N[4]) * 100000000);
+                $sum = ( $aNum[12]) + (( $aNum[11]) * 10) + (( $aNum[10]) * 100) + (( $aNum[9]) * 1000) + (( $aNum[8]) * 10000) + (( $aNum[7]) * 100000) + (( $aNum[6]) * 1000000) + (( $aNum[5]) * 10000000) + (( $aNum[4]) * 100000000);
             } else if ($_step == 2) {
-                $sum = ( $N[12]) + (( $N[11]) * 10) + (( $N[10]) * 100) + (( $N[9]) * 1000) + (( $N[8]) * 10000) + (( $N[7]) * 100000);
+                $sum = ( $aNum[12]) + (( $aNum[11]) * 10) + (( $aNum[10]) * 100) + (( $aNum[9]) * 1000) + (( $aNum[8]) * 10000) + (( $aNum[7]) * 100000);
             } else if ($_step == 3) {
-                $sum = ( $N[12]) + (( $N[11]) * 10) + (( $N[10]) * 100);
+                $sum = ( $aNum[12]) + (( $aNum[11]) * 10) + (( $aNum[10]) * 100);
             }
         }
 
         return $sum;
     }
 
-    public static function isPattern($ptrn1, $ptrn2)
+    
+    /**
+    * This function make sure that we follw a valid pattern.
+    * 
+    * @param string $ptrn1    pattern 1 parameter
+    * @param string $ptrn2    pattern 2 parameter
+     @return bool
+    */
+    public static function isPattern($ptrn1, $ptrn2): bool
     {
         $n = 0;
 
@@ -87,7 +103,15 @@ class NumberingSystem
         return true;
     }
 
-    public static function removeComma($str)
+    
+
+    /**
+    * This function removes comma "," from a resulted string.
+    * 
+    * @param string $str    string parameter
+     @return string
+    */
+    public static function removeComma($str): string
     {
         $str = trim($str);
         $Ln = strlen($str);
@@ -97,30 +121,48 @@ class NumberingSystem
         return $str;
     }
 
-     public static function substituteIDs($num, $forma,  $l, $id1, $id2) {
+  
+    /**
+    * This function substitute IDs accoring to a specific cycle.
+    * 
+    * @param string $strNum   strNum1 parameter
+    * @param string $strForma strForma parameter
+    * @param string $cycle    cycle parameter
+    * @param string $id1    1st Id  parameter
+    * @param string $id2    2nd Id parameter
+    * @return string
+    */
+    public static function substituteIDs($strNum, $strForma,  $cycle, $id1, $id2): string {
    
-        if ( ($l == 4 &  substr($forma, 0, 12) == "000000000001") || ( $l == 5 &  substr($forma, -3) == "001") ) {
-			$num = trim($num);
-			$num_Ln = strlen($num);
-			if (substr($num, -1) == ",") {
-				$num = substr($num, 0, $num_Ln - 1);
+        if ( ($cycle == 4 &  substr($strForma, 0, 12) == "000000000001") || ( $cycle == 5 &  substr($strForma, -3) == "001") ) {
+			$strNum = trim($strNum);
+			$num_Ln = strlen($strNum);
+			if (substr($strNum, -1) == ",") {
+				$strNum = substr($strNum, 0, $num_Ln - 1);
 			}
 
 			$Ln2 = strlen( $id2);
-			if (substr($num, -$Ln2 ) ==  $id2 ) {
-				$new_Num = substr($num, 0, $num_Ln - ($Ln2+1) ) ;
+			if (substr($strNum, -$Ln2 ) ==  $id2 ) {
+				$new_Num = substr($strNum, 0, $num_Ln - ($Ln2+1) ) ;
 				$new_Num  .=  ' ' . $id1 ;
 				return $new_Num ;
 			} 
 			
 				
 			}
-			return $num ;
+			return $strNum ;
 		}
 		
 
 	
-    public static function removeAnd($str, $and)
+    /**
+    * This function remove concatanation notion from a resulted string.
+    * 
+    * @param string $str   string parameter
+    * @param string $and   concatanation notion parameter    
+    * @return string
+    */
+    public static function removeAnd($str, $and): string
     {
         $str = trim($str);
         $Ln = strlen($str);
@@ -132,7 +174,15 @@ class NumberingSystem
         return $str;
     }
 	
-	 public static function remove1stAnd($str, $and)
+
+    /**
+    * This function remove first concatanation notion from a resulted string.
+    * 
+    * @param string $str   string parameter
+    * @param string $and   concatanation notion parameter    
+    * @return string
+    */
+	 public static function remove1stAnd($str, $and): string
     {
         $str = trim($str);
         $Ln = strlen($str);
@@ -145,7 +195,15 @@ class NumberingSystem
     }
 	
 
-    public static function NoCurrency($phase, $ptrn)
+    
+    /**
+    * This function checks if a currency exist in the result string.
+    * 
+    * @param string $cycle   cycle parameter
+    * @param string $ptrn    pattern parameter    
+    * @return bool
+    */
+    public static function NoCurrency($cycle, $ptrn): bool
     {
         if ($phase == 4) {
             if (self::isPattern($ptrn, "xxxxxxxxx000.xxx")) {
@@ -167,7 +225,14 @@ class NumberingSystem
     }
    */
 
-    public static function removeSpaces($str)
+
+    /**
+    * This function remove spaces between result string.
+    * 
+    * @param string $str   string parameter
+    * @return string
+    */
+    public static function removeSpaces($str): string
     {
         if ($str == NULL)
             return "";
@@ -184,16 +249,26 @@ class NumberingSystem
         return $newStr;
     }
 
-    public static function checkOneHundred($L, $Forma)
+
+
+
+    /**
+    * This function checks if exact 100 is exist in a cycle.
+    * 
+    * @param string $cycle   cycle parameter
+    * @param string $strForma   strForma parameter    
+    * @return string
+    */
+    public static function checkOneHundred($cycle, $strForma)
     {
-        if ($L == 4 & self::isPattern($Forma, "xxxxxxxxx100.xxx")) {
+        if ($cycle == 4 & self::isPattern($strForma, "xxxxxxxxx100.xxx")) {
             return true;
-        } else if ($L == 3 & self::isPattern($Forma, "xxxxxx100xxx.xxx")) {
+        } else if ($cycle == 3 & self::isPattern($strForma, "xxxxxx100xxx.xxx")) {
             return true;
-        } else if ($L == 2 & self::isPattern($Forma, "xxx100xxxxxx.xxx")) {
+        } else if ($cycle == 2 & self::isPattern($strForma, "xxx100xxxxxx.xxx")) {
             return true;
-        } else if ($L == 1 & self::isPattern($Forma, "100xxxxxxxxx.xxx")) {
-            //$Num .= $H [10] . " " . $id2 . " ";
+        } else if ($cycle == 1 & self::isPattern($strForma, "100xxxxxxxxx.xxx")) {
+            //$strNum .= $aHundred[10] . " " . $id2 . " ";
             return true;
         }
 
@@ -210,614 +285,635 @@ class NumberingSystem
     }
     */
 
-    public static function checkOneThousnad($L, $Forma)
+    
+/**
+    * This function checks if exact 1000 is exist in a cycle.
+    * 
+    * @param string $cycle   cycle parameter
+    * @param string $strForma   strForma parameter    
+    * @return string
+    */
+    public static function checkOneThousnad($cycle, $strForma)
     {
-        if ($L == 3 & self::isPattern($Forma, "000000001xxx.xxx")) {
+        if ($cycle == 3 & self::isPattern($strForma, "000000001xxx.xxx")) {
             return true;
         }
 
         return false;
     }
 
-    public static function getLanguage(&$R, &$Z, &$H, &$M, &$N, $Lang)
+    
+
+    /**
+    * This function set the dictionary for each language.
+    * 
+    * @param string $aUnit   aUnit parameter
+    * @param string $aTen   aTen parameter    
+    * @param string $aHundred   aHundred parameter 
+    * @param string $aId   aId parameter 
+    * @param string $aNum   aNum parameter 
+    * @param string $Lang   Lang parameter 
+    * @return void
+    */
+    public static function getLanguage(&$aUnit, &$aTen, &$aHundred, &$aId, &$aNum, $Lang): void
     {
-        $M [7] = "";
-        $M [8] = "";
-        $M [9] = "";
-        $M [10] = "";
+        $aId[7] = "";
+        $aId[8] = "";
+        $aId[9] = "";
+        $aId[10] = "";
 
         switch ($Lang) {
             case "Arabic" :
-                $R[1] = "واحد ";
-                $R[2] = "إثنين ";
-                $R[3] = "ثلاثة ";
-                $R[4] = "أربعة ";
-                $R[5] = "خمسة ";
-                $R[6] = "ستة ";
-                $R[7] = "سبعة ";
-                $R[8] = "ثمانية ";
-                $R[9] = "تسعة ";
-                $R[11] = "إحدى ";
-                $R[12] = "إثنتا ";
+                $aUnit[1] = "واحد ";
+                $aUnit[2] = "إثنين ";
+                $aUnit[3] = "ثلاثة ";
+                $aUnit[4] = "أربعة ";
+                $aUnit[5] = "خمسة ";
+                $aUnit[6] = "ستة ";
+                $aUnit[7] = "سبعة ";
+                $aUnit[8] = "ثمانية ";
+                $aUnit[9] = "تسعة ";
+                $aUnit[11] = "إحدى ";
+                $aUnit[12] = "إثنتا ";
 
-                $Z[1] = "عشرة ";
-                $Z[2] = "عشرون ";
-                $Z[3] = "ثلاثون ";
-                $Z[4] = "أربعون ";
-                $Z[5] = "خمسون ";
-                $Z[6] = "ستون ";
-                $Z[7] = "سبعون ";
-                $Z[8] = "ثمانون ";
-                $Z[9] = "تسعون ";
+                $aTen[1] = "عشرة ";
+                $aTen[2] = "عشرون ";
+                $aTen[3] = "ثلاثون ";
+                $aTen[4] = "أربعون ";
+                $aTen[5] = "خمسون ";
+                $aTen[6] = "ستون ";
+                $aTen[7] = "سبعون ";
+                $aTen[8] = "ثمانون ";
+                $aTen[9] = "تسعون ";
 
-                $H [1] = "مائة ";
-                $H [2] = "مائتين ";
-                $H [3] = "ثلاثمائة ";
-                $H [4] = "أربعمائة ";
-                $H [5] = "خمسمائة ";
-                $H [6] = "ستمائة ";
-                $H [7] = "سبعمائة ";
-                $H [8] = "ثمانمائة ";
-                $H [9] = "تسعمائة ";
+                $aHundred[1] = "مائة ";
+                $aHundred[2] = "مائتين ";
+                $aHundred[3] = "ثلاثمائة ";
+                $aHundred[4] = "أربعمائة ";
+                $aHundred[5] = "خمسمائة ";
+                $aHundred[6] = "ستمائة ";
+                $aHundred[7] = "سبعمائة ";
+                $aHundred[8] = "ثمانمائة ";
+                $aHundred[9] = "تسعمائة ";
 
-                $M [0] = "و";
-                $M [1] = " مليار ";
-                $M [2] = " مليارات ";
-                $M [3] = " مليون ";
-                $M [4] = " ملايين ";
-                $M [5] = " ألف ";
-                $M [6] = " آلاف ";
+                $aId[0] = "و";
+                $aId[1] = " مليار ";
+                $aId[2] = " مليارات ";
+                $aId[3] = " مليون ";
+                $aId[4] = " ملايين ";
+                $aId[5] = " ألف ";
+                $aId[6] = " آلاف ";
 
-                $M [7] = "";
-                $M [8] = "";
-                $M [9] = "";
-                $M [10] = "";
-                $M [11] = "";
-                $M [12] = "";
+                $aId[7] = "";
+                $aId[8] = "";
+                $aId[9] = "";
+                $aId[10] = "";
+                $aId[11] = "";
+                $aId[12] = "";
 
                 break;
 
             case "English" :
 
-                $R[0] = "zero";
-                $R[1] = "one";
-                $R[2] = "two";
-                $R[3] = "three";
-                $R[4] = "four";
-                $R[5] = "five";
-                $R[6] = "six";
-                $R[7] = "seven";
-                $R[8] = "eight";
-                $R[9] = "nine";
-                $R[10] = "ten";
-                $R[11] = "eleven";
-                $R[12] = "twelve";
-                $R[13] = "thirteen";
-                $R[14] = "fourteen";
-                $R[15] = "fifteen";
-                $R[16] = "sixteen";
-                $R[17] = "seventeen";
-                $R[18] = "eighteen";
-                $R[19] = "nineteen";
-                $R[20] = "twenty";
+                $aUnit[0] = "zero";
+                $aUnit[1] = "one";
+                $aUnit[2] = "two";
+                $aUnit[3] = "three";
+                $aUnit[4] = "four";
+                $aUnit[5] = "five";
+                $aUnit[6] = "six";
+                $aUnit[7] = "seven";
+                $aUnit[8] = "eight";
+                $aUnit[9] = "nine";
+                $aUnit[10] = "ten";
+                $aUnit[11] = "eleven";
+                $aUnit[12] = "twelve";
+                $aUnit[13] = "thirteen";
+                $aUnit[14] = "fourteen";
+                $aUnit[15] = "fifteen";
+                $aUnit[16] = "sixteen";
+                $aUnit[17] = "seventeen";
+                $aUnit[18] = "eighteen";
+                $aUnit[19] = "nineteen";
+                $aUnit[20] = "twenty";
 
-                $Z[0] = "";
-                $Z[1] = "ten";
-                $Z[2] = "twenty";
-                $Z[3] = "thirty";
-                $Z[4] = "forty";
-                $Z[5] = "fifty";
-                $Z[6] = "sixty";
-                $Z[7] = "seventy";
-                $Z[8] = "eighty";
-                $Z[9] = "ninety";
+                $aTen[0] = "";
+                $aTen[1] = "ten";
+                $aTen[2] = "twenty";
+                $aTen[3] = "thirty";
+                $aTen[4] = "forty";
+                $aTen[5] = "fifty";
+                $aTen[6] = "sixty";
+                $aTen[7] = "seventy";
+                $aTen[8] = "eighty";
+                $aTen[9] = "ninety";
 
-                $H [0] = "";
-                $H [1] = "one hundred";
-                $H [2] = "two hundred";
-                $H [3] = "three hundred";
-                $H [4] = "four hundred";
-                $H [5] = "five hundred";
-                $H [6] = "six hundred";
-                $H [7] = "seven hundred";
-                $H [8] = "eight hundred";
-                $H [9] = "nine hundred";
+                $aHundred[0] = "";
+                $aHundred[1] = "one hundred";
+                $aHundred[2] = "two hundred";
+                $aHundred[3] = "three hundred";
+                $aHundred[4] = "four hundred";
+                $aHundred[5] = "five hundred";
+                $aHundred[6] = "six hundred";
+                $aHundred[7] = "seven hundred";
+                $aHundred[8] = "eight hundred";
+                $aHundred[9] = "nine hundred";
 
-                $M [0] = "and";
-                $M [1] = "billion";
-                $M [2] = "billion";
-                $M [3] = "million";
-                $M [4] = "million";
-                $M [5] = "thousand";
-                $M [6] = "thousand";
+                $aId[0] = "and";
+                $aId[1] = "billion";
+                $aId[2] = "billion";
+                $aId[3] = "million";
+                $aId[4] = "million";
+                $aId[5] = "thousand";
+                $aId[6] = "thousand";
 
                 break;
 
             case "French" :
 
-                $R[0] = "zéro";
-                $R[1] = "un";
-                $R[2] = "deux";
-                $R[3] = "trois";
-                $R[4] = "quatre";
-                $R[5] = "cinq";
-                $R[6] = "six";
-                $R[7] = "sept";
-                $R[8] = "huit";
-                $R[9] = "neuf";
-                $R[10] = "dix";
-                $R[11] = "onze";
-                $R[12] = "douze";
-                $R[13] = "treize";
-                $R[14] = "quatorze";
-                $R[15] = "quinze";
-                $R[16] = "seize";
-                $R[17] = "dix-sept";
-                $R[18] = "dix-huit";
-                $R[19] = "dix-neuf";
-                $R[20] = "vingt";
+                $aUnit[0] = "zéro";
+                $aUnit[1] = "un";
+                $aUnit[2] = "deux";
+                $aUnit[3] = "trois";
+                $aUnit[4] = "quatre";
+                $aUnit[5] = "cinq";
+                $aUnit[6] = "six";
+                $aUnit[7] = "sept";
+                $aUnit[8] = "huit";
+                $aUnit[9] = "neuf";
+                $aUnit[10] = "dix";
+                $aUnit[11] = "onze";
+                $aUnit[12] = "douze";
+                $aUnit[13] = "treize";
+                $aUnit[14] = "quatorze";
+                $aUnit[15] = "quinze";
+                $aUnit[16] = "seize";
+                $aUnit[17] = "dix-sept";
+                $aUnit[18] = "dix-huit";
+                $aUnit[19] = "dix-neuf";
+                $aUnit[20] = "vingt";
 
-                $Z[0] = "";
-                $Z[1] = "dix";
-                $Z[2] = "vingt";
-                $Z[3] = "trente";
-                $Z[4] = "quarante";
-                $Z[5] = "cinquante";
-                $Z[6] = "soixante";
-                $Z[7] = "soixante-dix";
-                $Z[8] = "quatre-vingt";
-                $Z[9] = "quatre-vingt-dix";
+                $aTen[0] = "";
+                $aTen[1] = "dix";
+                $aTen[2] = "vingt";
+                $aTen[3] = "trente";
+                $aTen[4] = "quarante";
+                $aTen[5] = "cinquante";
+                $aTen[6] = "soixante";
+                $aTen[7] = "soixante-dix";
+                $aTen[8] = "quatre-vingt";
+                $aTen[9] = "quatre-vingt-dix";
 
-                $H [0] = "";
-                $H [1] = "cent";
-                $H [2] = "deux cent";
-                $H [3] = "trois cent";
-                $H [4] = "quatre cent";
-                $H [5] = "cinq cent";
-                $H [6] = "six cent";
-                $H [7] = "sept cent";
-                $H [8] = "huit cent";
-                $H [9] = "neuf cent";
+                $aHundred[0] = "";
+                $aHundred[1] = "cent";
+                $aHundred[2] = "deux cent";
+                $aHundred[3] = "trois cent";
+                $aHundred[4] = "quatre cent";
+                $aHundred[5] = "cinq cent";
+                $aHundred[6] = "six cent";
+                $aHundred[7] = "sept cent";
+                $aHundred[8] = "huit cent";
+                $aHundred[9] = "neuf cent";
 
-                $M [0] = "et";
-                $M [1] = "milliard";
-                $M [2] = "milliards";
-                $M [3] = "million";
-                $M [4] = "millions";
-                $M [5] = "mille";
-                $M [6] = "mille";
+                $aId[0] = "et";
+                $aId[1] = "milliard";
+                $aId[2] = "milliards";
+                $aId[3] = "million";
+                $aId[4] = "millions";
+                $aId[5] = "mille";
+                $aId[6] = "mille";
 
                 break;
 
             case "German" :
 
-                $R[0] = "null";
-                $R[1] = "ein";
-                $R[2] = "zwei";
-                $R[3] = "drei";
-                $R[4] = "vier";
-                $R[5] = "fünf";
-                $R[6] = "sechs";
-                $R[7] = "sieben";
-                $R[8] = "acht";
-                $R[9] = "neun";
-                $R[10] = "zehn";
-                $R[11] = "elf";
-                $R[12] = "zwölf";
-                $R[13] = "dreizehn";
-                $R[14] = "vierzehn";
-                $R[15] = "fünfzehn";
-                $R[16] = "sechzehn";
-                $R[17] = "siebzehn";
-                $R[18] = "achtzehn";
-                $R[19] = "neunzehn";
-                $R[20] = "zwanzig";
+                $aUnit[0] = "null";
+                $aUnit[1] = "ein";
+                $aUnit[2] = "zwei";
+                $aUnit[3] = "drei";
+                $aUnit[4] = "vier";
+                $aUnit[5] = "fünf";
+                $aUnit[6] = "sechs";
+                $aUnit[7] = "sieben";
+                $aUnit[8] = "acht";
+                $aUnit[9] = "neun";
+                $aUnit[10] = "zehn";
+                $aUnit[11] = "elf";
+                $aUnit[12] = "zwölf";
+                $aUnit[13] = "dreizehn";
+                $aUnit[14] = "vierzehn";
+                $aUnit[15] = "fünfzehn";
+                $aUnit[16] = "sechzehn";
+                $aUnit[17] = "siebzehn";
+                $aUnit[18] = "achtzehn";
+                $aUnit[19] = "neunzehn";
+                $aUnit[20] = "zwanzig";
 
-                $Z[0] = "";
-                $Z[1] = "zehn";
-                $Z[2] = "zwanzig";
-                $Z[3] = "dreißig";
-                $Z[4] = "vierzig";
-                $Z[5] = "fünfzig";
-                $Z[6] = "sechzig";
-                $Z[7] = "siebzig";
-                $Z[8] = "achtzig";
-                $Z[9] = "neunzig";
+                $aTen[0] = "";
+                $aTen[1] = "zehn";
+                $aTen[2] = "zwanzig";
+                $aTen[3] = "dreißig";
+                $aTen[4] = "vierzig";
+                $aTen[5] = "fünfzig";
+                $aTen[6] = "sechzig";
+                $aTen[7] = "siebzig";
+                $aTen[8] = "achtzig";
+                $aTen[9] = "neunzig";
 
-                $H [0] = "";
-                $H [1] = "hundert";
-                $H [2] = "zweihundert";
-                $H [3] = "dreihundert";
-                $H [4] = "vierhundert";
-                $H [5] = "fünfhundert";
-                $H [6] = "sechshundert";
-                $H [7] = "siebenhundert";
-                $H [8] = "achthundert";
-                $H [9] = "neunhundert";
+                $aHundred[0] = "";
+                $aHundred[1] = "hundert";
+                $aHundred[2] = "zweihundert";
+                $aHundred[3] = "dreihundert";
+                $aHundred[4] = "vierhundert";
+                $aHundred[5] = "fünfhundert";
+                $aHundred[6] = "sechshundert";
+                $aHundred[7] = "siebenhundert";
+                $aHundred[8] = "achthundert";
+                $aHundred[9] = "neunhundert";
 
-                $M [0] = "und";
-                $M [1] = "milliarde";
-                $M [2] = "milliarden";
-                $M [3] = "million";
-                $M [4] = "millionen";
-                $M [5] = "tausend";
-                $M [6] = "tausend";
+                $aId[0] = "und";
+                $aId[1] = "milliarde";
+                $aId[2] = "milliarden";
+                $aId[3] = "million";
+                $aId[4] = "millionen";
+                $aId[5] = "tausend";
+                $aId[6] = "tausend";
 
                 break;
             case "Spanish" :
 
-                $R[0] = "cero";
-                $R[1] = "uno";
-                $R[2] = "dos";
-                $R[3] = "tres";
-                $R[4] = "cuatro";
-                $R[5] = "cinco";
-                $R[6] = "seis";
-                $R[7] = "siete";
-                $R[8] = "ocho";
-                $R[9] = "nueve";
-                $R[10] = "diez";
-                $R[11] = "once";
-                $R[12] = "doce";
-                $R[13] = "trece";
-                $R[14] = "catorce";
-                $R[15] = "quince";
-                $R[16] = "dieciséis";
-                $R[17] = "diecisiete";
-                $R[18] = "dieciocho";
-                $R[19] = "diecinueve";
-                $R[20] = "veinte";
-                $R[21] = "veintiuno";
-                $R[22] = "veintidós";
-                $R[23] = "veintitrés";
-                $R[24] = "veinticuatro";
-                $R[25] = "veinticinco";
-                $R[26] = "veintiséis";
-                $R[27] = "veintisiete";
-                $R[28] = "veintiocho";
-                $R[29] = "veintinueve";
-                $R[30] = "treinta";
+                $aUnit[0] = "cero";
+                $aUnit[1] = "uno";
+                $aUnit[2] = "dos";
+                $aUnit[3] = "tres";
+                $aUnit[4] = "cuatro";
+                $aUnit[5] = "cinco";
+                $aUnit[6] = "seis";
+                $aUnit[7] = "siete";
+                $aUnit[8] = "ocho";
+                $aUnit[9] = "nueve";
+                $aUnit[10] = "diez";
+                $aUnit[11] = "once";
+                $aUnit[12] = "doce";
+                $aUnit[13] = "trece";
+                $aUnit[14] = "catorce";
+                $aUnit[15] = "quince";
+                $aUnit[16] = "dieciséis";
+                $aUnit[17] = "diecisiete";
+                $aUnit[18] = "dieciocho";
+                $aUnit[19] = "diecinueve";
+                $aUnit[20] = "veinte";
+                $aUnit[21] = "veintiuno";
+                $aUnit[22] = "veintidós";
+                $aUnit[23] = "veintitrés";
+                $aUnit[24] = "veinticuatro";
+                $aUnit[25] = "veinticinco";
+                $aUnit[26] = "veintiséis";
+                $aUnit[27] = "veintisiete";
+                $aUnit[28] = "veintiocho";
+                $aUnit[29] = "veintinueve";
+                $aUnit[30] = "treinta";
 
-                $Z[0] = "";
-                $Z[1] = "diez";
-                $Z[2] = "veinte";
-                $Z[3] = "treinta";
-                $Z[4] = "cuarenta";
-                $Z[5] = "cinquenta";
-                $Z[6] = "sesenta";
-                $Z[7] = "setenta";
-                $Z[8] = "ochenta";
-                $Z[9] = "noventa";
+                $aTen[0] = "";
+                $aTen[1] = "diez";
+                $aTen[2] = "veinte";
+                $aTen[3] = "treinta";
+                $aTen[4] = "cuarenta";
+                $aTen[5] = "cinquenta";
+                $aTen[6] = "sesenta";
+                $aTen[7] = "setenta";
+                $aTen[8] = "ochenta";
+                $aTen[9] = "noventa";
 
-                $H [0] = "";
-                $H [1] = "ciento";
-                $H [2] = "doscientos";
-                $H [3] = "trescientos";
-                $H [4] = "cuatrocientos";
-                $H [5] = "quinientos";
-                $H [6] = "seiscientos";
-                $H [7] = "setecientos";
-                $H [8] = "ochocientos";
-                $H [9] = "novecientos";
+                $aHundred[0] = "";
+                $aHundred[1] = "ciento";
+                $aHundred[2] = "doscientos";
+                $aHundred[3] = "trescientos";
+                $aHundred[4] = "cuatrocientos";
+                $aHundred[5] = "quinientos";
+                $aHundred[6] = "seiscientos";
+                $aHundred[7] = "setecientos";
+                $aHundred[8] = "ochocientos";
+                $aHundred[9] = "novecientos";
 
-                $M [0] = "y";
-                $M [1] = "mil millones";
-                $M [2] = "mil millones";
-                $M [3] = "millón";
-                $M [4] = "millones";
-                $M [5] = "mil";
-                $M [6] = "mil";
+                $aId[0] = "y";
+                $aId[1] = "mil millones";
+                $aId[2] = "mil millones";
+                $aId[3] = "millón";
+                $aId[4] = "millones";
+                $aId[5] = "mil";
+                $aId[6] = "mil";
 
                 break;
             case "Portuguese" :
-                $R[0] = "zero";
-                $R[1] = "um";
-                $R[2] = "dois";
-                $R[3] = "três";
-                $R[4] = "quatro";
-                $R[5] = "cinco";
-                $R[6] = "seis";
-                $R[7] = "sete";
-                $R[8] = "oito";
-                $R[9] = "nove";
-                $R[10] = "dez";
-                $R[11] = "onze";
-                $R[12] = "doze";
-                $R[13] = "treze";
-                $R[14] = "catorze";
-                $R[15] = "quinze";
-                $R[16] = "dezesseis";
-                $R[17] = "dezessete";
-                $R[18] = "dezoito";
-                $R[19] = "dezenove";
-                $R[20] = "dez";
+                $aUnit[0] = "zero";
+                $aUnit[1] = "um";
+                $aUnit[2] = "dois";
+                $aUnit[3] = "três";
+                $aUnit[4] = "quatro";
+                $aUnit[5] = "cinco";
+                $aUnit[6] = "seis";
+                $aUnit[7] = "sete";
+                $aUnit[8] = "oito";
+                $aUnit[9] = "nove";
+                $aUnit[10] = "dez";
+                $aUnit[11] = "onze";
+                $aUnit[12] = "doze";
+                $aUnit[13] = "treze";
+                $aUnit[14] = "catorze";
+                $aUnit[15] = "quinze";
+                $aUnit[16] = "dezesseis";
+                $aUnit[17] = "dezessete";
+                $aUnit[18] = "dezoito";
+                $aUnit[19] = "dezenove";
+                $aUnit[20] = "dez";
 
-                $Z[0] = "";
-                $Z[1] = "dez";
-                $Z[2] = "vinte";
-                $Z[3] = "trinta";
-                $Z[4] = "quarenta";
-                $Z[5] = "cinquenta";
-                $Z[6] = "sessenta";
-                $Z[7] = "setenta";
-                $Z[8] = "oitenta";
-                $Z[9] = "noventa";
+                $aTen[0] = "";
+                $aTen[1] = "dez";
+                $aTen[2] = "vinte";
+                $aTen[3] = "trinta";
+                $aTen[4] = "quarenta";
+                $aTen[5] = "cinquenta";
+                $aTen[6] = "sessenta";
+                $aTen[7] = "setenta";
+                $aTen[8] = "oitenta";
+                $aTen[9] = "noventa";
 
-                $H [0] = "";
-                $H [1] = "cento";
-                $H [2] = "duzentos";
-                $H [3] = "trezentos";
-                $H [4] = "quatrocentos";
-                $H [5] = "quinhentos";
-                $H [6] = "seiscentos";
-                $H [7] = "setecentos";
-                $H [8] = "oitocentos";
-                $H [9] = "novecentos";
-                $H [10] = "cem";
+                $aHundred[0] = "";
+                $aHundred[1] = "cento";
+                $aHundred[2] = "duzentos";
+                $aHundred[3] = "trezentos";
+                $aHundred[4] = "quatrocentos";
+                $aHundred[5] = "quinhentos";
+                $aHundred[6] = "seiscentos";
+                $aHundred[7] = "setecentos";
+                $aHundred[8] = "oitocentos";
+                $aHundred[9] = "novecentos";
+                $aHundred[10] = "cem";
 
-                $M [0] = "e";
-                $M [1] = "mil milhões";
-                $M [2] = "mil milhões";
-                $M [3] = "milhão";
-                $M [4] = "milhões";
-                $M [5] = "mil";
-                $M [6] = "mil";
+                $aId[0] = "e";
+                $aId[1] = "mil milhões";
+                $aId[2] = "mil milhões";
+                $aId[3] = "milhão";
+                $aId[4] = "milhões";
+                $aId[5] = "mil";
+                $aId[6] = "mil";
 
                 break;
 
             case "Italian" :
-                $R[0] = "zero";
-                $R[1] = "uno";
-                $R[2] = "due";
-                $R[3] = "tre";
-                $R[4] = "quattro";
-                $R[5] = "cinque";
-                $R[6] = "sei";
-                $R[7] = "sette";
-                $R[8] = "otto";
-                $R[9] = "nove";
-                $R[10] = "dieci";
-                $R[11] = "undici";
-                $R[12] = "dodici";
-                $R[13] = "tredici";
-                $R[14] = "quattordici";
-                $R[15] = "quindici";
-                $R[16] = "sedici";
-                $R[17] = "diciassette";
-                $R[18] = "diciotto";
-                $R[19] = "diciannove";
-                $R[20] = "venti";
+                $aUnit[0] = "zero";
+                $aUnit[1] = "uno";
+                $aUnit[2] = "due";
+                $aUnit[3] = "tre";
+                $aUnit[4] = "quattro";
+                $aUnit[5] = "cinque";
+                $aUnit[6] = "sei";
+                $aUnit[7] = "sette";
+                $aUnit[8] = "otto";
+                $aUnit[9] = "nove";
+                $aUnit[10] = "dieci";
+                $aUnit[11] = "undici";
+                $aUnit[12] = "dodici";
+                $aUnit[13] = "tredici";
+                $aUnit[14] = "quattordici";
+                $aUnit[15] = "quindici";
+                $aUnit[16] = "sedici";
+                $aUnit[17] = "diciassette";
+                $aUnit[18] = "diciotto";
+                $aUnit[19] = "diciannove";
+                $aUnit[20] = "venti";
 
-                $Z[0] = "";
-                $Z[1] = "dieci";
-                $Z[2] = "venti";
-                $Z[3] = "trenta";
-                $Z[4] = "quaranta";
-                $Z[5] = "cinquanta";
-                $Z[6] = "sessanta";
-                $Z[7] = "settanta";
-                $Z[8] = "ottanta";
-                $Z[9] = "novanta";
+                $aTen[0] = "";
+                $aTen[1] = "dieci";
+                $aTen[2] = "venti";
+                $aTen[3] = "trenta";
+                $aTen[4] = "quaranta";
+                $aTen[5] = "cinquanta";
+                $aTen[6] = "sessanta";
+                $aTen[7] = "settanta";
+                $aTen[8] = "ottanta";
+                $aTen[9] = "novanta";
 
-                $H [0] = "";
-                $H [1] = "cento";
-                $H [2] = "duecento";
-                $H [3] = "trecento";
-                $H [4] = "quattrocento";
-                $H [5] = "cinquecento";
-                $H [6] = "seicento";
-                $H [7] = "settecento";
-                $H [8] = "ottocento";
-                $H [9] = "novecento";
+                $aHundred[0] = "";
+                $aHundred[1] = "cento";
+                $aHundred[2] = "duecento";
+                $aHundred[3] = "trecento";
+                $aHundred[4] = "quattrocento";
+                $aHundred[5] = "cinquecento";
+                $aHundred[6] = "seicento";
+                $aHundred[7] = "settecento";
+                $aHundred[8] = "ottocento";
+                $aHundred[9] = "novecento";
 
-                $M [0] = "";
-                $M [1] = "miliardo";
-                $M [2] = "miliardi";
-                $M [3] = "milione";
-                $M [4] = "milioni";
-                $M [5] = "mille";
-                $M [6] = "mila";
+                $aId[0] = "";
+                $aId[1] = "miliardo";
+                $aId[2] = "miliardi";
+                $aId[3] = "milione";
+                $aId[4] = "milioni";
+                $aId[5] = "mille";
+                $aId[6] = "mila";
 
                 break;
 
             case "Russian" :
-                $R[0] = "ноль";
-                $R[1] = "один";
-                $R[2] = "два";
-                $R[3] = "три";
-                $R[4] = "четыре";
-                $R[5] = "пять";
-                $R[6] = "шесть";
-                $R[7] = "семь";
-                $R[8] = "восемь";
-                $R[9] = "девять";
-                $R[10] = "десять";
-                $R[11] = "одиннадцать";
-                $R[12] = "двенадцать";
-                $R[13] = "тринадцать";
-                $R[14] = "четырнадцать";
-                $R[15] = "пятнадцать";
-                $R[16] = "шестнадцать";
-                $R[17] = "семнадцать";
-                $R[18] = "восемнадцать";
-                $R[19] = "девятнадцать";
-                $R[20] = "двадцать";
+                $aUnit[0] = "ноль";
+                $aUnit[1] = "один";
+                $aUnit[2] = "два";
+                $aUnit[3] = "три";
+                $aUnit[4] = "четыре";
+                $aUnit[5] = "пять";
+                $aUnit[6] = "шесть";
+                $aUnit[7] = "семь";
+                $aUnit[8] = "восемь";
+                $aUnit[9] = "девять";
+                $aUnit[10] = "десять";
+                $aUnit[11] = "одиннадцать";
+                $aUnit[12] = "двенадцать";
+                $aUnit[13] = "тринадцать";
+                $aUnit[14] = "четырнадцать";
+                $aUnit[15] = "пятнадцать";
+                $aUnit[16] = "шестнадцать";
+                $aUnit[17] = "семнадцать";
+                $aUnit[18] = "восемнадцать";
+                $aUnit[19] = "девятнадцать";
+                $aUnit[20] = "двадцать";
 
-                $Z[0] = "";
-                $Z[1] = "десять";
-                $Z[2] = "двадцать";
-                $Z[3] = "тридцать";
-                $Z[4] = "сорок";
-                $Z[5] = "пятьдесят";
-                $Z[6] = "шестьдесят";
-                $Z[7] = "семьдесят";
-                $Z[8] = "восемьдесят";
-                $Z[9] = "девяносто";
+                $aTen[0] = "";
+                $aTen[1] = "десять";
+                $aTen[2] = "двадцать";
+                $aTen[3] = "тридцать";
+                $aTen[4] = "сорок";
+                $aTen[5] = "пятьдесят";
+                $aTen[6] = "шестьдесят";
+                $aTen[7] = "семьдесят";
+                $aTen[8] = "восемьдесят";
+                $aTen[9] = "девяносто";
 
-                $H [0] = "";
-                $H [1] = "сто";
-                $H [2] = "двести";
-                $H [3] = "триста";
-                $H [4] = "четыреста";
-                $H [5] = "пятьсот";
-                $H [6] = "шестьсот";
-                $H [7] = "семьсот";
-                $H [8] = "восемьсот";
-                $H [9] = "девятьсот";
+                $aHundred[0] = "";
+                $aHundred[1] = "сто";
+                $aHundred[2] = "двести";
+                $aHundred[3] = "триста";
+                $aHundred[4] = "четыреста";
+                $aHundred[5] = "пятьсот";
+                $aHundred[6] = "шестьсот";
+                $aHundred[7] = "семьсот";
+                $aHundred[8] = "восемьсот";
+                $aHundred[9] = "девятьсот";
 
-                $M [0] = "";
-                $M [1] = "миллиард";
-                $M [2] = "миллиарды";
-                $M [3] = "миллион";
-                $M [4] = "миллионов";
-                $M [5] = "тысяча";
-                $M [6] = "тысяч";
+                $aId[0] = "";
+                $aId[1] = "миллиард";
+                $aId[2] = "миллиарды";
+                $aId[3] = "миллион";
+                $aId[4] = "миллионов";
+                $aId[5] = "тысяча";
+                $aId[6] = "тысяч";
 
                 break;
 
             case "Turkish" :
-                $R[0] = "sıfır";
-                $R[1] = "bir";
-                $R[2] = "iki";
-                $R[3] = "üç";
-                $R[4] = "dört";
-                $R[5] = "beş";
-                $R[6] = "altı";
-                $R[7] = "yedi";
-                $R[8] = "sekiz";
-                $R[9] = "dokuz";
-                $R[10] = "yirmi";
-                $R[11] = "on bir";
-                $R[12] = "on iki";
-                $R[13] = "on uç";
-                $R[14] = "on dört";
-                $R[15] = "on beş";
-                $R[16] = "on altı";
-                $R[17] = "on yedi";
-                $R[18] = "on sekiz";
-                $R[19] = "on dokuz";
-                $R[20] = "yirmi";
+                $aUnit[0] = "sıfır";
+                $aUnit[1] = "bir";
+                $aUnit[2] = "iki";
+                $aUnit[3] = "üç";
+                $aUnit[4] = "dört";
+                $aUnit[5] = "beş";
+                $aUnit[6] = "altı";
+                $aUnit[7] = "yedi";
+                $aUnit[8] = "sekiz";
+                $aUnit[9] = "dokuz";
+                $aUnit[10] = "yirmi";
+                $aUnit[11] = "on bir";
+                $aUnit[12] = "on iki";
+                $aUnit[13] = "on uç";
+                $aUnit[14] = "on dört";
+                $aUnit[15] = "on beş";
+                $aUnit[16] = "on altı";
+                $aUnit[17] = "on yedi";
+                $aUnit[18] = "on sekiz";
+                $aUnit[19] = "on dokuz";
+                $aUnit[20] = "yirmi";
 
-                $Z[0] = "";
-                $Z[1] = "on";
-                $Z[2] = "yirmi";
-                $Z[3] = "otuz";
-                $Z[4] = "kırk";
-                $Z[5] = "elli";
-                $Z[6] = "altmış";
-                $Z[7] = "yetmiş";
-                $Z[8] = "seksen";
-                $Z[9] = "doksan";
+                $aTen[0] = "";
+                $aTen[1] = "on";
+                $aTen[2] = "yirmi";
+                $aTen[3] = "otuz";
+                $aTen[4] = "kırk";
+                $aTen[5] = "elli";
+                $aTen[6] = "altmış";
+                $aTen[7] = "yetmiş";
+                $aTen[8] = "seksen";
+                $aTen[9] = "doksan";
 
-                $H [0] = "";
-                $H [1] = "yüz";
-                $H [2] = "iki yüz";
-                $H [3] = "üç yüz";
-                $H [4] = "dört yüz";
-                $H [5] = "beş yüz";
-                $H [6] = "altı yüz";
-                $H [7] = "yedi yüz";
-                $H [8] = "sekiz yüz";
-                $H [9] = "dokuz yüz";
+                $aHundred[0] = "";
+                $aHundred[1] = "yüz";
+                $aHundred[2] = "iki yüz";
+                $aHundred[3] = "üç yüz";
+                $aHundred[4] = "dört yüz";
+                $aHundred[5] = "beş yüz";
+                $aHundred[6] = "altı yüz";
+                $aHundred[7] = "yedi yüz";
+                $aHundred[8] = "sekiz yüz";
+                $aHundred[9] = "dokuz yüz";
 
-                $M [0] = "";
-                $M [1] = "milyar";
-                $M [2] = "milyar";
-                $M [3] = "milyon";
-                $M [4] = "milyon";
-                $M [5] = "bin";
-                $M [6] = "bin";
+                $aId[0] = "";
+                $aId[1] = "milyar";
+                $aId[2] = "milyar";
+                $aId[3] = "milyon";
+                $aId[4] = "milyon";
+                $aId[5] = "bin";
+                $aId[6] = "bin";
 
                 break;
 
             case "Persian" :
-                $R[0] = "صفر";
-                $R[1] = "یک";
-                $R[2] = "دو";
-                $R[3] = "سه";
-                $R[4] = "چهار";
-                $R[5] = "پنج";
-                $R[6] = "شش";
-                $R[7] = "هفت";
-                $R[8] = "هشت";
-                $R[9] = "نه";
-                $R[10] = "ده";
-                $R[11] = "یازده";
-                $R[12] = "دوازده";
-                $R[13] = "سیزده";
-                $R[14] = "چهارده";
-                $R[15] = "پانزده";
-                $R[16] = "شانزده";
-                $R[17] = "هفده";
-                $R[18] = "هجده";
-                $R[19] = "نوزده";
-                $R[20] = "بیست";
+                $aUnit[0] = "صفر";
+                $aUnit[1] = "یک";
+                $aUnit[2] = "دو";
+                $aUnit[3] = "سه";
+                $aUnit[4] = "چهار";
+                $aUnit[5] = "پنج";
+                $aUnit[6] = "شش";
+                $aUnit[7] = "هفت";
+                $aUnit[8] = "هشت";
+                $aUnit[9] = "نه";
+                $aUnit[10] = "ده";
+                $aUnit[11] = "یازده";
+                $aUnit[12] = "دوازده";
+                $aUnit[13] = "سیزده";
+                $aUnit[14] = "چهارده";
+                $aUnit[15] = "پانزده";
+                $aUnit[16] = "شانزده";
+                $aUnit[17] = "هفده";
+                $aUnit[18] = "هجده";
+                $aUnit[19] = "نوزده";
+                $aUnit[20] = "بیست";
 
-                $Z[0] = "";
-                $Z[1] = "ده";
-                $Z[2] = "بیست";
-                $Z[3] = "سی";
-                $Z[4] = "چهل";
-                $Z[5] = "پنجاه";
-                $Z[6] = "شصت";
-                $Z[7] = "هفتاد";
-                $Z[8] = "هشتاد";
-                $Z[9] = "نود";
+                $aTen[0] = "";
+                $aTen[1] = "ده";
+                $aTen[2] = "بیست";
+                $aTen[3] = "سی";
+                $aTen[4] = "چهل";
+                $aTen[5] = "پنجاه";
+                $aTen[6] = "شصت";
+                $aTen[7] = "هفتاد";
+                $aTen[8] = "هشتاد";
+                $aTen[9] = "نود";
 
-                $H [0] = "";
-                $H [1] = "صد";
-                $H [2] = "دویست";
-                $H [3] = "سیصد";
-                $H [4] = "چهارصد";
-                $H [5] = "پانصد";
-                $H [6] = "ششصد";
-                $H [7] = "هفتصد";
-                $H [8] = "هشتضد";
-                $H [9] = "نهصد";
+                $aHundred[0] = "";
+                $aHundred[1] = "صد";
+                $aHundred[2] = "دویست";
+                $aHundred[3] = "سیصد";
+                $aHundred[4] = "چهارصد";
+                $aHundred[5] = "پانصد";
+                $aHundred[6] = "ششصد";
+                $aHundred[7] = "هفتصد";
+                $aHundred[8] = "هشتضد";
+                $aHundred[9] = "نهصد";
 
-                $M [0] = "و";
-                $M [1] = "میلیارد";
-                $M [2] = "میلیارد";
-                $M [3] = "میلیون";
-                $M [4] = "میلیون";
-                $M [5] = "هزار";
-                $M [6] = "هزار";
+                $aId[0] = "و";
+                $aId[1] = "میلیارد";
+                $aId[2] = "میلیارد";
+                $aId[3] = "میلیون";
+                $aId[4] = "میلیون";
+                $aId[5] = "هزار";
+                $aId[6] = "هزار";
 
                 break;
 
             case "Korean" :
-                $R[0] = "";
-                $R[1] = "일";
-                $R[2] = "이";
-                $R[3] = "삼";
-                $R[4] = "사";
-                $R[5] = "오";
-                $R[6] = "육";
-                $R[7] = "칠";
-                $R[8] = "팔";
-                $R[9] = "구";
-                $R[10] = "십";
-                $R[11] = "십일";
-                $R[12] = "십이";
-                $R[13] = "십삼";
-                $R[14] = "십사";
-                $R[15] = "십오";
-                $R[16] = "십육";
-                $R[17] = "십칠";
-                $R[18] = "십팔";
-                $R[19] = "십구";
-                $R[20] = "이십";
+                $aUnit[0] = "";
+                $aUnit[1] = "일";
+                $aUnit[2] = "이";
+                $aUnit[3] = "삼";
+                $aUnit[4] = "사";
+                $aUnit[5] = "오";
+                $aUnit[6] = "육";
+                $aUnit[7] = "칠";
+                $aUnit[8] = "팔";
+                $aUnit[9] = "구";
+                $aUnit[10] = "십";
+                $aUnit[11] = "십일";
+                $aUnit[12] = "십이";
+                $aUnit[13] = "십삼";
+                $aUnit[14] = "십사";
+                $aUnit[15] = "십오";
+                $aUnit[16] = "십육";
+                $aUnit[17] = "십칠";
+                $aUnit[18] = "십팔";
+                $aUnit[19] = "십구";
+                $aUnit[20] = "이십";
 
-                $Z[0] = "";
-                $Z[1] = "십";
-                $Z[2] = "이십";
-                $Z[3] = "삼십";
-                $Z[4] = "사십";
-                $Z[5] = "오십";
-                $Z[6] = "육십";
-                $Z[7] = "칠십";
-                $Z[8] = "팔십";
-                $Z[9] = "구십";
+                $aTen[0] = "";
+                $aTen[1] = "십";
+                $aTen[2] = "이십";
+                $aTen[3] = "삼십";
+                $aTen[4] = "사십";
+                $aTen[5] = "오십";
+                $aTen[6] = "육십";
+                $aTen[7] = "칠십";
+                $aTen[8] = "팔십";
+                $aTen[9] = "구십";
 
                 $H[0] = "";
                 $H[1] = "백";
@@ -830,39 +926,39 @@ class NumberingSystem
                 $H[8] = "팔백";
                 $H[9] = "구백";
 
-                $M[0] = "";
-                $M[1] = "억"; // 100 miliion
-                $M[2] = "억";// 100 miliion
-                $M[3] = "만";// ten thousand
-                $M[4] = "만";  // ten thousand
-                $M[5] = "천";// one thousand
-                $M[6] = "천"; // one thousand
+                $aId[0] = "";
+                $aId[1] = "억"; // 100 miliion
+                $aId[2] = "억";// 100 miliion
+                $aId[3] = "만";// ten thousand
+                $aId[4] = "만";  // ten thousand
+                $aId[5] = "천";// one thousand
+                $aId[6] = "천"; // one thousand
 
                 break;
 
             case "Chinese_Simplified" :
-                $R[0] = "零";
-                $R[1] = "壹";
-                $R[2] = "贰";
-                $R[3] = "叁";
-                $R[4] = "肆";
-                $R[5] = "伍";
-                $R[6] = "陆";
-                $R[7] = "柒";
-                $R[8] = "捌";
-                $R[9] = "玖";
-                $R[10] = "拾";
+                $aUnit[0] = "零";
+                $aUnit[1] = "壹";
+                $aUnit[2] = "贰";
+                $aUnit[3] = "叁";
+                $aUnit[4] = "肆";
+                $aUnit[5] = "伍";
+                $aUnit[6] = "陆";
+                $aUnit[7] = "柒";
+                $aUnit[8] = "捌";
+                $aUnit[9] = "玖";
+                $aUnit[10] = "拾";
 
-                $Z[0] = "";
-                $Z[1] = "拾";
-                $Z[2] = "";
-                $Z[3] = "";
-                $Z[4] = "";
-                $Z[5] = "";
-                $Z[6] = "";
-                $Z[7] = "";
-                $Z[8] = "";
-                $Z[9] = "";
+                $aTen[0] = "";
+                $aTen[1] = "拾";
+                $aTen[2] = "";
+                $aTen[3] = "";
+                $aTen[4] = "";
+                $aTen[5] = "";
+                $aTen[6] = "";
+                $aTen[7] = "";
+                $aTen[8] = "";
+                $aTen[9] = "";
 
                 $H[0] = "";
                 $H[1] = "佰";
@@ -876,49 +972,49 @@ class NumberingSystem
                 $H[9] = "";
 
 
-                $M[0] = "";
-                $M[1] = "亿"; // 100 miliion
-                $M[2] = "亿"; // 100 miliion
-                $M[3] = "万"; // ten thousand
-                $M[4] = "万"; // ten thousand
-                $M[5] = "仟"; // one thousand
-                $M[6] = "仟"; // one thousand
+                $aId[0] = "";
+                $aId[1] = "亿"; // 100 miliion
+                $aId[2] = "亿"; // 100 miliion
+                $aId[3] = "万"; // ten thousand
+                $aId[4] = "万"; // ten thousand
+                $aId[5] = "仟"; // one thousand
+                $aId[6] = "仟"; // one thousand
 
                 break;
 
             case "Chinese_Traditional" :
-                $R[0] = "零";
-                $R[1] = "壹";
-                $R[2] = "貳";
-                $R[3] = "參";
-                $R[4] = "肆";
-                $R[5] = "伍";
-                $R[6] = "陸";
-                $R[7] = "柒";
-                $R[8] = "捌";
-                $R[9] = "玖";
-                $R[10] = "拾";
-                $R[11] = "";
-                $R[12] = "";
-                $R[13] = "";
-                $R[14] = "";
-                $R[15] = "";
-                $R[16] = "";
-                $R[17] = "";
-                $R[18] = "";
-                $R[19] = "";
-                $R[20] = "";
+                $aUnit[0] = "零";
+                $aUnit[1] = "壹";
+                $aUnit[2] = "貳";
+                $aUnit[3] = "參";
+                $aUnit[4] = "肆";
+                $aUnit[5] = "伍";
+                $aUnit[6] = "陸";
+                $aUnit[7] = "柒";
+                $aUnit[8] = "捌";
+                $aUnit[9] = "玖";
+                $aUnit[10] = "拾";
+                $aUnit[11] = "";
+                $aUnit[12] = "";
+                $aUnit[13] = "";
+                $aUnit[14] = "";
+                $aUnit[15] = "";
+                $aUnit[16] = "";
+                $aUnit[17] = "";
+                $aUnit[18] = "";
+                $aUnit[19] = "";
+                $aUnit[20] = "";
 
-                $Z[0] = "";
-                $Z[1] = "拾";
-                $Z[2] = "";
-                $Z[3] = "";
-                $Z[4] = "";
-                $Z[5] = "";
-                $Z[6] = "";
-                $Z[7] = "";
-                $Z[8] = "";
-                $Z[9] = "";
+                $aTen[0] = "";
+                $aTen[1] = "拾";
+                $aTen[2] = "";
+                $aTen[3] = "";
+                $aTen[4] = "";
+                $aTen[5] = "";
+                $aTen[6] = "";
+                $aTen[7] = "";
+                $aTen[8] = "";
+                $aTen[9] = "";
 
                 $H[0] = "";
                 $H[1] = "佰";
@@ -932,13 +1028,13 @@ class NumberingSystem
                 $H[9] = "";
 
 
-                $M[0] = "";
-                $M[1] = "億"; // 100 miliion
-                $M[2] = "億"; // 100 miliion
-                $M[3] = "萬"; // ten thousand
-                $M[4] = "萬"; // ten thousand
-                $M[5] = "仟"; // one thousand
-                $M[6] = "仟"; // one thousand
+                $aId[0] = "";
+                $aId[1] = "億"; // 100 miliion
+                $aId[2] = "億"; // 100 miliion
+                $aId[3] = "萬"; // ten thousand
+                $aId[4] = "萬"; // ten thousand
+                $aId[5] = "仟"; // one thousand
+                $aId[6] = "仟"; // one thousand
 
                 break;
 
