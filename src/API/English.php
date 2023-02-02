@@ -15,7 +15,7 @@ class English
 
     const LANGUAGE_ID = 'en';
 
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
 
@@ -56,7 +56,7 @@ class English
             // ==============================================================================
             // prepre numbers from 0 to 99
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = $N [$x + 2] + ($N [$x + 1] * 10);
             // keywords
@@ -108,9 +108,9 @@ class English
 
             if ($L == 4) {
 
-                if (substr($strForma, 0, 12) == "000000000001") {
+                if (substr($Forma, 0, 12) == "000000000001") {
                     $Num = $R [1] . " " . $id1;
-                } else if (substr($strForma, 0, 12) == "000000000000") {
+                } else if (substr($Forma, 0, 12) == "000000000000") {
                     $Num = "";
                 } else {
                     $Num = trim($Num);
@@ -122,10 +122,10 @@ class English
                 
                 // this shoud apear prior to cond.4
 				// case one dollar
-				$Num = NumberingSystem::substituteIDs($Num, $strForma, $L, $id1,  $id2 ) ;
+				$Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
 				  
                 // cond.4
-                if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
+                if (substr($Forma, -3) != "000" & substr($Forma, 0, 12) != "000000000000") {
                     $Num .= " " . $M [0] . " ";
                 }
             }
@@ -133,7 +133,7 @@ class English
             
             if ($L == 5) {
 				// one cent
-                $Num = NumberingSystem::substituteIDs($Num, $strForma, $L, $id1,  $id2 ) ;
+                $Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
             }
            
         }
@@ -143,7 +143,7 @@ class English
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
         /*
-        if ($strForma == "000000000000.000") {
+        if ($Forma == "000000000000.000") {
             $Num = $R [0];
         }
         */

@@ -1,6 +1,6 @@
 # What is Number2Text?
 
-Number2Text is an API that allows you to Convert any digits number to the equivalent words, fo example
+Number2Text is an API that alloes you to Convert any digits number to the equivalent words, fo example
 > (8543.21 in digits) will be (eight thousand, five hundred and forty-three $ and twenty-one ¢ in words).
 
 [![CircleCI](https://circleci.com/gh/egy1st/number2text/tree/main.svg?style=shield)](https://circleci.com/gh/egy1st/number2text/tree/main) [![codecov](https://codecov.io/gh/egy1st/number2text/branch/main/graph/badge.svg?token=26Z0MRJI07)](https://codecov.io/gh/egy1st/number2text)
@@ -10,7 +10,7 @@ Number2Text is an API that allows you to Convert any digits number to the equiva
 
 Digits number up to 999,999,999.998.99 can be converted to words in 13 languages so far:
 
-- $strNumber
+- Arabic
 - English
 - French
 - German
@@ -72,7 +72,7 @@ and see changes on time.
 
 # Language ID
 
-| Language | $strNumber | English | French | German | Italian | Spanish | Portuguese | 
+| Language | Arabic | English | French | German | Italian | Spanish | Portuguese | 
 | -------- |------- |-------- |------- |------- |-------- |-------- |----------- |
 | ID       | ar     | en      | fr     | gr     | it      | es      | pt         |
 

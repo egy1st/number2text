@@ -12,7 +12,7 @@ require_once "Number2Text.php";
  */
 class Italian
 {
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($str_Number, $aCur)
     {
         $ITA = new Italian ();
         $Num = "";
@@ -51,7 +51,7 @@ class Italian
             // ==============================================================================
             // prepre numbers from 0 to 99
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;
@@ -86,18 +86,18 @@ class Italian
             // prepare numbers from 100 to 999
             // Hundreds, tens and units are linked together with no space (e.g.: centonove [109]
             if ($n_all != 0) {
-                if (NumberingSystem::checkOneThousnad($L, $strForma)) {
+                if (NumberingSystem::checkOneThousnad($L, $Forma)) {
                     $Num .= $id1;
                     // Numbers are grouped in words of three digits, with the specific rule that
                     // a space is added after the word for thousand if its multiplier
                     // is greater than one hundred and does not end with a double zero
                     // (e.g.: duemilatrecentoquarantacinque [2,345], tecentosessantacinquemila duecento [765,200]).
-                } else if ($ITA->checkHundredThousnad($L, $strForma)) {
+                } else if ($ITA->checkHundredThousnad($L, $Forma)) {
                     $Num .= $H [$N [$x]] . $str_unit . $id2 . " ";
 
                     // experimantal at http://www.languagesandnumbers.com/how-to-count-in-italian/en/ita/
                     // add space when thausand multipliers greater than 100, for 100 exatly no space , so we use trim function
-                } else if ($ITA->checkSuperOneHundred($L, $strForma)) {
+                } else if ($ITA->checkSuperOneHundred($L, $Forma)) {
                     $Num .= $H [$N [$x]] . $str_unit . trim($id2) . " ";
                     //
                 } else {
@@ -107,7 +107,7 @@ class Italian
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            if (NumberingSystem::NoCurrency($L, $strForma)) {
+            if (NumberingSystem::NoCurrency($L, $Forma)) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $id2;
             }
@@ -118,7 +118,7 @@ class Italian
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
         /*
-        if ($strForma == "000000000000.000") {
+        if ($Forma == "000000000000.000") {
             $Num = $R [0];
         }
         */
@@ -145,24 +145,24 @@ class Italian
         return $str;
     }
 
-    function checkHundredThousnad($L, $strForma)
+    function checkHundredThousnad($L, $Forma)
     {
         $NS = new NumberingSystem ();
-        if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxxdxxxxx.xxx") & !NumberingSystem::isPattern($strForma, "xxxxxxxxxx00.xxx")) {
+        if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxdxxxxx.xxx") & !NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx")) {
             return true;
         }
 
         return false;
     }
 
-    function checkSuperOneHundred($L, $strForma)
+    function checkSuperOneHundred($L, $Forma)
     {
         $NS = new NumberingSystem ();
-        if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxx100xxx.xxx")) {
+        if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxx100xxx.xxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxx100xxxxxx.xxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxx100xxxxxx.xxx")) {
             return true;
-        } else if ($L == 1 & NumberingSystem::isPattern($strForma, "100xxxxxxxxx.xxx")) {
+        } else if ($L == 1 & NumberingSystem::isPattern($Forma, "100xxxxxxxxx.xxx")) {
             return true;
         }
 

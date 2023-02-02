@@ -12,7 +12,7 @@ require_once "Number2Text.php";
  */
 class Russian
 {
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
 
@@ -47,7 +47,7 @@ class Russian
             // prepre numbers from 0 to 99
             // tens space units ==> There is no need to use the word "and" in Russian
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;
@@ -69,7 +69,7 @@ class Russian
 
             if ($n_all != 0) {
                 // тысяча not один тысяча.
-                if (NumberingSystem::checkOneThousnad($L, $strForma)) {
+                if (NumberingSystem::checkOneThousnad($L, $Forma)) {
                     $Num .= " " . $id1 . " ";
                 } else if ($N [$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " ";
@@ -84,7 +84,7 @@ class Russian
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            if (NumberingSystem::NoCurrency($L, $strForma)) {
+            if (NumberingSystem::NoCurrency($L, $Forma)) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $id2;
             }
@@ -95,7 +95,7 @@ class Russian
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
         /*
-        if ($strForma == "000000000000.000") {
+        if ($Forma == "000000000000.000") {
             $Num = $R [0];
         }
         */

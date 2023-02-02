@@ -12,7 +12,7 @@ require_once "Number2Text.php";
  */
 class Spanish
 {
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
 
@@ -46,7 +46,7 @@ class Spanish
             // ==============================================================================
             // prepre numbers from 0 to 99
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;
@@ -78,7 +78,7 @@ class Spanish
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            if (NumberingSystem::NoCurrency($L, $strForma)) {
+            if (NumberingSystem::NoCurrency($L, $Forma)) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $id2;
             }
@@ -89,7 +89,7 @@ class Spanish
         // $Num = NumberingSystem::removeAnd($Num);
 
         /*
-        if ($strForma == "000000000000.000") {
+        if ($Forma == "000000000000.000") {
             $Num = $R [0];
         }
         */

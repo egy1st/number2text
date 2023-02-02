@@ -3,7 +3,7 @@
 //ini_set("display_errors", 1);
 //ini_set('error_reporting', E_ALL);
 
-require_once "Number2Text.php";
+require_once "Arabic.php";
 require_once "English.php";
 require_once "French.php";
 require_once "German.php";
@@ -22,10 +22,10 @@ require_once "Locality.php";
 $empty_units = false;
 $empty_frac = false;
 $aCurrencies = array();
-$strNumber = "" ;
+$str_Number = "" ;
 
 /**
- * @covers $strNumber
+ * @covers Arabic
  * @covers English
  * @covers French
  * @covers German
@@ -65,11 +65,11 @@ $strNumber = "" ;
     // This function format number as integer.decimal where integer is 12 fixed places and decimal is 3 fixed placed
     // Integer is left zero padded, for example 123 will be 000000000123
     // Decimal is left and right zeros padded, for example 0.3 will be 0.030
-    public static function formatNumber($strNumber)
+    public static function formatNumber($str_Number)
     {
-        if (is_numeric($strNumber)) {
-            $whole = floor($strNumber); // 1
-            $fraction = $strNumber - $whole; // 0.25
+        if (is_numeric($str_Number)) {
+            $whole = floor($str_Number); // 1
+            $fraction = $str_Number - $whole; // 0.25
             if ($fraction != 0)
                 $fraction = round($fraction, 2) * 100;
             else if ($fraction == 0)
@@ -83,29 +83,29 @@ $strNumber = "" ;
 
     // This function populates digits in an array to master it one by one
     // Then, it format it to the proper format
-    public static function prepareNumber($strNumber, &$N)
+    public static function prepareNumber($str_Number, &$N)
     {
 
-        if (is_numeric($strNumber)) {
+        if (is_numeric($str_Number)) {
 
-            // $strNumber = $para_number;
-            $strNumber = str_replace(",", ".", $strNumber);
-            if ($strNumber > "999999999999.099") {
+            // $str_Number = $para_number;
+            $str_Number = str_replace(",", ".", $str_Number);
+            if ($str_Number > "999999999999.099") {
                 echo("Cannot translate numbers exceed 999,999,999,999.00");
                 return false;
             }
 
-            $strForma = self::formatNumber($strNumber);
+            $Forma = self::formatNumber($str_Number);
             $Num = "";
 
             $E = 0;
             for ($E = 0; $E < 12; $E++) {
-                $S = substr($strForma, $E, 1);
+                $S = substr($Forma, $E, 1);
                 $N [$E + 1] = $S;
             }
 
             for ($E = 13; $E < 16; $E++) {
-                $S = substr($strForma, $E, 1);
+                $S = substr($Forma, $E, 1);
                 $N [$E + 1] = $S;
             }
 
@@ -114,12 +114,12 @@ $strNumber = "" ;
             $N [15] = $N [14];
             $N [14] = 0;
 
-            $strForma = substr($strForma, 0, 13);
+            $Forma = substr($Forma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
-                $strForma .= $N [$E];
+                $Forma .= $N [$E];
             }
 
-            return $strForma;
+            return $Forma;
         }
     }
 
@@ -156,13 +156,13 @@ $strNumber = "" ;
 
     // This function is main function
     // It translates number to string based on the selected language
-    public static function translateNumber($strNumber, $_language, $_currency, $_units,  $_locale, $_output)
+    public static function translateNumber($str_Number, $_language, $_currency, $_units,  $_locale, $_output)
     {
 
         global $aCurrencies, $number, $language, $currency, $units, $output, $locale;
 		
-		if (!isset ($strNumber )) {
-			$strNumber = $number ;
+		if (!isset ($str_Number )) {
+			$str_Number = $number ;
 		}
 		
 		if (!isset ($_language )) {
@@ -186,7 +186,7 @@ $strNumber = "" ;
 			$_output = $output ;
 		}
 		
-        if (!is_numeric($strNumber)) {
+        if (!is_numeric($str_Number)) {
             return "invalid number";
         }
 
@@ -207,7 +207,7 @@ $strNumber = "" ;
         switch ($_language) {
 
             case Languages::ARABIC :
-                $oLang = new $strNumber ();
+                $oLang = new Arabic ();
                 break;
             case Languages::ENGLISH :
                 $oLang = new English ();
@@ -253,18 +253,18 @@ $strNumber = "" ;
         //num2text::TranslateNumber takes number and language_id as parameters 
 
         
-        $strNumber = $oLang->TranslateNumber($strNumber, $aCurrencies); //$lang->TranslateNumber takes number and acuurency as parameters
-        $strNumber = self::outputFormat($strNumber, $_output);
+        $str_Number = $oLang->TranslateNumber($str_Number, $aCurrencies); //$lang->TranslateNumber takes number and acuurency as parameters
+        $str_Number = self::outputFormat($str_Number, $_output);
 
 
-        $strNumber = trim($strNumber);
+        $str_Number = trim($str_Number);
 
         /*
         $clean_text = '' ;
         if (Language::check_latin($language) )  {
 
-        for ( $pos=0; $pos < strlen($strNumber); $pos ++ ) {
-         $byte = substr($strNumber, $pos, 1);
+        for ( $pos=0; $pos < strlen($str_Number); $pos ++ ) {
+         $byte = substr($str_Number, $pos, 1);
              if ( ord($byte) >= 32 &  ord($byte) <= 128 ) {
                 $clean_text .=  $byte ;
               }
@@ -273,7 +273,7 @@ $strNumber = "" ;
         }
         */
 
-        return $strNumber;
+        return $str_Number;
     }
 }
 

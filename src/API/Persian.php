@@ -12,7 +12,7 @@ require_once "Number2Text.php";
  */
 class Persian
 {
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
 
@@ -47,7 +47,7 @@ class Persian
             // prepre numbers from 0 to 99
             // Tens and units are linked with "و"
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;
@@ -69,7 +69,7 @@ class Persian
 
             if ($n_all != 0) {
                 // هزار not یک هزار
-                if (NumberingSystem::checkOneThousnad($L, $strForma)) {
+                if (NumberingSystem::checkOneThousnad($L, $Forma)) {
                     $Num .= " " . $id1 . " ";
                 } else if ($N [$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " " . $M [0] . " ";
@@ -84,7 +84,7 @@ class Persian
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            if (NumberingSystem::NoCurrency($L, $strForma)) {
+            if (NumberingSystem::NoCurrency($L, $Forma)) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $id2;
             }
@@ -95,7 +95,7 @@ class Persian
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
         /*
-        if ($strForma == "000000000000.000") {
+        if ($Forma == "000000000000.000") {
             $Num = $R [0];
         }
         */

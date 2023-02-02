@@ -8,17 +8,17 @@ require_once "NumberingSystem.php";
 require_once "Number2Text.php";
 
 /**
- * @covers $strNumber
+ * @covers Arabic
  *
  */
-class $strNumber
+class Arabic
 {
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
 
 
-        NumberingSystem::getLanguage($R, $Z, $H, $M, $N, "$strNumber");
+        NumberingSystem::getLanguage($R, $Z, $H, $M, $N, "Arabic");
         for ($x = 7; $x <= 12; $x++) {
             $M [$x] = $aCur [$x - 7];
         }
@@ -50,17 +50,17 @@ class $strNumber
                 $id2 = " جنيهان ";
                 $id3 = " جنيهات ";
 
-                if (substr($strForma, 0, 12) == "001000000000") {
+                if (substr($Forma, 0, 12) == "001000000000") {
                     $Num = " مليار ";
-                } else if (substr($strForma, 0, 12) == "002000000000") {
+                } else if (substr($Forma, 0, 12) == "002000000000") {
                     $Num = " مليارى ";
-                } else if (substr($strForma, 0, 12) == "000001000000") {
+                } else if (substr($Forma, 0, 12) == "000001000000") {
                     $Num = " مليون ";
-                } else if (substr($strForma, 0, 12) == "000002000000") {
+                } else if (substr($Forma, 0, 12) == "000002000000") {
                     $Num = " مليونى ";
-                } else if (substr($strForma, 0, 12) == "000000001000") {
+                } else if (substr($Forma, 0, 12) == "000000001000") {
                     $Num = " ألف ";
-                } else if (substr($strForma, 0, 12) == "000000002000") {
+                } else if (substr($Forma, 0, 12) == "000000002000") {
                     $Num = " ألفى ";
                 }
 				
@@ -87,7 +87,7 @@ class $strNumber
             // ==============================================================================
             // prepare numbers from 100 to 999
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
                 $G = 1;
@@ -148,27 +148,27 @@ class $strNumber
             }
         }
 
-        $newNum = $Num;
-        $Ln = strlen($newNum);
+        $NewNum = $Num;
+        $Ln = strlen($NewNum);
 
-        if (substr($newNum, 0, strlen(" و ")) == " و ") {
-            $newNum = substr($newNum, -($Ln - strlen(" و ")));
+        if (substr($NewNum, 0, strlen(" و ")) == " و ") {
+            $NewNum = substr($NewNum, -($Ln - strlen(" و ")));
         }
 
         /*
-        if ($strForma == "000000000000.000") {
-            $newNum = "";
+        if ($Forma == "000000000000.000") {
+            $NewNum = "";
         }
         */
 
-        $newNum = str_replace("جنيه", $M [7], $newNum);
-        $newNum = str_replace("جنيهات", $M [8], $newNum);
-        $newNum = str_replace("قرش", $M [9], $newNum);
-        $newNum = str_replace("قروش", $M [10], $newNum);
-        $newNum = str_replace("جنيهان", $M [11], $newNum);
-        $newNum = str_replace("قرشان", $M [12], $newNum);
+        $NewNum = str_replace("جنيه", $M [7], $NewNum);
+        $NewNum = str_replace("جنيهات", $M [8], $NewNum);
+        $NewNum = str_replace("قرش", $M [9], $NewNum);
+        $NewNum = str_replace("قروش", $M [10], $NewNum);
+        $NewNum = str_replace("جنيهان", $M [11], $NewNum);
+        $NewNum = str_replace("قرشان", $M [12], $NewNum);
 
-        return $newNum;
+        return $NewNum;
     }
 }
 
