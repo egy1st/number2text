@@ -1,7 +1,7 @@
 ﻿<?php
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
-// ini_set('error_reporting', E_ALL);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
+//ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -25,17 +25,17 @@ class Chinese_Simplified
             $M [$x] = $aCur [$x - 7];
         }
 
-        //============================================================================================================================
+        //===================================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 4; $L++) {
-            if ($L === 1) {
+            if ($L == 1) {
                 $x = 1;
-            } else if ($L === 2) {
+            } else if ($L == 2) {
                 $x = 5;
-            } else if ($L === 3) {
+            } else if ($L == 3) {
                 $x = 9;
-            } else if ($L === 4) {
+            } else if ($L == 4) {
                 $countZero = false;
                 $x = 14;
             }
@@ -44,7 +44,7 @@ class Chinese_Simplified
 
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            //=====================================================================================================================
+            //==============================================================================
             //prepre numbers from 0 to 99
             //Eleven in Chinese is "ten one". Twelve is "ten two", and so on. Twenty is "Two ten", twenty-one is
             // "two ten one" (2*10 + 1), and so on up to 99. One-hundred is "one hundred". One-hundred and one is
@@ -78,16 +78,16 @@ class Chinese_Simplified
                 if ($N[$y] != 0 || $countZero) {
                     $countZero = true;
                     //check ten for units only'
-                    if ($i === 3 & $L === 3 & $this->checkChineseTen($L, $Forma)) {
+                    if ($i == 3 & $L == 3 & $this->checkChineseTen($L, $Forma)) {
                         $Num .= $this->getID($y);
                     } else if ($N[$y] != 0) {
                         $Num .= $R[$N[$y]] . $this->getID($y);
                         //And getChineseSum(N, y) = 0
-                    } else if ($N[$y] === 0 & $this->getChineseSubSum($N, $L, $i) === 0) {
+                    } else if ($N[$y] == 0 & $this->getChineseSubSum($N, $L, $i) == 0) {
                         // nothing to do
                         $y = $y;
                         //And getChineseSum(N, y) = 0
-                    } else if ($N[$y] === 0 & $this->getChineseSubSum($N, $L, $i) != 0) {
+                    } else if ($N[$y] == 0 & $this->getChineseSubSum($N, $L, $i) != 0) {
                         // do not count zero again
                         $Num .= $R[$N[$y]];
                         $countZero = false;
@@ -104,10 +104,10 @@ class Chinese_Simplified
             }
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            if ($L === 3) {
+            if ($L == 3) {
                 $Num = NumberingSystem::removeAnd($Num, $M[0]);
                 $Num .= " " . $M[7];
-            } else if ($L === 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
+            } else if ($L == 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
                 $Num .= " " . $M[9];
             }
         }
@@ -116,7 +116,7 @@ class Chinese_Simplified
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M[0]);
 
-        if ($Forma === "000000000000.0000") {
+        if ($Forma == "000000000000.0000") {
             $Num = $R[0];
         }
 
@@ -128,18 +128,18 @@ class Chinese_Simplified
     public static function getGrand($L)
     {
 
-        if ($L === 1) {
+        if ($L == 1) {
             return "亿";
             // 100 Million
-        } else if ($L === 2) {
+        } else if ($L == 2) {
             return "万";
             // Ten Thousands
-        } else if ($L === 3) {
+        } else if ($L == 3) {
             return "";
             // units
         }
 
-        //else if ($L === 4) {
+        //else if ($L == 4) {
         // decimals
 
         return "";
@@ -148,18 +148,18 @@ class Chinese_Simplified
     public static function getID($y)
     {
 
-        if ($y % 4 === 1) {
+        if ($y % 4 == 1) {
             return "仟";
             // Thousands
-        } else if ($y % 4 === 2) {
+        } else if ($y % 4 == 2) {
             return "佰";
             // Hundereds
-        } else if ($y % 4 === 3) {
+        } else if ($y % 4 == 3) {
             return "拾";
             // Tens
         }
 
-        //else if ($y % 4 === 0) {
+        //else if ($y % 4 == 0) {
         // units
 
         return "";
@@ -169,14 +169,14 @@ class Chinese_Simplified
     public static function checkChineseHundred($L, $Forma)
     {
 
-        if ($L === 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
             return true;
         // no place in pences places
-        } else if ($L === 4) {
+        } else if ($L == 4) {
             return false;
         }
 
@@ -187,13 +187,13 @@ class Chinese_Simplified
     public static function checkChineseTen($L, $Forma)
     {
 
-        if ($L === 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxx0010xxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx0010xxxx.xxxx")) {
             return true;
-        } else if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx0010.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx0010.xxxx")) {
             return true;
-        } else if ($L === 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0010")) {
+        } else if ($L == 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0010")) {
             return true;
         }
 
@@ -204,15 +204,15 @@ class Chinese_Simplified
     public static function checkChineseOne($L, $Forma)
     {
 
-        if ($L === 1 & NumberingSystem::isPattern($Forma, "0001xxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($Forma, "0001xxxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxx0001xxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx0001xxxx.xxxx")) {
             return true;
         // not applied here
-        } else if ($L === 3) {
+        } else if ($L == 3) {
             return false;
         // not applied here
-        } else if ($L === 4) {
+        } else if ($L == 4) {
             return false;
         }
 
@@ -225,14 +225,14 @@ class Chinese_Simplified
 	public static function checkChineseThousand($L, $Forma)
 	{
 
-		if ($L === 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
+		if ($L == 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
 			return true;
-		} else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
+		} else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
 			return true;
-		} else if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
+		} else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
 			return true;
 		// no place in pences places
-		} else if ($L === 4) {
+		} else if ($L == 4) {
 			return false;
 		}
 

@@ -1,7 +1,7 @@
 ﻿<?php
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
-// ini_set('error_reporting', E_ALL);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
+//ini_set('error_reporting', E_ALL);
 
 
 require_once "Arabic.php";
@@ -58,11 +58,11 @@ class NumberingSystem
     {
         $sum = 0;
         if ($N != NULL) {
-            if ($_step === 1) {
+            if ($_step == 1) {
                 $sum = ($N [12]) + (($N [11]) * 10) + (($N [10]) * 100) + (($N [9]) * 1000) + (($N [8]) * 10000) + (($N [7]) * 100000) + (($N [6]) * 1000000) + (($N [5]) * 10000000) + (($N [4]) * 100000000);
-            } else if ($_step === 2) {
+            } else if ($_step == 2) {
                 $sum = ($N [12]) + (($N [11]) * 10) + (($N [10]) * 100) + (($N [9]) * 1000) + (($N [8]) * 10000) + (($N [7]) * 100000);
-            } else if ($_step === 3) {
+            } else if ($_step == 3) {
                 $sum = ($N [12]) + (($N [11]) * 10) + (($N [10]) * 100);
             }
         }
@@ -75,8 +75,8 @@ class NumberingSystem
         $n = 0;
 
         for ($n = 1; $n <= 16; $n++) {
-            if (substr($ptrn2, $n, 1) === "d") {
-                if (substr($ptrn1, $n, 1) === "0") {
+            if (substr($ptrn2, $n, 1) == "d") {
+                if (substr($ptrn1, $n, 1) == "0") {
                     return false;
                 }
             } else if (substr($ptrn2, $n, 1) != "x" & substr($ptrn1, $n, 1) != substr($ptrn2, $n, 1)) {
@@ -91,7 +91,7 @@ class NumberingSystem
     {
         $str = trim($str);
         $Ln = strlen($str);
-        if (substr($str, -1) === ",") {
+        if (substr($str, -1) == ",") {
             $str = substr($str, 0, $Ln - 1);
         }
         return $str;
@@ -99,15 +99,15 @@ class NumberingSystem
 
      public static function substituteIDs($num, $forma,  $l, $id1, $id2) {
    
-        if ( ($l === 4 &  substr($forma, 0, 12) === "000000000001") || ( $l === 5 &  substr($forma, -3) === "001") ) {
+        if ( ($l == 4 &  substr($forma, 0, 12) == "000000000001") || ( $l == 5 &  substr($forma, -3) == "001") ) {
 			$num = trim($num);
 			$num_Ln = strlen($num);
-			if (substr($num, -1) === ",") {
+			if (substr($num, -1) == ",") {
 				$num = substr($num, 0, $num_Ln - 1);
 			}
 
 			$Ln2 = strlen( $id2);
-			if (substr($num, -$Ln2 ) ===  $id2 ) {
+			if (substr($num, -$Ln2 ) ==  $id2 ) {
 				$new_Num = substr($num, 0, $num_Ln - ($Ln2+1) ) ;
 				$new_Num  .=  ' ' . $id1 ;
 				return $new_Num ;
@@ -125,7 +125,7 @@ class NumberingSystem
         $str = trim($str);
         $Ln = strlen($str);
         $Ln2 = strlen($and) + 1;
-        if (substr($str, -$Ln2) === " " . $and) {
+        if (substr($str, -$Ln2) == " " . $and) {
             $str = substr($str, 0, $Ln - $Ln2);
             $str = trim($str);
         }
@@ -137,7 +137,7 @@ class NumberingSystem
         $str = trim($str);
         $Ln = strlen($str);
         $Ln2 = strlen($and) + 1;
-        if ( substr($str, 0, $Ln2) ===  $and .  " ") {
+        if ( substr($str, 0, $Ln2) ==  $and .  " ") {
             $str = substr($str, $Ln2 , $Ln - $Ln2);
             $str = trim($str);
         } 
@@ -147,7 +147,7 @@ class NumberingSystem
 
     public static function NoCurrency($phase, $ptrn)
     {
-        if ($phase === 4) {
+        if ($phase == 4) {
             if (self::isPattern($ptrn, "xxxxxxxxx000.xxx")) {
                 return true;
             }
@@ -158,7 +158,7 @@ class NumberingSystem
 
     /*
     public static function noKoreanCurrency($phase, $ptrn) {
-        if ($phase === 3) {
+        if ($phase == 3) {
             if (self::isPattern ( $ptrn, "xxxxxxxx0000.xxxx" )) {
                 return true;
             }
@@ -169,7 +169,7 @@ class NumberingSystem
 
     public static function removeSpaces($str)
     {
-        if ($str === NULL)
+        if ($str == NULL)
             return "";
 
         $str = trim($str);
@@ -177,7 +177,7 @@ class NumberingSystem
         $Ln = strlen($str);
 
         for ($x = 1; $x <= $Ln; $x++) {
-            if (!(substr($str, $x, 1) === " " & substr($str, $x - 1, 1) === " ")) {
+            if (!(substr($str, $x, 1) == " " & substr($str, $x - 1, 1) == " ")) {
                 $newStr .= substr($str, $x, 1);
             }
         }
@@ -186,13 +186,13 @@ class NumberingSystem
 
     public static function checkOneHundred($L, $Forma)
     {
-        if ($L === 4 & self::isPattern($Forma, "xxxxxxxxx100.xxx")) {
+        if ($L == 4 & self::isPattern($Forma, "xxxxxxxxx100.xxx")) {
             return true;
-        } else if ($L === 3 & self::isPattern($Forma, "xxxxxx100xxx.xxx")) {
+        } else if ($L == 3 & self::isPattern($Forma, "xxxxxx100xxx.xxx")) {
             return true;
-        } else if ($L === 2 & self::isPattern($Forma, "xxx100xxxxxx.xxx")) {
+        } else if ($L == 2 & self::isPattern($Forma, "xxx100xxxxxx.xxx")) {
             return true;
-        } else if ($L === 1 & self::isPattern($Forma, "100xxxxxxxxx.xxx")) {
+        } else if ($L == 1 & self::isPattern($Forma, "100xxxxxxxxx.xxx")) {
             //$Num .= $H [10] . " " . $id2 . " ";
             return true;
         }
@@ -212,7 +212,7 @@ class NumberingSystem
 
     public static function checkOneThousnad($L, $Forma)
     {
-        if ($L === 3 & self::isPattern($Forma, "000000001xxx.xxx")) {
+        if ($L == 3 & self::isPattern($Forma, "000000001xxx.xxx")) {
             return true;
         }
 

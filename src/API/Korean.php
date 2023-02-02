@@ -1,7 +1,7 @@
 ﻿<?php
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
-// ini_set('error_reporting', E_ALL);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
+//ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -24,22 +24,22 @@ class Korean
             $M [$x] = $aCur [$x - 7];
         }
 
-        //============================================================================================================================
+        //===================================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 4; $L++) {
-            if ($L === 1) {
+            if ($L == 1) {
                 $x = 1;
-            } else if ($L === 2) {
+            } else if ($L == 2) {
                 $x = 5;
-            } else if ($L === 3) {
+            } else if ($L == 3) {
                 $x = 9;
-            } else if ($L === 4) {
+            } else if ($L == 4) {
                 $x = 14;
             }
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            //=====================================================================================================================
+            //==============================================================================
             //prepre numbers from 0 to 99
             //Tens and units are linked with e (and), as in trinta e cinco [35]
 
@@ -54,13 +54,13 @@ class Korean
                 $i += 1;
 
                 if ($N[$y] != 0) {
-                    if ($i === 1 & $KOR->checkKoreanThousand($L, $Forma)) {
+                    if ($i == 1 & $KOR->checkKoreanThousand($L, $Forma)) {
                         $Num .= $KOR->getID($y);
-                    } else if ($i === 2 & $KOR->checkKoreanHundred($L, $Forma)) {
+                    } else if ($i == 2 & $KOR->checkKoreanHundred($L, $Forma)) {
                         $Num .= $KOR->getID($y);
-                    } else if ($i === 3 & $KOR->checkKoreanTen($L, $Forma)) {
+                    } else if ($i == 3 & $KOR->checkKoreanTen($L, $Forma)) {
                         $Num .= $KOR->getID($y);
-                    } else if ($i === 4 & $KOR->checkKoreanOne($L, $Forma)) {
+                    } else if ($i == 4 & $KOR->checkKoreanOne($L, $Forma)) {
                         $Num .= $KOR->getID($y);
                         // nothing of special cases above
                     } else {
@@ -75,10 +75,10 @@ class Korean
             }
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            if ($L === 3) {
+            if ($L == 3) {
                 $Num = NumberingSystem::removeAnd($Num, $M[0]);
                 $Num .= " " . $M[7];
-            } else if ($L === 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
+            } else if ($L == 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
                 $Num .= " " . $M[9];
             }
         }
@@ -88,7 +88,7 @@ class Korean
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M[0]);
 
-        if ($Forma === "000000000000.0000") {
+        if ($Forma == "000000000000.0000") {
             $Num = $R[0];
         }
 
@@ -100,18 +100,18 @@ class Korean
     public static function getGrand($L)
     {
 
-        if ($L === 1) {
+        if ($L == 1) {
             return "억 ";
             // 100 Million
-        } else if ($L === 2) {
+        } else if ($L == 2) {
             return "만 ";
             // Ten Thousands
-        } else if ($L === 3) {
+        } else if ($L == 3) {
             return "";
             // units
         }
 
-        //else if ($L === 4) {
+        //else if ($L == 4) {
         // decimals
         return "";
 
@@ -121,18 +121,18 @@ class Korean
     public static function getID($y)
     {
 
-        if ($y % 4 === 1) {
+        if ($y % 4 == 1) {
             return "천";
             // Thousands
-        } else if ($y % 4 === 2) {
+        } else if ($y % 4 == 2) {
             return "백";
             // Hundereds
-        } else if ($y % 4 === 3) {
+        } else if ($y % 4 == 3) {
             return "십";
             // Tens
         }
 
-        //else if ($y % 4 === 0) {
+        //else if ($y % 4 == 0) {
         // units
         return "";
 
@@ -142,14 +142,14 @@ class Korean
     {
         $NS = new NumberingSystem();
 
-        if ($L === 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
             return true;
             // no place in pences places
-        } else if ($L === 4) {
+        } else if ($L == 4) {
             return false;
         }
 
@@ -161,13 +161,13 @@ class Korean
 
         $NS = new NumberingSystem();
 
-        if ($L === 1 & NumberingSystem::isPattern($Forma, "xx1xxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($Forma, "xx1xxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxxxx1xxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxxx1xxxxx.xxxx")) {
             return true;
-        } else if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxxx1x.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxxx1x.xxxx")) {
             return true;
-        } else if ($L === 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.xx1x")) {
+        } else if ($L == 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.xx1x")) {
             return true;
         }
 
@@ -178,15 +178,15 @@ class Korean
     {
         $NS = new NumberingSystem();
 
-        if ($L === 1 & NumberingSystem::isPattern($Forma, "xxx1xxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($Forma, "xxx1xxxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxxxxx1xxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxxxx1xxxx.xxxx")) {
             return true;
             // not applied here
-        } else if ($L === 3) {
+        } else if ($L == 3) {
             return false;
             // not applied here
-        } else if ($L === 4) {
+        } else if ($L == 4) {
             return false;
         }
 
@@ -198,14 +198,14 @@ class Korean
 
         $NS = new NumberingSystem();
 
-        if ($L === 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
             return true;
-        } else if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
             return true;
             // no place in pences places
-        } else if ($L === 4) {
+        } else if ($L == 4) {
             return false;
         }
 

@@ -1,7 +1,7 @@
 <?php
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
-// ini_set('error_reporting', E_ALL);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
+//ini_set('error_reporting', E_ALL);
 
 
 class Languages
@@ -278,7 +278,7 @@ class Locality
 
         if (is_array($currency)) {
 
-            if (count($currency) === 2) {
+            if (count($currency) == 2) {
                 $aCurrencies [0] = $currency[0]; // single of currency جنيه
                 $aCurrencies [1] = $currency[1]; // plural of currency جنيهات
                 $aCurrencies [4] = $currency[1]; // plural of currency جنيهات
@@ -286,7 +286,7 @@ class Locality
                 $aCurrencies [3] = $units[1]; // plural of units قروش
                 $aCurrencies [5] = $units[1]; // plural of units قروش
 
-            } else if (count($currency) === 3) {
+            } else if (count($currency) == 3) {
                 $aCurrencies [0] = $currency[0]; // single of currency جنيه
                 $aCurrencies [1] = $currency[1]; // plural of currency جنيهات
                 $aCurrencies [4] = $currency[2]; // two of currency جنيهان

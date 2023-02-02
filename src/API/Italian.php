@@ -1,7 +1,7 @@
 ﻿<?php
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
-// ini_set('error_reporting', E_ALL);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
+//ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -22,33 +22,33 @@ class Italian
             $M [$x] = $aCur [$x - 7];
         }
 
-        // ============================================================================================================================
+        // ===================================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 5; $L++) {
             $id1 = $M [($L * 2) - 1];
             $id2 = $M [$L * 2];
-            if ($L === 1) {
+            if ($L == 1) {
                 $x = 1;
                 $n_sum = NumberingSystem::getSum($N, 1);
-            } else if ($L === 2) {
+            } else if ($L == 2) {
                 $x = 4;
                 $n_sum = NumberingSystem::getSum($N, 2);
-            } else if ($L === 3) {
+            } else if ($L == 3) {
                 $x = 7;
                 $n_sum = NumberingSystem::getSum($N, 3);
-            } else if ($L === 4) {
+            } else if ($L == 4) {
                 $x = 10;
-				if ($N [$x] === 0 & $N [$x + 1] === 0 & $N [$x + 2] === 0) {
+				if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
 					//$Num = NumberingSystem::removeComma($Num) ; // do not allow this for italian
                 	//$Num .=  ' ' . $id2 ;
 			      }
-            } else if ($L === 5) {
+            } else if ($L == 5) {
                 $x = 14;
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            // =====================================================================================================================
+            // ==============================================================================
             // prepre numbers from 0 to 99
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
@@ -59,14 +59,14 @@ class Italian
             if ($n_unit > 0 & $n_unit < 21) {
                 $str_unit = $R [$n_unit];
                 // tens
-            } else if ($N [$x + 2] === 0) {
+            } else if ($N [$x + 2] == 0) {
                 $str_unit = $Z [$N [$x + 1]];
 
                 // case compound number whers tens ends with vowels(all tens are do) and units strat with vowels too
                 // as in (1,8)
                 // thus The numbers venti, trenta, and so on drop the final vowel before adding -uno or otto:
                 // Asc Integer ventuno, ventotto.
-            } else if ($N [$x + 2] === 1 | $N [$x + 2] === 8) {
+            } else if ($N [$x + 2] == 1 | $N [$x + 2] == 8) {
                 $str_unit = $ITA->removeVowels($Z [$N [$x + 1]]) . $R [$N [$x + 2]];
                 // others
             } else {
@@ -77,12 +77,12 @@ class Italian
             // note 253623 is duecentocinquantatremila seicentoventitré
             // only last tre has accent
             // independent case
-            if ($N [$x + 2] === 3 & $L === 4) {
+            if ($N [$x + 2] == 3 & $L == 4) {
                 $str_unit = $ITA->modifyAccent($str_unit);
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            // =====================================================================================================================
+            // ==============================================================================
             // prepare numbers from 100 to 999
             // Hundreds, tens and units are linked together with no space (e.g.: centonove [109]
             if ($n_all != 0) {
@@ -118,7 +118,7 @@ class Italian
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
         /*
-        if ($Forma === "000000000000.000") {
+        if ($Forma == "000000000000.000") {
             $Num = $R [0];
         }
         */
@@ -130,7 +130,7 @@ class Italian
     {
         $Ln = strlen($str);
         $Ln2 = strlen("tre");
-        if (substr($str, -$Ln2) === "tre") {
+        if (substr($str, -$Ln2) == "tre") {
             $str = substr($str, 0, ($Ln - $Ln2)) . "tré";
         }
         return $str;
@@ -148,7 +148,7 @@ class Italian
     function checkHundredThousnad($L, $Forma)
     {
         $NS = new NumberingSystem ();
-        if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxdxxxxx.xxx") & !NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx")) {
+        if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxdxxxxx.xxx") & !NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx")) {
             return true;
         }
 
@@ -158,11 +158,11 @@ class Italian
     function checkSuperOneHundred($L, $Forma)
     {
         $NS = new NumberingSystem ();
-        if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxx100xxx.xxx")) {
+        if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxx100xxx.xxx")) {
             return true;
-        } else if ($L === 2 & NumberingSystem::isPattern($Forma, "xxx100xxxxxx.xxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxx100xxxxxx.xxx")) {
             return true;
-        } else if ($L === 1 & NumberingSystem::isPattern($Forma, "100xxxxxxxxx.xxx")) {
+        } else if ($L == 1 & NumberingSystem::isPattern($Forma, "100xxxxxxxxx.xxx")) {
             return true;
         }
 
