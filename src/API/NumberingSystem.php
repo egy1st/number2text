@@ -205,7 +205,7 @@ class NumberingSystem
     */
     public static function NoCurrency($cycle, $ptrn): bool
     {
-        if ($phase == 4) {
+        if ($cycle === 4) {
             if (self::isPattern($ptrn, "xxxxxxxxx000.xxx")) {
                 return true;
             }
