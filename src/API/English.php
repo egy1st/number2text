@@ -63,7 +63,8 @@ class English
             $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = ($N[$x + 2] + ($N[$x + 1] * 10));
-            // keywords
+            
+            // Keywords
             if ($n_unit < 21) {
                 $str_unit = $R [$n_unit];
                 // tens
