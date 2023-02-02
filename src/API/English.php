@@ -33,7 +33,7 @@ class English
         }
 
         // =================================================================================
-        // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 5; $L++) {
             $id1 = $M[($L * 2) - 1];
@@ -59,11 +59,11 @@ class English
             }          
 
             // ================================================================
-            // prepre numbers from 0 to 99
+            // Prepre numbers from 0 to 99
             $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = ($N[$x + 2] + ($N[$x + 1] * 10));
-            
+
             // Keywords
             if ($n_unit < 21) {
                 $str_unit = $R [$n_unit];
@@ -76,7 +76,7 @@ class English
             }
 
             // ================================================================
-            // prepare numbers from 100 to 999
+            // Prepare numbers from 100 to 999
             if ($N[$x] != 0) {
                 // hundereds with (tens or units) eg. 250, 385, 504
                 if ($N[$x + 1] + $N[$x + 2] != 0) {
