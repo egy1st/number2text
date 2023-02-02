@@ -18,10 +18,9 @@ class Arabic
     /**
     * This is the main function required to convert a number into words.
     * 
-    * @param string $strNumber number parameter
-    * @param string $aCur currency-array parameter
-    * @return string
-    * @return string
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
     */
     public function TranslateNumber($strNumber, $aCur): string
     {
