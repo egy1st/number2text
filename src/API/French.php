@@ -101,19 +101,19 @@ class French
 
             if ($L == 4) {
 				
-                 if (substr($Forma, 0, 12) == "000000000001") {
+                 if (substr($Forma, 0, 12) === "000000000001") {
                     $Num = $R[1] . " " . $id1;
-                } else if (substr($Forma, 0, 12) == "000000000000") {
+                } else if (substr($Forma, 0, 12) === "000000000000") {
                     $Num = "";
                 } else {
                     $Num = trim($Num);
                     $Ln = strlen($Num);
-                    if (substr($Num, -1) == ",") {
+                    if (substr($Num, -1) === ",") {
                         $Num = substr($Num, 0, $Ln - 1);
                     }
                 }
 
-                // case one dollar
+                // Case one dollar
 				$Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
 				  
                 // cond.4
@@ -123,7 +123,7 @@ class French
             }
 
            if ($L == 5) {
-				// one cent
+				// One cent
                 $Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
             }
         }

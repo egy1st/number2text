@@ -1,7 +1,7 @@
 ﻿<?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-//ini_set('error_reporting', E_ALL);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -13,7 +13,15 @@ require_once "Number2Text.php";
 class Korean
 {
 
-    public function TranslateNumber($str_Number, $aCur)
+
+    **
+    * This is the main function required to convert a number into words.
+    * 
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
+    */
+    public function TranslateNumber($strNumber, $aCur)
     {
 
         $KOR = new Korean();
@@ -24,24 +32,23 @@ class Korean
             $M [$x] = $aCur [$x - 7];
         }
 
-        //===================================================================================
+        //=====================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 4; $L++) {
-            if ($L == 1) {
+            if ($L === 1) {
                 $x = 1;
-            } else if ($L == 2) {
+            } else if ($L === 2) {
                 $x = 5;
-            } else if ($L == 3) {
+            } else if ($L === 3) {
                 $x = 9;
-            } else if ($L == 4) {
+            } else if ($L === 4) {
                 $x = 14;
             }
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-            //==============================================================================
-            //prepre numbers from 0 to 99
-            //Tens and units are linked with e (and), as in trinta e cinco [35]
+         
+            //=================================================================
+            // Prepre numbers from 0 to 99
+            // Tens and units are linked with e (and), as in trinta e cinco [35]
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
@@ -73,8 +80,8 @@ class Korean
             if ($ptrn != "0000") {
                 $Num .= $KOR->getGrand($L);
             }
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+            
+            //=================================================================
             if ($L == 3) {
                 $Num = NumberingSystem::removeAnd($Num, $M[0]);
                 $Num .= " " . $M[7];
@@ -84,7 +91,7 @@ class Korean
         }
 
 
-        //Num = removeComma(Num) ' no comma is used in Finnish
+        // Num = removeComma(Num) ' no comma is used in Finnish
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M[0]);
 

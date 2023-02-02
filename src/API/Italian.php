@@ -1,7 +1,7 @@
 ﻿<?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-//ini_set('error_reporting', E_ALL);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -12,7 +12,15 @@ require_once "Number2Text.php";
  */
 class Italian
 {
-    public function TranslateNumber($str_Number, $aCur)
+
+    **
+    * This is the main function required to convert a number into words.
+    * 
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
+    */
+    public function TranslateNumber($strNumber, $aCur)
     {
         $ITA = new Italian ();
         $Num = "";
@@ -22,8 +30,8 @@ class Italian
             $M [$x] = $aCur [$x - 7];
         }
 
-        // ===================================================================================
-        // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        // ====================================================================
+        // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 5; $L++) {
             $id1 = $M [($L * 2) - 1];
@@ -46,9 +54,9 @@ class Italian
             } else if ($L == 5) {
                 $x = 14;
             }
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            
 
-            // ==============================================================================
+            // ================================================================
             // prepre numbers from 0 to 99
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
@@ -62,7 +70,7 @@ class Italian
             } else if ( $N[$x + 2] == 0) {
                 $str_unit = $Z[$N[$x + 1]];
 
-                // case compound number whers tens ends with vowels(all tens are do) and units strat with vowels too
+                // Case compound number whers tens ends with vowels(all tens are do) and units strat with vowels too
                 // as in (1,8)
                 // thus The numbers venti, trenta, and so on drop the final vowel before adding -uno or otto:
                 // Asc Integer ventuno, ventotto.
@@ -80,10 +88,10 @@ class Italian
             if ( $N[$x + 2] == 3 & $L == 4) {
                 $str_unit = $ITA->modifyAccent($str_unit);
             }
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+           
 
-            // ==============================================================================
-            // prepare numbers from 100 to 999
+            // ================================================================
+            // Prepare numbers from 100 to 999
             // Hundreds, tens and units are linked together with no space (e.g.: centonove [109]
             if ($n_all != 0) {
                 if (NumberingSystem::checkOneThousnad($L, $Forma)) {
@@ -148,7 +156,7 @@ class Italian
     function checkHundredThousnad($L, $Forma)
     {
         $NS = new NumberingSystem ();
-        if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxdxxxxx.xxx") & !NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx")) {
+        if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxxdxxxxx.xxx") & !NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx")) {
             return true;
         }
 
@@ -158,7 +166,7 @@ class Italian
     function checkSuperOneHundred($L, $Forma)
     {
         $NS = new NumberingSystem ();
-        if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxx100xxx.xxx")) {
+        if ($L === 3 & NumberingSystem::isPattern($Forma, "xxxxxx100xxx.xxx")) {
             return true;
         } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxx100xxxxxx.xxx")) {
             return true;

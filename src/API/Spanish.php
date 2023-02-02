@@ -1,7 +1,7 @@
 ﻿<?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-//ini_set('error_reporting', E_ALL);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -12,6 +12,15 @@ require_once "Number2Text.php";
  */
 class Spanish
 {
+
+
+    **
+    * This is the main function required to convert a number into words.
+    * 
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
+    */
     public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
@@ -21,8 +30,8 @@ class Spanish
             $M [$x] = $aCur [$x - 7];
         }
 
-        // ===================================================================================
-        // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        // ====================================================================
+        // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 5; $L++) {
             $id1 = $M [($L * 2) - 1];
@@ -41,19 +50,19 @@ class Spanish
             } else if ($L == 5) {
                 $x = 14;
             }
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+          
 
             // ==============================================================================
-            // prepre numbers from 0 to 99
+            // Prepre numbers from 0 to 99
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             $n_unit = ( $N[$x + 1] * 10) +  $N[$x + 2];
             $n_all =  $N[$x] + $n_unit;
-            // keywords are 30 not 20 as usual
+            // Keywords are 30 not 20 as usual
             if ($n_unit > 0 & $n_unit < 31) {
                 $str_unit = $R[$n_unit];
-                // tens
+                // Tens
             } else if ( $N[$x + 2] == 0) {
                 $str_unit = $Z[$N[$x + 1]];
                 // Notice that "y" is used only in numbers 31-99 (and 131-199, 231-299, 331-399, etc.)
@@ -61,10 +70,10 @@ class Spanish
             } else {
                 $str_unit = $Z[$N[$x + 1]] . " " . $M [0] . " " . $R[$N[$x + 2]];
             }
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            
 
-            // ==============================================================================
-            // prepare numbers from 100 to 999
+            // ================================================================
+            // Prepare numbers from 100 to 999
             // y "and" is not used to separate hundreds from tens.
             if ($n_all != 0) {
                 // When there is exactly 100 of something use the shortened form "cien" rather than ciento
@@ -76,7 +85,8 @@ class Spanish
                     // others
                 }
             }
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+            // ================================================================
 
             if (NumberingSystem::NoCurrency($L, $Forma)) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);

@@ -1,7 +1,7 @@
 ﻿<?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-//ini_set('error_reporting', E_ALL);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -13,7 +13,14 @@ require_once "Number2Text.php";
 class Chinese_Simplified
 {
 
-    public function TranslateNumber($str_Number, $aCur)
+    **
+    * This is the main function required to convert a number into words.
+    * 
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
+    */
+    public function TranslateNumber($strNumber, $aCur)
     {
 
         $KOR = new Korean();
@@ -29,28 +36,25 @@ class Chinese_Simplified
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 4; $L++) {
-            if ($L == 1) {
+            if ($L === 1) {
                 $x = 1;
-            } else if ($L == 2) {
+            } else if ($L === 2) {
                 $x = 5;
-            } else if ($L == 3) {
+            } else if ($L === 3) {
                 $x = 9;
-            } else if ($L == 4) {
+            } else if ($L === 4) {
                 $countZero = false;
                 $x = 14;
             }
 
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-            //==============================================================================
-            //prepre numbers from 0 to 99
-            //Eleven in Chinese is "ten one". Twelve is "ten two", and so on. Twenty is "Two ten", twenty-one is
-            // "two ten one" (2*10 + 1), and so on up to 99. One-hundred is "one hundred". One-hundred and one is
-            // "one hundred zero one". One hundred and eleven is "one hundred one ten one". Notice that for eleven '
-            //alone, you only need "ten one" and not "one ten one", but when used in a larger number (such as 111),
-            // you must add the extra "one". One thousand and above is done in a similar fashion, where you say how
+            
+            /* 
+            // Prepre numbers from 0 to 99
+            // Eleven in Chinese is "ten one". Twelve is "ten two", and so on. Twenty is "Two ten",
+            // twenty-one is  "two ten one" (2*10 + 1), and so on up to 99.
+            // One-hundred is "one hundred". One-hundred and one is "one hundred zero one". 
+            // One hundred and eleven is "one hundred one ten one". 
+            // Notice that for eleven alone, you only need "ten one" and not "one ten one", but when used in a larger number (such as 111), you must add the extra "one". One thousand and above is done in a similar fashion, where you say how
             // many thousands you have, then how many hundreds, tens, and ones. An exception to this is for zeroes.
             // When a zero occurs in the number (except at the end), you need to say "zero",
             // but only once for two or more consecutive zeroes. So one-thousand and one would be "one thousand zero one",
@@ -64,6 +68,7 @@ class Chinese_Simplified
             // Chinese goes on like this until 100 million (yi4), where it introduces a new character.
             // This happens every four decimal places, unlike American English where it happens every three decimal places
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
+            */
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
@@ -102,8 +107,8 @@ class Chinese_Simplified
             if ($ptrn != "0000") {
                 $Num .= $this->getGrand($L);
             }
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+            //=================================================================
             if ($L == 3) {
                 $Num = NumberingSystem::removeAnd($Num, $M[0]);
                 $Num .= " " . $M[7];
@@ -112,7 +117,7 @@ class Chinese_Simplified
             }
         }
 
-        //Num = removeComma(Num) ' no comma is used in Finnish
+        // Num = removeComma(Num) ' no comma is used in Finnish
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M[0]);
 

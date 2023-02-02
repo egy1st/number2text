@@ -1,7 +1,7 @@
 ﻿<?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-//ini_set('error_reporting', E_ALL);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -12,6 +12,14 @@ require_once "Number2Text.php";
  */
 class German
 {
+    
+    **
+    * This is the main function required to convert a number into words.
+    * 
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
+    */
     public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
@@ -21,34 +29,32 @@ class German
             $M [$x] = $aCur [$x - 7];
         }
 
-        // ===================================================================================
+        // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 5; $L++) {
             $id1 = $M [($L * 2) - 1];
             $id2 = $M [$L * 2];
-            if ($L == 1) {
+            if ($L === 1) {
                 $x = 1;
                 $n_sum = NumberingSystem::getSum($N, 1);
-            } else if ($L == 2) {
+            } else if ($L === 2) {
                 $x = 4;
                 $n_sum = NumberingSystem::getSum($N, 2);
-            } else if ($L == 3) {
+            } else if ($L === 3) {
                 $x = 7;
                 $n_sum = NumberingSystem::getSum($N, 3);
-            } else if ($L == 4) {
+            } else if ($L === 4) {
                 $x = 10;
-				if ( $N[$x] == 0 &  $N[$x + 1] == 0 &  $N[$x + 2] == 0) {
+				if ( $N[$x] === 0 &  $N[$x + 1] == 0 &  $N[$x + 2] == 0) {
 					$Num = NumberingSystem::removeComma($Num) ;
                 	$Num .=  ' ' . $id2 ;
 			      }
-            } else if ($L == 5) {
+            } else if ($L === 5) {
                 $x = 14;
             }
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-            // ==============================================================================
-
+      
+            // ================================================================
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
             // Special condition for germany language
@@ -101,9 +107,9 @@ class German
 
              if ($L == 4) {
 				
-                 if (substr($Forma, 0, 12) == "000000000001") {
+                 if (substr($Forma, 0, 12) === "000000000001") {
                     $Num = $R[1] . " " . $id1;
-                } else if (substr($Forma, 0, 12) == "000000000000") {
+                } else if (substr($Forma, 0, 12) === "000000000000") {
                     $Num = "";
                 } else {
                     $Num = trim($Num);
@@ -122,7 +128,7 @@ class German
                 }
             }
 
-           if ($L == 5) {
+           if ($L === 5) {
 				// one cent
                 $Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
             }

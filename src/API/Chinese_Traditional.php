@@ -1,7 +1,7 @@
 ﻿<?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-//ini_set('error_reporting', E_ALL);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -12,7 +12,14 @@ require_once "Number2Text.php";
  */
 class Chinese_Traditional
 {
-
+    
+    **
+    * This is the main function required to convert a number into words.
+    * 
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
+    */
     public function TranslateNumber($str_Number, $aCur)
     {
 
@@ -23,26 +30,25 @@ class Chinese_Traditional
             $M [$x] = $aCur [$x - 7];
         }
 
-        //===================================================================================
-        // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
+        //=====================================================================
+        // Each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $L = 0;
         for ($L = 1; $L <= 4; $L++) {
-            if ($L == 1) {
+            if ($L === 1) {
                 $x = 1;
-            } else if ($L == 2) {
+            } else if ($L === 2) {
                 $x = 5;
-            } else if ($L == 3) {
+            } else if ($L === 3) {
                 $x = 9;
-            } else if ($L == 4) {
+            } else if ($L === 4) {
                 $countZero = false;
                 $x = 14;
             }
 
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-            //==============================================================================
-            //prepre numbers from 0 to 99
-            //Eleven in Chinese is "ten one". Twelve is "ten two", and so on. Twenty is "Two ten", twenty-one is
+            
+            //=================================================================
+            // Prepre numbers from 0 to 99
+            /* Eleven in Chinese is "ten one". Twelve is "ten two", and so on. Twenty is "Two ten", twenty-one is
             // "two ten one" (2*10 + 1), and so on up to 99. One-hundred is "one hundred". One-hundred and one is
             // "one hundred zero one". One hundred and eleven is "one hundred one ten one". Notice that for eleven '
             //alone, you only need "ten one" and not "one ten one", but when used in a larger number (such as 111),
@@ -60,6 +66,7 @@ class Chinese_Traditional
             // Chinese goes on like this until 100 million (yi4), where it introduces a new character.
             // This happens every four decimal places, unlike American English where it happens every three decimal places
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
+           */
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
@@ -100,8 +107,8 @@ class Chinese_Traditional
             if ($ptrn != "0000") {
                 $Num .= $this->getGrand($L);
             }
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+            //=================================================================
             if ($L == 3) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $M[7];
