@@ -25,15 +25,15 @@ class Chinese_Traditional
 
         $strNum = "";
         $countZero = false;
-        NumberingSystem::getLanguage($R, $Z, $H, $M, $N, "Chinese_Traditional");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Chinese_Traditional");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         //=====================================================================
         // Each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 4; $L++) {
+        for ($cycle = 1; $cycle <= 4; $cycle++) {
             if ($cycle === 1) {
                 $x = 1;
             } else if ($cycle === 2) {
@@ -68,7 +68,7 @@ class Chinese_Traditional
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
            */
 
-            $Forma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $y = 0;
 			
@@ -83,7 +83,7 @@ class Chinese_Traditional
 					if ($aNum[$y] != 0 || $countZero) {
 						$countZero = true;
 					//check ten for units only'
-					if ($i == 3 & $cycle == 3 & $this->checkChineseTen($cycle, $Forma)) {
+					if ($i == 3 & $cycle == 3 & $this->checkChineseTen($cycle, $strForma)) {
 						$strNum .= $this->getID($y);
 					} else if ($aNum[$y] != 0) {
 						$strNum .= $aUnit[$aNum[$y]] . $this->getID($y);
@@ -105,40 +105,40 @@ class Chinese_Traditional
 			}
 
             if ($ptrn != "0000") {
-                $strNum .= $this->getGrand($L);
+                $strNum .= $this->getGrand($cycle);
             }
 
             //=================================================================
-            if ($cycle == 3) {
-                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+            if ($cycle === 3) {
+                $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $aId[7];
-            } else if ($cycle == 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
+            } else if ($cycle === 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
                 $strNum .= " " . $aId[9];
             }
         }
 
         //Num = removeComma(Num) ' no comma is used in Finnish
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
-        if ($Forma == "000000000000.0000") {
+        if ($strForma == "000000000000.0000") {
             $strNum = $aUnit[0];
         }
 
-        return $Num;
+        return $strNum;
 
     }
 
-    public static function getGrand($L)
+    public static function getGrand($cycle)
     {
 
-        if ($cycle == 1) {
+        if ($cycle === 1) {
             return "億";
             // 100 Million
-        } else if ($cycle == 2) {
+        } else if ($cycle === 2) {
             return "萬";
             // Ten Thousands
-        } else if ($cycle == 3) {
+        } else if ($cycle === 3) {
             return "";
             // units
         }
@@ -152,13 +152,13 @@ class Chinese_Traditional
     public static function getID($y)
     {
 
-        if ($y % 4 == 1) {
+        if ($y % 4 === 1) {
             return "仟";
             // Thousands
-        } else if ($y % 4 == 2) {
+        } else if ($y % 4 === 2) {
             return "佰";
             // Hundereds
-        } else if ($y % 4 == 3) {
+        } else if ($y % 4 === 3) {
             return "拾";
             // Tens
         }
@@ -189,16 +189,16 @@ class Chinese_Traditional
     }
     */
 
-    public static function checkChineseTen($cycle, $Forma)
+    public static function checkChineseTen($cycle, $strForma)
     {
 
-        if ($cycle == 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
+        if ($cycle === 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
             return true;
-        } else if ($cycle == 2 & NumberingSystem::isPattern($Forma, "xxxx0010xxxx.xxxx")) {
+        } else if ($cycle === 2 & NumberingSystem::isPattern($Forma, "xxxx0010xxxx.xxxx")) {
             return true;
-        } else if ($cycle == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx0010.xxxx")) {
+        } else if ($cycle === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx0010.xxxx")) {
             return true;
-        } else if ($cycle == 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0010")) {
+        } else if ($cycle === 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0010")) {
             return true;
         }
 
@@ -246,17 +246,17 @@ class Chinese_Traditional
 	*/
 
 
-    public static function getChineseSubSum($aNum, $_phase, $_step)
+    public static function getChineseSubSum($aNum, $_cycle, $_step)
     {
 
         $sum = 0;
         $x = 0;
 
-        $_phase = $_phase - 1;
-        $_phase = $_phase * 4;
+        $_cycle = $_cycle - 1;
+        $_cycle = $_cycle * 4;
         for ($x = $_step; $x <= 4; $x++) {
             //echo 'sum ' . $aNum[$_phase + $x] ;
-            $sum += $aNum[$_phase + $x];
+            $sum += $aNum[$_cycle + $x];
         }
 
         return $sum;
