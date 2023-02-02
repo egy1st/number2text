@@ -1,7 +1,7 @@
 ﻿<?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
-//ini_set('error_reporting', E_ALL);
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
+// ini_set('error_reporting', E_ALL);
 
 require_once "NumberingSystem.php";
 require_once "Number2Text.php";
@@ -14,7 +14,14 @@ class English
 {
 
     const LANGUAGE_ID = 'en';
-
+    
+    /**
+    * This is the main function required to convert a number into words.
+    * 
+    * @param string $strNumber    number parameter
+    * @param string $aCur     currency-array parameter
+     @return string
+    */
     public function TranslateNumber($str_Number, $aCur)
     {
         $Num = "";
@@ -22,7 +29,7 @@ class English
         NumberingSystem::getLanguage($R, $Z, $H, $M, $N, "English");
 
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $M[$x] = $aCur [$x - 7];
         }
 
         // ===================================================================================
@@ -30,9 +37,9 @@ class English
 
         $L = 0;
         for ($L = 1; $L <= 5; $L++) {
-            $id1 = $M [($L * 2) - 1];
+            $id1 = $M[($L * 2) - 1];
 
-            $id2 = $M [$L * 2];
+            $id2 = $M[$L * 2];
             if ($L == 1) {
                 $x = 1;
                 $n_sum = NumberingSystem::getSum($N, 1);
@@ -44,7 +51,7 @@ class English
                 $n_sum = NumberingSystem::getSum($N, 3);
             } else if ($L == 4) {
                 $x = 10;
-				if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
+				if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 0) {
 					$Num = NumberingSystem::removeComma($Num) ;
                 	$Num .=  ' ' . $id2 ;
 			      }
@@ -58,31 +65,31 @@ class English
 
             $Forma = Number2Text::prepareNumber($str_Number, $N);
 
-            $n_unit = $N [$x + 2] + ($N [$x + 1] * 10);
+            $n_unit = $N[$x + 2] + ($N[$x + 1] * 10);
             // keywords
             if ($n_unit < 21) {
                 $str_unit = $R [$n_unit];
                 // tens
-            } else if ($N [$x + 2] == 0) {
-                $str_unit = $Z [$N [$x + 1]];
+            } else if ($N[$x + 2] == 0) {
+                $str_unit = $Z [$N[$x + 1]];
                 // others
             } else {
-                $str_unit = $Z [$N [$x + 1]] . "-" . $R [$N [$x + 2]];
+                $str_unit = $Z [$N[$x + 1]] . "-" . $R [$N[$x + 2]];
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
             // ==============================================================================
             // prepare numbers from 100 to 999
 
-            if ($N [$x] != 0) {
+            if ($N[$x] != 0) {
                 // hundereds with (tens or units) eg. 250, 385, 504
-                if ($N [$x + 1] + $N [$x + 2] != 0) {
-                    $Num .= $H [$N [$x]] . " " . $M [0] . " " . $str_unit . " " . $id2 . ", ";
+                if ($N[$x + 1] + $N[$x + 2] != 0) {
+                    $Num .= $H [$N[$x]] . " " . $M[0] . " " . $str_unit . " " . $id2 . ", ";
                 } else {
-                    $Num .= $H [$N [$x]] . " " . $id2 . ", ";
+                    $Num .= $H [$N[$x]] . " " . $id2 . ", ";
                     // hundereds without (tens and units) eg. 100, 200
                 }
-            } else if ($N [$x + 1] + $N [$x + 2] != 0) {
+            } else if ($N[$x + 1] + $N[$x + 2] != 0) {
                 $Num .= $str_unit . " " . $id2 . ", ";
             } else {
                 // nothing to do
@@ -93,12 +100,12 @@ class English
             /*
             // Special condition for english language
             if (is_numeric($Num)) {
-                if ($n_sum > 0 & $n_sum < 100 & $L < 4 & substr ( $Num, (- 1) * (strlen ( $M [0] ) + 1) ) != $M [0] + " ") {
+                if ($n_sum > 0 & $n_sum < 100 & $L < 4 & substr ( $Num, (- 1) * (strlen ( $M[0] ) + 1) ) != $M[0] + " ") {
                     $Num = trim ( $Num );
                     $Ln = strlen ( $Num );
                     if (substr ( $Num, - 1 ) == ",") {
                         $Num = substr ( $Num, 0, $Ln - 1 );
-                        $Num .= " " . $M [0] . " ";
+                        $Num .= " " . $M[0] . " ";
                     }
                 }
 
@@ -126,7 +133,7 @@ class English
 				  
                 // cond.4
                 if (substr($Forma, -3) != "000" & substr($Forma, 0, 12) != "000000000000") {
-                    $Num .= " " . $M [0] . " ";
+                    $Num .= " " . $M[0] . " ";
                 }
             }
 
@@ -140,7 +147,7 @@ class English
 
         $Num = NumberingSystem::removeComma($Num);
         $Num = NumberingSystem::removeSpaces($Num);
-        $Num = NumberingSystem::removeAnd($Num, $M [0]);
+        $Num = NumberingSystem::removeAnd($Num, $M[0]);
 
         /*
         if ($Forma == "000000000000.000") {
