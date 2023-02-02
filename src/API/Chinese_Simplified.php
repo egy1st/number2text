@@ -112,7 +112,7 @@ class Chinese_Simplified
             if ($cycle === 3) {
                 $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $aId[7];
-            } else if ($cycle === 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
+            } else if ($cycle === 4 & !NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0000")) {
                 $strNum .= " " . $aId[9];
             }
         }
