@@ -13,15 +13,17 @@ require_once "Number2Text.php";
  */
 class Arabic
 {
+    
 
-     /**
-     * This is main function required to convert a number into words.
-     * 
-     * Long description here.
-     * 
-     * @return string
-     */
-    public function TranslateNumber($str_Number, $aCur): string
+   /**
+   * This is the main function required to convert a number into words.
+   * 
+   * @param string $strNumber number parameter
+   * @param string $aCur currency-array parameter
+   * @return string
+   * @return string
+   */
+    public function TranslateNumber($strNumber, $aCur): string
     {
         $Num = "";
 
@@ -95,7 +97,7 @@ class Arabic
             // ==============================================================================
             // prepare numbers from 100 to 999
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0) {
                 $G = 1;
