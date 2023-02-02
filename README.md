@@ -10,7 +10,7 @@ Number2Text is an API that alloes you to Convert any digits number to the equiva
 
 Digits number up to 999,999,999.998.99 can be converted to words in 13 languages so far:
 
-- Arabic
+- $strNumber
 - English
 - French
 - German
@@ -72,7 +72,7 @@ and see changes on time.
 
 # Language ID
 
-| Language | Arabic | English | French | German | Italian | Spanish | Portuguese | 
+| Language | $strNumber | English | French | German | Italian | Spanish | Portuguese | 
 | -------- |------- |-------- |------- |------- |-------- |-------- |----------- |
 | ID       | ar     | en      | fr     | gr     | it      | es      | pt         |
 

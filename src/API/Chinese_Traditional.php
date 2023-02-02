@@ -13,7 +13,7 @@ require_once "Number2Text.php";
 class Chinese_Traditional
 {
 
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
 
         $Num = "";
@@ -61,7 +61,7 @@ class Chinese_Traditional
             // This happens every four decimal places, unlike American English where it happens every three decimal places
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $N);
 
             $y = 0;
 			
@@ -76,7 +76,7 @@ class Chinese_Traditional
 					if ($N[$y] != 0 || $countZero) {
 						$countZero = true;
 					//check ten for units only'
-					if ($i == 3 & $L == 3 & $this->checkChineseTen($L, $Forma)) {
+					if ($i == 3 & $L == 3 & $this->checkChineseTen($L, $strForma)) {
 						$Num .= $this->getID($y);
 					} else if ($N[$y] != 0) {
 						$Num .= $R[$N[$y]] . $this->getID($y);
@@ -105,7 +105,7 @@ class Chinese_Traditional
             if ($L == 3) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $M[7];
-            } else if ($L == 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
+            } else if ($L == 4 & !NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0000")) {
                 $Num .= " " . $M[9];
             }
         }
@@ -114,7 +114,7 @@ class Chinese_Traditional
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
-        if ($Forma == "000000000000.0000") {
+        if ($strForma == "000000000000.0000") {
             $Num = $R[0];
         }
 
@@ -164,14 +164,14 @@ class Chinese_Traditional
     }
 
     /*
-    public static function checkChineseHundred($L, $Forma)
+    public static function checkChineseHundred($L, $strForma)
     {
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($strForma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxx1xx.xxxx")) {
             return true;
         // no place in pences places
         } else if ($L == 4) {
@@ -182,16 +182,16 @@ class Chinese_Traditional
     }
     */
 
-    public static function checkChineseTen($L, $Forma)
+    public static function checkChineseTen($L, $strForma)
     {
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($strForma, "0010xxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx0010xxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxx0010xxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx0010.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx0010.xxxx")) {
             return true;
-        } else if ($L == 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0010")) {
+        } else if ($L == 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0010")) {
             return true;
         }
 
@@ -199,12 +199,12 @@ class Chinese_Traditional
     }
 
     /*
-    public static function checkChineseOne($L, $Forma)
+    public static function checkChineseOne($L, $strForma)
     {
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "0001xxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($strForma, "0001xxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx0001xxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxx0001xxxx.xxxx")) {
             return true;
         // not applied here
         } else if ($L == 3) {
@@ -220,14 +220,14 @@ class Chinese_Traditional
 
 
     /*
-	public static function checkChineseThousand($L, $Forma)
+	public static function checkChineseThousand($L, $strForma)
 	{
 
-		if ($L == 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
+		if ($L == 1 & NumberingSystem::isPattern($strForma, "1xxxxxxxxxxx.xxxx")) {
 			return true;
-		} else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
+		} else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxx1xxxxxxx.xxxx")) {
 			return true;
-		} else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
+		} else if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx1xxx.xxxx")) {
 			return true;
 		// no place in pences places
 		} else if ($L == 4) {

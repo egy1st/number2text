@@ -4,7 +4,7 @@
 //ini_set('error_reporting', E_ALL);
 
 
-require_once "Arabic.php";
+require_once "$strNumber.php";
 require_once "English.php";
 require_once "French.php";
 require_once "German.php";
@@ -34,7 +34,7 @@ class NumberingSystem
     public static $Z = array();
     public static $R = array();
     public static $M = array();
-    public static $Forma = "";
+    public static $strForma = "";
     public $G;
     public $E;
     public $K;
@@ -45,7 +45,7 @@ class NumberingSystem
     public $ln3;
     public $S;
     public static $Num;
-    public $NewNum;
+    public $newNum;
     public static $id1;
     public static $id2;
     public static $id3;
@@ -184,15 +184,15 @@ class NumberingSystem
         return $newStr;
     }
 
-    public static function checkOneHundred($L, $Forma)
+    public static function checkOneHundred($L, $strForma)
     {
-        if ($L == 4 & self::isPattern($Forma, "xxxxxxxxx100.xxx")) {
+        if ($L == 4 & self::isPattern($strForma, "xxxxxxxxx100.xxx")) {
             return true;
-        } else if ($L == 3 & self::isPattern($Forma, "xxxxxx100xxx.xxx")) {
+        } else if ($L == 3 & self::isPattern($strForma, "xxxxxx100xxx.xxx")) {
             return true;
-        } else if ($L == 2 & self::isPattern($Forma, "xxx100xxxxxx.xxx")) {
+        } else if ($L == 2 & self::isPattern($strForma, "xxx100xxxxxx.xxx")) {
             return true;
-        } else if ($L == 1 & self::isPattern($Forma, "100xxxxxxxxx.xxx")) {
+        } else if ($L == 1 & self::isPattern($strForma, "100xxxxxxxxx.xxx")) {
             //$Num .= $H [10] . " " . $id2 . " ";
             return true;
         }
@@ -210,9 +210,9 @@ class NumberingSystem
     }
     */
 
-    public static function checkOneThousnad($L, $Forma)
+    public static function checkOneThousnad($L, $strForma)
     {
-        if ($L == 3 & self::isPattern($Forma, "000000001xxx.xxx")) {
+        if ($L == 3 & self::isPattern($strForma, "000000001xxx.xxx")) {
             return true;
         }
 
@@ -227,7 +227,7 @@ class NumberingSystem
         $M [10] = "";
 
         switch ($Lang) {
-            case "Arabic" :
+            case "$strNumber" :
                 $R [1] = "واحد ";
                 $R [2] = "إثنين ";
                 $R [3] = "ثلاثة ";

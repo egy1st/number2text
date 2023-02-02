@@ -13,7 +13,7 @@ require_once "Number2Text.php";
 class Korean
 {
 
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
 
         $KOR = new Korean();
@@ -43,7 +43,7 @@ class Korean
             //prepre numbers from 0 to 99
             //Tens and units are linked with e (and), as in trinta e cinco [35]
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $N);
 
             $y = 0;
             $ptrn = $N[$x] . $N[$x + 1] . $N[$x + 2] . $N[$x + 3];
@@ -54,13 +54,13 @@ class Korean
                 $i += 1;
 
                 if ($N[$y] != 0) {
-                    if ($i == 1 & $KOR->checkKoreanThousand($L, $Forma)) {
+                    if ($i == 1 & $KOR->checkKoreanThousand($L, $strForma)) {
                         $Num .= $KOR->getID($y);
-                    } else if ($i == 2 & $KOR->checkKoreanHundred($L, $Forma)) {
+                    } else if ($i == 2 & $KOR->checkKoreanHundred($L, $strForma)) {
                         $Num .= $KOR->getID($y);
-                    } else if ($i == 3 & $KOR->checkKoreanTen($L, $Forma)) {
+                    } else if ($i == 3 & $KOR->checkKoreanTen($L, $strForma)) {
                         $Num .= $KOR->getID($y);
-                    } else if ($i == 4 & $KOR->checkKoreanOne($L, $Forma)) {
+                    } else if ($i == 4 & $KOR->checkKoreanOne($L, $strForma)) {
                         $Num .= $KOR->getID($y);
                         // nothing of special cases above
                     } else {
@@ -78,7 +78,7 @@ class Korean
             if ($L == 3) {
                 $Num = NumberingSystem::removeAnd($Num, $M[0]);
                 $Num .= " " . $M[7];
-            } else if ($L == 4 & !NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0000")) {
+            } else if ($L == 4 & !NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0000")) {
                 $Num .= " " . $M[9];
             }
         }
@@ -88,7 +88,7 @@ class Korean
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M[0]);
 
-        if ($Forma == "000000000000.0000") {
+        if ($strForma == "000000000000.0000") {
             $Num = $R[0];
         }
 
@@ -138,15 +138,15 @@ class Korean
 
     }
 
-    public static function checkKoreanHundred($L, $Forma)
+    public static function checkKoreanHundred($L, $strForma)
     {
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($strForma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxx1xx.xxxx")) {
             return true;
             // no place in pences places
         } else if ($L == 4) {
@@ -156,31 +156,31 @@ class Korean
         return false;
     }
 
-    public static function checkKoreanTen($L, $Forma)
+    public static function checkKoreanTen($L, $strForma)
     {
 
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "xx1xxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($strForma, "xx1xxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxxx1xxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxxxx1xxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxxx1x.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxxx1x.xxxx")) {
             return true;
-        } else if ($L == 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.xx1x")) {
+        } else if ($L == 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.xx1x")) {
             return true;
         }
 
         return false;
     }
 
-    public static function checkKoreanOne($L, $Forma)
+    public static function checkKoreanOne($L, $strForma)
     {
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "xxx1xxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($strForma, "xxx1xxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxxxx1xxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxxxxx1xxxx.xxxx")) {
             return true;
             // not applied here
         } else if ($L == 3) {
@@ -193,16 +193,16 @@ class Korean
         return false;
     }
 
-    public static function checkKoreanThousand($L, $Forma)
+    public static function checkKoreanThousand($L, $strForma)
     {
 
         $NS = new NumberingSystem();
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
+        if ($L == 1 & NumberingSystem::isPattern($strForma, "1xxxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
+        } else if ($L == 2 & NumberingSystem::isPattern($strForma, "xxxx1xxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
+        } else if ($L == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx1xxx.xxxx")) {
             return true;
             // no place in pences places
         } else if ($L == 4) {
@@ -217,24 +217,24 @@ class Korean
     // This function is a specific function for Korean language.
     // It format number in special mode depends on 4-places mode rather than 3-places mode used in latin languages
     // Thus, the multiplier is 10,000 rather than 1,000
-    public static function prepareNumber4Korean($str_Number, $N) {
-        $str_Number = str_replace ( ",", ".", $str_Number );
-        if ($str_Number > "999999999999.0099") {
+    public static function prepareNumber4Korean($strNumber, $N) {
+        $strNumber = str_replace ( ",", ".", $strNumber );
+        if ($strNumber > "999999999999.0099") {
             echo ("Cannot translate numbers exceed 999,999,999,999.99");
             return false;
         }
 
-        $Forma = formatNumber ( $str_Number );
+        $strForma = formatNumber ( $strNumber );
         $Num = "";
 
         $E = 0;
         for($E = 1; $E <= 12; $E ++) {
-            $S = substr ( $Forma, $E, 1 );
+            $S = substr ( $strForma, $E, 1 );
             $N [$E] = $S;
         }
 
         for($E = 14; $E <= 17; $E ++) {
-            $S = substr ( $Forma, $E, 1 );
+            $S = substr ( $strForma, $E, 1 );
             $N [$E] = $S;
         }
 
@@ -244,9 +244,9 @@ class Korean
         $N [14] = 0;
         $N [15] = 0;
 
-        $Forma = substr ( $Forma, 0, 13 );
+        $strForma = substr ( $strForma, 0, 13 );
         for($E = 14; $E <= 17; $E ++) {
-            $Forma += $N [$E];
+            $strForma += $N [$E];
         }
 
         return true;

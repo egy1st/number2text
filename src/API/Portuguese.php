@@ -12,7 +12,7 @@ require_once "Number2Text.php";
  */
 class Portuguese
 {
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -38,7 +38,7 @@ class Portuguese
                 $n_sum = NumberingSystem::getSum($N, 3);
             } else if ($L == 4) {
                 $x = 10;
-				if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0 & substr($Forma, 0, 12 )!= "000000000000"){
+				if ($N [$x] == 0 & $N [$x + 1] == 0 & $N [$x + 2] == 0 & substr($strForma, 0, 12 )!= "000000000000"){
 					$Num = NumberingSystem::removeComma($Num) ;
 					$Num .=  ' ' . $id2 ;
 				 }
@@ -51,7 +51,7 @@ class Portuguese
             // prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;
@@ -73,11 +73,11 @@ class Portuguese
 
             if ($n_all != 0) {
                 // mil not um mil eg. 1210 is mil cento e vinte
-                if (NumberingSystem::checkOneThousnad($L, $Forma)) {
+                if (NumberingSystem::checkOneThousnad($L, $strForma)) {
                     // http://www.languagesandnumbers.com/how-to-count-in-portuguese-portugal/en/por-prt/
                     // experimental use added case 'cem not e cem for numbers ends with exactky 100
                     $Num .= " " . $id1 . " ";
-                } else if (NumberingSystem::checkOneHundred($L, $Forma)) {
+                } else if (NumberingSystem::checkOneHundred($L, $strForma)) {
                     $Num .= " " . $H [10] . " " . $id1 . " ";
                 } else if ($N [$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " ";
@@ -99,14 +99,14 @@ class Portuguese
             // http://www.languagesandnumbers.com/how-to-count-in-portuguese-portugal/en/por-prt/
             // experimental use added case and hundreds not 100
             if ($L == 3) {
-                if (NumberingSystem::isPattern($Forma, "xxxxxxxxxx00.xxx") & $N [$x + 3] != 1) {
+                if (NumberingSystem::isPattern($strForma, "xxxxxxxxxx00.xxx") & $N [$x + 3] != 1) {
                     $Num = NumberingSystem::removeComma($Num);
                     $Num .= " " . $M [0] . " ";
                 }
             }
 			
             /*
-            if (NumberingSystem::NoCurrency($L, $Forma)) {
+            if (NumberingSystem::NoCurrency($L, $strForma)) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $id2;
             }
@@ -114,9 +114,9 @@ class Portuguese
 			
 			if ($L == 4) {
 
-                if (substr($Forma, 0, 12) == "000000000001") {
+                if (substr($strForma, 0, 12) == "000000000001") {
                     $Num = $R [1] . " " . $id1;
-                } else if (substr($Forma, 0, 12) == "000000000000") {
+                } else if (substr($strForma, 0, 12) == "000000000000") {
                     $Num = "";
                 } else {
                     $Num = trim($Num);
@@ -128,10 +128,10 @@ class Portuguese
                 
                 // this shoud apear prior to cond.4
 				// case one dollar
-				$Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
+				$Num = NumberingSystem::substituteIDs($Num, $strForma, $L, $id1,  $id2 ) ;
 				  
                 // cond.4
-                if (substr($Forma, -3) != "000" & substr($Forma, 0, 12) != "000000000000") {
+                if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
                     $Num .= " " . $M [0] . " ";
                 }
             }
@@ -139,7 +139,7 @@ class Portuguese
             
             if ($L == 5) {
 				// one cent
-                $Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
+                $Num = NumberingSystem::substituteIDs($Num, $strForma, $L, $id1,  $id2 ) ;
             }
 			
 			
@@ -152,7 +152,7 @@ class Portuguese
 		$Num = NumberingSystem::remove1stAnd ($Num, $M [0]);
   
         /*
-        if ($Forma == "000000000000.000") {
+        if ($strForma == "000000000000.000") {
             $Num = $R [0];
         }
         */

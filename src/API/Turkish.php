@@ -12,7 +12,7 @@ require_once "Number2Text.php";
  */
 class Turkish
 {
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -48,7 +48,7 @@ class Turkish
             // prepre numbers from 0 to 99
             // Numbers up to ninety-nine are built by spelling out the ten, then the digit (e.g.: otuz iki [32],
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = ($N [$x + 1] * 10) + $N [$x + 2];
             $n_all = $N [$x] + $n_unit;
@@ -84,7 +84,7 @@ class Turkish
 
             if ($n_all != 0) {
                 // yüz not bir yüz
-                if (NumberingSystem::checkOneHundred($L, $Forma)) {
+                if (NumberingSystem::checkOneHundred($L, $strForma)) {
                     $Num .= " " . $H [1] . " " . $id1 . " ";
                 } else if ($N [$x] == 0) {
                     $Num .= $str_unit . " " . $id2 . " ";
@@ -101,7 +101,7 @@ class Turkish
             // echo "L" . $L . $Num;
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-            if (NumberingSystem::NoCurrency($L, $Forma)) {
+            if (NumberingSystem::NoCurrency($L, $strForma)) {
                 $Num = NumberingSystem::removeAnd($Num, $M [0]);
                 $Num .= " " . $id2;
             }
@@ -111,7 +111,7 @@ class Turkish
         $Num = NumberingSystem::removeSpaces($Num);
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
-        if ($Forma == "000000000000.000") {
+        if ($strForma == "000000000000.000") {
             $Num = $R [0];
         }
 

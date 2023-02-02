@@ -12,7 +12,7 @@ require_once "Number2Text.php";
  */
 class German
 {
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -49,7 +49,7 @@ class German
 
             // ==============================================================================
 
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $N);
 
             // Special condition for germany language
             if ($N [$x + 1] == 0 & $N [$x + 2] == 1 & $L <= 2) {
@@ -70,9 +70,9 @@ class German
                 $str_unit = $R [$N [$x + 2]] . $M [0] . $Z [$N [$x + 1]];
             }
 
-            if ($L == 1 & substr($Forma, 1, 3) == "001") {
+            if ($L == 1 & substr($strForma, 1, 3) == "001") {
                 $id2 = $id1;
-            } else if ($L == 1 & substr($Forma, 4, 3) == "001") {
+            } else if ($L == 1 & substr($strForma, 4, 3) == "001") {
                 $id2 = $id1;
             }
 
@@ -94,16 +94,16 @@ class German
             }
 
             if ($L == 3) {
-                if (substr($Forma, 7, 3) == "001") {
+                if (substr($strForma, 7, 3) == "001") {
                     $Num = $id1;
                 }
             }
 
              if ($L == 4) {
 				
-                 if (substr($Forma, 0, 12) == "000000000001") {
+                 if (substr($strForma, 0, 12) == "000000000001") {
                     $Num = $R [1] . " " . $id1;
-                } else if (substr($Forma, 0, 12) == "000000000000") {
+                } else if (substr($strForma, 0, 12) == "000000000000") {
                     $Num = "";
                 } else {
                     $Num = trim($Num);
@@ -114,17 +114,17 @@ class German
                 }
 
                 // case one dollar
-				$Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
+				$Num = NumberingSystem::substituteIDs($Num, $strForma, $L, $id1,  $id2 ) ;
 				  
                 // cond.4
-                if (substr($Forma, -3) != "000" & substr($Forma, 0, 12) != "000000000000") {
+                if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
                     $Num .= " " . $M [0] . " ";
                 }
             }
 
            if ($L == 5) {
 				// one cent
-                $Num = NumberingSystem::substituteIDs($Num, $Forma, $L, $id1,  $id2 ) ;
+                $Num = NumberingSystem::substituteIDs($Num, $strForma, $L, $id1,  $id2 ) ;
             }
 
         }
@@ -134,7 +134,7 @@ class German
         $Num = NumberingSystem::removeAnd($Num, $M [0]);
 
         /*
-        if ($Forma == "000000000000.000") {
+        if ($strForma == "000000000000.000") {
             $Num = $R [0];
         }
         */

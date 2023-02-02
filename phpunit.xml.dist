@@ -9,7 +9,7 @@
     <directory suffix=".php">/src/API</directory>
       <file>./src/API/Number2Text.php</file> 
 	  <file>./src/API/NumberingSystem.php</file> 
-	  <file>./src/API/Arabic.php</file> 
+	  <file>./src/API/$strNumber.php</file> 
       <file>./src/API/English.php</file> 
 	  <file>./src/API/French.php</file> 
 	  <file>./src/API/German.php</file> 
@@ -30,7 +30,7 @@
           <file>./tests/test_Numbers.php</file>
 	      <file>./src/API/Number2Words.php</file> 
 		  <file>./src/API/NumberingSystem.php</file> 
-		  <file>./src/API/Arabic.php</file> 
+		  <file>./src/API/$strNumber.php</file> 
 		  <file>./src/API/English.php</file> 
 		  <file>./src/API/French.php</file> 
 		  <file>./src/API/German.php</file> 
