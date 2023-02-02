@@ -25,17 +25,17 @@ class Russian
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundrd, $aId, $aNum, "Russian");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Russian");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-        for ($cycle = 1; $cycle <= 5; $L++) {
-            $id1 = $M [($cycle * 2) - 1];
-            $id2 = $M [$cycle * 2];
+        for ($cycle = 1; $cycle <= 5; $cycle++) {
+            $id1 = $aId[($cycle * 2) - 1];
+            $id2 = $aId[$cycle * 2];
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
@@ -56,7 +56,7 @@ class Russian
             // Prepre numbers from 0 to 99
             // Tens space units ==> There is no need to use the word "and" in Russian
 
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
             $n_all =  $aNum[$x] + $nUnit;
@@ -76,7 +76,7 @@ class Russian
             // Prepare numbers from 100 to 999
             // Hundreds and tens are linked just space eg. 131 is сто тридцать один
 
-            if ($n_all != 0) {
+            if ($nAll != 0) {
                 // тысяча not один тысяча.
                 if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
                     $strNum .= " " . $id1 . " ";
@@ -94,14 +94,14 @@ class Russian
 
             // ================================================================
             if (NumberingSystem::NoCurrency($cycle, $strForma)) {
-                $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+                $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }
         }
 
         // Num = removeComma(Num) ' no comma is used in russian
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $M [0]);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
         /*
         if ($strForma == "000000000000.000") {
@@ -109,7 +109,7 @@ class Russian
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 }
 
