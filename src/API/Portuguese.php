@@ -61,7 +61,7 @@ class Portuguese
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $n_all =  $aNum[$x] + $nUnit;
+            $nAll =  $aNum[$x] + $nUnit;
             // keywords
             if ($nUnit > 0 & $nUnit < 21) {
                 $strUnit = $aUnit[$nUnit];
