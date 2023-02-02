@@ -149,7 +149,7 @@ class English
         }
         */
 
-        return $Num;
+        return $strNum;
     }
 }
 
