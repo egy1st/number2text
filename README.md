@@ -7,6 +7,7 @@ Number2Text is an API that alloes you to Convert any digits number to the equiva
 [![Swagger Validator](https://img.shields.io/swagger/valid/3.0?specUrl=https%3A%2F%2Fnumber2words.readme.io%2Fopenapi%2F6206ef8046f62d0080f16b8f)](https://number2words.readme.io/openapi/6206ef8046f62d0080f16b8f)
 [![Codacy Security Scan](https://github.com/egy1st/number2text/actions/workflows/codacy.yml/badge.svg)](https://github.com/egy1st/number2text/actions/workflows/codacy.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ef70c2c2cefc4813918dabdd5a19fe60)](https://www.codacy.com/gh/egy1st/number2text/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=egy1st/number2text&amp;utm_campaign=Badge_Grade)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/egy1st/number2text)](https://github.com/egy1st/number2text)
 
 ![Number2Words 13 languages](https://raw.githubusercontent.com/egy1st/images/main/number2words/13_languages.png)
 
