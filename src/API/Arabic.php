@@ -93,7 +93,7 @@ class Arabic
            
             // ================================================================
             // Prepare numbers from 100 to 999
-            $strForma = Number2Text::prepareNumber($strNumber, $N);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
                 $G = 1;
