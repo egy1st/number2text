@@ -15,12 +15,12 @@ class Arabic
 {
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $strNum = "";
@@ -71,10 +71,10 @@ class Arabic
                 } else if (substr($strForma, 0, 12) === "000000002000") {
                     $strNum = " ألفى ";
                 }
-				
-				 if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
-                	$strNum .=  $id1 ;
-			      }
+
+                if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
+                    $strNum .= $id1;
+                }
             } else if ($cycle == 5) {
                 $x = 14;
                 $id1 = " قرش ";
@@ -90,7 +90,7 @@ class Arabic
                     $aHundred[2] = "مائتين ";
                 }
             }
-           
+
             // ================================================================
             // Prepare numbers from 100 to 999
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
@@ -113,44 +113,44 @@ class Arabic
             if ($aNum[$x + 1] == 1 & $aNum[$x + 2] == 0) {
                 $strNum = $strNum . " و " . $aTen[1] . $id3;
                 $G = 4;
-				//echo "we are here 1" ;
+                //echo "we are here 1" ;
             } else if ($aNum[$x + 2] == 1 & $aNum[$x + 1] == 1) {
                 $strNum = $strNum . " و " . $aUnit[11] . $aTen[1] . $id1;
                 $G = 4;
-				//echo "we are here 2" ;
+                //echo "we are here 2" ;
             } else if ($aNum[$x + 2] == 2 & $aNum[$x + 1] == 1) {
                 $strNum = $strNum . " و " . $aUnit[12] . $aTen[1] . $id1;
                 $G = 4;
-				//echo "we are here 3" ;
+                //echo "we are here 3" ;
             }
 
             if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] > 2) {
                 $strNum = $strNum . " و " . $aUnit[$aNum[$x + 2]] . $id3;
                 $G = 1;
-				// Echo "we are here 4" ;
+                // Echo "we are here 4" ;
             }
 
             if ($aNum[$x + 2] > 0 & $G != 4 & $G != 1) {
                 $strNum = $strNum . " و " . $aUnit[$aNum[$x + 2]];
                 $G = 2;
-				//echo "we are here 5" ;
+                //echo "we are here 5" ;
             }
 
             if ($aNum[$x + 1] > 1) {
                 $strNum = $strNum . " و " . $aTen[$aNum[$x + 1]];
                 $G = 2;
-				//echo "we are here 6" ;
+                //echo "we are here 6" ;
             }
 
             if ($aNum[$x + 1] == 1 & $G != 4) {
                 $strNum = $strNum . $aTen[$aNum[$x + 1]];
                 $G = 2;
-				// Echo "we are here 7" ;
+                // Echo "we are here 7" ;
             }
 
             if ($G != 1 & $G != 4) {
                 $strNum = $strNum . $id1;
-				//echo "we are here 8" ;
+                //echo "we are here 8" ;
             }
         }
 

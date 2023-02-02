@@ -12,15 +12,15 @@ require_once "Number2Text.php";
  */
 class Russian
 {
- 
+
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $strNum = "";
@@ -50,7 +50,7 @@ class Russian
             } else if ($cycle === 5) {
                 $x = 14;
             }
-            
+
 
             // ==============================================================================
             // Prepre numbers from 0 to 99
@@ -58,19 +58,19 @@ class Russian
 
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
-            $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $nAll =  $aNum[$x] + $nUnit;
+            $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
+            $nAll = $aNum[$x] + $nUnit;
             // keywords
             if ($nUnit > 0 & $nUnit < 21) {
                 $strUnit = $aUnit[$nUnit];
                 // tens
-            } else if ( $aNum[$x + 2] == 0) {
+            } else if ($aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
                 // others
             } else {
                 $strUnit = $aTen[$aNum[$x + 1]] . " " . $aUnit[$aNum[$x + 2]];
             }
-          
+
 
             // ==============================================================================
             // Prepare numbers from 100 to 999
@@ -80,14 +80,14 @@ class Russian
                 // тысяча not один тысяча.
                 if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
                     $strNum .= " " . $id1 . " ";
-                } else if ( $aNum[$x] == 0) {
+                } else if ($aNum[$x] == 0) {
                     $strNum .= $strUnit . " " . $id2 . " ";
                     // only units and tens
                 } else if ($nUnit == 0) {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $id2 . " ";
                     // only hundreds
                 } else {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
                     // complete compund number
                 }
             }

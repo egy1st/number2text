@@ -9,19 +9,19 @@ require_once "Number2Text.php";
 /**
  * @covers English
  *
-*/
+ */
 class English
 {
 
     const LANGUAGE_ID = 'en';
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $strNum = "";
@@ -50,13 +50,13 @@ class English
                 $nSum = NumberingSystem::getSum($aNum, 3);
             } else if ($cycle === 4) {
                 $x = 10;
-				if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
-					$strNum = NumberingSystem::removeComma($strNum);
-                	$strNum .=  ' ' . $id2 ;
-			      }
+                if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
+                    $strNum = NumberingSystem::removeComma($strNum);
+                    $strNum .= ' ' . $id2;
+                }
             } else if ($cycle === 5) {
                 $x = 14;
-            }          
+            }
 
             // ================================================================
             // Prepre numbers from 0 to 99
@@ -120,23 +120,23 @@ class English
                         $strNum = substr($strNum, 0, $Ln - 1);
                     }
                 }
-                
+
                 // this shoud apear prior to cond.4
-				// case one dollar
-				$strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1,  $id2 ) ;
-				  
+                // case one dollar
+                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
+
                 // cond.4
                 if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
                     $strNum .= " " . $aId[0] . " ";
                 }
             }
 
-            
+
             if ($cycle === 5) {
-				// one cent
-                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1,  $id2 ) ;
+                // one cent
+                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
             }
-           
+
         }
 
         $strNum = NumberingSystem::removeComma($strNum);

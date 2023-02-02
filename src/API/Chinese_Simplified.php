@@ -14,12 +14,12 @@ class Chinese_Simplified
 {
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
 
@@ -47,7 +47,7 @@ class Chinese_Simplified
                 $x = 14;
             }
 
-            
+
             /* 
             // Prepre numbers from 0 to 99
             // Eleven in Chinese is "ten one". Twelve is "ten two", and so on. Twenty is "Two ten",

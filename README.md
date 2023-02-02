@@ -13,37 +13,39 @@ Number2Text is an API that alloes you to Convert any digits number to the equiva
 
 Digits number up to 999,999,999.998.99 can be converted to words in 13 languages so far:
 
--  Arabic
--  English
--  French
--  German
--  Spanish
--  Italian
--  Portuguese
--  Russian
--  Persian
--  Turkish
--  Korean
--  Chinese Simplified
--  Chinese Traditional
+- Arabic
+- English
+- French
+- German
+- Spanish
+- Italian
+- Portuguese
+- Russian
+- Persian
+- Turkish
+- Korean
+- Chinese Simplified
+- Chinese Traditional
 
 ![Number2text Demo](https://raw.githubusercontent.com/egy1st/images/main/number2words/demo.webp)
 
 # Shall We Start
+
 Just click me and see how am I working
--  https://number2text.com/api/v1/?number=123456.78&language=en&locale=usa
--  https://number2text.com/api/v1/?number=123456.78&language=ar&locale=egy
--  https://number2text.com/api/v1/?number=123456.78&language=fr&locale=eur
--  https://number2text.com/api/v1/?number=123456.78&language=de&locale=eur
--  https://number2text.com/api/v1/?number=123456.78&language=es&locale=usa
--  https://number2text.com/api/v1/?number=123456.78&language=pt&locale=usa
--  https://number2text.com/api/v1/?number=123456.78&language=it&locale=eur
--  https://number2text.com/api/v1/?number=123456.78&language=ru&locale=usa
--  https://number2text.com/api/v1/?number=123456.78&language=fa&locale=egy
--  https://number2text.com/api/v1/?number=123456.78&language=tr&locale=usa
--  https://number2text.com/api/v1/?number=123456.78&language=ko&locale=usa
--  https://number2text.com/api/v1/?number=123456.78&language=zh_cn&locale=usa
--  https://number2text.com/api/v1/?number=123456.78&language=zh_tw&locale=usa
+
+- https://number2text.com/api/v1/?number=123456.78&language=en&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=ar&locale=egy
+- https://number2text.com/api/v1/?number=123456.78&language=fr&locale=eur
+- https://number2text.com/api/v1/?number=123456.78&language=de&locale=eur
+- https://number2text.com/api/v1/?number=123456.78&language=es&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=pt&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=it&locale=eur
+- https://number2text.com/api/v1/?number=123456.78&language=ru&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=fa&locale=egy
+- https://number2text.com/api/v1/?number=123456.78&language=tr&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=ko&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=zh_cn&locale=usa
+- https://number2text.com/api/v1/?number=123456.78&language=zh_tw&locale=usa
 
 # Great For Banks Billing
 
@@ -76,12 +78,12 @@ and see changes on time.
 # Language ID
 
 | Language | Arabic | English | French | German | Italian | Spanish | Portuguese | 
-| -------- |------- |-------- |------- |------- |-------- |-------- |----------- |
+|----------|--------|---------|--------|--------|---------|---------|------------|
 | ID       | ar     | en      | fr     | gr     | it      | es      | pt         |
 
-| Language |  Russian | Turkish | Persian | Korean  | Chinese Simplified | Chinese Traditional |
-| -------- |------- |---------- |-------- |-------- | ------------------ | ------------------- |
-| ID       |  ru    | tr        | fa      | ko      | zh_cn              | zh_tw               |
+| Language | Russian | Turkish | Persian | Korean | Chinese Simplified | Chinese Traditional |
+|----------|---------|---------|---------|--------|--------------------|---------------------|
+| ID       | ru      | tr      | fa      | ko     | zh_cn              | zh_tw               |
 
 # How to call the API
 

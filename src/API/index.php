@@ -7,26 +7,20 @@
 require_once "Locality.php";
 require_once "Number2Text.php";
 
-if (isset($_GET['number'])
- {
-    echo "case 0" ;
+if (isset($_GET['number']) {
+    echo "case 0";
     $number = $_GET ['number'];
 } elseif (empty($_GET['number'])) {
-    echo "case 1" ;
+    echo "case 1";
     $number = 'invalid number';
 } elseif (is_null($_GET['number'])) {
-     echo "case 2" ;
-    $number = 'invalid number'; 
+    echo "case 2";
+    $number = 'invalid number';
 }
 
 
-
-
-
-
-
 if (isset($_GET['language']) && !empty($_GET['language'])) {
-    $language = strtoupper ($_GET ['language']);
+    $language = strtoupper($_GET ['language']);
 } else {
     $language = "EN";
 }
@@ -39,7 +33,7 @@ if (isset($_GET['output']) && !empty($_GET['output'])) {
 
 
 if (isset($_GET['locale']) && !empty($_GET['locale'])) {
-    $locale = strtoupper ($_GET ['locale']);
+    $locale = strtoupper($_GET ['locale']);
 } else {
     $locale = NULL;
 }
@@ -59,7 +53,7 @@ if (isset($_GET['units']) && !empty($_GET['units'])) {
 } else {
 //$units = array("قرش", "قروش", "قرشان");	
 //$units = array("cent", "cents");	
-$units = "¢";
+    $units = "¢";
 //$units = NULL ;
 }
 

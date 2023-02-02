@@ -12,14 +12,14 @@ require_once "Number2Text.php";
  */
 class German
 {
-    
+
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $strNum = "";
@@ -46,31 +46,31 @@ class German
                 $nSum = NumberingSystem::getSum($aNum, 3);
             } else if ($cycle === 4) {
                 $x = 10;
-				if ( $aNum[$x] == 0 &  $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 0) {
-					$strNum = NumberingSystem::removeComma($strNum) ;
-                	$strNum .=  ' ' . $id2 ;
-			      }
+                if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
+                    $strNum = NumberingSystem::removeComma($strNum);
+                    $strNum .= ' ' . $id2;
+                }
             } else if ($cycle === 5) {
                 $x = 14;
             }
-      
+
             // ================================================================
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             // Special condition for germany language
-            if ( $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 1 & $cycle <= 2) {
+            if ($aNum[$x + 1] == 0 & $aNum[$x + 2] == 1 & $cycle <= 2) {
                 $aUnit[1] .= "e";
-            } else if ( $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 1 & $cycle == 4) {
+            } else if ($aNum[$x + 1] == 0 & $aNum[$x + 2] == 1 & $cycle == 4) {
                 $aUnit[1] .= "s";
             }
             // End of special condition
 
-            $nUnit =  $aNum[$x + 2] + ( $aNum[$x + 1] * 10);
+            $nUnit = $aNum[$x + 2] + ($aNum[$x + 1] * 10);
             // keywords
             if ($nUnit < 21) {
                 $strUnit = $aUnit[$nUnit];
                 // tens
-            } else if ( $aNum[$x + 2] == 0) {
+            } else if ($aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
             } else {
                 $strUnit = $aUnit[$aNum[$x + 2]] . $aId[0] . $aTen[$aNum[$x + 1]];
@@ -87,13 +87,13 @@ class German
                 $id1 = " " . $id1 . " ";
             }
 
-            if ( $aNum[$x] != 0) {
-                if ( $aNum[$x + 1] +  $aNum[$x + 2] != 0) {
-                    $strNum .= $aHundred[ $aNum[$x]] . $strUnit . $id2;
+            if ($aNum[$x] != 0) {
+                if ($aNum[$x + 1] + $aNum[$x + 2] != 0) {
+                    $strNum .= $aHundred[$aNum[$x]] . $strUnit . $id2;
                 } else {
-                    $strNum .= $aHundred[ $aNum[$x]] . $id2;
+                    $strNum .= $aHundred[$aNum[$x]] . $id2;
                 }
-            } else if ( $aNum[$x + 1] +  $aNum[$x + 2] != 0) {
+            } else if ($aNum[$x + 1] + $aNum[$x + 2] != 0) {
                 $strNum .= $strUnit . " " . $id2;
             } else {
                 // nothing to do
@@ -105,9 +105,9 @@ class German
                 }
             }
 
-             if ($cycle === 4) {
-				
-                 if (substr($strForma, 0, 12) === "000000000001") {
+            if ($cycle === 4) {
+
+                if (substr($strForma, 0, 12) === "000000000001") {
                     $strNum = $aUnit[1] . " " . $id1;
                 } else if (substr($strForma, 0, 12) === "000000000000") {
                     $strNum = "";
@@ -120,17 +120,17 @@ class German
                 }
 
                 // case one dollar
-				$strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1,  $id2 ) ;
-				  
+                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
+
                 // cond.4
                 if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
                     $strNum .= " " . $aId[0] . " ";
                 }
             }
 
-           if ($cycle === 5) {
-				// one cent
-                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1,  $id2 ) ;
+            if ($cycle === 5) {
+                // one cent
+                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
             }
 
         }

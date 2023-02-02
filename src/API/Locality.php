@@ -56,7 +56,7 @@ class Country_ID
     const MAURITANIA = 'MRT'; // MR
     const MOROCCO = 'MAR'; // MA
     const OMAN = 'OMN'; // OM
-	const PALESTINE = 'PSE'; // PS
+    const PALESTINE = 'PSE'; // PS
     const QATAR = 'QAT'; // QA
     const SAUDI_ARABIA = 'SAU'; // SA
     const SOMALIA = 'SOM'; // SO
@@ -66,10 +66,9 @@ class Country_ID
     const UNITED_ARAB_EMIRATES = 'ARE'; // ARE
     const YEMEN = 'YEM'; // YE
     const UNITED_STATES = 'USA'; // US
-	const EUROPEAN_UNION  = 'EUR'; // EU
-	const UNITED_KINGDOM  = 'GBR'; // GB
+    const EUROPEAN_UNION = 'EUR'; // EU
+    const UNITED_KINGDOM = 'GBR'; // GB
 
-	
 
 }
 
@@ -90,8 +89,8 @@ class Locality
                 $aCurrencies[4] = "dollars";
                 $aCurrencies[5] = "cents";
                 break;
-				
-		   case Country_ID::EUROPEAN_UNION :
+
+            case Country_ID::EUROPEAN_UNION :
                 $aCurrencies[0] = "euro";
                 $aCurrencies[1] = "euros";
                 $aCurrencies[2] = "cent";
@@ -99,15 +98,15 @@ class Locality
                 $aCurrencies[4] = "euros";
                 $aCurrencies[5] = "cents";
                 break;
-				
-		  case Country_ID::UNITED_KINGDOM :
+
+            case Country_ID::UNITED_KINGDOM :
                 $aCurrencies[0] = "pound";
                 $aCurrencies[1] = "pounds";
                 $aCurrencies[2] = "pence";
                 $aCurrencies[3] = "pences";
                 $aCurrencies[4] = "pounds";
                 $aCurrencies[5] = "pences";
-                break;		
+                break;
 
             case Country_ID::BAHRAIN :
             case Country_ID::JORDAN :

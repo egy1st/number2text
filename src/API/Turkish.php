@@ -15,12 +15,12 @@ class Turkish
 
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $strNum = "";
@@ -50,7 +50,7 @@ class Turkish
             } else if ($cycle === 5) {
                 $x = 14;
             }
-            
+
             // ==============================================================================
 
             // Prepre numbers from 0 to 99
@@ -58,32 +58,32 @@ class Turkish
 
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
-            $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $nAll =  $aNum[$x] + $nUnit;
+            $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
+            $nAll = $aNum[$x] + $nUnit;
 
             // keywords are only 10 not 20
             if ($nUnit > 0 & $nUnit < 11) {
                 $strUnit = $aUnit[$nUnit];
                 // tens
-            } else if ( $aNum[$x + 2] == 0) {
+            } else if ($aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
                 // Please note that üç [3] loses its umlaut when composed within a number (e.g.: on uç [13]).
                 // thousnads multipier from 11 to 19 ara contcatentaed without space
                 // we test it is less than 20 as we are sure it is above 10
-            } else if ( $aNum[$x + 2] == 3 &  $aNum[$x + 1] > 0 & ($cycle == 3 & $nUnit < 20)) {
+            } else if ($aNum[$x + 2] == 3 & $aNum[$x + 1] > 0 & ($cycle == 3 & $nUnit < 20)) {
                 $strUnit = $aTen[$aNum[$x + 1]] . "uç";
-            } else if ( $aNum[$x + 2] == 3 &  $aNum[$x + 1] > 0 & !($cycle == 3 & $nUnit < 20)) {
+            } else if ($aNum[$x + 2] == 3 & $aNum[$x + 1] > 0 & !($cycle == 3 & $nUnit < 20)) {
                 $strUnit = $aTen[$aNum[$x + 1]] . " " . "uç";
                 // thousnads multipier from 11 to 19 ara contcatentaed without space
                 // we test it is less than 20 as we are sure it is above 10
                 // others
             } else if (($cycle == 3 & $nUnit < 20)) {
-                $strUnit = $aTen[$aNum[$x + 1]] . $aUnit[ $aNum[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . $aUnit[$aNum[$x + 2]];
             } else {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aUnit[ $aNum[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aUnit[$aNum[$x + 2]];
             }
 
-         
+
             // ==============================================================================
             // Prepare numbers from 100 to 999
             // Hundreds and thousands are built by telling the multiplier digit, then the hundred or thousand word
@@ -93,20 +93,20 @@ class Turkish
                 // yüz not bir yüz
                 if (NumberingSystem::checkOneHundred($cycle, $strForma)) {
                     $strNum .= " " . $aHundred[1] . " " . $id1 . " ";
-                } else if ( $aNum[$x] == 0) {
+                } else if ($aNum[$x] == 0) {
                     $strNum .= $strUnit . " " . $id2 . " ";
                     // only units and tens
                 } else if ($nUnit == 0) {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $id2 . " ";
                     // only hundreds
                 } else {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
                     // complete compund number
                 }
             }
 
             // Echo "L" . $cycle . $Num;
-           if (NumberingSystem::NoCurrency($cycle, $strForma)) {
+            if (NumberingSystem::NoCurrency($cycle, $strForma)) {
                 $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }

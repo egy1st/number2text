@@ -14,12 +14,12 @@ class Italian
 {
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $ITA = new Italian ();
@@ -47,34 +47,34 @@ class Italian
                 $nSum = NumberingSystem::getSum($aNum, 3);
             } else if ($cycle === 4) {
                 $x = 10;
-				if ( $aNum[$x] === 0 &  $aNum[$x + 1] == 0 &  $aNum[$x + 2] == 0) {
-					//$strNum = NumberingSystem::removeComma($strNum) ; // do not allow this for italian
-                	//$strNum .=  ' ' . $id2 ;
-			      }
+                if ($aNum[$x] === 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
+                    //$strNum = NumberingSystem::removeComma($strNum) ; // do not allow this for italian
+                    //$strNum .=  ' ' . $id2 ;
+                }
             } else if ($cycle === 5) {
                 $x = 14;
             }
-            
+
 
             // ================================================================
             // prepre numbers from 0 to 99
 
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
-            $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $nAll =  $aNum[$x] + $nUnit;
+            $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
+            $nAll = $aNum[$x] + $nUnit;
             // keywords
             if ($nUnit > 0 & $nUnit < 21) {
                 $strUnit = $aUnit[$nUnit];
                 // tens
-            } else if ( $aNum[$x + 2] == 0) {
+            } else if ($aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
 
                 // Case compound number whers tens ends with vowels(all tens are do) and units strat with vowels too
                 // as in (1,8)
                 // thus The numbers venti, trenta, and so on drop the final vowel before adding -uno or otto:
                 // Asc Integer ventuno, ventotto.
-            } else if ( $aNum[$x + 2] == 1 |  $aNum[$x + 2] == 8) {
+            } else if ($aNum[$x + 2] == 1 | $aNum[$x + 2] == 8) {
                 $strUnit = $ITA->removeVowels($aTen[$aNum[$x + 1]]) . $aUnit[$aNum[$x + 2]];
                 // others
             } else {
@@ -85,10 +85,10 @@ class Italian
             // note 253623 is duecentocinquantatremila seicentoventitré
             // only last tre has accent
             // independent case
-            if ( $aNum[$x + 2] == 3 & $cycle == 4) {
+            if ($aNum[$x + 2] == 3 & $cycle == 4) {
                 $strUnit = $ITA->modifyAccent($strUnit);
             }
-           
+
 
             // ================================================================
             // Prepare numbers from 100 to 999
@@ -101,15 +101,15 @@ class Italian
                     // is greater than one hundred and does not end with a double zero
                     // (e.g.: duemilatrecentoquarantacinque [2,345], tecentosessantacinquemila duecento [765,200]).
                 } else if ($ITA->checkHundredThousnad($cycle, $strForma)) {
-                    $strNum .= $aHundred[ $aNum[$x]] . $strUnit . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . $strUnit . $id2 . " ";
 
                     // experimantal at http://www.languagesandnumbers.com/how-to-count-in-italian/en/ita/
                     // add space when thausand multipliers greater than 100, for 100 exatly no space , so we use trim function
                 } else if ($ITA->checkSuperOneHundred($cycle, $strForma)) {
-                    $strNum .= $aHundred[ $aNum[$x]] . $strUnit . trim($id2) . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . $strUnit . trim($id2) . " ";
                     //
                 } else {
-                    $strNum .= $aHundred[ $aNum[$x]] . $strUnit . $id2;
+                    $strNum .= $aHundred[$aNum[$x]] . $strUnit . $id2;
                     // others
                 }
             }

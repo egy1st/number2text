@@ -12,14 +12,14 @@ require_once "Number2Text.php";
  */
 class Chinese_Traditional
 {
-    
+
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
 
@@ -45,7 +45,7 @@ class Chinese_Traditional
                 $x = 14;
             }
 
-            
+
             //=================================================================
             // Prepre numbers from 0 to 99
             /* Eleven in Chinese is "ten one". Twelve is "ten two", and so on. Twenty is "Two ten", twenty-one is
@@ -71,38 +71,38 @@ class Chinese_Traditional
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $y = 0;
-			
-				
-			if ( isset($aNum[$x + 3]) ){
-            $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
 
-				$i = 0;
-				for ($y = $x; $y <= $x + 3; $y++) {
-					$i += 1;
-					if ($aNum[$y] != 0 || $countZero) {
-						$countZero = true;
-					//check ten for units only'
-					if ($i == 3 & $cycle == 3 & $this->checkChineseTen($cycle, $strForma)) {
-						$strNum .= $this->getID($y);
-					} else if ($aNum[$y] != 0) {
-						$strNum .= $aUnit[$aNum[$y]] . $this->getID($y);
-						//And getChineseSum(N, y) = 0
-					} else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) == 0) {
-						// nothing to do
-						$y = $y;
-						//And getChineseSum(N, y) = 0
-					} else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) != 0) {
-						// do not count zero again
-						$strNum .= $aUnit[$aNum[$y]];
-						$countZero = false;
-					} else {
-						$strNum .= $aUnit[$aNum[$y]];
-					}
+            if (isset($aNum[$x + 3])) {
+                $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
-				  }
-			   }
-			}
+
+                $i = 0;
+                for ($y = $x; $y <= $x + 3; $y++) {
+                    $i += 1;
+                    if ($aNum[$y] != 0 || $countZero) {
+                        $countZero = true;
+                        //check ten for units only'
+                        if ($i == 3 & $cycle == 3 & $this->checkChineseTen($cycle, $strForma)) {
+                            $strNum .= $this->getID($y);
+                        } else if ($aNum[$y] != 0) {
+                            $strNum .= $aUnit[$aNum[$y]] . $this->getID($y);
+                            //And getChineseSum(N, y) = 0
+                        } else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) == 0) {
+                            // nothing to do
+                            $y = $y;
+                            //And getChineseSum(N, y) = 0
+                        } else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) != 0) {
+                            // do not count zero again
+                            $strNum .= $aUnit[$aNum[$y]];
+                            $countZero = false;
+                        } else {
+                            $strNum .= $aUnit[$aNum[$y]];
+                        }
+
+                    }
+                }
+            }
 
             if ($ptrn != "0000") {
                 $strNum .= $this->getGrand($cycle);

@@ -15,12 +15,12 @@ class Korean
 
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
 
@@ -45,7 +45,7 @@ class Korean
             } else if ($cycle === 4) {
                 $x = 14;
             }
-         
+
             //=================================================================
             // Prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
@@ -80,7 +80,7 @@ class Korean
             if ($ptrn != "0000") {
                 $strNum .= $KOR->getGrand($cycle);
             }
-            
+
             //=================================================================
             if ($cycle === 3) {
                 $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);

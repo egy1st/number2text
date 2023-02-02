@@ -15,12 +15,12 @@ class Spanish
 
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $strNum = "";
@@ -50,27 +50,27 @@ class Spanish
             } else if ($cycle === 5) {
                 $x = 14;
             }
-          
+
 
             // ==============================================================================
             // Prepre numbers from 0 to 99
 
             $Forma = Number2Text::prepareNumber($strNumber, $aNum);
 
-            $nUnit = ( $aNum[$x + 1] * 10) +  $aNum[$x + 2];
-            $nAll =  $aNum[$x] + $nUnit;
+            $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
+            $nAll = $aNum[$x] + $nUnit;
             // Keywords are 30 not 20 as usual
             if ($nUnit > 0 & $nUnit < 31) {
                 $strUnit = $aUnit[$nUnit];
                 // Tens
-            } else if ( $aNum[$x + 2] == 0) {
+            } else if ($aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
                 // Notice that "y" is used only in numbers 31-99 (and 131-199, 231-299, 331-399, etc.)
                 // others
             } else {
                 $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]];
             }
-            
+
 
             // ================================================================
             // Prepare numbers from 100 to 999
@@ -78,10 +78,10 @@ class Spanish
             if ($nAll != 0) {
                 // When there is exactly 100 of something use the shortened form "cien" rather than ciento
                 // for exactly 100
-                if ( $aNum[$x] == 1 &  $aNum[$x + 1] +  $aNum[$x + 2] == 0) {
+                if ($aNum[$x] == 1 & $aNum[$x + 1] + $aNum[$x + 2] == 0) {
                     $strNum .= "cien" . " " . $strUnit . " " . $id2 . " ";
                 } else {
-                    $strNum .= $aHundred[ $aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
                     // others
                 }
             }

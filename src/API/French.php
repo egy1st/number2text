@@ -14,12 +14,12 @@ class French
 {
 
     /**
-    * This is the main function required to convert a number into words.
-    * 
-    * @param string $strNumber    number parameter
-    * @param string $aCur     currency-array parameter
-     @return string
-    */
+     * This is the main function required to convert a number into words.
+     *
+     * @param string $strNumber number parameter
+     * @param string $aCur currency-array parameter
+     * @return string
+     */
     public function TranslateNumber($strNumber, $aCur)
     {
         $strNum = "";
@@ -46,14 +46,14 @@ class French
                 $nSum = NumberingSystem::getSum($aNum, 3);
             } else if ($cycle === 4) {
                 $x = 10;
-				if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
-					$strNum = NumberingSystem::removeComma($strNum) ;
-                	$strNum .=  ' ' . $id2 ;
-			      }
+                if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
+                    $strNum = NumberingSystem::removeComma($strNum);
+                    $strNum .= ' ' . $id2;
+                }
             } else if ($cycle === 5) {
                 $x = 14;
             }
-            
+
 
             // ================================================================
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
@@ -100,8 +100,8 @@ class French
             }
 
             if ($cycle == 4) {
-				
-                 if (substr($strForma, 0, 12) === "000000000001") {
+
+                if (substr($strForma, 0, 12) === "000000000001") {
                     $strNum = $aUnit[1] . " " . $id1;
                 } else if (substr($strForma, 0, 12) === "000000000000") {
                     $strNum = "";
@@ -114,17 +114,17 @@ class French
                 }
 
                 // Case one dollar
-				$strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1,  $id2 ) ;
-				  
+                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
+
                 // cond.4
                 if (substr($strForma, -3) != "000" & substr($strForma, 0, 12) != "000000000000") {
                     $strNum .= " " . $aId[0] . " ";
                 }
             }
 
-           if ($cycle == 5) {
-				// One cent
-                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1,  $id2 ) ;
+            if ($cycle == 5) {
+                // One cent
+                $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
             }
         }
 

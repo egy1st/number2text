@@ -24,7 +24,7 @@ require_once "Number2Text.php";
  * @covers NumberingSystem
  *
  */
-class NumberingSystem 
+class NumberingSystem
 {
     public static $CurrncyDefined = false;
     public static $SignDefined = false;
@@ -54,38 +54,38 @@ class NumberingSystem
     public static $strUnit = "";
     public static $nSum;
 
-    
+
     /**
-    * This function sum up each group of 3 digits.
-    * 
-    * @param string $aNum    number array parameter
-    * @param string $_step    which cycle parameter
-     @return int
-    */
+     * This function sum up each group of 3 digits.
+     *
+     * @param string $aNum number array parameter
+     * @param string $_step which cycle parameter
+     * @return int
+     */
     public static function getSum($aNum, $_step): int
     {
         $sum = 0;
         if (!is_null($aNum)) {
             if ($_step == 1) {
-                $sum = ( $aNum[12]) + (( $aNum[11]) * 10) + (( $aNum[10]) * 100) + (( $aNum[9]) * 1000) + (( $aNum[8]) * 10000) + (( $aNum[7]) * 100000) + (( $aNum[6]) * 1000000) + (( $aNum[5]) * 10000000) + (( $aNum[4]) * 100000000);
+                $sum = ($aNum[12]) + (($aNum[11]) * 10) + (($aNum[10]) * 100) + (($aNum[9]) * 1000) + (($aNum[8]) * 10000) + (($aNum[7]) * 100000) + (($aNum[6]) * 1000000) + (($aNum[5]) * 10000000) + (($aNum[4]) * 100000000);
             } else if ($_step == 2) {
-                $sum = ( $aNum[12]) + (( $aNum[11]) * 10) + (( $aNum[10]) * 100) + (( $aNum[9]) * 1000) + (( $aNum[8]) * 10000) + (( $aNum[7]) * 100000);
+                $sum = ($aNum[12]) + (($aNum[11]) * 10) + (($aNum[10]) * 100) + (($aNum[9]) * 1000) + (($aNum[8]) * 10000) + (($aNum[7]) * 100000);
             } else if ($_step == 3) {
-                $sum = ( $aNum[12]) + (( $aNum[11]) * 10) + (( $aNum[10]) * 100);
+                $sum = ($aNum[12]) + (($aNum[11]) * 10) + (($aNum[10]) * 100);
             }
         }
 
         return $sum;
     }
 
-    
+
     /**
-    * This function make sure that we follw a valid pattern.
-    * 
-    * @param string $ptrn1    pattern 1 parameter
-    * @param string $ptrn2    pattern 2 parameter
-     @return bool
-    */
+     * This function make sure that we follw a valid pattern.
+     *
+     * @param string $ptrn1 pattern 1 parameter
+     * @param string $ptrn2 pattern 2 parameter
+     * @return bool
+     */
     public static function isPattern($ptrn1, $ptrn2): bool
     {
         $n = 0;
@@ -103,14 +103,13 @@ class NumberingSystem
         return true;
     }
 
-    
 
     /**
-    * This function removes comma "," from a resulted string.
-    * 
-    * @param string $str    string parameter
-     @return string
-    */
+     * This function removes comma "," from a resulted string.
+     *
+     * @param string $str string parameter
+     * @return string
+     */
     public static function removeComma($str): string
     {
         $str = trim($str);
@@ -121,47 +120,47 @@ class NumberingSystem
         return $str;
     }
 
-  
-    /**
-    * This function substitute IDs accoring to a specific cycle.
-    * 
-    * @param string $strNum   strNum1 parameter
-    * @param string $strForma strForma parameter
-    * @param string $cycle    cycle parameter
-    * @param string $id1    1st Id  parameter
-    * @param string $id2    2nd Id parameter
-    * @return string
-    */
-    public static function substituteIDs($strNum, $strForma,  $cycle, $id1, $id2): string {
-   
-        if ( ($cycle == 4 &  substr($strForma, 0, 12) == "000000000001") || ( $cycle == 5 &  substr($strForma, -3) == "001") ) {
-			$strNum = trim($strNum);
-			$num_Ln = strlen($strNum);
-			if (substr($strNum, -1) == ",") {
-				$strNum = substr($strNum, 0, $num_Ln - 1);
-			}
 
-			$Ln2 = strlen( $id2);
-			if (substr($strNum, -$Ln2 ) ==  $id2 ) {
-				$new_Num = substr($strNum, 0, $num_Ln - ($Ln2+1) ) ;
-				$new_Num  .=  ' ' . $id1 ;
-				return $new_Num ;
-			} 
-			
-				
-			}
-			return $strNum ;
-		}
-		
-
-	
     /**
-    * This function remove concatanation notion from a resulted string.
-    * 
-    * @param string $str   string parameter
-    * @param string $and   concatanation notion parameter    
-    * @return string
-    */
+     * This function substitute IDs accoring to a specific cycle.
+     *
+     * @param string $strNum strNum1 parameter
+     * @param string $strForma strForma parameter
+     * @param string $cycle cycle parameter
+     * @param string $id1 1st Id  parameter
+     * @param string $id2 2nd Id parameter
+     * @return string
+     */
+    public static function substituteIDs($strNum, $strForma, $cycle, $id1, $id2): string
+    {
+
+        if (($cycle == 4 & substr($strForma, 0, 12) == "000000000001") || ($cycle == 5 & substr($strForma, -3) == "001")) {
+            $strNum = trim($strNum);
+            $num_Ln = strlen($strNum);
+            if (substr($strNum, -1) == ",") {
+                $strNum = substr($strNum, 0, $num_Ln - 1);
+            }
+
+            $Ln2 = strlen($id2);
+            if (substr($strNum, -$Ln2) == $id2) {
+                $new_Num = substr($strNum, 0, $num_Ln - ($Ln2 + 1));
+                $new_Num .= ' ' . $id1;
+                return $new_Num;
+            }
+
+
+        }
+        return $strNum;
+    }
+
+
+    /**
+     * This function remove concatanation notion from a resulted string.
+     *
+     * @param string $str string parameter
+     * @param string $and concatanation notion parameter
+     * @return string
+     */
     public static function removeAnd($str, $and): string
     {
         $str = trim($str);
@@ -173,36 +172,35 @@ class NumberingSystem
         }
         return $str;
     }
-	
+
 
     /**
-    * This function remove first concatanation notion from a resulted string.
-    * 
-    * @param string $str   string parameter
-    * @param string $and   concatanation notion parameter    
-    * @return string
-    */
-	 public static function remove1stAnd($str, $and): string
+     * This function remove first concatanation notion from a resulted string.
+     *
+     * @param string $str string parameter
+     * @param string $and concatanation notion parameter
+     * @return string
+     */
+    public static function remove1stAnd($str, $and): string
     {
         $str = trim($str);
         $Ln = strlen($str);
         $Ln2 = strlen($and) + 1;
-        if ( substr($str, 0, $Ln2) ==  $and .  " ") {
-            $str = substr($str, $Ln2 , $Ln - $Ln2);
+        if (substr($str, 0, $Ln2) == $and . " ") {
+            $str = substr($str, $Ln2, $Ln - $Ln2);
             $str = trim($str);
-        } 
+        }
         return $str;
     }
-	
 
-    
+
     /**
-    * This function checks if a currency exist in the result string.
-    * 
-    * @param string $cycle   cycle parameter
-    * @param string $ptrn    pattern parameter    
-    * @return bool
-    */
+     * This function checks if a currency exist in the result string.
+     *
+     * @param string $cycle cycle parameter
+     * @param string $ptrn pattern parameter
+     * @return bool
+     */
     public static function NoCurrency($cycle, $ptrn): bool
     {
         if ($cycle === 4) {
@@ -227,11 +225,11 @@ class NumberingSystem
 
 
     /**
-    * This function remove spaces between result string.
-    * 
-    * @param string $str   string parameter
-    * @return string
-    */
+     * This function remove spaces between result string.
+     *
+     * @param string $str string parameter
+     * @return string
+     */
     public static function removeSpaces($str): string
     {
         if ($str == NULL)
@@ -250,15 +248,13 @@ class NumberingSystem
     }
 
 
-
-
     /**
-    * This function checks if exact 100 is exist in a cycle.
-    * 
-    * @param string $cycle   cycle parameter
-    * @param string $strForma   strForma parameter    
-    * @return string
-    */
+     * This function checks if exact 100 is exist in a cycle.
+     *
+     * @param string $cycle cycle parameter
+     * @param string $strForma strForma parameter
+     * @return string
+     */
     public static function checkOneHundred($cycle, $strForma)
     {
         if ($cycle == 4 & self::isPattern($strForma, "xxxxxxxxx100.xxx")) {
@@ -285,14 +281,14 @@ class NumberingSystem
     }
     */
 
-    
-/**
-    * This function checks if exact 1000 is exist in a cycle.
-    * 
-    * @param string $cycle   cycle parameter
-    * @param string $strForma   strForma parameter    
-    * @return string
-    */
+
+    /**
+     * This function checks if exact 1000 is exist in a cycle.
+     *
+     * @param string $cycle cycle parameter
+     * @param string $strForma strForma parameter
+     * @return string
+     */
     public static function checkOneThousnad($cycle, $strForma)
     {
         if ($cycle == 3 & self::isPattern($strForma, "000000001xxx.xxx")) {
@@ -302,19 +298,18 @@ class NumberingSystem
         return false;
     }
 
-    
 
     /**
-    * This function set the dictionary for each language.
-    * 
-    * @param string $aUnit   aUnit parameter
-    * @param string $aTen   aTen parameter    
-    * @param string $aHundred   aHundred parameter 
-    * @param string $aId   aId parameter 
-    * @param string $aNum   aNum parameter 
-    * @param string $Lang   Lang parameter 
-    * @return void
-    */
+     * This function set the dictionary for each language.
+     *
+     * @param string $aUnit aUnit parameter
+     * @param string $aTen aTen parameter
+     * @param string $aHundred aHundred parameter
+     * @param string $aId aId parameter
+     * @param string $aNum aNum parameter
+     * @param string $Lang Lang parameter
+     * @return void
+     */
     public static function getLanguage(&$aUnit, &$aTen, &$aHundred, &$aId, &$aNum, $Lang)
     {
         $aId[7] = "";
