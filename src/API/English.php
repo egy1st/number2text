@@ -34,28 +34,27 @@ class English
 
         // =================================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
-
         $L = 0;
         for ($L = 1; $L <= 5; $L++) {
             $id1 = $M[($L * 2) - 1];
 
             $id2 = $M[$L * 2];
-            if ($L == 1) {
+            if ($L === 1) {
                 $x = 1;
                 $n_sum = NumberingSystem::getSum($N, 1);
-            } else if ($L == 2) {
+            } else if ($L === 2) {
                 $x = 4;
                 $n_sum = NumberingSystem::getSum($N, 2);
-            } else if ($L == 3) {
+            } else if ($L === 3) {
                 $x = 7;
                 $n_sum = NumberingSystem::getSum($N, 3);
-            } else if ($L == 4) {
+            } else if ($L === 4) {
                 $x = 10;
 				if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 0) {
 					$Num = NumberingSystem::removeComma($Num) ;
                 	$Num .=  ' ' . $id2 ;
 			      }
-            } else if ($L == 5) {
+            } else if ($L === 5) {
                 $x = 14;
             }
            
