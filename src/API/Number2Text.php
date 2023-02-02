@@ -54,7 +54,7 @@ $strNumber = "" ;
             $strNum = "000000000000.000";
         }
 
-        return $num;
+        return $strNum;
     }
 
 
