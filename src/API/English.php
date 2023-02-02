@@ -22,7 +22,7 @@ class English
     * @param string $aCur     currency-array parameter
      @return string
     */
-    public function TranslateNumber($str_Number, $aCur)
+    public function TranslateNumber($strNumber, $aCur)
     {
         $Num = "";
 
@@ -61,7 +61,7 @@ class English
 
             // ================================================================
             // prepre numbers from 0 to 99
-            $Forma = Number2Text::prepareNumber($str_Number, $N);
+            $Forma = Number2Text::prepareNumber($strNumber, $N);
 
             $n_unit = $N[$x + 2] + ($N[$x + 1] * 10);
             // keywords
