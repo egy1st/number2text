@@ -105,7 +105,7 @@ class Chinese_Simplified
 
 
             if ($ptrn != "0000") {
-                $strNum .= $this->getGrand($L);
+                $strNum .= $this->getGrand($cycle);
             }
 
             //=================================================================
