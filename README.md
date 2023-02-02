@@ -1,6 +1,6 @@
-# What is Number2Words?
+# What is Number2Text?
 
-Number2Words is an API that alloes you to Convert any digits number to the equivalent words, fo example
+Number2Text is an API that alloes you to Convert any digits number to the equivalent words, fo example
 > (8543.21 in digits) will be (eight thousand, five hundred and forty-three $ and twenty-one ¢ in words).
 
 [![CircleCI](https://circleci.com/gh/egy1st/number2text/tree/main.svg?style=shield)](https://circleci.com/gh/egy1st/number2text/tree/main) [![codecov](https://codecov.io/gh/egy1st/number2text/branch/main/graph/badge.svg?token=26Z0MRJI07)](https://codecov.io/gh/egy1st/number2text)
@@ -24,7 +24,7 @@ Digits number up to 999,999,999.998.99 can be converted to words in 13 languages
 - Chinese Simplified
 - Chinese Traditional
 
-![Number2Words Demo](https://raw.githubusercontent.com/egy1st/images/main/number2words/demo.webp)
+![Number2text Demo](https://raw.githubusercontent.com/egy1st/images/main/number2words/demo.webp)
 
 # Shall We Start
 Just click me and see how am I working
@@ -44,7 +44,7 @@ Just click me and see how am I working
 
 # Great For Banks Billing
 
-Number2Words is useful when making financial reports, generating bills, and printing checks. There’s no need to type in
+Number2Text is useful when making financial reports, generating bills, and printing checks. There’s no need to type in
 each number – just pass your digits to our perfect API portal and Number2Words will do the rest for you. Since encoding
 is automatic, there is no room for fraud or human error.
 
@@ -52,13 +52,13 @@ is automatic, there is no room for fraud or human error.
 
 > For example thr number $7431285.46 will be rendered into 13 languages as following:
 
-![Number2Words Languages 01](https://raw.githubusercontent.com/egy1st/images/main/number2words/languages01.png)
+![Number2Text Languages 01](https://raw.githubusercontent.com/egy1st/images/main/number2words/languages01.png)
 
-![Number2Words Languages 01](https://raw.githubusercontent.com/egy1st/images/main/number2words/languages02.png)
+![Number2Text Languages 01](https://raw.githubusercontent.com/egy1st/images/main/number2words/languages02.png)
 
 # Currency Options
 
-Number2Words sets the currency depending on the language you choose. The default currency is dollar and cents. anyway,
+Number2text sets the currency depending on the language you choose. The default currency is dollar and cents. anyway,
 You can customize the currency sign or text i.e dollar/$ and cent/¢. The parameter array, if specified should follows
 the following order. First: sign/word for single currency, then sign/word for plural currencies, following by sign/word
 for single unit-ofcurency and finally sign/word for plural unitof-currency'
@@ -321,6 +321,6 @@ add yours, so please [Contribute Now](https://github.com/egy1st/Number2Words)
 # ReadMe
 
 I would like to express my sincere gratitude to ReadMe.io for hosting my API for Free on their paid premium plan. This
-saved me around 1200$/year
+saved me around $1200/year
 [![ReadMe](https://raw.githubusercontent.com/egy1st/images/main/logo/readme.png)](https://number2words.readme.io/)
 
