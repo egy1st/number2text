@@ -100,7 +100,7 @@ class Korean
         }
 
         //echo "<br>" .$strNum ;
-        return $srtNum;
+        return $strNum;
 
     }
 
