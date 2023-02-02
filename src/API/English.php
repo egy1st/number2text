@@ -14,7 +14,7 @@ class English
 {
 
     const LANGUAGE_ID = 'en';
-
+    
     /**
     * This is the main function required to convert a number into words.
     * 
@@ -40,22 +40,22 @@ class English
             $id1 = $M[($L * 2) - 1];
 
             $id2 = $M[$L * 2];
-            if ($L === 1) {
+            if ($L == 1) {
                 $x = 1;
                 $n_sum = NumberingSystem::getSum($N, 1);
-            } else if ($L === 2) {
+            } else if ($L == 2) {
                 $x = 4;
                 $n_sum = NumberingSystem::getSum($N, 2);
-            } else if ($L === 3) {
+            } else if ($L == 3) {
                 $x = 7;
                 $n_sum = NumberingSystem::getSum($N, 3);
-            } else if ($L === 4) {
+            } else if ($L == 4) {
                 $x = 10;
-				if ($N[$x] === 0 & $N[$x + 1] == 0 & $N[$x + 2] == 0) {
+				if ($N[$x] == 0 & $N[$x + 1] == 0 & $N[$x + 2] == 0) {
 					$Num = NumberingSystem::removeComma($Num) ;
                 	$Num .=  ' ' . $id2 ;
 			      }
-            } else if ($L === 5) {
+            } else if ($L == 5) {
                 $x = 14;
             }
             // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -70,7 +70,7 @@ class English
             if ($n_unit < 21) {
                 $str_unit = $R [$n_unit];
                 // tens
-            } else if ($N[$x + 2] === 0) {
+            } else if ($N[$x + 2] == 0) {
                 $str_unit = $Z [$N[$x + 1]];
                 // others
             } else {
@@ -113,7 +113,7 @@ class English
             // End of special condition
             */
 
-            if ($L === 4) {
+            if ($L == 4) {
 
                 if (substr($Forma, 0, 12) == "000000000001") {
                     $Num = $R [1] . " " . $id1;
