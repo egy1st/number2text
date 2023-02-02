@@ -9,7 +9,7 @@ require_once "Number2Text.php";
 /**
  * @covers English
  *
- */
+*/
 class English
 {
 
