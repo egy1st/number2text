@@ -83,7 +83,7 @@ class Chinese_Simplified
                 if ($aNum[$y] != 0 || $countZero) {
                     $countZero = true;
                     //check ten for units only'
-                    if ($i == 3 & $cycle == 3 & $this->checkChineseTen($cycle, $strForma)) {
+                    if ($i === 3 & $cycle === 3 & $this->checkChineseTen($cycle, $strForma)) {
                         $strNum .= $this->getID($y);
                     } else if ($aNum[$y] != 0) {
                         $strNum .= $aUnit[$aNum[$y]] . $this->getID($y);
@@ -171,14 +171,14 @@ class Chinese_Simplified
     }
 
     /*
-    public static function checkChineseHundred($cycle, $Forma)
+    public static function checkChineseHundred($cycle, $strForma)
     {
 
-        if ($cycle == 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($cycle == 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($cycle == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxx1xx.xxxx")) {
             return true;
         // no place in pences places
         } else if ($cycle == 4) {
@@ -192,13 +192,13 @@ class Chinese_Simplified
     public static function checkChineseTen($cycle, $strForma)
     {
 
-        if ($cycle === 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
+        if ($cycle === 1 & NumberingSystem::isPattern($strForma, "0010xxxxxxxx.xxxx")) {
             return true;
-        } else if ($cycle === 2 & NumberingSystem::isPattern($Forma, "xxxx0010xxxx.xxxx")) {
+        } else if ($cycle === 2 & NumberingSystem::isPattern($strForma, "xxxx0010xxxx.xxxx")) {
             return true;
-        } else if ($cycle === 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx0010.xxxx")) {
+        } else if ($cycle === 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx0010.xxxx")) {
             return true;
-        } else if ($cycle === 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0010")) {
+        } else if ($cycle === 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0010")) {
             return true;
         }
 
