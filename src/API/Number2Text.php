@@ -72,9 +72,9 @@ $str_Number = "" ;
             $fraction = $str_Number - $whole; // 0.25
             if ($fraction != 0)
                 $fraction = round($fraction, 2) * 100;
-            else if ($fraction == 0)
+            else if ($fraction === 0)
                 $fraction = "000";
-            if ($whole == 0) return ('000000000000') . "." . self::zeroPad($fraction, 2);
+            if ($whole === 0) return ('000000000000') . "." . self::zeroPad($fraction, 2);
             return (self::zeroPad($whole, 12) . "." . self::zeroPad($fraction, 2));
         }
     }
@@ -129,7 +129,7 @@ $str_Number = "" ;
     {
         $font_size = 11;
 
-        if ($output_format == 'image') {
+        if ($output_format === 'image') {
 
             $txt = iconv('UTF-8', 'ASCII//TRANSLIT', $txt);
             $txt = preg_replace('/[ ]{2,}|[\t]/', ' ', trim($txt));
@@ -150,7 +150,7 @@ $str_Number = "" ;
             //echo  $encodedimg ;
             return $encodedimg;
             imagedestroy($image);
-        } elseif ($output_format == 'text')
+        } elseif ($output_format === 'text')
             return $txt;
     }
 

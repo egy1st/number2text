@@ -90,7 +90,7 @@ class MbStrIterator implements Iterator
                 $this->iSize = 3;
             } else if($iChar < 248){
                 $this->iSize = 4;
-            } else if($iChar == 252){
+            } else if($iChar === 252){
                 $this->iSize = 5;
             } else {
                 $this->iSize = 6;
@@ -107,7 +107,7 @@ class MbStrIterator implements Iterator
         }
 
         // Else if we have one byte
-        else if($this->iSize == 1) {
+        else if($this->iSize === 1) {
             return $this->sStr[$this->iPos];
         }
 
@@ -310,7 +310,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         
         $latin = true;
         $clean_text = trim($expected);
-        if ($latin == true) {
+        if ($latin === true) {
             //echo 'we are here';
             $clean_text = '';
 
@@ -333,7 +333,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
        
         $chars_to_remove = 0;
 
-        if ($latin == false) {
+        if ($latin === false) {
             $chars_to_remove = 45;
             $expected = trim(substr($clean_text, $chars_to_remove));
         } else {
