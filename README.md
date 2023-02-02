@@ -5,6 +5,7 @@ Number2Text is an API that alloes you to Convert any digits number to the equiva
 
 [![CircleCI](https://circleci.com/gh/egy1st/number2text/tree/main.svg?style=shield)](https://circleci.com/gh/egy1st/number2text/tree/main) [![codecov](https://codecov.io/gh/egy1st/number2text/branch/main/graph/badge.svg?token=26Z0MRJI07)](https://codecov.io/gh/egy1st/number2text)
 [![Swagger Validator](https://img.shields.io/swagger/valid/3.0?specUrl=https%3A%2F%2Fnumber2words.readme.io%2Fopenapi%2F6206ef8046f62d0080f16b8f)](https://number2words.readme.io/openapi/6206ef8046f62d0080f16b8f)
+[![Codacy Security Scan](https://github.com/egy1st/number2text/actions/workflows/codacy.yml/badge.svg)](https://github.com/egy1st/number2text/actions/workflows/codacy.yml)
 
 ![Number2Words 13 languages](https://raw.githubusercontent.com/egy1st/images/main/number2words/13_languages.png)
 
