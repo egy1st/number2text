@@ -15,42 +15,38 @@ if (filter_var($number, FILTER_VALIDATE_INT) === true) {
 }
 
 
-if (isset($_GET['language']) && !empty($_GET['language'])) {
-    $language = strtoupper($_GET ['language']);
+if (filter_var($language, FILTER_VALIDATE_SRING) === true) {
+    $language = $_GET ['language']
 } else {
-    $language = "EN";
-}
-
-if (isset($_GET['output']) && !empty($_GET['output'])) {
-    $output = $_GET ['output'];
-} else {
-    $output = "text";
+   $language = "EN";
 }
 
 
-if (isset($_GET['locale']) && !empty($_GET['locale'])) {
-    $locale = strtoupper($_GET ['locale']);
+if (filter_var($output, FILTER_VALIDATE_SRING) === true) {
+    $output = $_GET ['output']
 } else {
-    $locale = NULL;
+   $output = "text";
 }
 
 
-if (isset($_GET['currency']) && !empty($_GET['currency'])) {
-    $currency = $_GET ['currency'];
+if (filter_var($locale, FILTER_VALIDATE_SRING) === true) {
+    $locale = $_GET ['locale']
 } else {
-//$currency = array("جنيه", "جنيهات", "جنيهان");
-//$currency = array("dollar", "dollars");
-    $currency = "$";
-//$currency = NULL ;
+   $locale = "USA";
 }
 
-if (isset($_GET['units']) && !empty($_GET['units'])) {
-    $units = $_GET ['units'];
+
+if (filter_var($currency, FILTER_VALIDATE_SRING) === true) {
+    $currency = $_GET ['currency']
 } else {
-//$units = array("قرش", "قروش", "قرشان");	
-//$units = array("cent", "cents");	
-    $units = "¢";
-//$units = NULL ;
+   $currency = "$";
+}
+
+
+if (filter_var($units, FILTER_VALIDATE_SRING) === true) {
+    $units = $_GET ['units']
+} else {
+   $units = "¢";
 }
 
 
