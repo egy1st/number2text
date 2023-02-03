@@ -59,7 +59,7 @@ class NumberingSystem
      *
      * @param string $aNum number array parameter
      * @param string $_step which cycle parameter
-     * 
+     *
      * @return int
      */
     public static function getSum($aNum, $_step): int
@@ -82,7 +82,7 @@ class NumberingSystem
      * This function removes comma "," from a resulted string.
      *
      * @param string $str string parameter
-     * 
+     *
      * @return string
      */
     public static function removeComma($str): string
@@ -103,7 +103,7 @@ class NumberingSystem
      * @param string $cycle cycle parameter
      * @param string $id1 1st Id  parameter
      * @param string $id2 2nd Id parameter
-     * 
+     *
      * @return string
      */
     public static function substituteIDs($strNum, $strForma, $cycle, $id1, $id2): string
@@ -133,7 +133,7 @@ class NumberingSystem
      *
      * @param string $str string parameter
      * @param string $and concatanation notion parameter
-     * 
+     *
      * @return string
      */
     public static function removeAnd($str, $and): string
@@ -153,7 +153,7 @@ class NumberingSystem
      *
      * @param string $str string parameter
      * @param string $and concatanation notion parameter
-     * 
+     *
      * @return string
      */
     public static function remove1stAnd($str, $and): string
@@ -173,7 +173,7 @@ class NumberingSystem
      *
      * @param string $cycle cycle parameter
      * @param string $ptrn pattern parameter
-     * 
+     *
      * @return bool
      */
     public static function NoCurrency($cycle, $ptrn): bool
@@ -191,7 +191,7 @@ class NumberingSystem
      *
      * @param string $ptrn1 pattern 1 parameter
      * @param string $ptrn2 pattern 2 parameter
-     * 
+     *
      * @return bool
      */
     public static function isPattern($ptrn1, $ptrn2): bool
@@ -227,7 +227,7 @@ class NumberingSystem
      * This function remove spaces between result string.
      *
      * @param string $str string parameter
-     * 
+     *
      * @return string
      */
     public static function removeSpaces($str): string
@@ -253,7 +253,7 @@ class NumberingSystem
      *
      * @param string $cycle cycle parameter
      * @param string $strForma strForma parameter
-     * 
+     *
      * @return string
      */
     public static function checkOneHundred($cycle, $strForma)
@@ -288,7 +288,7 @@ class NumberingSystem
      *
      * @param string $cycle cycle parameter
      * @param string $strForma strForma parameter
-     * 
+     *
      * @return string
      */
     public static function checkOneThousnad($cycle, $strForma)
@@ -310,7 +310,7 @@ class NumberingSystem
      * @param string $aId aId parameter
      * @param string $aNum aNum parameter
      * @param string $Lang Lang parameter
-     * 
+     *
      * @return void
      */
     public static function getLanguage(&$aUnit, &$aTen, &$aHundred, &$aId, &$aNum, $Lang)
