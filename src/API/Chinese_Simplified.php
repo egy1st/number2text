@@ -130,24 +130,20 @@ class Chinese_Simplified
 
     }
 
-    public static function getGrand($cycle)
+    public static function checkChineseTen($cycle, $strForma)
     {
 
-        if ($cycle === 1) {
-            return "亿";
-            // 100 Million
-        } else if ($cycle === 2) {
-            return "万";
-            // Ten Thousands
-        } else if ($cycle === 3) {
-            return "";
-            // units
+        if ($cycle === 1 & NumberingSystem::isPattern($strForma, "0010xxxxxxxx.xxxx")) {
+            return true;
+        } else if ($cycle === 2 & NumberingSystem::isPattern($strForma, "xxxx0010xxxx.xxxx")) {
+            return true;
+        } else if ($cycle === 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx0010.xxxx")) {
+            return true;
+        } else if ($cycle === 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0010")) {
+            return true;
         }
 
-        //else if ($cycle == 4) {
-        // decimals
-
-        return "";
+        return false;
     }
 
     public static function getID($y)
@@ -189,20 +185,21 @@ class Chinese_Simplified
     }
     */
 
-    public static function checkChineseTen($cycle, $strForma)
+    public static function getChineseSubSum($aNum, $_cycle, $_step)
     {
 
-        if ($cycle === 1 & NumberingSystem::isPattern($strForma, "0010xxxxxxxx.xxxx")) {
-            return true;
-        } else if ($cycle === 2 & NumberingSystem::isPattern($strForma, "xxxx0010xxxx.xxxx")) {
-            return true;
-        } else if ($cycle === 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx0010.xxxx")) {
-            return true;
-        } else if ($cycle === 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0010")) {
-            return true;
+        $sum = 0;
+        $x = 0;
+
+        $_cycle = $_cycle - 1;
+        $_cycle = $_cycle * 4;
+        for ($x = $_step; $x <= 4; $x++) {
+            //echo 'sum ' . $aNum[$_phase + $x] ;
+            $sum += $aNum[$_cycle + $x];
         }
 
-        return false;
+        return $sum;
+
     }
 
     /*
@@ -246,21 +243,24 @@ class Chinese_Simplified
 	
 	*/
 
-    public static function getChineseSubSum($aNum, $_cycle, $_step)
+    public static function getGrand($cycle)
     {
 
-        $sum = 0;
-        $x = 0;
-
-        $_cycle = $_cycle - 1;
-        $_cycle = $_cycle * 4;
-        for ($x = $_step; $x <= 4; $x++) {
-            //echo 'sum ' . $aNum[$_phase + $x] ;
-            $sum += $aNum[$_cycle + $x];
+        if ($cycle === 1) {
+            return "亿";
+            // 100 Million
+        } else if ($cycle === 2) {
+            return "万";
+            // Ten Thousands
+        } else if ($cycle === 3) {
+            return "";
+            // units
         }
 
-        return $sum;
+        //else if ($cycle == 4) {
+        // decimals
 
+        return "";
     }
 
     /*

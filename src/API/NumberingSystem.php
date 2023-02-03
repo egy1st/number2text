@@ -35,6 +35,14 @@ class NumberingSystem
     public static $aUnit = [];
     public static $aId = [];
     public static $strForma = "";
+    public static $Num;
+    public static $id1;
+    public static $id2;
+    public static $id3;
+    public static $nUnit;
+    public static $nAll;
+    public static $strUnit = "";
+    public static $nSum;
     public $G;
     public $E;
     public $K;
@@ -44,16 +52,7 @@ class NumberingSystem
     public $Ln2;
     public $ln3;
     public $S;
-    public static $Num;
     public $newNum;
-    public static $id1;
-    public static $id2;
-    public static $id3;
-    public static $nUnit;
-    public static $nAll;
-    public static $strUnit = "";
-    public static $nSum;
-
 
     /**
      * This function sum up each group of 3 digits.
@@ -78,32 +77,6 @@ class NumberingSystem
         return $sum;
     }
 
-
-    /**
-     * This function make sure that we follw a valid pattern.
-     *
-     * @param string $ptrn1 pattern 1 parameter
-     * @param string $ptrn2 pattern 2 parameter
-     * @return bool
-     */
-    public static function isPattern($ptrn1, $ptrn2): bool
-    {
-        $n = 0;
-
-        for ($n = 1; $n <= 16; $n++) {
-            if (substr($ptrn2, $n, 1) == "d") {
-                if (substr($ptrn1, $n, 1) == "0") {
-                    return false;
-                }
-            } else if (substr($ptrn2, $n, 1) != "x" & substr($ptrn1, $n, 1) != substr($ptrn2, $n, 1)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-
     /**
      * This function removes comma "," from a resulted string.
      *
@@ -119,7 +92,6 @@ class NumberingSystem
         }
         return $str;
     }
-
 
     /**
      * This function substitute IDs accoring to a specific cycle.
@@ -153,7 +125,6 @@ class NumberingSystem
         return $strNum;
     }
 
-
     /**
      * This function remove concatanation notion from a resulted string.
      *
@@ -172,7 +143,6 @@ class NumberingSystem
         }
         return $str;
     }
-
 
     /**
      * This function remove first concatanation notion from a resulted string.
@@ -193,7 +163,6 @@ class NumberingSystem
         return $str;
     }
 
-
     /**
      * This function checks if a currency exist in the result string.
      *
@@ -211,6 +180,30 @@ class NumberingSystem
         return false;
     }
 
+    /**
+     * This function make sure that we follw a valid pattern.
+     *
+     * @param string $ptrn1 pattern 1 parameter
+     * @param string $ptrn2 pattern 2 parameter
+     * @return bool
+     */
+    public static function isPattern($ptrn1, $ptrn2): bool
+    {
+        $n = 0;
+
+        for ($n = 1; $n <= 16; $n++) {
+            if (substr($ptrn2, $n, 1) == "d") {
+                if (substr($ptrn1, $n, 1) == "0") {
+                    return false;
+                }
+            } else if (substr($ptrn2, $n, 1) != "x" & substr($ptrn1, $n, 1) != substr($ptrn2, $n, 1)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     /*
     public static function noKoreanCurrency($phase, $ptrn) {
@@ -222,7 +215,6 @@ class NumberingSystem
         return false;
     }
    */
-
 
     /**
      * This function remove spaces between result string.
