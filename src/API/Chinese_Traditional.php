@@ -3,8 +3,6 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
-require_once "NumberingSystem.php";
-require_once "Number2Text.php";
 
 /**
  * @covers Chinese_Traditional
@@ -21,9 +19,10 @@ class Chinese_Traditional
      *
      * @return string
      */
-    public function TranslateNumber($strNumber, $aCur)
+    public function translateNumber($strNumber, $aCur)
     {
 
+        // $KOR = shoudn't be new Korean(); not used for chinese traditional
         $strNum = "";
         $countZero = false;
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Chinese_Traditional");
