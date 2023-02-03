@@ -116,7 +116,7 @@ $strNumber = "" ;
 
             $strForma = substr($strForma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
-                $Forma .=  $aNum[$E];
+                $strForma .=  $aNum[$E];
             }
 
             return $strForma;
