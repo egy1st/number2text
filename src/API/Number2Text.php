@@ -58,10 +58,6 @@ $strNumber = "" ;
     }
 
 
-    // This function is main function
-    // It translates number to string based on the selected language
-
-
     // This function format number as integer.decimal where integer is 12 fixed places and decimal is 3 fixed placed
     // Integer is left zero padded, for example 123 will be 000000000123
     // Decimal is left and right zeros padded, for example 0.3 will be 0.030
@@ -203,7 +199,7 @@ $strNumber = "" ;
         }
 
        
-	    $oLang = NULL ;
+	    $oLang = null ;
         switch ($_language) {
 
             case Languages::ARABIC :
@@ -259,20 +255,7 @@ $strNumber = "" ;
 
         $strNumber = trim($strNumber);
 
-        /*
-        $clean_text = '' ;
-        if (Language::check_latin($language) )  {
-
-        for ( $pos=0; $pos < strlen($strNumber); $pos ++ ) {
-         $byte = substr($strNumber, $pos, 1);
-             if ( ord($byte) >= 32 &  ord($byte) <= 128 ) {
-                $clean_text .=  $byte ;
-              }
-        }
-        return trim($clean_text);
-        }
-        */
-
+       
         return $strNumber;
     }
 }
