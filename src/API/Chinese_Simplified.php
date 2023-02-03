@@ -78,7 +78,6 @@ class Chinese_Simplified
             if (isset($aNum[$x + 3])) {
                 $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
-
             $i = 0;
             for ($y = $x; $y <= $x + 3; $y++) {
                 $i += 1;
