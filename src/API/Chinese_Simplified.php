@@ -45,7 +45,7 @@ class Chinese_Simplified
                 $x = 9;
             } else if ($cycle === 4) {
                 $countZero = false;
-                $x = 14;
+                $x = 13;
             }
 
 
