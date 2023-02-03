@@ -230,7 +230,7 @@ class NumberingSystem
      *
      * @return string
      */
-    public static function removeSpaces($str): string
+    public static function removeSpaces($str)
     {
         if ($str == '')
             return "";
