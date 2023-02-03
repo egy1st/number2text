@@ -18,35 +18,35 @@ if (filter_var($number, FILTER_VALIDATE_INT) === true) {
 if (filter_var($language, FILTER_VALIDATE_SRING) === true) {
     $language = $_GET ['language']
 } else {
-   $language = "EN";
+    $language = "EN";
 }
 
 
 if (filter_var($output, FILTER_VALIDATE_SRING) === true) {
     $output = $_GET ['output']
 } else {
-   $output = "text";
+    $output = "text";
 }
 
 
 if (filter_var($locale, FILTER_VALIDATE_SRING) === true) {
     $locale = $_GET ['locale']
 } else {
-   $locale = "USA";
+    $locale = "USA";
 }
 
 
 if (filter_var($currency, FILTER_VALIDATE_SRING) === true) {
     $currency = $_GET ['currency']
 } else {
-   $currency = "$";
+    $currency = "$";
 }
 
 
 if (filter_var($units, FILTER_VALIDATE_SRING) === true) {
     $units = $_GET ['units']
 } else {
-   $units = "¢";
+    $units = "¢";
 }
 
 

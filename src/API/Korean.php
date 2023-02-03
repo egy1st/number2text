@@ -104,26 +104,24 @@ class Korean
 
     }
 
-    public static function getGrand($cycle)
+    public static function checkKoreanThousand($cycle, $strForma)
     {
 
-        if ($cycle === 1) {
-            return "억 ";
-            // 100 Million
-        } else if ($cycle === 2) {
-            return "만 ";
-            // Ten Thousands
-        } else if ($cycle === 3) {
-            return "";
-            // units
+        $NS = new NumberingSystem();
+
+        if ($cycle === 1 & NumberingSystem::isPattern($strForma, "1xxxxxxxxxxx.xxxx")) {
+            return true;
+        } else if ($cycle === 2 & NumberingSystem::isPattern($strForma, "xxxx1xxxxxxx.xxxx")) {
+            return true;
+        } else if ($cycle === 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx1xxx.xxxx")) {
+            return true;
+            // no place in pences places
+        } else if ($cycle === 4) {
+            return false;
         }
 
-        //else if ($cycle == 4) {
-        // decimals
-        return "";
-
+        return false;
     }
-
 
     public static function getID($y)
     {
@@ -200,23 +198,24 @@ class Korean
         return false;
     }
 
-    public static function checkKoreanThousand($cycle, $strForma)
+    public static function getGrand($cycle)
     {
 
-        $NS = new NumberingSystem();
-
-        if ($cycle === 1 & NumberingSystem::isPattern($strForma, "1xxxxxxxxxxx.xxxx")) {
-            return true;
-        } else if ($cycle === 2 & NumberingSystem::isPattern($strForma, "xxxx1xxxxxxx.xxxx")) {
-            return true;
-        } else if ($cycle === 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx1xxx.xxxx")) {
-            return true;
-            // no place in pences places
-        } else if ($cycle === 4) {
-            return false;
+        if ($cycle === 1) {
+            return "억 ";
+            // 100 Million
+        } else if ($cycle === 2) {
+            return "만 ";
+            // Ten Thousands
+        } else if ($cycle === 3) {
+            return "";
+            // units
         }
 
-        return false;
+        //else if ($cycle == 4) {
+        // decimals
+        return "";
+
     }
 
 

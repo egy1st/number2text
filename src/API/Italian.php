@@ -134,21 +134,21 @@ class Italian
         return $strNum;
     }
 
+    function removeVowels($str)
+    {
+        $Ln = strlen($str);
+        if ($Ln > 0) {
+            $str = substr($str, 0, ($Ln - 1));
+        }
+        return $str;
+    }
+
     function modifyAccent($str)
     {
         $Ln = strlen($str);
         $Ln2 = strlen("tre");
         if (substr($str, -$Ln2) == "tre") {
             $str = substr($str, 0, ($Ln - $Ln2)) . "tré";
-        }
-        return $str;
-    }
-
-    function removeVowels($str)
-    {
-        $Ln = strlen($str);
-        if ($Ln > 0) {
-            $str = substr($str, 0, ($Ln - 1));
         }
         return $str;
     }
