@@ -125,7 +125,7 @@ class NumberingSystem
 
 
         }
-        return $strNum;
+        return $strNum; 
     }
 
     /**
