@@ -110,9 +110,9 @@ $strNumber = "" ;
             }
 
             // make(0.23 as 0.023)
-             $N[16] =  $N[15];
-             $N[15] =  $N[14];
-             $N[14] = 0;
+             $aNum[16] =  $aNum[15];
+             $aNum[15] =  $aNum[14];
+             $aNum[14] = 0;
 
             $strForma = substr($strForma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
