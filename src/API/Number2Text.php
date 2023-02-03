@@ -124,8 +124,9 @@ class Number2Text
         return $strNum;
     }
 
-    // This function is main function
-    // It translates number to string based on the selected language
+    // this function will output the translation into 2 format
+    // 1- text 2- image
+
     public static function translateNumber($strNumber, $_language, $_currency, $_units, $_locale, $_output)
     {
 
