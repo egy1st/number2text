@@ -232,7 +232,7 @@ class NumberingSystem
      */
     public static function removeSpaces($str): string
     {
-        if ($str == null)
+        if ($str == '')
             return "";
 
         $str = trim($str);
