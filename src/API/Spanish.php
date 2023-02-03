@@ -13,7 +13,6 @@ require_once "Number2Text.php";
 class Spanish
 {
 
-
     /**
      * This is the main function required to convert a number into words.
      *
