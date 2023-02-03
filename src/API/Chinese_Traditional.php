@@ -73,11 +73,11 @@ class Chinese_Traditional
            */
 
             $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
             $y = 0;
 
 
-            if (isset($aNum[$x + 3])) {
+            // if (isset($aNum[$x + 3]))
+             {
                 $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
 
