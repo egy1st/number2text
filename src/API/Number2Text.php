@@ -116,10 +116,11 @@ class Number2Text
         //if ($strNum != NULL & trim($strNum) != '') {
         if (is_numeric($strNum)) {
             $strNum = str_pad($strNum, $intCount, '0', STR_PAD_LEFT);
-        } else {
-            $strNum = "000000000000.000";
-        }
-
+        } 
+        
+        // default val to return
+        $strNum = "000000000000.000";
+     
         return $strNum;
     }
 
