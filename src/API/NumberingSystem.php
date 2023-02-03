@@ -26,16 +26,18 @@ require_once "Number2Text.php";
  */
 class NumberingSystem
 {
-    public static $CurrncyDefined = false;
-    public static $SignDefined = false;
-    public static $AbvDefined = false;
+    // public static $CurrncyDefined = false;
+    // public static $SignDefined = false;
+    // public static $AbvDefined = false;
+
     public static $aHundred = [];
     public static $aNum = [];
     public static $aTen = [];
     public static $aUnit = [];
     public static $aId = [];
     public static $strForma = "";
-    public static $strNum;
+    
+    // public static $strNum;
 
     /*    
     public static $id1;
