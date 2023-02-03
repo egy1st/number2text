@@ -185,7 +185,9 @@ class Chinese_Traditional
         return false;
     }
     */
+    
 
+    
     public static function getChineseSubSum($aNum, $_cycle, $_step)
     {
 

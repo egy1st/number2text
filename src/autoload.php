@@ -17,7 +17,7 @@ spl_autoload_register(function ($className) {
     }
     $fileName = __DIR__ . DIRECTORY_SEPARATOR . $fileName . $className . '.php';
     if (file_exists($fileName)) {
-        include_once $fileName;
+        require $fileName;
 
         return true;
     }
