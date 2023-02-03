@@ -190,7 +190,7 @@ class Number2Text
                 $oLang = new German ();
                 break;
             case Languages::SPANISH :
-                $lang = new Spanish ();
+                $olang = new Spanish ();
                 break;
             case Languages::PORTUGUESE :
                 $oLang = new Portuguese ();
