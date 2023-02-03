@@ -211,6 +211,7 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$locale = 'USA' ;
         $languages = ["AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN"]; //, "ZH_TW"];
         // $languages = ["EN"];
+        
 
         // add null & '' to test cases
         $numbers = ["", null];
