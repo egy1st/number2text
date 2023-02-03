@@ -31,17 +31,17 @@ class Chinese_Simplified
             $aId[$x] = $aCur[$x - 7];
         }
 
-        //===================================================================================
+        //=====================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
         for ($cycle = 1; $cycle <= 4; $cycle++) {
-            if ($cycle === 1) {
+            if ($cycle == 1) {
                 $x = 1;
-            } else if ($cycle === 2) {
+            } else if ($cycle == 2) {
                 $x = 5;
-            } else if ($cycle === 3) {
+            } else if ($cycle == 3) {
                 $x = 9;
-            } else if ($cycle === 4) {
+            } else if ($cycle == 4) {
                 $countZero = false;
                 $x = 14;
             }
@@ -83,7 +83,7 @@ class Chinese_Simplified
                     if ($aNum[$y] != 0 || $countZero) {
                         $countZero = true;
                         //check ten for units only'
-                        if ($i === 3 & $cycle === 3 & $this->checkChineseTen($cycle, $strForma)) {
+                        if ($i == 3 & $cycle == 3 & $this->checkChineseTen($cycle, $strForma)) {
                             $strNum .= $this->getID($y);
                         } else if ($aNum[$y] != 0) {
                             $strNum .= $aUnit[$aNum[$y]] . $this->getID($y);
@@ -109,11 +109,11 @@ class Chinese_Simplified
                 $strNum .= $this->getGrand($cycle);
             }
 
-            //=================================================================
-            if ($cycle === 3) {
+            //============================================
+            if ($cycle == 3) {
                 $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $aId[7];
-            } else if ($cycle === 4 & !NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0000")) {
+            } else if ($cycle == 4 & !NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0000")) {
                 $strNum .= " " . $aId[9];
             }
         }
@@ -122,7 +122,7 @@ class Chinese_Simplified
         $strNum = NumberingSystem::removeSpaces($strNum);
         $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
-        if ($strForma === "000000000000.0000") {
+        if ($strForma == "000000000000.0000") {
             $strNum = $aUnit[0];
         }
 
@@ -134,13 +134,13 @@ class Chinese_Simplified
     public static function checkChineseTen($cycle, $strForma)
     {
 
-        if ($cycle === 1 & NumberingSystem::isPattern($strForma, "0010xxxxxxxx.xxxx")) {
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "0010xxxxxxxx.xxxx")) {
             return true;
-        } else if ($cycle === 2 & NumberingSystem::isPattern($strForma, "xxxx0010xxxx.xxxx")) {
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxx0010xxxx.xxxx")) {
             return true;
-        } else if ($cycle === 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx0010.xxxx")) {
+        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx0010.xxxx")) {
             return true;
-        } else if ($cycle === 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0010")) {
+        } else if ($cycle == 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0010")) {
             return true;
         }
 
@@ -150,13 +150,13 @@ class Chinese_Simplified
     public static function getID($y)
     {
 
-        if ($y % 4 === 1) {
+        if ($y % 4 == 1) {
             return "仟";
             // Thousands
-        } else if ($y % 4 === 2) {
+        } else if ($y % 4 == 2) {
             return "佰";
             // Hundereds
-        } else if ($y % 4 === 3) {
+        } else if ($y % 4 == 3) {
             return "拾";
             // Tens
         }
@@ -247,13 +247,13 @@ class Chinese_Simplified
     public static function getGrand($cycle)
     {
 
-        if ($cycle === 1) {
+        if ($cycle == 1) {
             return "亿";
             // 100 Million
-        } else if ($cycle === 2) {
+        } else if ($cycle == 2) {
             return "万";
             // Ten Thousands
-        } else if ($cycle === 3) {
+        } else if ($cycle == 3) {
             return "";
             // units
         }
