@@ -3,8 +3,6 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
-require_once "NumberingSystem.php";
-require_once "Number2Text.php";
 
 /**
  * @covers Chinese_Simplified
@@ -21,12 +19,12 @@ class Chinese_Simplified
      *
      * @return string
      */
-    public function TranslateNumber($strNum, $aCur)
+    public function translateNumber($strNumber, $aCur)
     {
 
         $KOR = new Korean();
+        $strNum = "";
 
-        //$strNum = "";
         $countZero = false;
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Chinese_Simplified");
         for ($x = 7; $x <= 12; $x++) {
@@ -45,7 +43,7 @@ class Chinese_Simplified
                 $x = 9;
             } else if ($cycle === 4) {
                 $countZero = false;
-                $x = 13;
+                $x = 14;
             }
 
 
@@ -71,7 +69,7 @@ class Chinese_Simplified
             // (thousand, million, billion, trillion, etc. are all separated by three decimal places).
             */
 
-            $strForma = Number2Text::prepareNumber($strNum, $aNum);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $y = 0;
 
