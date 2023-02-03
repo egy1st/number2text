@@ -129,24 +129,20 @@ class Chinese_Simplified
 
     }
 
-    public static function getGrand($L)
+    public static function checkChineseTen($cycle, $strForma)
     {
 
-        if ($L == 1) {
-            return "亿";
-            // 100 Million
-        } else if ($L == 2) {
-            return "万";
-            // Ten Thousands
-        } else if ($L == 3) {
-            return "";
-            // units
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "0010xxxxxxxx.xxxx")) {
+            return true;
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxx0010xxxx.xxxx")) {
+            return true;
+        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxx0010.xxxx")) {
+            return true;
+        } else if ($cycle == 4 & NumberingSystem::isPattern($strForma, "xxxxxxxxxxxx.0010")) {
+            return true;
         }
 
-        //else if ($L == 4) {
-        // decimals
-
-        return "";
+        return false;
     }
 
     public static function getID($y)
@@ -170,17 +166,17 @@ class Chinese_Simplified
     }
 
     /*
-    public static function checkChineseHundred($L, $Forma)
+    public static function checkChineseHundred($cycle, $strForma)
     {
 
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "x1xxxxxxxxxx.xxxx")) {
+        if ($cycle == 1 & NumberingSystem::isPattern($strForma, "x1xxxxxxxxxx.xxxx")) {
             return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxxx1xxxxxx.xxxx")) {
+        } else if ($cycle == 2 & NumberingSystem::isPattern($strForma, "xxxxx1xxxxxx.xxxx")) {
             return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxxx1xx.xxxx")) {
+        } else if ($cycle == 3 & NumberingSystem::isPattern($strForma, "xxxxxxxxx1xx.xxxx")) {
             return true;
         // no place in pences places
-        } else if ($L == 4) {
+        } else if ($cycle == 4) {
             return false;
         }
 
@@ -188,74 +184,17 @@ class Chinese_Simplified
     }
     */
 
-    public static function checkChineseTen($L, $Forma)
-    {
-
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "0010xxxxxxxx.xxxx")) {
-            return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx0010xxxx.xxxx")) {
-            return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx0010.xxxx")) {
-            return true;
-        } else if ($L == 4 & NumberingSystem::isPattern($Forma, "xxxxxxxxxxxx.0010")) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /*
-    public static function checkChineseOne($L, $Forma)
-    {
-
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "0001xxxxxxxx.xxxx")) {
-            return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx0001xxxx.xxxx")) {
-            return true;
-        // not applied here
-        } else if ($L == 3) {
-            return false;
-        // not applied here
-        } else if ($L == 4) {
-            return false;
-        }
-
-        return false;
-    }
-    */
-
-
-    /*
-    public static function checkChineseThousand($L, $Forma)
-    {
-
-        if ($L == 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
-            return true;
-        } else if ($L == 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
-            return true;
-        } else if ($L == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
-            return true;
-        // no place in pences places
-        } else if ($L == 4) {
-            return false;
-        }
-
-        return false;
-    }
-    
-    */
-
-    public static function getChineseSubSum($N, $_phase, $_step)
+    public static function getChineseSubSum($aNum, $_cycle, $_step)
     {
 
         $sum = 0;
         $x = 0;
 
-        $_phase = $_phase - 1;
-        $_phase = $_phase * 4;
+        $_cycle = $_cycle - 1;
+        $_cycle = $_cycle * 4;
         for ($x = $_step; $x <= 4; $x++) {
-            //echo 'sum ' . $N[$_phase + $x] ;
-            $sum += $N[$_phase + $x];
+            //echo 'sum ' . $aNum[$_phase + $x] ;
+            $sum += $aNum[$_cycle + $x];
         }
 
         return $sum;
@@ -263,14 +202,75 @@ class Chinese_Simplified
     }
 
     /*
-     public static function getChineseSum($N, $_step)
+    public static function checkChineseOne($cycle, $Forma)
+    {
+
+        if ($cycle == 1 & NumberingSystem::isPattern($Forma, "0001xxxxxxxx.xxxx")) {
+            return true;
+        } else if ($cycle == 2 & NumberingSystem::isPattern($Forma, "xxxx0001xxxx.xxxx")) {
+            return true;
+        // not applied here
+        } else if ($cycle == 3) {
+            return false;
+        // not applied here
+        } else if ($cycle == 4) {
+            return false;
+        }
+
+        return false;
+    }
+    */
+
+
+    /*
+	public static function checkChineseThousand($cycle, $Forma)
+	{
+
+		if ($cycle == 1 & NumberingSystem::isPattern($Forma, "1xxxxxxxxxxx.xxxx")) {
+			return true;
+		} else if ($cycle == 2 & NumberingSystem::isPattern($Forma, "xxxx1xxxxxxx.xxxx")) {
+			return true;
+		} else if ($cycle == 3 & NumberingSystem::isPattern($Forma, "xxxxxxxx1xxx.xxxx")) {
+			return true;
+		// no place in pences places
+		} else if ($cycle == 4) {
+			return false;
+		}
+
+		return false;
+	}
+	
+	*/
+
+    public static function getGrand($cycle)
+    {
+
+        if ($cycle == 1) {
+            return "亿";
+            // 100 Million
+        } else if ($cycle == 2) {
+            return "万";
+            // Ten Thousands
+        } else if ($cycle == 3) {
+            return "";
+            // units
+        }
+
+        //else if ($cycle == 4) {
+        // decimals
+
+        return "";
+    }
+
+    /*
+     public static function getChineseSum($aNum, $_step)
      {
 
          $sum = 0;
          $x = 0;
 
          for ($x = $_step; $x <= 12; $x++) {
-             $sum += $N[$x];
+             $sum += $aNum[$x];
          }
 
          return $sum;

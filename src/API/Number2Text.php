@@ -76,11 +76,7 @@ class Number2Text
                 $strForma .= $aNum[$E];
             }
 
-             $aNum[17] = null; // special cond. for chinese compatability
-             $aNum[18] = null; // special cond. for chinese compatability
-             $aNum[19] = null; // special cond. for chinese compatability
-             $aNum[20] = null; // special cond. for chinese compatability
-
+             
             return $strForma;
         }
     }
