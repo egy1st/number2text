@@ -118,9 +118,9 @@ class NumberingSystem
 
             $Ln2 = strlen($id2);
             if (substr($strNum, -$Ln2) == $id2) {
-                $new_Num = substr($strNum, 0, $num_Ln - ($Ln2 + 1));
-                $new_Num .= ' ' . $id1;
-                return $new_Num;
+                $newNum = substr($strNum, 0, $num_Ln - ($Ln2 + 1));
+                $newNum .= ' ' . $id1;
+                return $newNum;
             }
 
 
