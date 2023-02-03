@@ -22,7 +22,6 @@ class Chinese_Simplified
     public function translateNumber($strNumber, $aCur)
     {
 
-        // $KOR = new Korean();
         $strNum = "";
 
         $countZero = false;
@@ -73,8 +72,7 @@ class Chinese_Simplified
 
             $y = 0;
 
-            //if (isset($aNum[$x + 3])) 
-            {
+           
                 $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
                 $i = 0;
@@ -102,8 +100,7 @@ class Chinese_Simplified
                         }
 
                     }
-                }
-
+                
             }
 
             if ($ptrn != "0000") {
