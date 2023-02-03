@@ -3,6 +3,7 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
+// require_once "Number2Text.php";
 
 /**
  * @covers English
@@ -21,9 +22,9 @@ class English
      *
      * @return string
      */
-    public function TranslateNumber($strNum, $aCur)
+    public function translateNumber($strNumber, $aCur)
     {
-        // $strNum = "";
+        $strNum = "";
 
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "English");
 
@@ -59,7 +60,7 @@ class English
 
             // ================================================================
             // Prepre numbers from 0 to 99
-            $strForma = Number2Text::prepareNumber($strNum, $aNum);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ($aNum[$x + 2] + ($aNum[$x + 1] * 10));
 
