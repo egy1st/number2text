@@ -81,6 +81,8 @@ class Number2Text
 
             return $strForma;
         }
+
+        return $strNumber';
     }
 
 
@@ -100,6 +102,7 @@ class Number2Text
             if ($whole == 0) return ('000000000000') . "." . self::zeroPad($fraction, 2);
             return (self::zeroPad($whole, 12) . "." . self::zeroPad($fraction, 2));
         }
+        return $strNumber;
     }
 
 
@@ -252,7 +255,7 @@ class Number2Text
 
         if ($output_format == 'image') {
 
-            $txt = iconv('UTF-8', 'ASCII//TRANSLIT', $txt);
+            $txt = iconv('UTF - 8', 'ASCII//TRANSLIT', $txt);
             $txt = preg_replace('/[ ]{2,}|[\t]/', ' ', trim($txt));
             ob_start();
 
@@ -272,8 +275,9 @@ class Number2Text
             return $encodedimg;
             imagedestroy($image);
         } elseif ($output_format == 'text')
-            return $txt;
-    }
+return $txt;
+}
+
 }
 
 ?> 
