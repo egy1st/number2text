@@ -17,12 +17,9 @@ class Languages
     const TURKISH = 'TR';
     const PERSIAN = 'FA';
     const KOREAN = 'KO';
-    //const CHINESE_SIMPLIFIED = 'ZH_CN';
-    //const CHINESE_TRADITIONAL = 'ZH_TW';
+    const CHINESE_SIMPLIFIED = 'ZH_CN';
+    const CHINESE_TRADITIONAL = 'ZH_TW';
 
-
-    const CHINESE_SIMPLIFIED = 'ZH_TW'; 
-    const CHINESE_TRADITIONAL = 'ZH_CN';
 
     public static function check_latin($_lang)
     {
