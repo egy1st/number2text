@@ -947,7 +947,7 @@ class NumberingSystem
                 $aUnit[9] = "玖";
                 $aUnit[10] = "拾";
                 $aUnit[11] = "";
-                $aUnit[12] = "";
+                $aUnit[12] = ""; 
                 $aUnit[13] = "";
                 $aUnit[14] = "";
                 $aUnit[15] = "";
