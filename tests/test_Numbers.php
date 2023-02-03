@@ -3,23 +3,6 @@ require __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/API/Number2Text.php';
 require_once __DIR__ . '/../src/API/NumberingSystem.php';
 
-require_once "Arabic.php";
-require_once "English.php";
-require_once "French.php";
-require_once "German.php";
-require_once "Italian.php";
-require_once "Spanish.php";
-require_once "Portuguese.php";
-require_once "Russian.php";
-require_once "Turkish.php";
-require_once "Persian.php";
-require_once "Korean.php";
-require_once "Chinese_Simplified.php";
-require_once "Chinese_Traditional.php";
-require_once "NumberingSystem.php";
-require_once "Locality.php";
-
-
 /**
  * @covers Number2Text
  * @covers NumberingSystem

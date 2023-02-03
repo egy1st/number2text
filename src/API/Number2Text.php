@@ -3,7 +3,7 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
-/**
+
 require_once "Arabic.php";
 require_once "English.php";
 require_once "French.php";
@@ -19,12 +19,7 @@ require_once "Chinese_Simplified.php";
 require_once "Chinese_Traditional.php";
 require_once "NumberingSystem.php";
 require_once "Locality.php";
-*/
 
-$empty_units = false;
-$empty_frac = false;
-$aCurrencies = [];
-$strNumber = "" ;
 
 /**
  * @covers Arabic
