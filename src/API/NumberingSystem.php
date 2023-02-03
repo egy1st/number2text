@@ -27,14 +27,12 @@ require_once "Number2Text.php";
 class NumberingSystem
 {
    
-    public static $aHundred = [];
+    // public static $aHundred = [];
     public static $aNum = [];
     public static $aTen = [];
     public static $aUnit = [];
     public static $aId = [];
-    // public static $strForma = "";
-    
-    
+     
     /**
      * This function sum up each group of 3 digits.
      *
