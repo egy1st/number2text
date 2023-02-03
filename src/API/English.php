@@ -59,7 +59,7 @@ class English
 
             // ================================================================
             // Prepre numbers from 0 to 99
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
+            $strForma = Number2Text::prepareNumber($strNum, $aNum);
 
             $nUnit = ($aNum[$x + 2] + ($aNum[$x + 1] * 10));
 
