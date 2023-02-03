@@ -4,10 +4,6 @@
 // ini_set('error_reporting', E_ALL);
 
 
-require_once "NumberingSystem.php";
-require_once "Number2Words.php";
-
-
 /**
  * @covers Chinese_Simplified
  *
