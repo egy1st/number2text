@@ -26,40 +26,15 @@ require_once "Number2Text.php";
  */
 class NumberingSystem
 {
-    // public static $CurrncyDefined = false;
-    // public static $SignDefined = false;
-    // public static $AbvDefined = false;
-
+   
     public static $aHundred = [];
     public static $aNum = [];
     public static $aTen = [];
     public static $aUnit = [];
     public static $aId = [];
-    public static $strForma = "";
+    // public static $strForma = "";
     
-    // public static $strNum;
-
-    /*    
-    public static $id1;
-    public static $id2;
-    public static $id3;
-    public static $nUnit;
-    public static $nAll;
-    public static $strUnit = "";
-    public static $nSum;
     
-    public $G;
-    public $E;
-    public $K;
-    public $x;
-    public $cycle;
-    public $Ln;
-    public $Ln2;
-    public $ln3;
-    public $S;
-    public $newNum;
-    */
-
     /**
      * This function sum up each group of 3 digits.
      *
