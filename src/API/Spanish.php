@@ -56,7 +56,7 @@ class Spanish
             // ==============================================================================
             // Prepre numbers from 0 to 99
 
-            $Forma = Number2Text::prepareNumber($strNumber, $aNum);
+            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
 
             $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
             $nAll = $aNum[$x] + $nUnit;
