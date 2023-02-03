@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // error_reporting(E_ALL);
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
@@ -30,7 +30,7 @@ class Chinese_Simplified
         $countZero = false;
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Chinese_Simplified");
         for ($x = 7; $x <= 12; $x++) {
-            $aId[$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur[$x - 7];
         }
 
         //===================================================================================
@@ -107,7 +107,7 @@ class Chinese_Simplified
              }
 
             }
-            
+
             if ($ptrn != "0000") {
                 $strNum .= $this->getGrand($cycle);
             }

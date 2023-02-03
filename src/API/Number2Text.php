@@ -22,7 +22,7 @@ require_once "Locality.php";
 $empty_units = false;
 $empty_frac = false;
 $aCurrencies = [];
-$strNumber = "";
+$strNumber = "" ;
 
 /**
  * @covers Arabic
@@ -39,56 +39,32 @@ $strNumber = "";
  * @covers Chinese_Simplified
  * @covers Chinese_Traditional
  */
-class Number2Text
+ 
+ class Number2Text
 {
 
     // This function left pad zeros, for example 123 will be 000000000123
-    public static function prepareNumber($strNumber, &$aNum)
+    public static function zeroPad($strNum, $intCount)
     {
 
-        if (is_numeric($strNumber)) {
-
-            // $strNumber = $para_number;
-            $strNumber = str_replace(",", ".", $strNumber);
-            if ($strNumber > "999999999999.099") {
-                echo("Cannot translate numbers exceed 999,999,999,999.00");
-                return false;
-            }
-
-            $strForma = self::formatNumber($strNumber);
-            $strNum = ""; 
-            $E = 0;
-            for ($E = 0; $E < 12; $E++) {
-                $S = substr($strForma, $E, 1);
-                $aNum[$E + 1] = $S;
-            }
-
-            for ($E = 13; $E < 16; $E++) {
-                $S = substr($strForma, $E, 1);
-                $aNum[$E + 1] = $S;
-            }
-
-            // make(0.23 as 0.023)
-            $aNum[16] = $aNum[15];
-            $aNum[15] = $aNum[14];
-            $aNum[14] = 0;
-
-            $strForma = substr($strForma, 0, 13);
-            for ($E = 14; $E <= 16; $E++) {
-                $strForma .= $aNum[$E];
-            }
-
-            return $strForma;
+        //if ($strNum != NULL & trim($strNum) != '') {
+        if (is_numeric($strNum)) {
+            $strNum = str_pad($strNum, $intCount, '0', STR_PAD_LEFT);
+        } else {
+            $strNum = "000000000000.000";
         }
 
-        return $strNumber;
+        return $num;
     }
+
+
+    // This function is main function
+    // It translates number to string based on the selected language
 
 
     // This function format number as integer.decimal where integer is 12 fixed places and decimal is 3 fixed placed
     // Integer is left zero padded, for example 123 will be 000000000123
     // Decimal is left and right zeros padded, for example 0.3 will be 0.030
-
     public static function formatNumber($strNumber)
     {
         if (is_numeric($strNumber)) {
@@ -101,79 +77,133 @@ class Number2Text
             if ($whole == 0) return ('000000000000') . "." . self::zeroPad($fraction, 2);
             return (self::zeroPad($whole, 12) . "." . self::zeroPad($fraction, 2));
         }
-        return $strNumber;
     }
 
 
 
     // This function populates digits in an array to master it one by one
     // Then, it format it to the proper format
-
-    public static function zeroPad($strNum, $intCount)
+    public static function prepareNumber($strNumber, &$N)
     {
 
-        //if ($strNum != NULL & trim($strNum) != '') {
-        if (is_numeric($strNum)) {
-            $strNum = str_pad($strNum, $intCount, '0', STR_PAD_LEFT);
-        } 
-        
-        // default val to return
-        $strNum = "000000000000.000";
-     
-        return $strNum;
+        if (is_numeric($strNumber)) {
+
+            // $strNumber = $para_number;
+            $strNumber = str_replace(",", ".", $strNumber);
+            if ($strNumber > "999999999999.099") {
+                echo("Cannot translate numbers exceed 999,999,999,999.00");
+                return false;
+            }
+
+            $Forma = self::formatNumber($strNumber);
+            $strNum = "";
+
+            $E = 0;
+            for ($E = 0; $E < 12; $E++) {
+                $S = substr($Forma, $E, 1);
+                 $aNum[$E + 1] = $S;
+            }
+
+            for ($E = 13; $E < 16; $E++) {
+                $S = substr($Forma, $E, 1);
+                 $aNum[$E + 1] = $S;
+            }
+
+            // make(0.23 as 0.023)
+             $N[16] =  $N[15];
+             $N[15] =  $N[14];
+             $N[14] = 0;
+
+            $Forma = substr($Forma, 0, 13);
+            for ($E = 14; $E <= 16; $E++) {
+                $Forma .=  $aNum[$E];
+            }
+
+            return $Forma;
+        }
     }
 
     // this function will output the translation into 2 format
     // 1- text 2- image
+    public static function outputFormat($txt, $output_format)
+    {
+        $font_size = 11;
 
-    public static function translateNumber($strNumber, $_language, $_currency, $_units, $_locale, $_output)
+        if ($output_format == 'image') {
+
+            $txt = iconv('UTF-8', 'ASCII//TRANSLIT', $txt);
+            $txt = preg_replace('/[ ]{2,}|[\t]/', ' ', trim($txt));
+            ob_start();
+
+            $width = imagefontwidth($font_size) * strlen($txt);
+            $height = imagefontheight($font_size);
+            $image = imagecreatetruecolor($width, $height);
+            $white = imagecolorallocate($image, 255, 255, 255);
+            $black = imagecolorallocate($image, 0, 0, 0);
+            imagefill($image, 0, 0, $white);
+            imagestring($image, $font_size, 0, 0, $txt, $black);
+            imagepng($image);
+            $img = ob_get_clean();
+            $data = base64_encode($img);
+            $encodedimg = "<img src='data:image/png;base64, " . $data . "' width='" . $width . "' height='" . $height . "'/>";
+            //$encodedimg = "data:image/png;base64, " . $data ;
+            //echo  $encodedimg ;
+            return $encodedimg;
+            imagedestroy($image);
+        } elseif ($output_format == 'text')
+            return $txt;
+    }
+
+    // This function is main function
+    // It translates number to string based on the selected language
+    public static function translateNumber($strNumber, $_language, $_currency, $_units,  $_locale, $_output)
     {
 
         global $aCurrencies, $number, $language, $currency, $units, $output, $locale;
-
-        if (!isset ($strNumber)) {
-            $strNumber = $number;
-        }
-
-        if (!isset ($_language)) {
-            $_language = $language;
-        }
-
-
-        if (!isset ($_locale)) {
-            $_locale = $locale;
-        }
-
-        if (!isset ($_currency)) {
-            $_currency = $currency;
-        }
-
-        if (!isset ($_units)) {
-            $_units = $units;
-        }
-
-        if (!isset ($_output)) {
-            $_output = $output;
-        }
-
+		
+		if (!isset ($strNumber )) {
+			$strNumber = $number ;
+		}
+		
+		if (!isset ($_language )) {
+			$_language = $language ;
+		}
+		
+		
+		if (!isset ($_locale )) {
+			$_locale = $locale ;
+		}
+		
+		if (!isset ($_currency )) {
+			$_currency = $currency ;
+		}
+		
+		if (!isset ($_units )) {
+			$_units = $units ;
+		}
+		
+		if (!isset ($_output )) {
+			$_output = $output ;
+		}
+		
         if (!is_numeric($strNumber)) {
             return "invalid number";
         }
 
         if (isset($_locale)) {
             $aCurrencies = Locality::getLocale($_locale);
-            //echo "1" ;
-            //print_r($aCurrencies);
-
+			//echo "1" ;
+			//print_r($aCurrencies);
+			
         }
         if (isset($_currency) & isset($_units) & !isset($_locale)) {
             $aCurrencies = Locality::setCurrency($_currency, $_units);
-            //echo "2" ;
-            //print_r($aCurrencies);
+			//echo "2" ;
+			//print_r($aCurrencies);
         }
 
-
-        $oLang = null;
+       
+	    $oLang = NULL ;
         switch ($_language) {
 
             case Languages::ARABIC :
@@ -181,7 +211,7 @@ class Number2Text
                 break;
             case Languages::ENGLISH :
                 $oLang = new English ();
-                break;
+			    break;
             case Languages::FRENCH :
                 $oLang = new French ();
                 break;
@@ -189,7 +219,7 @@ class Number2Text
                 $oLang = new German ();
                 break;
             case Languages::SPANISH :
-                $oLang = new Spanish ();
+                $lang = new Spanish ();
                 break;
             case Languages::PORTUGUESE :
                 $oLang = new Portuguese ();
@@ -220,9 +250,9 @@ class Number2Text
 
         // very important
         //$lang->TranslateNumber takes number and acuurency as parameters
-        //num2text::TranslateNumber takes number and language_id as parameters
+        //num2text::TranslateNumber takes number and language_id as parameters 
 
-
+        
         $strNumber = $oLang->TranslateNumber($strNumber, $aCurrencies); //$lang->TranslateNumber takes number and acuurency as parameters
         $strNumber = self::outputFormat($strNumber, $_output);
 
@@ -245,39 +275,6 @@ class Number2Text
 
         return $strNumber;
     }
-
-    // This function is main function
-    // It translates number to string based on the selected language
-
-    public static function outputFormat($txt, $output_format)
-    {
-        $font_size = 11;
-
-        if ($output_format == 'image') {
-
-            $txt = iconv('UTF-8', 'ASCII//TRANSLIT', $txt);
-            $txt = preg_replace('/[ ]{2,}|[\t]/', ' ', trim($txt));
-            ob_start();
-
-            $width = imagefontwidth($font_size) * strlen($txt);
-            $height = imagefontheight($font_size);
-            $image = imagecreatetruecolor($width, $height);
-            $white = imagecolorallocate($image, 255, 255, 255);
-            $black = imagecolorallocate($image, 0, 0, 0);
-            imagefill($image, 0, 0, $white);
-            imagestring($image, $font_size, 0, 0, $txt, $black);
-            imagepng($image);
-            $img = ob_get_clean();
-            $data = base64_encode($img);
-            $encodedimg = "<img src='data:image/png;base64, " . $data . "' width='" . $width . "' height='" . $height . "'/>";
-            //$encodedimg = "data:image/png;base64, " . $data ;
-            //echo  $encodedimg ;
-            return $encodedimg;
-            imagedestroy($image);
-        } elseif ($output_format == 'text')
-return $txt;
-}
-
 }
 
 ?> 
