@@ -22,7 +22,10 @@ class Chinese_Traditional
     public function translateNumber($strNumber, $aCur)
     {
 
-        $KOR = new Korean(); //Shoudn't be new Korean(); not used for chinese traditional
+        /**
+        $KOR = new Korean();
+        Shoudn't be new Korean(); not used for chinese traditional
+        */
 
         $strNum = "";
         $countZero = false;
