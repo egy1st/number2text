@@ -30,7 +30,7 @@ class NumberingSystem
     public static function getSum($aNum, $_step): int
     {
         $sum = 0;
-        if (!is_null($aNum)) {
+        if ($aNum != null) {
             if ($_step == 1) {
                 $sum = ($aNum[12]) + (($aNum[11]) * 10) + (($aNum[10]) * 100) + (($aNum[9]) * 1000) + (($aNum[8]) * 10000) + (($aNum[7]) * 100000) + (($aNum[6]) * 1000000) + (($aNum[5]) * 10000000) + (($aNum[4]) * 100000000);
             } else if ($_step == 2) {
