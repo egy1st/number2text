@@ -106,7 +106,7 @@ class Chinese_Simplified
                     }
 
                 }
-             }
+             
 
             }
 
