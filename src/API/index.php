@@ -7,15 +7,11 @@
 require_once "Locality.php";
 require_once "Number2Text.php";
 
-if (isset($_GET['number']) {
-    echo "case 0";
-    $number = $_GET ['number'];
-} elseif (empty($_GET['number'])) {
-    echo "case 1";
-    $number = 'invalid number';
-} elseif (is_null($_GET['number'])) {
-    echo "case 2";
-    $number = 'invalid number';
+
+if (filter_var($number, FILTER_VALIDATE_INT) === true) {
+    $number = $_GET ['number']
+} else {
+    $number = 0;
 }
 
 
