@@ -78,7 +78,7 @@ class Chinese_Simplified
             //if (isset($aNum[$x + 3])) 
             // this condition should not appear in chinese simplified
             // but it is a must for chinese traditional
-             $ptrn = $N[$x] . $N[$x + 1] . $N[$x + 2] . $N[$x + 3];
+             $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
 
             $i = 0;
