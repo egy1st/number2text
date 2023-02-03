@@ -30,7 +30,6 @@ class Spanish
         for ($x = 7; $x <= 12; $x++) {
             $aId[$x] = $aCur [$x - 7];
         }
-        
 
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
