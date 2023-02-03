@@ -28,7 +28,7 @@ class Chinese_Traditional
         $countZero = false;
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Chinese_Traditional");
         for ($x = 7; $x <= 12; $x++) {
-            $aId[$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur[$x - 7];
         }
 
         //=====================================================================
