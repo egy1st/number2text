@@ -3,7 +3,7 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
-require_once "Number2Text.php";
+//require_once "Number2Text.php";
 
 /**
  * @covers English
