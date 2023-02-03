@@ -124,8 +124,8 @@ class Chinese_Simplified
         }
 
         // Num = removeComma(Num) ' no comma is used in Finnish
-       // $strNum = NumberingSystem::removeSpaces($strNum);
-       // $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
+        $strNum = NumberingSystem::removeSpaces($strNum);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
         if ($strForma === "000000000000.0000") {
             $strNum = $aUnit[0];
