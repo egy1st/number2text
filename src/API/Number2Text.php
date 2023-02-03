@@ -255,7 +255,7 @@ class Number2Text
 
         if ($output_format == 'image') {
 
-            $txt = iconv('UTF - 8', 'ASCII//TRANSLIT', $txt);
+            $txt = iconv('UTF-8', 'ASCII//TRANSLIT', $txt);
             $txt = preg_replace('/[ ]{2,}|[\t]/', ' ', trim($txt));
             ob_start();
 
