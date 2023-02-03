@@ -22,7 +22,8 @@ class Chinese_Traditional
     public function translateNumber($strNumber, $aCur)
     {
 
-        // $KOR = shoudn't be new Korean(); not used for chinese traditional
+        $KOR = new Korean(); //Shoudn't be new Korean(); not used for chinese traditional
+
         $strNum = "";
         $countZero = false;
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Chinese_Traditional");
