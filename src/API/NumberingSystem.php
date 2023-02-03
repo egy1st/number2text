@@ -946,6 +946,16 @@ class NumberingSystem
                 $aUnit[8] = "捌";
                 $aUnit[9] = "玖";
                 $aUnit[10] = "拾";
+                $aUnit[11] = "";
+                $aUnit[12] = "";
+                $aUnit[13] = "";
+                $aUnit[14] = "";
+                $aUnit[15] = "";
+                $aUnit[16] = "";
+                $aUnit[17] = "";
+                $aUnit[18] = "";
+                $aUnit[19] = "";
+                $aUnit[20] = "";
 
                 $aTen[0] = "";
                 $aTen[1] = "拾";
