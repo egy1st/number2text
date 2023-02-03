@@ -22,25 +22,27 @@ require_once __DIR__ . '/../src/API/NumberingSystem.php';
  */
 
 
-  function strhex($string) {
-      $hexstr = unpack('H*', $string);
-      return array_shift($hexstr);
-   }
+function strhex($string)
+{
+    $hexstr = unpack('H*', $string);
+    return array_shift($hexstr);
+}
 
-   function nextchar($string, &$pointer){
-    if(!isset($string[$pointer])) return false;
+function nextchar($string, &$pointer)
+{
+    if (!isset($string[$pointer])) return false;
     $char = ord($string[$pointer]);
-    if($char < 128){
+    if ($char < 128) {
         return $string[$pointer++];
-    }else{
-        if($char < 224){
+    } else {
+        if ($char < 224) {
             $bytes = 2;
-        }elseif($char < 240){
+        } elseif ($char < 240) {
             $bytes = 3;
-        }else{
+        } else {
             $bytes = 4;
         }
-        $str =  substr($string, $pointer, $bytes);
+        $str = substr($string, $pointer, $bytes);
         $pointer += $bytes;
         return $str;
     }
@@ -50,47 +52,46 @@ require_once __DIR__ . '/../src/API/NumberingSystem.php';
 // Multi-Byte String iterator class
 class MbStrIterator implements Iterator
 {
-    private $iPos   = 0;
-    private $iSize  = 0;
-    private $sStr   = null;
+    private $iPos = 0;
+    private $iSize = 0;
+    private $sStr = null;
 
     // Constructor
     public function __construct(/*string*/ $str)
     {
         // Save the string
-        $this->sStr     = $str;
+        $this->sStr = $str;
 
         // Calculate the size of the current character
         $this->calculateSize();
     }
 
     // Calculate size
-    private function calculateSize() {
+    private function calculateSize()
+    {
 
         // If we're done already
-        if(!isset($this->sStr[$this->iPos])) {
+        if (!isset($this->sStr[$this->iPos])) {
             return;
         }
 
         // Get the character at the current position
-        $iChar  = ord($this->sStr[$this->iPos]);
+        $iChar = ord($this->sStr[$this->iPos]);
 
         // If it's a single byte, set it to one
-        if($iChar < 128) {
-            $this->iSize    = 1;
-        }
-
-        // Else, it's multi-byte
+        if ($iChar < 128) {
+            $this->iSize = 1;
+        } // Else, it's multi-byte
         else {
 
             // Figure out how long it is
-            if($iChar < 224) {
+            if ($iChar < 224) {
                 $this->iSize = 2;
-            } else if($iChar < 240){
+            } else if ($iChar < 240) {
                 $this->iSize = 3;
-            } else if($iChar < 248){
+            } else if ($iChar < 248) {
                 $this->iSize = 4;
-            } else if($iChar == 252){
+            } else if ($iChar == 252) {
                 $this->iSize = 5;
             } else {
                 $this->iSize = 6;
@@ -99,19 +100,16 @@ class MbStrIterator implements Iterator
     }
 
     // Current
-    public function current():  mixed {
+    public function current(): mixed
+    {
 
         // If we're done
-        if(!isset($this->sStr[$this->iPos])) {
+        if (!isset($this->sStr[$this->iPos])) {
             return false;
-        }
-
-        // Else if we have one byte
-        else if($this->iSize == 1) {
+        } // Else if we have one byte
+        else if ($this->iSize == 1) {
             return $this->sStr[$this->iPos];
-        }
-
-        // Else, it's multi-byte
+        } // Else, it's multi-byte
         else {
             return substr($this->sStr, $this->iPos, $this->iSize);
         }
@@ -136,7 +134,7 @@ class MbStrIterator implements Iterator
     public function rewind(): void
     {
         // Reset the position and size
-        $this->iPos     = 0;
+        $this->iPos = 0;
         $this->calculateSize();
     }
 
@@ -156,59 +154,43 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
     //private $mytestlist = array();
 
-    protected function setUp(): void 
-    {
-        $this->translator = new Number2Text();
-        $this->language = new English();
-
-    }
-
-    protected function tearDown(): void
-    {
-        $this->translator = null;
-        $this->language = null;
-        //$this->mytestlist = array();
-    }
-
     public function addDataProvider()
     {
         $mytestlist = [];
         $output = 'text';
-		$currency = "dollar" ;
-		$units = "cent" ;
-		$locale = 'USA' ;
-		//$strNumber, $language, $locale, $currency, $units, $output
-        $languages = ["AR", "EN", "FR", "DE", "IT", "ES", "PT", "TR", "FA", "RU", "KO", "ZH_TW"] ; //, "ZH_CN"]; 
-        $languages = ["ZH_TW"]; 
+        $currency = "dollar";
+        $units = "cent";
+        $locale = 'USA';
+        //$strNumber, $language, $locale, $currency, $units, $output
+        $languages = ["AR", "EN", "FR", "DE", "IT", "ES", "PT", "TR", "FA", "RU", "KO", "ZH_TW"]; //, "ZH_CN"];
+        $languages = ["ZH_TW"];
 
-        
+
         // Add null & '' to test cases
-        $numbers = [null, '', "one", "1.2.30", 0, 1 , 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
-            100000, 100001, 200000, 500000, 1000000, 1000001, 2000000, 7000000, 10000000, 100000000, 1000000000, 
+        $numbers = [null, '', "one", "1.2.30", 0, 1, 2, 3, 10, 11, 12, 13, 20, 41, 70, 71, 73, 82, 100, 101, 200, 600, 1000, 1001, 2000, 9000, 10000, 10001, 13000, 30000,
+            100000, 100001, 200000, 500000, 1000000, 1000001, 2000000, 7000000, 10000000, 100000000, 1000000000,
             2000000000, 100000000000, 210000000000, 999999999998.99, 0.01, 0.02, 0.03, 0.10, 0.99, 0.12, 10.01, 45.96, 1000.05, 45698.20, 15023.45];
 
         foreach ($languages as $lang) {
             foreach ($numbers as $num) {
-                if (is_null($num) || empty($num)){
+                if (is_null($num) || empty($num)) {
                     // pass
-                }
-                else {
-                   array_push($mytestlist, array($num, $lang, $currency, $units, $locale, $output));
+                } else {
+                    array_push($mytestlist, array($num, $lang, $currency, $units, $locale, $output));
                 }
             }
         }
         return $mytestlist;
     }
 
-
     public function addDataProviderExceptions()
     {
 
         $mytestlist = [];
         $output = 'text';
-		$currency = "dollar" ;
-		$units = "cent" ;
-		$locale = 'USA' ;
+        $currency = "dollar";
+        $units = "cent";
+        $locale = 'USA';
         $languages = ["AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW"];
         // $languages = ["EN"];
 
@@ -225,15 +207,14 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         return $myexceptionslist;
     }
 
-
     public function addDataImage()
     {
 
         $myimagelist = array();
         $output = 'image';
-		$currency = "dollar" ;
-		$units = "cent" ;
-		$locale = 'USA' ;
+        $currency = "dollar";
+        $units = "cent";
+        $locale = 'USA';
         //$languages = ["AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW"];
         $languages = ["EN"];
         $numbers = [12];
@@ -247,7 +228,6 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
         return $myimagelist;
     }
 
-
     /**
      * @dataProvider addDataProviderExceptions
      */
@@ -260,82 +240,10 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 
     }
 
-
-  
-
-    /**
-     * @dataProvider addDataImage
-     */
-    public function Image($num, $lang, $currency, $units, $locale, $output)
-    {
-        $output = 'image' ;
-        $expected = $this::curl_Result($num, $lang, $output);
-        //$actual = $this->translator::translateNumber($num,  $lang, $output) ;
-        echo $output . ' ' . $expected;
-
-        //$this->assertEquals($expected, $actual);
-        $this->assertEquals(0, 0);
-    }
-
-  
-
-
-
-    /**
-     * @dataProvider addDataProvider
-     */
-
-    public function test_Number($num, $lang, $currency, $units, $locale, $output)
-    {
-        
-        //$latin = ($lang != 'AR' & $lang != 'RU' & $lang != 'PT' & $lang != 'ES' & $lang != 'TR' & $lang != 'FA' & $lang != 'ES'
-        //    & $lang != 'KO' & $lang != 'ZH_CN' & $lang != 'ZH_TW');
-        $expected = $this::curl_Result($num, $lang, $locale, $currency, $units, $output);
-        $expected = substr($expected, 45);
-        
-        $latin = true;
-        $clean_text = trim($expected);
-        if ($latin == true) {
-            //echo 'we are here';
-            $clean_text = '';
-
-            foreach(new MbStrIterator($expected) as $i => $byte) {
-                //echo "{$i}: {$byte}\n";
-                $clean_text .= $byte;
-
-                //var_dump($byte);
-                //var_dump(strhex($byte));
-
-                //$byte = Normalizer::normalize($byte);
-
-                //var_dump($byte);
-               // var_dump(strhex($byte));
-            }
-              
-          
-        }
-        
-       
-        $chars_to_remove = 0;
-
-        if ($latin == false) {
-            $chars_to_remove = 45;
-            $expected = trim(substr($clean_text, $chars_to_remove));
-        } else {
-            $expected = trim($clean_text);
-        }
-
-        //$strNumber, $language, $locale, $currency, $units, $output
-        $actual = $this->translator::translateNumber($num, $lang, $currency, $units, $locale, $output);
-        //echo 'The actual is: ' . $actual . '**' . PHP_EOL;
-        $this->assertEquals($expected, $actual);
-    }
-
-
-    public function curl_Result($num, $lang,  $locale, $currency, $units, $output)
+    public function curl_Result($num, $lang, $locale, $currency, $units, $output)
     {
         $curl = curl_init();
-       
+
         curl_setopt_array($curl, [
             CURLOPT_URL => "https://Number2Words4.p.rapidapi.com/v1/?number=$num&language=$lang&locale=$locale&currency=$currency&units=$units&output=$output",
             CURLOPT_RETURNTRANSFER => true,
@@ -363,6 +271,84 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
             return $response;
         }
 
+    }
+
+    /**
+     * @dataProvider addDataImage
+     */
+    public function Image($num, $lang, $currency, $units, $locale, $output)
+    {
+        $output = 'image';
+        $expected = $this::curl_Result($num, $lang, $output);
+        //$actual = $this->translator::translateNumber($num,  $lang, $output) ;
+        echo $output . ' ' . $expected;
+
+        //$this->assertEquals($expected, $actual);
+        $this->assertEquals(0, 0);
+    }
+
+    /**
+     * @dataProvider addDataProvider
+     */
+
+    public function test_Number($num, $lang, $currency, $units, $locale, $output)
+    {
+
+        //$latin = ($lang != 'AR' & $lang != 'RU' & $lang != 'PT' & $lang != 'ES' & $lang != 'TR' & $lang != 'FA' & $lang != 'ES'
+        //    & $lang != 'KO' & $lang != 'ZH_CN' & $lang != 'ZH_TW');
+        $expected = $this::curl_Result($num, $lang, $locale, $currency, $units, $output);
+        $expected = substr($expected, 45);
+
+        $latin = true;
+        $clean_text = trim($expected);
+        if ($latin == true) {
+            //echo 'we are here';
+            $clean_text = '';
+
+            foreach (new MbStrIterator($expected) as $i => $byte) {
+                //echo "{$i}: {$byte}\n";
+                $clean_text .= $byte;
+
+                //var_dump($byte);
+                //var_dump(strhex($byte));
+
+                //$byte = Normalizer::normalize($byte);
+
+                //var_dump($byte);
+                // var_dump(strhex($byte));
+            }
+
+
+        }
+
+
+        $chars_to_remove = 0;
+
+        if ($latin == false) {
+            $chars_to_remove = 45;
+            $expected = trim(substr($clean_text, $chars_to_remove));
+        } else {
+            $expected = trim($clean_text);
+        }
+
+        //$strNumber, $language, $locale, $currency, $units, $output
+        $actual = $this->translator::translateNumber($num, $lang, $currency, $units, $locale, $output);
+        //echo 'The actual is: ' . $actual . '**' . PHP_EOL;
+        $this->assertEquals($expected, $actual);
+    }
+
+    protected function setUp(): void
+    {
+        $this->translator = new Number2Text();
+        $this->language = new English();
+
+    }
+
+    protected function tearDown(): void
+    {
+        $this->translator = null;
+        $this->language = null;
+        //$this->mytestlist = array();
     }
 
 

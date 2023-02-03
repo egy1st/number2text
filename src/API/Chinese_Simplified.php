@@ -73,38 +73,35 @@ class Chinese_Simplified
 
             $y = 0;
 
-            //if (isset($aNum[$x + 3])) 
-            // this condition should not appear in chinese simplified
-            // but it is a must for chinese traditional
-            $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
+            if (isset($aNum[$x + 3])) {
+                $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
+                $i = 0;
+                for ($y = $x; $y <= $x + 3; $y++) {
+                    $i += 1;
 
-            $i = 0;
-            for ($y = $x; $y <= $x + 3; $y++) {
-                $i += 1;
+                    if ($aNum[$y] != 0 || $countZero) {
+                        $countZero = true;
+                        //check ten for units only'
+                        if ($i === 3 & $cycle === 3 & $this->checkChineseTen($cycle, $strForma)) {
+                            $strNum .= $this->getID($y);
+                        } else if ($aNum[$y] != 0) {
+                            $strNum .= $aUnit[$aNum[$y]] . $this->getID($y);
+                            //And getChineseSum(N, y) = 0
+                        } else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) == 0) {
+                            // nothing to do
+                            $y = $y;
+                            //And getChineseSum(N, y) = 0
+                        } else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) != 0) {
+                            // do not count zero again
+                            $strNum .= $aUnit[$aNum[$y]];
+                            $countZero = false;
+                        } else {
+                            $strNum .= $aUnit[$aNum[$y]];
+                        }
 
-                if ($aNum[$y] != 0 || $countZero) {
-                    $countZero = true;
-                    //check ten for units only'
-                    if ($i === 3 & $cycle === 3 & $this->checkChineseTen($cycle, $strForma)) {
-                        $strNum .= $this->getID($y);
-                    } else if ($aNum[$y] != 0) {
-                        $strNum .= $aUnit[$aNum[$y]] . $this->getID($y);
-                        //And getChineseSum(N, y) = 0
-                    } else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) == 0) {
-                        // nothing to do
-                        $y = $y;
-                        //And getChineseSum(N, y) = 0
-                    } else if ($aNum[$y] == 0 & $this->getChineseSubSum($aNum, $cycle, $i) != 0) {
-                        // do not count zero again
-                        $strNum .= $aUnit[$aNum[$y]];
-                        $countZero = false;
-                    } else {
-                        $strNum .= $aUnit[$aNum[$y]];
                     }
-
                 }
-
 
             }
 
