@@ -35,7 +35,7 @@ class NumberingSystem
     public static $aUnit = [];
     public static $aId = [];
     public static $strForma = "";
-    public static $Num;
+    public static $strNum;
     public static $id1;
     public static $id2;
     public static $id3;
