@@ -26,7 +26,7 @@ class Arabic
 
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Arabic");
         for ($x = 7; $x <= 12; $x++) {
-            $M [$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
@@ -165,12 +165,12 @@ class Arabic
         }
         */
 
-        $newNum = str_replace("جنيه", $M [7], $newNum);
-        $newNum = str_replace("جنيهات", $M [8], $newNum);
-        $newNum = str_replace("قرش", $M [9], $newNum);
-        $newNum = str_replace("قروش", $M [10], $newNum);
-        $newNum = str_replace("جنيهان", $M [11], $newNum);
-        $newNum = str_replace("قرشان", $M [12], $newNum);
+        $newNum = str_replace("جنيه", $aId[7], $newNum);
+        $newNum = str_replace("جنيهات", $aId[8], $newNum);
+        $newNum = str_replace("قرش", $aId[9], $newNum);
+        $newNum = str_replace("قروش", $aId[10], $newNum);
+        $newNum = str_replace("جنيهان", $aId[11], $newNum);
+        $newNum = str_replace("قرشان", $aId[12], $newNum);
 
         return $newNum;
     }
