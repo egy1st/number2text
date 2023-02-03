@@ -278,7 +278,7 @@ class NumberingSystem
      *
      * @return void
      */
-    public static function getLanguage(&$aUnit, &$aTen, &$aHundred, &$aId, &$aNum, $Lang)
+    public static function getLanguage(&$aUnit, &$aTen, &$aHundred, &$aId, &$aNum, &$Lang)
     {
         $aId[7] = "";
         $aId[8] = "";
