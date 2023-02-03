@@ -19,7 +19,7 @@ class Arabic
      *
      * @return string
      */
-    public function TranslateNumber($strNumber, $aCur)
+    public function translateNumber($strNumber, $aCur)
     {
         $strNum = "";
 
