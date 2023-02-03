@@ -34,7 +34,7 @@ class Spanish
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
             $id2 = $aId[$cycle * 2];
-            
+
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);

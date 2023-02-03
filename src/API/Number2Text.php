@@ -36,8 +36,7 @@ require_once "Locality.php";
  * @covers Chinese_Simplified
  * @covers Chinese_Traditional
  */
- 
- class Number2Text
+class Number2Text
 {
 
     // This function left pad zeros, for example 123 will be 000000000123
@@ -94,22 +93,22 @@ require_once "Locality.php";
             $E = 0;
             for ($E = 0; $E < 12; $E++) {
                 $S = substr($strForma, $E, 1);
-                 $aNum[$E + 1] = $S;
+                $aNum[$E + 1] = $S;
             }
 
             for ($E = 13; $E < 16; $E++) {
                 $S = substr($strForma, $E, 1);
-                 $aNum[$E + 1] = $S;
+                $aNum[$E + 1] = $S;
             }
 
             // make(0.23 as 0.023)
-             $aNum[16] =  $aNum[15];
-             $aNum[15] =  $aNum[14];
-             $aNum[14] = 0;
+            $aNum[16] = $aNum[15];
+            $aNum[15] = $aNum[14];
+            $aNum[14] = 0;
 
             $strForma = substr($strForma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
-                $strForma .=  $aNum[$E];
+                $strForma .= $aNum[$E];
             }
 
             return $strForma;
@@ -149,54 +148,54 @@ require_once "Locality.php";
 
     // This function is main function
     // It translates number to string based on the selected language
-    public static function translateNumber($strNumber, $_language, $_currency, $_units,  $_locale, $_output)
+    public static function translateNumber($strNumber, $_language, $_currency, $_units, $_locale, $_output)
     {
 
         global $aCurrencies, $number, $language, $currency, $units, $output, $locale;
-		
-		if (!isset ($strNumber )) {
-			$strNumber = $number ;
-		}
-		
-		if (!isset ($_language )) {
-			$_language = $language ;
-		}
-		
-		
-		if (!isset ($_locale )) {
-			$_locale = $locale ;
-		}
-		
-		if (!isset ($_currency )) {
-			$_currency = $currency ;
-		}
-		
-		if (!isset ($_units )) {
-			$_units = $units ;
-		}
-		
-		if (!isset ($_output )) {
-			$_output = $output ;
-		}
-		
+
+        if (!isset ($strNumber)) {
+            $strNumber = $number;
+        }
+
+        if (!isset ($_language)) {
+            $_language = $language;
+        }
+
+
+        if (!isset ($_locale)) {
+            $_locale = $locale;
+        }
+
+        if (!isset ($_currency)) {
+            $_currency = $currency;
+        }
+
+        if (!isset ($_units)) {
+            $_units = $units;
+        }
+
+        if (!isset ($_output)) {
+            $_output = $output;
+        }
+
         if (!is_numeric($strNumber)) {
             return "invalid number";
         }
 
         if (isset($_locale)) {
             $aCurrencies = Locality::getLocale($_locale);
-			//echo "1" ;
-			//print_r($aCurrencies);
-			
+            //echo "1" ;
+            //print_r($aCurrencies);
+
         }
         if (isset($_currency) & isset($_units) & !isset($_locale)) {
             $aCurrencies = Locality::setCurrency($_currency, $_units);
-			//echo "2" ;
-			//print_r($aCurrencies);
+            //echo "2" ;
+            //print_r($aCurrencies);
         }
 
-       
-	    $oLang = null ;
+
+        $oLang = null;
         switch ($_language) {
 
             case Languages::ARABIC :
@@ -204,7 +203,7 @@ require_once "Locality.php";
                 break;
             case Languages::ENGLISH :
                 $oLang = new English ();
-			    break;
+                break;
             case Languages::FRENCH :
                 $oLang = new French ();
                 break;
@@ -245,14 +244,14 @@ require_once "Locality.php";
         //$lang->TranslateNumber takes number and acuurency as parameters
         //num2text::TranslateNumber takes number and language_id as parameters 
 
-        
+
         $strNumber = $oLang->translateNumber($strNumber, $aCurrencies); //$lang->TranslateNumber takes number and acuurency as parameters
         $strNumber = self::outputFormat($strNumber, $_output);
 
 
         $strNumber = trim($strNumber);
 
-       
+
         return $strNumber;
     }
 }

@@ -23,9 +23,9 @@ class Chinese_Traditional
     {
 
         /**
-        $KOR = new Korean();
-        Shoudn't be new Korean(); not used for chinese traditional
-        */
+         * $KOR = new Korean();
+         * Shoudn't be new Korean(); not used for chinese traditional
+         */
 
         $strNum = "";
         $countZero = false;
@@ -188,9 +188,8 @@ class Chinese_Traditional
         return false;
     }
     */
-    
 
-    
+
     public static function getChineseSubSum($aNum, $_cycle, $_step)
     {
 
