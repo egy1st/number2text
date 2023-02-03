@@ -55,17 +55,17 @@ class Number2Text
                 return false;
             }
 
-            $Forma = self::formatNumber($strNumber);
+            $strForma = self::formatNumber($strNumber);
             $strNum = "";
 
             $E = 0;
             for ($E = 0; $E < 12; $E++) {
-                $S = substr($Forma, $E, 1);
+                $S = substr($strForma, $E, 1);
                 $aNum[$E + 1] = $S;
             }
 
             for ($E = 13; $E < 16; $E++) {
-                $S = substr($Forma, $E, 1);
+                $S = substr($strForma, $E, 1);
                 $aNum[$E + 1] = $S;
             }
 
@@ -74,18 +74,14 @@ class Number2Text
             $aNum[15] = $aNum[14];
             $aNum[14] = 0;
 
-            $Forma = substr($Forma, 0, 13);
+            $strForma = substr($strForma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
-                $Forma .= $aNum[$E];
+                $strForma .= $aNum[$E];
             }
 
-            return $Forma;
+            return $strForma;
         }
     }
-
-
-    // This function is main function
-    // It translates number to string based on the selected language
 
 
     // This function format number as integer.decimal where integer is 12 fixed places and decimal is 3 fixed placed
