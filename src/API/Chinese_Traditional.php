@@ -18,6 +18,7 @@ class Chinese_Traditional
      *
      * @param string $strNumber number parameter
      * @param string $aCur currency-array parameter
+     * 
      * @return string
      */
     public function TranslateNumber($strNumber, $aCur)
