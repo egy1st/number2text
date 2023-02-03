@@ -178,8 +178,8 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$units = "cent" ;
 		$locale = 'USA' ;
 		//$strNumber, $language, $locale, $currency, $units, $output
-        $languages = ["AR", "EN", "FR", "DE", "IT", "PT","RU","FA", "KO", "TR", "ZH_TW"]; //"ES" "ZH_CN"
-        //$languages = ["AR", "EN", "FR", "IT", "ES", "PT", "TR", "FA", "RU", "KO", "ZH_TW", "ZH_CN"]; 
+        $languages = ["AR", "EN", "FR", "DE", "IT", "ES", "PT", "TR", "FA", "RU", "KO", "ZH_TW"]; // "ZH_CN"
+        $languages = ["AR", "EN", "FR", "DE", "IT", "ES", "PT", "TR", "FA", "RU", "KO", "ZH_TW"]; 
         //$languages = ["ES"]; 
 
         
