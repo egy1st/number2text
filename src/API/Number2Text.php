@@ -82,7 +82,7 @@ class Number2Text
             return $strForma;
         }
 
-        return $strNumber';
+        return $strNumber;
     }
 
 
