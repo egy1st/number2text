@@ -3,7 +3,6 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
-//require_once "Number2Text.php";
 
 /**
  * @covers English
@@ -22,9 +21,9 @@ class English
      *
      * @return string
      */
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($strNum, $aCur)
     {
-        $strNum = "";
+        // $strNum = "";
 
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "English");
 
