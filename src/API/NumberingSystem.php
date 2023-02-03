@@ -43,6 +43,7 @@ class NumberingSystem
     public static $nAll;
     public static $strUnit = "";
     public static $nSum;
+    /*
     public $G;
     public $E;
     public $K;
@@ -53,7 +54,8 @@ class NumberingSystem
     public $ln3;
     public $S;
     public $newNum;
-
+    */
+    
     /**
      * This function sum up each group of 3 digits.
      *
