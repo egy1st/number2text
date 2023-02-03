@@ -56,8 +56,7 @@ class Number2Text
             }
 
             $strForma = self::formatNumber($strNumber);
-            // $strNum = ""; not used
-
+      
             $E = 0;
             for ($E = 0; $E < 12; $E++) {
                 $S = substr($strForma, $E, 1);
