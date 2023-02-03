@@ -3,8 +3,6 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
-require_once "NumberingSystem.php";
-require_once "Number2Text.php";
 
 /**
  * @covers Russian
@@ -22,7 +20,7 @@ class Russian
      *
      * @return string
      */
-    public function TranslateNumber($strNumber, $aCur)
+    public function translateNumber($strNumber, $aCur)
     {
         $strNum = "";
 
