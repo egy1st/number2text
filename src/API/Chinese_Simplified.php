@@ -21,12 +21,12 @@ class Chinese_Simplified
      *
      * @return string
      */
-    public function TranslateNumber($strNumber, $aCur)
+    public function TranslateNumber($strNum, $aCur)
     {
 
         $KOR = new Korean();
 
-        $strNum = "";
+        //$strNum = "";
         $countZero = false;
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Chinese_Simplified");
         for ($x = 7; $x <= 12; $x++) {
