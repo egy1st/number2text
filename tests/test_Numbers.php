@@ -178,8 +178,8 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$units = "cent" ;
 		$locale = 'USA' ;
 		//$strNumber, $language, $locale, $currency, $units, $output
-        $languages = ["AR", "EN", "FR", "DE", "IT", "ES", "PT", "TR", "FA", "RU", "KO" ] ; //"ZH_TW", "ZH_CN"]; 
-        $languages = ["ZH_TW"]; 
+        $languages = ["AR", "EN", "FR", "DE", "IT", "ES", "PT", "TR", "FA", "RU", "KO", "ZH_TW"] ; //, "ZH_CN"]; 
+        //$languages = ["ZH_TW"]; 
 
         
         // Add null & '' to test cases
@@ -209,9 +209,9 @@ class Test_Numbers extends PHPUnit\Framework\TestCase
 		$currency = "dollar" ;
 		$units = "cent" ;
 		$locale = 'USA' ;
-        $languages = ["AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN"]; //, "ZH_TW"];
+        $languages = ["AR", "EN", "FR", "DE", "RU", "PT", "ES", "FA", "KO", "IT", "TR", "ZH_CN", "ZH_TW"];
         // $languages = ["EN"];
-        
+
 
         // add null & '' to test cases
         $numbers = ["", null];
