@@ -70,7 +70,7 @@ class Number2Text
             $aNum[16] = $aNum[15];
             $aNum[15] = $aNum[14];
             $aNum[14] = 0;
-            $aNum[17] = 1';
+            $aNum[17] = 1;
 
             $strForma = substr($strForma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
