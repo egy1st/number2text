@@ -246,7 +246,7 @@ require_once "Locality.php";
         //num2text::TranslateNumber takes number and language_id as parameters 
 
         
-        $strNumber = $oLang->TranslateNumber($strNumber, $aCurrencies); //$lang->TranslateNumber takes number and acuurency as parameters
+        $strNumber = $oLang->translateNumber($strNumber, $aCurrencies); //$lang->TranslateNumber takes number and acuurency as parameters
         $strNumber = self::outputFormat($strNumber, $_output);
 
 
