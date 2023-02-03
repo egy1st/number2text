@@ -173,7 +173,7 @@ class Number2Text
         }
 
 
-        $oLang = NULL;
+        $oLang = null;
         switch ($_language) {
 
             case Languages::ARABIC :
@@ -189,7 +189,7 @@ class Number2Text
                 $oLang = new German ();
                 break;
             case Languages::SPANISH :
-                $olang = new Spanish ();
+                $oLang = new Spanish ();
                 break;
             case Languages::PORTUGUESE :
                 $oLang = new Portuguese ();
