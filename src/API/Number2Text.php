@@ -54,7 +54,7 @@ $strNumber = "" ;
             $strNum = "000000000000.000";
         }
 
-        return $num;
+        return $strNum;
     }
 
 
@@ -83,7 +83,7 @@ $strNumber = "" ;
 
     // This function populates digits in an array to master it one by one
     // Then, it format it to the proper format
-    public static function prepareNumber($strNumber, &$N)
+    public static function prepareNumber($strNumber, &$aNum)
     {
 
         if (is_numeric($strNumber)) {
@@ -95,17 +95,17 @@ $strNumber = "" ;
                 return false;
             }
 
-            $Forma = self::formatNumber($strNumber);
+            $strForma = self::formatNumber($strNumber);
             $strNum = "";
 
             $E = 0;
             for ($E = 0; $E < 12; $E++) {
-                $S = substr($Forma, $E, 1);
+                $S = substr($strForma, $E, 1);
                  $aNum[$E + 1] = $S;
             }
 
             for ($E = 13; $E < 16; $E++) {
-                $S = substr($Forma, $E, 1);
+                $S = substr($strForma, $E, 1);
                  $aNum[$E + 1] = $S;
             }
 
@@ -114,12 +114,12 @@ $strNumber = "" ;
              $N[15] =  $N[14];
              $N[14] = 0;
 
-            $Forma = substr($Forma, 0, 13);
+            $strForma = substr($strForma, 0, 13);
             for ($E = 14; $E <= 16; $E++) {
                 $Forma .=  $aNum[$E];
             }
 
-            return $Forma;
+            return $strForma;
         }
     }
 
@@ -219,7 +219,7 @@ $strNumber = "" ;
                 $oLang = new German ();
                 break;
             case Languages::SPANISH :
-                $lang = new Spanish ();
+                $oLang = new Spanish ();
                 break;
             case Languages::PORTUGUESE :
                 $oLang = new Portuguese ();
