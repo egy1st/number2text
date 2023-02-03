@@ -98,10 +98,15 @@ class Chinese_Simplified
                         }
 
                     }
-                            }
+                }
 
-            if ($ptrn != "0000") {
-                $strNum .= $this->getGrand($cycle);
+             if ($cycle < 4) {
+
+                $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
+            
+                if ($ptrn != "0000") {
+                    $strNum .= $this->getGrand($cycle);
+                }
             }
 
             //============================================
