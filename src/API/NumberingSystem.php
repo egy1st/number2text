@@ -933,16 +933,16 @@ class NumberingSystem
                 $aTen[8] = "";
                 $aTen[9] = "";
 
-                $H[0] = "";
-                $H[1] = "佰";
-                $H[2] = "";
-                $H[3] = "";
-                $H[4] = "";
-                $H[5] = "";
-                $H[6] = "";
-                $H[7] = "";
-                $H[8] = "";
-                $H[9] = "";
+                $aHundred[0] = "";
+                $aHundred[1] = "佰";
+                $aHundred[2] = "";
+                $aHundred[3] = "";
+                $aHundred[4] = "";
+                $aHundred[5] = "";
+                $aHundred[6] = "";
+                $aHundred[7] = "";
+                $aHundred[8] = "";
+                $aHundred[9] = "";
 
 
                 $aId[0] = "";
@@ -989,16 +989,16 @@ class NumberingSystem
                 $aTen[8] = "";
                 $aTen[9] = "";
 
-                $H[0] = "";
-                $H[1] = "佰";
-                $H[2] = "";
-                $H[3] = "";
-                $H[4] = "";
-                $H[5] = "";
-                $H[6] = "";
-                $H[7] = "";
-                $H[8] = "";
-                $H[9] = "";
+                $aHundred[0] = "";
+                $aHundred[1] = "佰";
+                $aHundred[2] = "";
+                $aHundred[3] = "";
+                $aHundred[4] = "";
+                $aHundred[5] = "";
+                $aHundred[6] = "";
+                $aHundred[7] = "";
+                $aHundred[8] = "";
+                $aHundred[9] = "";
 
 
                 $aId[0] = "";
