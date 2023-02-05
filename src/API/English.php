@@ -32,6 +32,8 @@ class English
             $aId[$x] = $aCur [$x - 7];
         }
 
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
+
         // =================================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
@@ -60,8 +62,7 @@ class English
 
             // ================================================================
             // Prepre numbers from 0 to 99
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
+        
             $nUnit = ($aNum[$x + 2] + ($aNum[$x + 1] * 10));
 
             // Keywords

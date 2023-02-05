@@ -12,14 +12,6 @@ class NumberingSystem
 {
 
     /**
-     * public static $aHundred = [];
-     * public static $aNum = [];
-     * public static $aTen = [];
-     * public static $aUnit = [];
-     * public static $aId = [];
-     */
-
-    /**
      * This function sum up each group of 3 digits.
      *
      * @param string $aNum number array parameter
@@ -878,16 +870,16 @@ class NumberingSystem
                 $aTen[8] = "팔십";
                 $aTen[9] = "구십";
 
-                $H[0] = "";
-                $H[1] = "백";
-                $H[2] = "이백";
-                $H[3] = "삼백";
-                $H[4] = "사백";
-                $H[5] = "오백";
-                $H[6] = "육백";
-                $H[7] = "칠백";
-                $H[8] = "팔백";
-                $H[9] = "구백";
+                $aHundred[0] = "";
+                $aHundred[1] = "백";
+                $aHundred[2] = "이백";
+                $aHundred[3] = "삼백";
+                $aHundred[4] = "사백";
+                $aHundred[5] = "오백";
+                $aHundred[6] = "육백";
+                $aHundred[7] = "칠백";
+                $aHundred[8] = "팔백";
+                $aHundred[9] = "구백";
 
                 $aId[0] = "";
                 $aId[1] = "억"; // 100 miliion
@@ -900,59 +892,28 @@ class NumberingSystem
                 break;
 
             case "Chinese_Simplified" :
+                
                 $aUnit[0] = "零";
-                $aUnit[1] = "壹";
-                $aUnit[2] = "贰";
-                $aUnit[3] = "叁";
-                $aUnit[4] = "肆";
-                $aUnit[5] = "伍";
-                $aUnit[6] = "陆";
-                $aUnit[7] = "柒";
-                $aUnit[8] = "捌";
-                $aUnit[9] = "玖";
-                $aUnit[10] = "拾";
-                $aUnit[11] = "";
-                $aUnit[12] = "";
-                $aUnit[13] = "";
-                $aUnit[14] = "";
-                $aUnit[15] = "";
-                $aUnit[16] = "";
-                $aUnit[17] = "";
-                $aUnit[18] = "";
-                $aUnit[19] = "";
-                $aUnit[20] = "";
-
+                $aUnit[1] = "一";
+                $aUnit[2] = "二";  // 两 ==> two of
+                $aUnit[3] = "三";
+                $aUnit[4] = "四";
+                $aUnit[5] = "五";
+                $aUnit[6] = "六";    
+                $aUnit[7] = "七";
+                $aUnit[8] = "八";
+                $aUnit[9] = "九";
+                $aUnit[10] = "十";
+                
                 $aTen[0] = "";
-                $aTen[1] = "拾";
-                $aTen[2] = "";
-                $aTen[3] = "";
-                $aTen[4] = "";
-                $aTen[5] = "";
-                $aTen[6] = "";
-                $aTen[7] = "";
-                $aTen[8] = "";
-                $aTen[9] = "";
+                $aTen[1] = "十";
 
                 $aHundred[0] = "";
-                $aHundred[1] = "佰";
-                $aHundred[2] = "";
-                $aHundred[3] = "";
-                $aHundred[4] = "";
-                $aHundred[5] = "";
-                $aHundred[6] = "";
-                $aHundred[7] = "";
-                $aHundred[8] = "";
-                $aHundred[9] = "";
-
-
+                $aHundred[1] = "百";
+    
                 $aId[0] = "";
-                $aId[1] = "亿"; // 100 miliion
-                $aId[2] = "亿"; // 100 miliion
-                $aId[3] = "万"; // ten thousand
-                $aId[4] = "万"; // ten thousand
-                $aId[5] = "仟"; // one thousand
-                $aId[6] = "仟"; // one thousand
-
+                $aId[1] = "千"; // one thousand
+                 
                 break;
 
             case "Chinese_Traditional" :
