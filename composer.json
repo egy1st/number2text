@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Example": "src/API/v1"
+      "Example": "src/"
     }
   }
 }
