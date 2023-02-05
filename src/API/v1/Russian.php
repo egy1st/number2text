@@ -1,15 +1,16 @@
-<?php
+﻿<?php
 // error_reporting(E_ALL);
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
 
 /**
- * @covers Spanish
+ * @covers Russian
  *
  */
-class Spanish
+class Russian
 {
+
 
     /**
      * This is the main function required to convert a number into words.
@@ -23,18 +24,18 @@ class Spanish
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Spanish");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Russian");
         for ($x = 7; $x <= 12; $x++) {
             $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
-        // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
             $id2 = $aId[$cycle * 2];
-
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
@@ -53,52 +54,54 @@ class Spanish
 
             // ==============================================================================
             // Prepre numbers from 0 to 99
-
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
+            // Tens space units ==> There is no need to use the word "and" in Russian
             $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
             $nAll = $aNum[$x] + $nUnit;
-            // Keywords are 30 not 20 as usual
-            if ($nUnit > 0 & $nUnit < 31) {
+            // keywords
+            if ($nUnit > 0 & $nUnit < 21) {
                 $strUnit = $aUnit[$nUnit];
-                // Tens
+                // tens
             } else if ($aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
-                // Notice that "y" is used only in numbers 31-99 (and 131-199, 231-299, 331-399, etc.)
                 // others
             } else {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aUnit[$aNum[$x + 2]];
             }
 
 
-            // ================================================================
+            // ==============================================================================
             // Prepare numbers from 100 to 999
-            // y "and" is not used to separate hundreds from tens.
+            // Hundreds and tens are linked just space eg. 131 is сто тридцать один
+
             if ($nAll != 0) {
-                // When there is exactly 100 of something use the shortened form "cien" rather than ciento
-                // for exactly 100
-                if ($aNum[$x] == 1 & $aNum[$x + 1] + $aNum[$x + 2] == 0) {
-                    $strNum .= "cien" . " " . $strUnit . " " . $id2 . " ";
+                // тысяча not один тысяча.
+                if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
+                    $strNum .= " " . $id1 . " ";
+                } else if ($aNum[$x] == 0) {
+                    $strNum .= $strUnit . " " . $id2 . " ";
+                    // only units and tens
+                } else if ($nUnit == 0) {
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $id2 . " ";
+                    // only hundreds
                 } else {
                     $strNum .= $aHundred[$aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
-                    // others
+                    // complete compund number
                 }
             }
 
             // ================================================================
-
             if (NumberingSystem::NoCurrency($cycle, $strForma)) {
                 $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }
         }
 
-        // Num = removeComma(Num) ' no comma is used in Spanish
+        // Num = removeComma(Num) ' no comma is used in russian
         $strNum = NumberingSystem::removeSpaces($strNum);
-        // $strNum = NumberingSystem::removeAnd($strNum);
+        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 
         /*
-        if ($Forma == "000000000000.000") {
+        if ($strForma == "000000000000.000") {
             $strNum = $aUnit[0];
         }
         */

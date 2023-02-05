@@ -32,6 +32,7 @@ class Arabic
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
 
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $G = 0;
 
@@ -91,8 +92,7 @@ class Arabic
 
             // ================================================================
             // Prepare numbers from 100 to 999
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
+            
             if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 0) {
                 $G = 1;
             } else if ($aNum[$x] == 0 & $aNum[$x + 1] == 0 & $aNum[$x + 2] == 1) {

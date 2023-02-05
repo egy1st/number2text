@@ -1,14 +1,14 @@
-﻿<?php
+<?php
 // error_reporting(E_ALL);
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
 
 /**
- * @covers Persian
+ * @covers Spanish
  *
  */
-class Persian
+class Spanish
 {
 
     /**
@@ -23,17 +23,19 @@ class Persian
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Persian");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Spanish");
         for ($x = 7; $x <= 12; $x++) {
             $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
-        // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
             $id2 = $aId[$cycle * 2];
+
             if ($cycle === 1) {
                 $x = 1;
                 $nSum = NumberingSystem::getSum($aNum, 1);
@@ -50,42 +52,34 @@ class Persian
             }
 
 
-            // ================================================================
+            // ==============================================================================
             // Prepre numbers from 0 to 99
-            // Tens and units are linked with "و"
-
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
             $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
-            $n_all = $aNum[$x] + $nUnit;
-            // keywords
-            if ($nUnit > 0 & $nUnit < 21) {
-                $strUnit = $aUnit[$nUnit] . " ";
-                // tens
+            $nAll = $aNum[$x] + $nUnit;
+            // Keywords are 30 not 20 as usual
+            if ($nUnit > 0 & $nUnit < 31) {
+                $strUnit = $aUnit[$nUnit];
+                // Tens
             } else if ($aNum[$x + 2] == 0) {
-                $strUnit = $aTen[$aNum[$x + 1]] . " ";
+                $strUnit = $aTen[$aNum[$x + 1]];
+                // Notice that "y" is used only in numbers 31-99 (and 131-199, 231-299, 331-399, etc.)
                 // others
             } else {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]] . " ";
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]];
             }
 
-            // ==============================================================================
-            // Prepare numbers from 100 to 999
-            // Hundreds and tens are linked with e (and), as in cento e quarenta e seis [146])
 
-            if ($n_all != 0) {
-                // هزار not یک هزار
-                if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
-                    $strNum .= " " . $id1 . " ";
-                } else if ($aNum[$x] == 0) {
-                    $strNum .= $strUnit . " " . $id2 . " " . $aId[0] . " ";
-                    // only units and tens
-                } else if ($nUnit == 0) {
-                    $strNum .= $aHundred[$aNum[$x]] . " " . $id2 . " " . $aId[0] . " ";
-                    // only hundreds
+            // ================================================================
+            // Prepare numbers from 100 to 999
+            // y "and" is not used to separate hundreds from tens.
+            if ($nAll != 0) {
+                // When there is exactly 100 of something use the shortened form "cien" rather than ciento
+                // for exactly 100
+                if ($aNum[$x] == 1 & $aNum[$x + 1] + $aNum[$x + 2] == 0) {
+                    $strNum .= "cien" . " " . $strUnit . " " . $id2 . " ";
                 } else {
-                    $strNum .= $aHundred[$aNum[$x]] . " " . $aId[0] . " " . $strUnit . " " . $id2 . " " . $aId[0] . " ";
-                    // complete compund number
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
+                    // others
                 }
             }
 
@@ -97,12 +91,12 @@ class Persian
             }
         }
 
-        // Num = removeComma(Num) ' no comma is used in Persian
+        // Num = removeComma(Num) ' no comma is used in Spanish
         $strNum = NumberingSystem::removeSpaces($strNum);
-        $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
+        // $strNum = NumberingSystem::removeAnd($strNum);
 
         /*
-        if ($strForma == "000000000000.000") {
+        if ($Forma == "000000000000.000") {
             $strNum = $aUnit[0];
         }
         */

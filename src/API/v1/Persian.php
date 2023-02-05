@@ -5,12 +5,11 @@
 
 
 /**
- * @covers Russian
+ * @covers Persian
  *
  */
-class Russian
+class Persian
 {
-
 
     /**
      * This is the main function required to convert a number into words.
@@ -24,13 +23,14 @@ class Russian
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Russian");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "Persian");
         for ($x = 7; $x <= 12; $x++) {
             $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
@@ -51,54 +51,51 @@ class Russian
             }
 
 
-            // ==============================================================================
+            // ================================================================
             // Prepre numbers from 0 to 99
-            // Tens space units ==> There is no need to use the word "and" in Russian
-
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
+            // Tens and units are linked with "و"
             $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
-            $nAll = $aNum[$x] + $nUnit;
+            $n_all = $aNum[$x] + $nUnit;
             // keywords
             if ($nUnit > 0 & $nUnit < 21) {
-                $strUnit = $aUnit[$nUnit];
+                $strUnit = $aUnit[$nUnit] . " ";
                 // tens
             } else if ($aNum[$x + 2] == 0) {
-                $strUnit = $aTen[$aNum[$x + 1]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " ";
                 // others
             } else {
-                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aUnit[$aNum[$x + 2]];
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]] . " ";
             }
-
 
             // ==============================================================================
             // Prepare numbers from 100 to 999
-            // Hundreds and tens are linked just space eg. 131 is сто тридцать один
+            // Hundreds and tens are linked with e (and), as in cento e quarenta e seis [146])
 
-            if ($nAll != 0) {
-                // тысяча not один тысяча.
+            if ($n_all != 0) {
+                // هزار not یک هزار
                 if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {
                     $strNum .= " " . $id1 . " ";
                 } else if ($aNum[$x] == 0) {
-                    $strNum .= $strUnit . " " . $id2 . " ";
+                    $strNum .= $strUnit . " " . $id2 . " " . $aId[0] . " ";
                     // only units and tens
                 } else if ($nUnit == 0) {
-                    $strNum .= $aHundred[$aNum[$x]] . " " . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $id2 . " " . $aId[0] . " ";
                     // only hundreds
                 } else {
-                    $strNum .= $aHundred[$aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
+                    $strNum .= $aHundred[$aNum[$x]] . " " . $aId[0] . " " . $strUnit . " " . $id2 . " " . $aId[0] . " ";
                     // complete compund number
                 }
             }
 
             // ================================================================
+
             if (NumberingSystem::NoCurrency($cycle, $strForma)) {
                 $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
                 $strNum .= " " . $id2;
             }
         }
 
-        // Num = removeComma(Num) ' no comma is used in russian
+        // Num = removeComma(Num) ' no comma is used in Persian
         $strNum = NumberingSystem::removeSpaces($strNum);
         $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 

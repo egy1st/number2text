@@ -31,6 +31,7 @@ class Turkish
 
         // ====================================================================
         // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
@@ -51,12 +52,8 @@ class Turkish
             }
 
             // ==============================================================================
-
             // Prepre numbers from 0 to 99
             // Numbers up to ninety-nine are built by spelling out the ten, then the digit (e.g.: otuz iki [32],
-
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
             $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
             $nAll = $aNum[$x] + $nUnit;
 

@@ -5,10 +5,10 @@
 
 
 /**
- * @covers German
+ * @covers French
  *
  */
-class German
+class French
 {
 
     /**
@@ -23,13 +23,14 @@ class German
     {
         $strNum = "";
 
-        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "German");
+        NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "French");
         for ($x = 7; $x <= 12; $x++) {
             $aId[$x] = $aCur [$x - 7];
         }
 
         // ====================================================================
-        // each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
@@ -53,17 +54,8 @@ class German
                 $x = 14;
             }
 
+
             // ================================================================
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
-            // Special condition for germany language
-            if ($aNum[$x + 1] == 0 & $aNum[$x + 2] == 1 & $cycle <= 2) {
-                $aUnit[1] .= "e";
-            } else if ($aNum[$x + 1] == 0 & $aNum[$x + 2] == 1 & $cycle == 4) {
-                $aUnit[1] .= "s";
-            }
-            // End of special condition
-
             $nUnit = $aNum[$x + 2] + ($aNum[$x + 1] * 10);
             // keywords
             if ($nUnit < 21) {
@@ -71,40 +63,41 @@ class German
                 // tens
             } else if ($aNum[$x + 2] == 0) {
                 $strUnit = $aTen[$aNum[$x + 1]];
-            } else {
-                $strUnit = $aUnit[$aNum[$x + 2]] . $aId[0] . $aTen[$aNum[$x + 1]];
+
+                // 21 - 69
+            } else if ($nUnit < 70 & $aNum[$x + 2] == 1) {
+                $strUnit = $aTen[$aNum[$x + 1]] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2]];
+            } else if ($nUnit < 70 & $aNum[$x + 2] != 1) {
+                $strUnit = $aTen[$aNum[$x + 1]] . "-" . $aUnit[$aNum[$x + 2]];
+
+                // 71-79
+            } else if ($nUnit < 80 & $aNum[$x + 2] == 1) {
+                $strUnit = $aTen[$aNum[$x + 1] - 1] . " " . $aId[0] . " " . $aUnit[$aNum[$x + 2] + 10];
+            } else if ($nUnit < 80 & $aNum[$x + 2] != 1) {
+                $strUnit = $aTen[$aNum[$x + 1] - 1] . "-" . $aUnit[$aNum[$x + 2] + 10];
+
+                // 81-99
+            } else if ($nUnit < 90) {
+                $strUnit = $aTen[$aNum[$x + 1]] . "-" . $aUnit[$aNum[$x + 2]];
+            } else if ($nUnit < 100) {
+                $strUnit = $aTen[$aNum[$x + 1] - 1] . "-" . $aUnit[$aNum[$x + 2] + 10];
             }
 
-            if ($cycle == 1 & substr($strForma, 1, 3) == "001") {
-                $id2 = $id1;
-            } else if ($cycle === 1 & substr($strForma, 4, 3) === "001") {
-                $id2 = $id1;
+            // should appear prior to 'Hunders Block
+            if ($cycle == 3 & $aNum[$x + 2] == 1) {
+                $strUnit = "";
             }
 
-            if ($cycle <= 2 | $cycle === 4) {
-                $id2 = " " . $id2 . " ";
-                $id1 = " " . $id1 . " ";
+            // Hunders Block
+            if ($nUnit != 0) {
+                $strNum .= $aHundred[$aNum[$x]] . " " . $strUnit . " " . $id2 . " ";
+            } else if ($aNum[$x] == 1 & $nUnit == 0) {
+                $strNum .= $aHundred[$aNum[$x]] . " " . $id2 . " ";
+            } else if ($aNum[$x] > 1 & $nUnit == 0) {
+                $strNum .= $aHundred[$aNum[$x]] . "s " . $id2 . " ";
             }
 
-            if ($aNum[$x] != 0) {
-                if ($aNum[$x + 1] + $aNum[$x + 2] != 0) {
-                    $strNum .= $aHundred[$aNum[$x]] . $strUnit . $id2;
-                } else {
-                    $strNum .= $aHundred[$aNum[$x]] . $id2;
-                }
-            } else if ($aNum[$x + 1] + $aNum[$x + 2] != 0) {
-                $strNum .= $strUnit . " " . $id2;
-            } else {
-                // nothing to do
-            }
-
-            if ($cycle === 3) {
-                if (substr($strForma, 7, 3) === "001") {
-                    $strNum = $id1;
-                }
-            }
-
-            if ($cycle === 4) {
+            if ($cycle == 4) {
 
                 if (substr($strForma, 0, 12) === "000000000001") {
                     $strNum = $aUnit[1] . " " . $id1;
@@ -118,7 +111,7 @@ class German
                     }
                 }
 
-                // case one dollar
+                // Case one dollar
                 $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
 
                 // cond.4
@@ -127,14 +120,13 @@ class German
                 }
             }
 
-            if ($cycle === 5) {
-                // one cent
+            if ($cycle == 5) {
+                // One cent
                 $strNum = NumberingSystem::substituteIDs($strNum, $strForma, $cycle, $id1, $id2);
             }
-
         }
 
-        // $strNum = removeComma(Num) ; // no comma used in Germany
+        $strNum = NumberingSystem::removeComma($strNum);
         $strNum = NumberingSystem::removeSpaces($strNum);
         $strNum = NumberingSystem::removeAnd($strNum, $aId[0]);
 

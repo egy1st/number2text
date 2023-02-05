@@ -33,6 +33,7 @@ class Korean
 
         //=====================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         $cycle = 0;
         for ($cycle = 1; $cycle <= 4; $cycle++) {
             if ($cycle === 1) {
@@ -48,9 +49,6 @@ class Korean
             //=================================================================
             // Prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
-
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
             $y = 0;
             $ptrn = $aNum[$x] . $aNum[$x + 1] . $aNum[$x + 2] . $aNum[$x + 3];
 
@@ -217,47 +215,7 @@ class Korean
 
     }
 
-
-    /*
-    // This function is a specific function for Korean language.
-    // It format number in special mode depends on 4-places mode rather than 3-places mode used in latin languages
-    // Thus, the multiplier is 10,000 rather than 1,000
-    public static function prepareNumber4Korean($strNumber, $N) {
-        $strNumber = str_replace ( ",", ".", $strNumber );
-        if ($strNumber > "999999999999.0099") {
-            echo ("Cannot translate numbers exceed 999,999,999,999.99");
-            return false;
-        }
-
-        $strForma = formatNumber ( $strNumber );
-        $strNum = "";
-
-        $E = 0;
-        for($E = 1; $E <= 12; $E ++) {
-            $S = substr ( $strForma, $E, 1 );
-             $aNum[$E] = $S;
-        }
-
-        for($E = 14; $E <= 17; $E ++) {
-            $S = substr ( $strForma, $E, 1 );
-             $aNum[$E] = $S;
-        }
-
-        // make(0.23 as 0.0023)
-         $N[17] =  $N[15];
-         $N[16] =  $N[14];
-         $N[14] = 0;
-         $N[15] = 0;
-
-        $strForma = substr ( $strForma, 0, 13 );
-        for($E = 14; $E <= 17; $E ++) {
-            $strForma +=  $aNum[$E];
-        }
-
-        return true;
-    }
-    */
-
+   
 }
 
 ?>

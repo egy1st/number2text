@@ -1,7 +1,7 @@
 <?php
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
-// ini_set('error_reporting', E_ALL);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+ini_set('error_reporting', E_ALL);
 
 /**
 * Refernce to count
@@ -36,7 +36,7 @@ class Chinese_Simplified
             $aId[$x] = $aCur[$x - 7];
         }
          
-        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
+       
         
         // print_r($aNum) ;
         // echo $strForma . "\n\r" ;
@@ -44,7 +44,7 @@ class Chinese_Simplified
         //=====================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         for ($cycle = 1; $cycle <= 4; $cycle++) {
             if ($cycle == 1) {
                 $x = 1;

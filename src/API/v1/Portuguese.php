@@ -30,6 +30,7 @@ class Portuguese
 
         // ====================================================================
         // Each cycle represent a scale hunderds and tens, thousnads, millions and milliars
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         $cycle = 0;
         for ($cycle = 1; $cycle <= 5; $cycle++) {
             $id1 = $aId[($cycle * 2) - 1];
@@ -56,9 +57,6 @@ class Portuguese
             // ==============================================================================
             // Prepre numbers from 0 to 99
             // Tens and units are linked with e (and), as in trinta e cinco [35]
-
-            $strForma = Number2Text::prepareNumber($strNumber, $aNum);
-
             $nUnit = ($aNum[$x + 1] * 10) + $aNum[$x + 2];
             $nAll = $aNum[$x] + $nUnit;
             // keywords
@@ -76,7 +74,6 @@ class Portuguese
             // ==============================================================================
             // Prepare numbers from 100 to 999
             // Hundreds and tens are linked with e (and), as in cento e quarenta e seis [146])
-
             if ($nAll != 0) {
                 // Mil not um mil eg. 1210 is mil cento e vinte
                 if (NumberingSystem::checkOneThousnad($cycle, $strForma)) {

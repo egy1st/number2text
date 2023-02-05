@@ -3,6 +3,7 @@
 // ini_set("display_errors", 1);
 // ini_set('error_reporting', E_ALL);
 
+
 /**
 * Refernce to count
 * https://www.mandarintools.com/numbers.html
@@ -10,6 +11,7 @@
 * https://flexiclasses.com/chinese-grammar-bank/big-chinese-numbers/
 * https://davidsmithtranslation.com/articles/numbers-in-chinese/
 */
+
 
 /**
  * @covers Chinese_Traditional
@@ -36,7 +38,7 @@ class Chinese_Traditional
             $aId[$x] = $aCur[$x - 7];
         }
          
-        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
+       
         
         // print_r($aNum) ;
         // echo $strForma . "\n\r" ;
@@ -44,7 +46,7 @@ class Chinese_Traditional
         //=====================================================================
         // each cycle represents a scale hunderds and tens, thousnads, millions and milliars
         $cycle = 0;
-
+        $strForma = Number2Text::prepareNumber($strNumber, $aNum);
         for ($cycle = 1; $cycle <= 4; $cycle++) {
             if ($cycle == 1) {
                 $x = 1;
