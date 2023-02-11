@@ -1,6 +1,6 @@
 # What is Number2Text?
 
-Number2Text is an API that allows you to Convert any digit's number to the equivalent words, fo example
+Number2Text is an API that allows you to Convert any digit's number to the equivalent words, for example
 > (8543.21 in digits) will be (eight thousand, five hundred and forty-three $ and twenty-one ¢ in text).
 
 [![CircleCI](https://circleci.com/gh/egy1st/number2text/tree/main.svg?style=shield)](https://circleci.com/gh/egy1st/number2text/tree/main) [![codecov](https://codecov.io/gh/egy1st/number2text/branch/main/graph/badge.svg?token=26Z0MRJI07)](https://codecov.io/gh/egy1st/number2text)
