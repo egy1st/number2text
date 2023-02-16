@@ -11,7 +11,7 @@ Number2Text is an API that allows you to Convert any digit's number to the equiv
 
 ![Number2Words 13 languages](https://raw.githubusercontent.com/egy1st/images/main/number2words/13_languages.png)
 
-Digits number up to 999,999,999.998.99 can be converted to words in 13 languages so far:
+Digits number up to 999,999,999.999.99 can be converted to words in 13 languages so far:
 
 - Arabic
 - English
