@@ -25,7 +25,7 @@ class French
 
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "French");
         for ($x = 7; $x <= 12; $x++) {
-            $aId[$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur[$x - 7];
         }
 
         // ====================================================================

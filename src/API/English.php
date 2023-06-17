@@ -29,7 +29,7 @@ class English
         NumberingSystem::getLanguage($aUnit, $aTen, $aHundred, $aId, $aNum, "English");
 
         for ($x = 7; $x <= 12; $x++) {
-            $aId[$x] = $aCur [$x - 7];
+            $aId[$x] = $aCur[$x - 7];
         }
 
 
